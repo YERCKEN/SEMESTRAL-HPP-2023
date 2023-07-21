@@ -73,6 +73,16 @@ Namespace My.Resources
         '''<summary>
         '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property FONDO_EMPRESA() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("FONDO EMPRESA", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property FONDO_LOGIN() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("FONDO LOGIN", resourceCulture)

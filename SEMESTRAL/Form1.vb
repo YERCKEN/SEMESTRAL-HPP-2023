@@ -72,6 +72,11 @@ Public Class Form1
             Inventario.Location = New Point(Me.Location.X, Me.Location.Y + 49)
         End If
 
+        'Desarrolladores
+        If Desarrolladores IsNot Nothing Then
+            Desarrolladores.Location = New Point(Me.Location.X, Me.Location.Y + 49)
+        End If
+
     End Sub
 
     'BOTONES CERRAR Y MINIMIZAR ==================================================================
@@ -96,6 +101,7 @@ Public Class Form1
         Provedores.Close()
         Servicios.Close()
         Carreras.Close()
+        Desarrolladores.Close()
     End Sub
 
     Private Sub ServiciosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ServiciosToolStripMenuItem.Click
@@ -109,7 +115,7 @@ Public Class Form1
         Provedores.Close()
         Clientes.Close()
         Carreras.Close()
-
+        Desarrolladores.Close()
     End Sub
 
     Private Sub ProvedoresToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ProvedoresToolStripMenuItem.Click
@@ -124,7 +130,7 @@ Public Class Form1
         Servicios.Close()
         Clientes.Close()
         Carreras.Close()
-
+        Desarrolladores.Close()
     End Sub
 
     Private Sub CarrerasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CarrerasToolStripMenuItem.Click
@@ -139,7 +145,7 @@ Public Class Form1
         Servicios.Close()
         Clientes.Close()
         Provedores.Close()
-
+        Desarrolladores.Close()
     End Sub
 
     Private Sub InventarioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InventarioToolStripMenuItem.Click
@@ -154,10 +160,28 @@ Public Class Form1
         Servicios.Close()
         Clientes.Close()
         Provedores.Close()
+        Desarrolladores.Close()
     End Sub
 
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Me.Close()
+    End Sub
+
+    Private Sub ToolStripMenuItem3_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem3.Click
+        'ABRIR ------------
+        Desarrolladores.Show()
+        Desarrolladores.Owner = Me
+        LabelActividad.Text = "Desarrolladores"
+
+        'CERRAR -----------------------------------------
+        Login.Close()
+        Carreras.Close()
+        Servicios.Close()
+        Clientes.Close()
+        Provedores.Close()
+        Inventario.Close()
+
+
     End Sub
 
 

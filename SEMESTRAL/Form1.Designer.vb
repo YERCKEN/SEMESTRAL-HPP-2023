@@ -32,7 +32,6 @@ Partial Class Form1
         InformeToolStripMenuItem = New ToolStripMenuItem()
         ToolStripSeparator1 = New ToolStripSeparator()
         SalirToolStripMenuItem = New ToolStripMenuItem()
-        MenúToolStripMenuItem = New ToolStripMenuItem()
         ToolStripMenuItem1 = New ToolStripMenuItem()
         ToolStripMenuItem3 = New ToolStripMenuItem()
         ToolStripMenuItem2 = New ToolStripMenuItem()
@@ -40,10 +39,12 @@ Partial Class Form1
         btnCerrar = New PictureBox()
         PictureBox1 = New PictureBox()
         LabelActividad = New Label()
+        PictureBox2 = New PictureBox()
         Menu.SuspendLayout()
         CType(BtnMin, ComponentModel.ISupportInitialize).BeginInit()
         CType(btnCerrar, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Menu
@@ -61,7 +62,7 @@ Partial Class Form1
         ' 
         ' MenuToolStripMenuItem
         ' 
-        MenuToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {ClientesToolStripMenuItem, ServiciosToolStripMenuItem, ProvedoresToolStripMenuItem, CarrerasToolStripMenuItem, InventarioToolStripMenuItem, InformeToolStripMenuItem, ToolStripSeparator1, SalirToolStripMenuItem, MenúToolStripMenuItem})
+        MenuToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {ClientesToolStripMenuItem, ServiciosToolStripMenuItem, ProvedoresToolStripMenuItem, CarrerasToolStripMenuItem, InventarioToolStripMenuItem, InformeToolStripMenuItem, ToolStripSeparator1, SalirToolStripMenuItem})
         MenuToolStripMenuItem.Font = New Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
         MenuToolStripMenuItem.ForeColor = Color.White
         MenuToolStripMenuItem.Margin = New Padding(60, 0, 0, 0)
@@ -139,12 +140,6 @@ Partial Class Form1
         SalirToolStripMenuItem.Size = New Size(196, 34)
         SalirToolStripMenuItem.Text = "Salir"
         ' 
-        ' MenúToolStripMenuItem
-        ' 
-        MenúToolStripMenuItem.Name = "MenúToolStripMenuItem"
-        MenúToolStripMenuItem.Size = New Size(196, 30)
-        MenúToolStripMenuItem.Text = "Menú"
-        ' 
         ' ToolStripMenuItem1
         ' 
         ToolStripMenuItem1.DropDownItems.AddRange(New ToolStripItem() {ToolStripMenuItem3})
@@ -221,12 +216,21 @@ Partial Class Form1
         LabelActividad.Text = "Login"
         LabelActividad.TextAlign = ContentAlignment.TopRight
         ' 
+        ' PictureBox2
+        ' 
+        PictureBox2.Location = New Point(60, 144)
+        PictureBox2.Name = "PictureBox2"
+        PictureBox2.Size = New Size(397, 389)
+        PictureBox2.TabIndex = 69
+        PictureBox2.TabStop = False
+        ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(9F, 21F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.White
         ClientSize = New Size(1280, 620)
+        Controls.Add(PictureBox2)
         Controls.Add(LabelActividad)
         Controls.Add(PictureBox1)
         Controls.Add(btnCerrar)
@@ -241,6 +245,7 @@ Partial Class Form1
         CType(BtnMin, ComponentModel.ISupportInitialize).EndInit()
         CType(btnCerrar, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -261,6 +266,6 @@ Partial Class Form1
     Friend WithEvents btnCerrar As PictureBox
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents LabelActividad As Label
-    Friend WithEvents MenúToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem3 As ToolStripMenuItem
+    Friend WithEvents PictureBox2 As PictureBox
 End Class

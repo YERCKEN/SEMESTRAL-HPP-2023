@@ -1,11 +1,11 @@
 
 -- QUERYS BD #1
 
-CREATE DATABASE dB1SemestralHPP;
+CREATE DATABASE baseDeDatos1;
 
 GO
 
-USE dB1SemestralHPP;
+USE baseDeDatos1;
 
 -- TABLA CARRERAS -----------------------------------------------------------------------------------
 
@@ -90,3 +90,59 @@ SELECT Carreras.NombreCarrera, Facultades.NombreFacultad
 FROM Carreras
 JOIN CarrerasFacultad ON Carreras.ID = CarrerasFacultad.CarreraID
 JOIN Facultades ON Facultades.ID = CarrerasFacultad.FacultadID;
+
+
+-- PROCEDIMIENTOS
+
+--PROCEDIMIENTO ALMACENADO PARA LOGIN
+
+CREATE PROCEDURE VerificarLogin
+  @usuario VARCHAR(255),
+  @contraseña VARCHAR(255)
+AS
+BEGIN
+  SET NOCOUNT ON;
+  
+  -- Variable para almacenar el resultado de la verificación
+  DECLARE @Resultado INT;
+  
+  -- Verificar el inicio de sesión
+  SELECT @Resultado = COUNT(*)
+  FROM Usuarios
+  WHERE usuario = @usuario AND contraseña = @contraseña;
+  
+  -- Devolver el resultado
+  SELECT @Resultado AS 'Resultado';
+END;
+
+--VERIFICO
+EXEC VerificarLogin 'Usuario', 'usuario2023';
+EXEC VerificarLogin 'Administrador', 'admin2023';
+EXEC VerificarLogin 'Coordinador', 'coordina2023';
+
+
+
+
+--PROCEDIMIENTO SELECT DE DATOS==========================================================================================
+
+CREATE PROCEDURE ObtenerRolUsuario
+    @NombreUsuario VARCHAR(50)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @RolUsuario VARCHAR(50);
+
+    -- Buscar el rol del usuario en la tabla Usuarios
+    SELECT @RolUsuario = TipoRol
+    FROM Usuarios
+    WHERE Usuario = @NombreUsuario;
+
+    -- Devolver el rol del usuario
+    SELECT @RolUsuario AS Rol;
+END;
+
+EXEC ObtenerRolUsuario 'Usuario';
+EXEC ObtenerRolUsuario 'Administrador';
+EXEC ObtenerRolUsuario 'Coordinador';
+
