@@ -7,12 +7,12 @@ Module VARIABLES_GLOBALES
     'BD1====================================================================================================================================
 
     'YERCKEN
-    Public cadenaConexion As String = "Data source =YERCKEN\SQLEXPRESS; Initial Catalog=baseDeDatos1; integrated security = true"
+    'Public cadenaConexion As String = "Data source =YERCKEN\SQLEXPRESS; Initial Catalog=baseDeDatos1; integrated security = true"
     'Public cadenaConexion As String = "Data source =YERCKEN\SQLEXPRESS; Initial Catalog=baseDeDatos2; integrated security = true"
 
     'JEISSON
-    'Public cadenaConexion As String = "Data source =YERCKEN\SQLEXPRESS; Initial Catalog=parcial2Hpp; integrated security = true"
-    'Public cadenaConexion As String = "Data source =YERCKEN\SQLEXPRESS; Initial Catalog=parcial2Hpp; integrated security = true"
+    Dim connectionString1 As String = "Data Source=JEISSONPC\SQLEXPRESS;Initial Catalog=baseDeDatos1;Integrated Security=True"
+    Dim connectionString2 As String = "Data Source=JEISSONPC\SQLEXPRESS;Initial Catalog=baseDeDatos2;Integrated Security=True"
 
 
 
