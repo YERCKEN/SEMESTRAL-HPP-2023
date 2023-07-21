@@ -28,7 +28,9 @@ Partial Class Inventario
         ' 
         AutoScaleDimensions = New SizeF(9F, 21F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(800, 450)
+        BackColor = Color.White
+        ClientSize = New Size(1280, 572)
+        FormBorderStyle = FormBorderStyle.None
         Name = "Inventario"
         Text = "Inventario"
         ResumeLayout(False)

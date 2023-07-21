@@ -22,7 +22,6 @@ Partial Class Login
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(Login))
         PanelLogin = New Panel()
         LabelIncorrecto = New Label()
         Label1 = New Label()
@@ -117,7 +116,7 @@ Partial Class Login
         ' 
         ' PictureBox1
         ' 
-        PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), Image)
+        PictureBox1.Image = My.Resources.Resources.FONDO_LOGIN
         PictureBox1.Location = New Point(578, 0)
         PictureBox1.Name = "PictureBox1"
         PictureBox1.Size = New Size(702, 575)
