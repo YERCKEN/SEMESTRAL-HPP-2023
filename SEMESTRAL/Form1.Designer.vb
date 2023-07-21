@@ -22,6 +22,7 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(Form1))
         Menu = New MenuStrip()
         MenuToolStripMenuItem = New ToolStripMenuItem()
         ClientesToolStripMenuItem = New ToolStripMenuItem()
@@ -30,14 +31,22 @@ Partial Class Form1
         CarrerasToolStripMenuItem = New ToolStripMenuItem()
         InventarioToolStripMenuItem = New ToolStripMenuItem()
         InformeToolStripMenuItem = New ToolStripMenuItem()
+        ToolStripSeparator1 = New ToolStripSeparator()
+        SalirToolStripMenuItem = New ToolStripMenuItem()
         ToolStripMenuItem1 = New ToolStripMenuItem()
         ToolStripMenuItem2 = New ToolStripMenuItem()
+        BtnMin = New PictureBox()
+        btnCerrar = New PictureBox()
+        PictureBox1 = New PictureBox()
         Menu.SuspendLayout()
+        CType(BtnMin, ComponentModel.ISupportInitialize).BeginInit()
+        CType(btnCerrar, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Menu
         ' 
-        Menu.BackColor = Color.FromArgb(CByte(108), CByte(0), CByte(255))
+        Menu.BackColor = Color.FromArgb(CByte(0), CByte(116), CByte(255))
         Menu.Font = New Font("Montserrat", 10.8F, FontStyle.Bold, GraphicsUnit.Point)
         Menu.GripMargin = New Padding(2, 60, 60, 2)
         Menu.ImageScalingSize = New Size(20, 20)
@@ -50,9 +59,10 @@ Partial Class Form1
         ' 
         ' MenuToolStripMenuItem
         ' 
-        MenuToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {ClientesToolStripMenuItem, ServiciosToolStripMenuItem, ProvedoresToolStripMenuItem, CarrerasToolStripMenuItem, InventarioToolStripMenuItem, InformeToolStripMenuItem})
+        MenuToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {ClientesToolStripMenuItem, ServiciosToolStripMenuItem, ProvedoresToolStripMenuItem, CarrerasToolStripMenuItem, InventarioToolStripMenuItem, InformeToolStripMenuItem, ToolStripSeparator1, SalirToolStripMenuItem})
         MenuToolStripMenuItem.Font = New Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
         MenuToolStripMenuItem.ForeColor = Color.White
+        MenuToolStripMenuItem.Margin = New Padding(60, 0, 0, 0)
         MenuToolStripMenuItem.Name = "MenuToolStripMenuItem"
         MenuToolStripMenuItem.Padding = New Padding(5, 20, 5, 0)
         MenuToolStripMenuItem.Size = New Size(75, 48)
@@ -60,39 +70,72 @@ Partial Class Form1
         ' 
         ' ClientesToolStripMenuItem
         ' 
+        ClientesToolStripMenuItem.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        ClientesToolStripMenuItem.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
         ClientesToolStripMenuItem.Name = "ClientesToolStripMenuItem"
-        ClientesToolStripMenuItem.Size = New Size(224, 28)
+        ClientesToolStripMenuItem.Padding = New Padding(0, 5, 0, 1)
+        ClientesToolStripMenuItem.Size = New Size(224, 34)
         ClientesToolStripMenuItem.Text = "Clientes"
         ' 
         ' ServiciosToolStripMenuItem
         ' 
+        ServiciosToolStripMenuItem.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        ServiciosToolStripMenuItem.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
         ServiciosToolStripMenuItem.Name = "ServiciosToolStripMenuItem"
-        ServiciosToolStripMenuItem.Size = New Size(224, 28)
+        ServiciosToolStripMenuItem.Padding = New Padding(0, 5, 0, 1)
+        ServiciosToolStripMenuItem.Size = New Size(224, 34)
         ServiciosToolStripMenuItem.Text = "Servicios"
         ' 
         ' ProvedoresToolStripMenuItem
         ' 
+        ProvedoresToolStripMenuItem.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        ProvedoresToolStripMenuItem.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
         ProvedoresToolStripMenuItem.Name = "ProvedoresToolStripMenuItem"
-        ProvedoresToolStripMenuItem.Size = New Size(224, 28)
+        ProvedoresToolStripMenuItem.Padding = New Padding(0, 5, 0, 1)
+        ProvedoresToolStripMenuItem.Size = New Size(224, 34)
         ProvedoresToolStripMenuItem.Text = "Provedores"
         ' 
         ' CarrerasToolStripMenuItem
         ' 
+        CarrerasToolStripMenuItem.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        CarrerasToolStripMenuItem.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
         CarrerasToolStripMenuItem.Name = "CarrerasToolStripMenuItem"
-        CarrerasToolStripMenuItem.Size = New Size(224, 28)
+        CarrerasToolStripMenuItem.Padding = New Padding(0, 5, 0, 1)
+        CarrerasToolStripMenuItem.Size = New Size(224, 34)
         CarrerasToolStripMenuItem.Text = "Carreras"
         ' 
         ' InventarioToolStripMenuItem
         ' 
+        InventarioToolStripMenuItem.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        InventarioToolStripMenuItem.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
         InventarioToolStripMenuItem.Name = "InventarioToolStripMenuItem"
-        InventarioToolStripMenuItem.Size = New Size(224, 28)
+        InventarioToolStripMenuItem.Padding = New Padding(0, 5, 0, 1)
+        InventarioToolStripMenuItem.Size = New Size(224, 34)
         InventarioToolStripMenuItem.Text = "Inventario"
         ' 
         ' InformeToolStripMenuItem
         ' 
+        InformeToolStripMenuItem.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        InformeToolStripMenuItem.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
         InformeToolStripMenuItem.Name = "InformeToolStripMenuItem"
-        InformeToolStripMenuItem.Size = New Size(224, 28)
+        InformeToolStripMenuItem.Padding = New Padding(0, 5, 0, 1)
+        InformeToolStripMenuItem.Size = New Size(224, 34)
         InformeToolStripMenuItem.Text = "Informe"
+        ' 
+        ' ToolStripSeparator1
+        ' 
+        ToolStripSeparator1.Name = "ToolStripSeparator1"
+        ToolStripSeparator1.Padding = New Padding(0, 5, 0, 1)
+        ToolStripSeparator1.Size = New Size(221, 6)
+        ' 
+        ' SalirToolStripMenuItem
+        ' 
+        SalirToolStripMenuItem.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        SalirToolStripMenuItem.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
+        SalirToolStripMenuItem.Padding = New Padding(0, 5, 0, 1)
+        SalirToolStripMenuItem.Size = New Size(224, 34)
+        SalirToolStripMenuItem.Text = "Salir"
         ' 
         ' ToolStripMenuItem1
         ' 
@@ -112,11 +155,49 @@ Partial Class Form1
         ToolStripMenuItem2.Size = New Size(91, 48)
         ToolStripMenuItem2.Text = "Versión"
         ' 
+        ' BtnMin
+        ' 
+        BtnMin.BackColor = Color.FromArgb(CByte(0), CByte(116), CByte(255))
+        BtnMin.Cursor = Cursors.Hand
+        BtnMin.Image = CType(resources.GetObject("BtnMin.Image"), Image)
+        BtnMin.Location = New Point(1171, 9)
+        BtnMin.Margin = New Padding(4, 3, 4, 3)
+        BtnMin.Name = "BtnMin"
+        BtnMin.Size = New Size(32, 32)
+        BtnMin.TabIndex = 16
+        BtnMin.TabStop = False
+        ' 
+        ' btnCerrar
+        ' 
+        btnCerrar.BackColor = Color.FromArgb(CByte(0), CByte(116), CByte(255))
+        btnCerrar.Cursor = Cursors.Hand
+        btnCerrar.Image = CType(resources.GetObject("btnCerrar.Image"), Image)
+        btnCerrar.Location = New Point(1217, 9)
+        btnCerrar.Margin = New Padding(4, 3, 4, 3)
+        btnCerrar.Name = "btnCerrar"
+        btnCerrar.Size = New Size(32, 32)
+        btnCerrar.TabIndex = 17
+        btnCerrar.TabStop = False
+        ' 
+        ' PictureBox1
+        ' 
+        PictureBox1.BackColor = Color.FromArgb(CByte(0), CByte(116), CByte(255))
+        PictureBox1.Image = My.Resources.Resources.LOGO_UC2
+        PictureBox1.Location = New Point(12, 4)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(44, 43)
+        PictureBox1.TabIndex = 18
+        PictureBox1.TabStop = False
+        ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(9F, 21F)
         AutoScaleMode = AutoScaleMode.Font
+        BackColor = Color.White
         ClientSize = New Size(1280, 620)
+        Controls.Add(PictureBox1)
+        Controls.Add(btnCerrar)
+        Controls.Add(BtnMin)
         Controls.Add(Menu)
         FormBorderStyle = FormBorderStyle.None
         Name = "Form1"
@@ -124,6 +205,9 @@ Partial Class Form1
         Text = "Form1"
         Menu.ResumeLayout(False)
         Menu.PerformLayout()
+        CType(BtnMin, ComponentModel.ISupportInitialize).EndInit()
+        CType(btnCerrar, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -138,4 +222,9 @@ Partial Class Form1
     Friend WithEvents CarrerasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents InventarioToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents InformeToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
+    Friend WithEvents SalirToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents BtnMin As PictureBox
+    Friend WithEvents btnCerrar As PictureBox
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

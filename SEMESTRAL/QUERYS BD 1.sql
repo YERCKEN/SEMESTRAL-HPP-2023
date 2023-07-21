@@ -77,9 +77,9 @@ CREATE TABLE Usuarios (
 -- Insertar datos en la tabla Usuarios
 INSERT INTO Usuarios (Usuario, Contraseña, TipoRol)
 VALUES
-    ('Administrador', 'admin2023', 'Admin'),
-    ('Usuario', 'usuario2023', 'Usuario'),
-    ('Coordinador', 'coordina2023', 'Coordinador');
+    ('Administrador', 'admin2023'   , 'Admin'),
+    ('Usuario'      , 'usuario2023' , 'Usuario'),
+    ('Coordinador'  , 'coordina2023', 'Coordinador');
 
 
 	-- TODOS LOS USUARIOS
