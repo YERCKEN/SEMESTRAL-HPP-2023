@@ -146,3 +146,5 @@ EXEC ObtenerRolUsuario 'Usuario';
 EXEC ObtenerRolUsuario 'Administrador';
 EXEC ObtenerRolUsuario 'Coordinador';
 
+
+SELECT NombreFacultad FROM Facultades;
