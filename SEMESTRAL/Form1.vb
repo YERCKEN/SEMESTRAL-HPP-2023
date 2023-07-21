@@ -1,18 +1,19 @@
 ﻿Imports System.Drawing
 Imports System.Drawing.Drawing2D
+Imports System.Reflection.Emit
 Imports System.Runtime.InteropServices
 Imports System.Windows.Forms
 Public Class Form1
-
-    Dim querysBDYercken As New querysBDYercken()
 
     'CARGA DEL FORMS----------------------------------------------------------------------
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         'INICIALIZACIÓN DEL RENDER DEL MENU
         Menu.Renderer = New RenderMenu()
-
-
+        ' Configuramos el Label para que el texto se fije a la derecha y crezca hacia la izquierda
+        LabelActividad.RightToLeft = RightToLeft.Yes
+        ' También podemos establecer la propiedad AutoSize en True para que el tamaño del Label se ajuste automáticamente al texto
+        LabelActividad.AutoSize = True
         'SHOW LOGIN
         Login.Show()
         Login.Owner = Me
@@ -88,7 +89,7 @@ Public Class Form1
         'ABRIR ------------
         Clientes.Show()
         Clientes.Owner = Me
-
+        LabelActividad.Text = "Clientes"
         'CERRAR -----------------------------------------
         Login.Close()
         Inventario.Close()
@@ -101,7 +102,7 @@ Public Class Form1
         'ABRIR ------------
         Servicios.Show()
         Servicios.Owner = Me
-
+        LabelActividad.Text = "Servicios"
         'CERRAR -----------------------------------------
         Login.Close()
         Inventario.Close()
@@ -115,6 +116,7 @@ Public Class Form1
         'ABRIR ------------
         Provedores.Show()
         Provedores.Owner = Me
+        LabelActividad.Text = "Proveedores"
 
         'CERRAR -----------------------------------------
         Login.Close()
@@ -129,6 +131,7 @@ Public Class Form1
         'ABRIR ------------
         Carreras.Show()
         Carreras.Owner = Me
+        LabelActividad.Text = "Carreras"
 
         'CERRAR -----------------------------------------
         Login.Close()
@@ -143,6 +146,7 @@ Public Class Form1
         'ABRIR ------------
         Inventario.Show()
         Inventario.Owner = Me
+        LabelActividad.Text = "Inventario"
 
         'CERRAR -----------------------------------------
         Login.Close()
@@ -155,6 +159,8 @@ Public Class Form1
     Private Sub SalirToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalirToolStripMenuItem.Click
         Me.Close()
     End Sub
+
+
 End Class
 
 
