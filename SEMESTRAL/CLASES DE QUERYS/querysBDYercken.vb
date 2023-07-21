@@ -54,4 +54,33 @@ Public Class querysBDYercken
         End Using
     End Sub
 
+    'OBTENERE CARRERAS CON FACULTADES
+    Public Function obtenerCarrerasConFacultades() As DataTable
+        Dim dataTable As New DataTable()
+
+        Using connection As New SqlConnection(VARIABLES_GLOBALES.cadenaConexion)
+            Dim query As String = "
+                SELECT Carreras.NombreCarrera, Facultades.NombreFacultad
+                FROM Carreras
+                JOIN CarrerasFacultad ON Carreras.ID = CarrerasFacultad.CarreraID
+                JOIN Facultades ON Facultades.ID = CarrerasFacultad.FacultadID;
+            "
+
+            Using command As New SqlCommand(query, connection)
+                Try
+                    connection.Open()
+
+                    ' Llenar el DataTable con los datos del query
+                    dataTable.Load(command.ExecuteReader())
+                Catch ex As Exception
+                    ' Manejo de excepciones en caso de errores de conexión o consulta
+                    MessageBox.Show("Error al obtener los datos: " & ex.Message)
+                End Try
+            End Using
+        End Using
+
+        Return dataTable
+    End Function
+
+
 End Class

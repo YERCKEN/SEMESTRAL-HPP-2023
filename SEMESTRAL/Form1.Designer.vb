@@ -39,10 +39,12 @@ Partial Class Form1
         btnCerrar = New PictureBox()
         PictureBox1 = New PictureBox()
         LabelActividad = New Label()
+        PictureBox2 = New PictureBox()
         Menu.SuspendLayout()
         CType(BtnMin, ComponentModel.ISupportInitialize).BeginInit()
         CType(btnCerrar, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Menu
@@ -214,6 +216,14 @@ Partial Class Form1
         LabelActividad.Text = "Login"
         LabelActividad.TextAlign = ContentAlignment.TopRight
         ' 
+        ' PictureBox2
+        ' 
+        PictureBox2.Location = New Point(0, 51)
+        PictureBox2.Name = "PictureBox2"
+        PictureBox2.Size = New Size(1280, 572)
+        PictureBox2.TabIndex = 69
+        PictureBox2.TabStop = False
+        ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(9F, 21F)
@@ -225,6 +235,7 @@ Partial Class Form1
         Controls.Add(btnCerrar)
         Controls.Add(BtnMin)
         Controls.Add(Menu)
+        Controls.Add(PictureBox2)
         FormBorderStyle = FormBorderStyle.None
         Name = "Form1"
         StartPosition = FormStartPosition.CenterScreen
@@ -234,6 +245,7 @@ Partial Class Form1
         CType(BtnMin, ComponentModel.ISupportInitialize).EndInit()
         CType(btnCerrar, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -255,4 +267,5 @@ Partial Class Form1
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents LabelActividad As Label
     Friend WithEvents ToolStripMenuItem3 As ToolStripMenuItem
+    Friend WithEvents PictureBox2 As PictureBox
 End Class
