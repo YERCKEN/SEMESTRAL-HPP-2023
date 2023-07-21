@@ -4,11 +4,14 @@ Imports System.Runtime.InteropServices
 Imports System.Windows.Forms
 Public Class Form1
 
+    Dim querysBDYercken As New querysBDYercken()
+
     'CARGA DEL FORMS----------------------------------------------------------------------
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         'INICIALIZACIÓN DEL RENDER DEL MENU
         Menu.Renderer = New RenderMenu()
+
 
         'SHOW LOGIN
         Login.Show()
