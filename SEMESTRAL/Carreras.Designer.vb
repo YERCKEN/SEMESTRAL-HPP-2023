@@ -41,9 +41,9 @@ Partial Class Carreras
         DataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.None
         DataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
         DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = Color.FromArgb(CByte(67), CByte(116), CByte(255))
+        DataGridViewCellStyle1.BackColor = Color.White
         DataGridViewCellStyle1.Font = New Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
-        DataGridViewCellStyle1.ForeColor = Color.White
+        DataGridViewCellStyle1.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
         DataGridViewCellStyle1.Padding = New Padding(5)
         DataGridViewCellStyle1.SelectionBackColor = Color.White
         DataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(CByte(67), CByte(116), CByte(255))
@@ -59,7 +59,7 @@ Partial Class Carreras
         DataGridViewCellStyle2.WrapMode = DataGridViewTriState.False
         DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
         DataGridView1.EnableHeadersVisualStyles = False
-        DataGridView1.Location = New Point(603, 101)
+        DataGridView1.Location = New Point(588, 78)
         DataGridView1.Margin = New Padding(4, 3, 4, 3)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
@@ -74,7 +74,7 @@ Partial Class Carreras
         DataGridView1.RowHeadersVisible = False
         DataGridView1.RowHeadersWidth = 51
         DataGridView1.RowTemplate.Height = 31
-        DataGridView1.Size = New Size(611, 389)
+        DataGridView1.Size = New Size(571, 404)
         DataGridView1.TabIndex = 5
         ' 
         ' PanelBotones
@@ -82,7 +82,7 @@ Partial Class Carreras
         PanelBotones.Controls.Add(BtnEliminar)
         PanelBotones.Controls.Add(BtnActualizar)
         PanelBotones.Controls.Add(BtnAceptar)
-        PanelBotones.Location = New Point(88, 189)
+        PanelBotones.Location = New Point(94, 167)
         PanelBotones.Name = "PanelBotones"
         PanelBotones.Size = New Size(425, 199)
         PanelBotones.TabIndex = 68
@@ -140,7 +140,7 @@ Partial Class Carreras
         AutoScaleDimensions = New SizeF(9F, 21F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.White
-        ClientSize = New Size(1280, 572)
+        ClientSize = New Size(1280, 520)
         Controls.Add(PanelBotones)
         Controls.Add(DataGridView1)
         FormBorderStyle = FormBorderStyle.None
