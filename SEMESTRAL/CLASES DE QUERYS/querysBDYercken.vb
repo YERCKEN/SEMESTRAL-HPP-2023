@@ -60,7 +60,7 @@ Public Class querysBDYercken
 
         Using connection As New SqlConnection(VARIABLES_GLOBALES.cadenaConexion)
             Dim query As String = "
-                SELECT Carreras.NombreCarrera, Facultades.NombreFacultad
+                SELECT Carreras.ID, Carreras.NombreCarrera, Facultades.NombreFacultad
                 FROM Carreras
                 JOIN CarrerasFacultad ON Carreras.ID = CarrerasFacultad.CarreraID
                 JOIN Facultades ON Facultades.ID = CarrerasFacultad.FacultadID;

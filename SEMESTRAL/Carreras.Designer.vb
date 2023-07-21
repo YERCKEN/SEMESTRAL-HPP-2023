@@ -38,7 +38,7 @@ Partial Class Carreras
         ' 
         DataGridView1.BackgroundColor = Color.White
         DataGridView1.BorderStyle = BorderStyle.None
-        DataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.None
+        DataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal
         DataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
         DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle1.BackColor = Color.White
@@ -59,7 +59,8 @@ Partial Class Carreras
         DataGridViewCellStyle2.WrapMode = DataGridViewTriState.False
         DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
         DataGridView1.EnableHeadersVisualStyles = False
-        DataGridView1.Location = New Point(588, 78)
+        DataGridView1.GridColor = Color.FromArgb(CByte(230), CByte(235), CByte(242))
+        DataGridView1.Location = New Point(97, 83)
         DataGridView1.Margin = New Padding(4, 3, 4, 3)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
@@ -74,7 +75,7 @@ Partial Class Carreras
         DataGridView1.RowHeadersVisible = False
         DataGridView1.RowHeadersWidth = 51
         DataGridView1.RowTemplate.Height = 31
-        DataGridView1.Size = New Size(571, 404)
+        DataGridView1.Size = New Size(572, 404)
         DataGridView1.TabIndex = 5
         ' 
         ' PanelBotones
@@ -82,9 +83,9 @@ Partial Class Carreras
         PanelBotones.Controls.Add(BtnEliminar)
         PanelBotones.Controls.Add(BtnActualizar)
         PanelBotones.Controls.Add(BtnAceptar)
-        PanelBotones.Location = New Point(94, 167)
+        PanelBotones.Location = New Point(796, 83)
         PanelBotones.Name = "PanelBotones"
-        PanelBotones.Size = New Size(425, 199)
+        PanelBotones.Size = New Size(425, 203)
         PanelBotones.TabIndex = 68
         ' 
         ' BtnEliminar
@@ -96,7 +97,7 @@ Partial Class Carreras
         BtnEliminar.FlatStyle = FlatStyle.Flat
         BtnEliminar.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
         BtnEliminar.ForeColor = Color.FromArgb(CByte(255), CByte(176), CByte(176))
-        BtnEliminar.Location = New Point(19, 118)
+        BtnEliminar.Location = New Point(23, 118)
         BtnEliminar.Name = "BtnEliminar"
         BtnEliminar.Size = New Size(369, 68)
         BtnEliminar.TabIndex = 50
@@ -112,7 +113,7 @@ Partial Class Carreras
         BtnActualizar.FlatStyle = FlatStyle.Flat
         BtnActualizar.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
         BtnActualizar.ForeColor = Color.White
-        BtnActualizar.Location = New Point(221, 23)
+        BtnActualizar.Location = New Point(225, 23)
         BtnActualizar.Name = "BtnActualizar"
         BtnActualizar.Size = New Size(167, 68)
         BtnActualizar.TabIndex = 49
@@ -128,7 +129,7 @@ Partial Class Carreras
         BtnAceptar.FlatStyle = FlatStyle.Flat
         BtnAceptar.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
         BtnAceptar.ForeColor = Color.FromArgb(CByte(255), CByte(230), CByte(133))
-        BtnAceptar.Location = New Point(19, 23)
+        BtnAceptar.Location = New Point(23, 23)
         BtnAceptar.Name = "BtnAceptar"
         BtnAceptar.Size = New Size(169, 68)
         BtnAceptar.TabIndex = 48

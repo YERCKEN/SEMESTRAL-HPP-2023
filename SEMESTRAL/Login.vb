@@ -8,12 +8,12 @@
         Me.Location = New Point(Form1.Location.X, Form1.Location.Y + 49) ' Establecer la nueva ubicación de Form4 en relación con Form1
 
         'BOTONES INVISIBLES
-        Form1.ClientesToolStripMenuItem.Visible = False
-        Form1.ServiciosToolStripMenuItem.Visible = False
-        Form1.ProvedoresToolStripMenuItem.Visible = False
-        Form1.CarrerasToolStripMenuItem.Visible = False
-        Form1.InventarioToolStripMenuItem.Visible = False
-        Form1.InformeToolStripMenuItem.Visible = False
+        'Form1.ClientesToolStripMenuItem.Visible = False
+        'Form1.ServiciosToolStripMenuItem.Visible = False
+        'Form1.ProvedoresToolStripMenuItem.Visible = False
+        'Form1.CarrerasToolStripMenuItem.Visible = False
+        'Form1.InventarioToolStripMenuItem.Visible = False
+        'Form1.InformeToolStripMenuItem.Visible = False
 
 
     End Sub

@@ -86,7 +86,7 @@ VALUES
 	SELECT * FROM Usuarios;
 
 	-- TODAS LAS CARRERAS CON SU FACULTAD
-SELECT Carreras.NombreCarrera, Facultades.NombreFacultad
+SELECT Carreras.ID, Carreras.NombreCarrera, Facultades.NombreFacultad
 FROM Carreras
 JOIN CarrerasFacultad ON Carreras.ID = CarrerasFacultad.CarreraID
 JOIN Facultades ON Facultades.ID = CarrerasFacultad.FacultadID;
