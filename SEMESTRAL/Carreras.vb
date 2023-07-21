@@ -1,4 +1,6 @@
-﻿Public Class Carreras
+﻿Imports System.Data.SqlClient
+
+Public Class Carreras
 
     'VARIABLES
     Dim querysBDYercken As New querysBDYercken()
@@ -23,10 +25,50 @@
         DataGridView1.ClearSelection()
         DataGridView1.ReadOnly = True
 
-
+        'LISTA DE FACULTADES
+        CargarFacultades()
 
 
     End Sub
 
+    Private Sub BtnNuevaCarrera_Click(sender As Object, e As EventArgs) Handles BtnNuevaCarrera.Click
+        PanelNuevaCarrera.Visible = True
+        PanelBotones.Visible = False
+    End Sub
 
+
+    'LISTA DE FACULTADES ==================================================================================================================
+    Private Sub listaFacultad_SelectedValueChanged(sender As Object, e As EventArgs) Handles listaFacultad.SelectedValueChanged
+        ' Realiza alguna acción aquí en función del valor seleccionado si es necesario
+
+        ' Luego, quita el enfoque del listaFacultad moviéndolo al formulario
+        Me.Focus()
+        Me.SelectNextControl(listaFacultad, True, True, True, True)
+    End Sub
+
+    'FUNCIÓN PARA CARGAR LA DROPLIST---------------------------------------
+    Private Sub CargarFacultades()
+
+
+        Using conexion As New SqlConnection(VARIABLES_GLOBALES.cadenaConexion)
+
+            conexion.Open()
+
+            Dim query As String = "SELECT NombreFacultad FROM Facultades"
+            Dim command As New SqlCommand(query, conexion)
+
+            Dim reader As SqlDataReader = command.ExecuteReader()
+            listaFacultad.Items.Clear()
+
+            While reader.Read()
+                Dim name As String = reader.GetString(0)
+                listaFacultad.Items.Add(name)
+            End While
+
+        End Using
+    End Sub
+
+    Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles BtnSalirDeNuevaCarrera.Click
+        PanelNuevaCarrera.Visible = False
+    End Sub
 End Class

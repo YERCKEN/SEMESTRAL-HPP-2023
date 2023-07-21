@@ -29,9 +29,21 @@ Partial Class Carreras
         PanelBotones = New Panel()
         BtnEliminar = New Button()
         BtnActualizar = New Button()
-        BtnAceptar = New Button()
+        BtnNuevaCarrera = New Button()
+        PanelNuevaCarrera = New Panel()
+        BtnSalirDeNuevaCarrera = New Button()
+        PanelNuevoAutor = New Panel()
+        textBoxAutor = New TextBox()
+        Label1 = New Label()
+        Panel1 = New Panel()
+        listaFacultad = New ComboBox()
+        Label4 = New Label()
+        btnIngresarAutor = New Button()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         PanelBotones.SuspendLayout()
+        PanelNuevaCarrera.SuspendLayout()
+        PanelNuevoAutor.SuspendLayout()
+        Panel1.SuspendLayout()
         SuspendLayout()
         ' 
         ' DataGridView1
@@ -60,7 +72,7 @@ Partial Class Carreras
         DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
         DataGridView1.EnableHeadersVisualStyles = False
         DataGridView1.GridColor = Color.FromArgb(CByte(230), CByte(235), CByte(242))
-        DataGridView1.Location = New Point(97, 83)
+        DataGridView1.Location = New Point(67, 71)
         DataGridView1.Margin = New Padding(4, 3, 4, 3)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
@@ -82,8 +94,8 @@ Partial Class Carreras
         ' 
         PanelBotones.Controls.Add(BtnEliminar)
         PanelBotones.Controls.Add(BtnActualizar)
-        PanelBotones.Controls.Add(BtnAceptar)
-        PanelBotones.Location = New Point(796, 83)
+        PanelBotones.Controls.Add(BtnNuevaCarrera)
+        PanelBotones.Location = New Point(760, 71)
         PanelBotones.Name = "PanelBotones"
         PanelBotones.Size = New Size(425, 203)
         PanelBotones.TabIndex = 68
@@ -120,21 +132,125 @@ Partial Class Carreras
         BtnActualizar.Text = "✏️" & vbCrLf & "Actualizar"
         BtnActualizar.UseVisualStyleBackColor = False
         ' 
-        ' BtnAceptar
+        ' BtnNuevaCarrera
         ' 
-        BtnAceptar.BackColor = Color.FromArgb(CByte(0), CByte(116), CByte(255))
-        BtnAceptar.Cursor = Cursors.Hand
-        BtnAceptar.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        BtnAceptar.FlatAppearance.BorderSize = 0
-        BtnAceptar.FlatStyle = FlatStyle.Flat
-        BtnAceptar.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        BtnAceptar.ForeColor = Color.FromArgb(CByte(255), CByte(230), CByte(133))
-        BtnAceptar.Location = New Point(23, 23)
-        BtnAceptar.Name = "BtnAceptar"
-        BtnAceptar.Size = New Size(169, 68)
-        BtnAceptar.TabIndex = 48
-        BtnAceptar.Text = "➕" & vbCrLf & " Nueva"
-        BtnAceptar.UseVisualStyleBackColor = False
+        BtnNuevaCarrera.BackColor = Color.FromArgb(CByte(0), CByte(116), CByte(255))
+        BtnNuevaCarrera.Cursor = Cursors.Hand
+        BtnNuevaCarrera.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        BtnNuevaCarrera.FlatAppearance.BorderSize = 0
+        BtnNuevaCarrera.FlatStyle = FlatStyle.Flat
+        BtnNuevaCarrera.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        BtnNuevaCarrera.ForeColor = Color.FromArgb(CByte(255), CByte(230), CByte(133))
+        BtnNuevaCarrera.Location = New Point(23, 23)
+        BtnNuevaCarrera.Name = "BtnNuevaCarrera"
+        BtnNuevaCarrera.Size = New Size(169, 68)
+        BtnNuevaCarrera.TabIndex = 48
+        BtnNuevaCarrera.Text = "➕" & vbCrLf & " Nueva"
+        BtnNuevaCarrera.UseVisualStyleBackColor = False
+        ' 
+        ' PanelNuevaCarrera
+        ' 
+        PanelNuevaCarrera.Controls.Add(BtnSalirDeNuevaCarrera)
+        PanelNuevaCarrera.Controls.Add(PanelNuevoAutor)
+        PanelNuevaCarrera.Controls.Add(Panel1)
+        PanelNuevaCarrera.Controls.Add(btnIngresarAutor)
+        PanelNuevaCarrera.Location = New Point(698, 118)
+        PanelNuevaCarrera.Name = "PanelNuevaCarrera"
+        PanelNuevaCarrera.Size = New Size(535, 324)
+        PanelNuevaCarrera.TabIndex = 69
+        PanelNuevaCarrera.Visible = False
+        ' 
+        ' BtnSalirDeNuevaCarrera
+        ' 
+        BtnSalirDeNuevaCarrera.BackColor = Color.FromArgb(CByte(229), CByte(229), CByte(229))
+        BtnSalirDeNuevaCarrera.Cursor = Cursors.Hand
+        BtnSalirDeNuevaCarrera.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        BtnSalirDeNuevaCarrera.FlatAppearance.BorderSize = 0
+        BtnSalirDeNuevaCarrera.FlatStyle = FlatStyle.Flat
+        BtnSalirDeNuevaCarrera.Font = New Font("Microsoft Sans Serif", 22.2F, FontStyle.Regular, GraphicsUnit.Point)
+        BtnSalirDeNuevaCarrera.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        BtnSalirDeNuevaCarrera.Location = New Point(433, 244)
+        BtnSalirDeNuevaCarrera.Name = "BtnSalirDeNuevaCarrera"
+        BtnSalirDeNuevaCarrera.Size = New Size(87, 51)
+        BtnSalirDeNuevaCarrera.TabIndex = 49
+        BtnSalirDeNuevaCarrera.Text = "🔙"
+        BtnSalirDeNuevaCarrera.UseVisualStyleBackColor = False
+        ' 
+        ' PanelNuevoAutor
+        ' 
+        PanelNuevoAutor.Controls.Add(textBoxAutor)
+        PanelNuevoAutor.Controls.Add(Label1)
+        PanelNuevoAutor.Location = New Point(16, 122)
+        PanelNuevoAutor.Name = "PanelNuevoAutor"
+        PanelNuevoAutor.Size = New Size(507, 102)
+        PanelNuevoAutor.TabIndex = 39
+        ' 
+        ' textBoxAutor
+        ' 
+        textBoxAutor.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        textBoxAutor.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        textBoxAutor.Location = New Point(0, 44)
+        textBoxAutor.Name = "textBoxAutor"
+        textBoxAutor.Size = New Size(504, 30)
+        textBoxAutor.TabIndex = 13
+        ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        Label1.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        Label1.Location = New Point(2, 4)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(104, 27)
+        Label1.TabIndex = 17
+        Label1.Text = "Nombre "
+        ' 
+        ' Panel1
+        ' 
+        Panel1.Controls.Add(listaFacultad)
+        Panel1.Controls.Add(Label4)
+        Panel1.Location = New Point(16, 14)
+        Panel1.Name = "Panel1"
+        Panel1.Size = New Size(507, 87)
+        Panel1.TabIndex = 45
+        ' 
+        ' listaFacultad
+        ' 
+        listaFacultad.AutoCompleteMode = AutoCompleteMode.Suggest
+        listaFacultad.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        listaFacultad.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        listaFacultad.FormattingEnabled = True
+        listaFacultad.Location = New Point(0, 46)
+        listaFacultad.Name = "listaFacultad"
+        listaFacultad.Size = New Size(504, 33)
+        listaFacultad.TabIndex = 41
+        ' 
+        ' Label4
+        ' 
+        Label4.AutoSize = True
+        Label4.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        Label4.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        Label4.Location = New Point(3, 3)
+        Label4.Name = "Label4"
+        Label4.Size = New Size(105, 27)
+        Label4.TabIndex = 42
+        Label4.Text = "Facultad"
+        ' 
+        ' btnIngresarAutor
+        ' 
+        btnIngresarAutor.BackColor = Color.FromArgb(CByte(130), CByte(255), CByte(182))
+        btnIngresarAutor.Cursor = Cursors.Hand
+        btnIngresarAutor.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        btnIngresarAutor.FlatAppearance.BorderSize = 0
+        btnIngresarAutor.FlatStyle = FlatStyle.Flat
+        btnIngresarAutor.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        btnIngresarAutor.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        btnIngresarAutor.Location = New Point(19, 244)
+        btnIngresarAutor.Name = "btnIngresarAutor"
+        btnIngresarAutor.Size = New Size(408, 51)
+        btnIngresarAutor.TabIndex = 44
+        btnIngresarAutor.Text = "Agregar Carrera"
+        btnIngresarAutor.UseVisualStyleBackColor = False
         ' 
         ' Carreras
         ' 
@@ -142,6 +258,7 @@ Partial Class Carreras
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.White
         ClientSize = New Size(1280, 520)
+        Controls.Add(PanelNuevaCarrera)
         Controls.Add(PanelBotones)
         Controls.Add(DataGridView1)
         FormBorderStyle = FormBorderStyle.None
@@ -149,6 +266,11 @@ Partial Class Carreras
         Text = "Carreras"
         CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
         PanelBotones.ResumeLayout(False)
+        PanelNuevaCarrera.ResumeLayout(False)
+        PanelNuevoAutor.ResumeLayout(False)
+        PanelNuevoAutor.PerformLayout()
+        Panel1.ResumeLayout(False)
+        Panel1.PerformLayout()
         ResumeLayout(False)
     End Sub
 
@@ -156,5 +278,14 @@ Partial Class Carreras
     Friend WithEvents PanelBotones As Panel
     Friend WithEvents BtnEliminar As Button
     Friend WithEvents BtnActualizar As Button
-    Friend WithEvents BtnAceptar As Button
+    Friend WithEvents BtnNuevaCarrera As Button
+    Friend WithEvents PanelNuevaCarrera As Panel
+    Friend WithEvents PanelNuevoAutor As Panel
+    Friend WithEvents textBoxAutor As TextBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents listaFacultad As ComboBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents btnIngresarAutor As Button
+    Friend WithEvents BtnSalirDeNuevaCarrera As Button
 End Class
