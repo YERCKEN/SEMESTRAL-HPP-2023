@@ -97,7 +97,7 @@ Partial Class Clientes
         panelIngresoDatos2.Controls.Add(Label7)
         panelIngresoDatos2.Location = New Point(405, 12)
         panelIngresoDatos2.Name = "panelIngresoDatos2"
-        panelIngresoDatos2.Size = New Size(721, 525)
+        panelIngresoDatos2.Size = New Size(721, 533)
         panelIngresoDatos2.TabIndex = 76
         panelIngresoDatos2.Visible = False
         ' 
