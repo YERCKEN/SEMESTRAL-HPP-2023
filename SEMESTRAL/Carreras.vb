@@ -43,9 +43,14 @@ Public Class Carreras
 
     End Sub
 
+    'BTN NUEVA CARRERA =================================================================================================
     Private Sub BtnNuevaCarrera_Click(sender As Object, e As EventArgs) Handles BtnNuevaCarrera.Click
+        limpiar()
         PanelNuevaCarrera.Visible = True
         PanelBotones.Visible = False
+        PanelFacultad.Visible = True
+        PanelNombre.Visible = True
+        PanelSelecion.Visible = False
 
         'CAMBIOS ESTILOS FORMS 1
         Form1.Menu.BackColor = Color.FromArgb(0, 196, 135)
@@ -53,15 +58,79 @@ Public Class Carreras
         Form1.LabelActividad.BackColor = Color.FromArgb(0, 196, 135)
         Form1.BtnMin.BackColor = Color.FromArgb(0, 196, 135)
         Form1.btnCerrar.BackColor = Color.FromArgb(0, 196, 135)
-        'CAMBIOS ESTILOS FORMS 2
-        btnIngresar.BackColor = Color.FromArgb(0, 196, 135)
 
         'IMAGEN DE FONDO BOTON
+        btnIngresar.Text = "Agregar Carrera"
         btnIngresar.BackgroundImage = My.Resources.BTN_VERDE_jpg
 
 
+    End Sub
+
+    'BTN NUEVA ELIMINAR =================================================================================================
+
+    Private Sub BtnEliminar_Click(sender As Object, e As EventArgs) Handles BtnEliminar.Click
+        limpiar()
+        PanelNuevaCarrera.Visible = True
+        PanelBotones.Visible = False
+        PanelFacultad.Visible = False
+        PanelNombre.Visible = False
+
+        PanelSelecion.Visible = True
+
+
+        'CAMBIOS ESTILOS FORMS 1
+        Form1.Menu.BackColor = Color.FromArgb(250, 80, 80)
+        Form1.PictureBox1.BackColor = Color.FromArgb(250, 80, 80)
+        Form1.LabelActividad.BackColor = Color.FromArgb(250, 80, 80)
+        Form1.BtnMin.BackColor = Color.FromArgb(250, 80, 80)
+        Form1.btnCerrar.BackColor = Color.FromArgb(250, 80, 80)
+
+        'IMAGEN DE FONDO BOTON
+        btnIngresar.Text = "Eliminar Carrera"
+        btnIngresar.BackgroundImage = My.Resources.BTN_ROJO
 
     End Sub
+
+    'BTN VOLVER =================================================================================================
+
+    Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles BtnSalirDeNuevaCarrera.Click
+
+        PanelNuevaCarrera.Visible = False
+        PanelBotones.Visible = True
+
+        'CAMBIOS ESTILOS FORMS 1
+        Form1.Menu.BackColor = Color.FromArgb(0, 116, 255)
+        Form1.PictureBox1.BackColor = Color.FromArgb(0, 116, 255)
+        Form1.LabelActividad.BackColor = Color.FromArgb(0, 116, 255)
+        Form1.BtnMin.BackColor = Color.FromArgb(0, 116, 255)
+        Form1.btnCerrar.BackColor = Color.FromArgb(0, 116, 255)
+
+    End Sub
+
+    'ACTUALIZAR =================================================================================================
+
+    Private Sub BtnActualizar_Click(sender As Object, e As EventArgs) Handles BtnActualizar.Click
+        PanelNuevaCarrera.Visible = True
+        PanelBotones.Visible = False
+        PanelFacultad.Visible = True
+        PanelNombre.Visible = True
+        PanelSelecion.Visible = False
+
+        'CAMBIOS ESTILOS FORMS 1
+        Form1.Menu.BackColor = Color.FromArgb(0, 116, 255)
+        Form1.PictureBox1.BackColor = Color.FromArgb(0, 116, 255)
+        Form1.LabelActividad.BackColor = Color.FromArgb(0, 116, 255)
+        Form1.BtnMin.BackColor = Color.FromArgb(0, 116, 255)
+        Form1.btnCerrar.BackColor = Color.FromArgb(0, 116, 255)
+
+        'IMAGEN DE FONDO BOTON
+        btnIngresar.Text = "Actualizar Carrera"
+        btnIngresar.BackgroundImage = My.Resources.BTN_AZUL
+    End Sub
+
+
+
+
     Private Sub btnIngresar_MouseEnter(sender As Object, e As EventArgs) Handles btnIngresar.MouseEnter
         ' Cuando el mouse entra en el botón, aumentamos su tamaño y ajustamos su posición y fuente
         Dim growthFactor As Integer = 10 ' Puedes ajustar este valor según tus preferencias
@@ -117,7 +186,10 @@ Public Class Carreras
         End Using
     End Sub
 
-    Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles BtnSalirDeNuevaCarrera.Click
-        PanelNuevaCarrera.Visible = False
+    Sub limpiar()
+        listaFacultad.Text = ""
+        textBoxNombre.Text = ""
     End Sub
+
+
 End Class
