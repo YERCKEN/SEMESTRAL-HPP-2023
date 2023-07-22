@@ -83,4 +83,133 @@ Public Class querysBDYercken
     End Function
 
 
+    'OBTENER ID DE LA FAULTAD -------------------------------------------------------------------------
+    Public Function ObtenerIdFacultad(nombreFacultad As String) As Integer
+
+        Dim facultadID As Integer = -1
+        Using connection As New SqlConnection(VARIABLES_GLOBALES.cadenaConexion)
+            Using command As New SqlCommand("obtenerIdFacultad", connection)
+                command.CommandType = CommandType.StoredProcedure
+                command.Parameters.AddWithValue("@NombreFacultad", nombreFacultad)
+
+                connection.Open()
+                Dim result As Object = command.ExecuteScalar()
+                If result IsNot DBNull.Value Then
+                    facultadID = Convert.ToInt32(result)
+                End If
+            End Using
+        End Using
+
+        Return facultadID
+    End Function
+
+
+    'AGREGAR CARRERA -------------------------------------------------------------------------
+    Public Function AgregarCarrera(nombreCarrera As String) As Integer
+
+        Dim carreraID As Integer = -1
+        Using connection As New SqlConnection(VARIABLES_GLOBALES.cadenaConexion)
+            Using command As New SqlCommand("agregarCarrera", connection)
+                command.CommandType = CommandType.StoredProcedure
+                command.Parameters.AddWithValue("@NombreCarrera", nombreCarrera)
+
+                connection.Open()
+                Dim result As Object = command.ExecuteScalar()
+                If result IsNot DBNull.Value Then
+                    carreraID = Convert.ToInt32(result)
+                End If
+            End Using
+        End Using
+
+        Return carreraID
+    End Function
+
+    'RELACIONAR -------------------------------------------------------------------------
+
+    Public Sub RelacionarCarrerasFacultad(carreraID As Integer, facultadID As Integer)
+
+        Using connection As New SqlConnection(VARIABLES_GLOBALES.cadenaConexion)
+            Using command As New SqlCommand("relacionarCarrerasFacultad", connection)
+                command.CommandType = CommandType.StoredProcedure
+                command.Parameters.AddWithValue("@CarreraID", carreraID)
+                command.Parameters.AddWithValue("@FacultadID", facultadID)
+
+                connection.Open()
+                command.ExecuteNonQuery()
+            End Using
+        End Using
+    End Sub
+
+    ' Función para actualizar el nombre de una carrera
+    Public Sub ActualizarNombreCarrera(carreraID As Integer, nuevoNombreCarrera As String)
+        Using connection As New SqlConnection(VARIABLES_GLOBALES.cadenaConexion)
+            Using command As New SqlCommand("ActualizarNombreCarrera", connection)
+                command.CommandType = CommandType.StoredProcedure
+                command.Parameters.AddWithValue("@CarreraID", carreraID)
+                command.Parameters.AddWithValue("@NuevoNombreCarrera", nuevoNombreCarrera)
+
+                connection.Open()
+                command.ExecuteNonQuery()
+            End Using
+        End Using
+    End Sub
+
+
+    ' Función para actualizar el ID de la facultad asociada a una carrera
+    Public Sub ActualizarFacultadID(carreraID As Integer, nuevoFacultadID As Integer)
+        Using connection As New SqlConnection(VARIABLES_GLOBALES.cadenaConexion)
+            Using command As New SqlCommand("ActualizarFacultadID", connection)
+                command.CommandType = CommandType.StoredProcedure
+                command.Parameters.AddWithValue("@CarreraID", carreraID)
+                command.Parameters.AddWithValue("@NuevoFacultadID", nuevoFacultadID)
+
+                connection.Open()
+                command.ExecuteNonQuery()
+            End Using
+        End Using
+    End Sub
+
+
+
+
+    ' Función para obtener el nombre de la carrera y su facultad por ID
+    Public Function selectCarreraFacultad(carreraID As Integer) As (String, String)
+
+        Dim nombreCarrera As String = ""
+        Dim nombreFacultad As String = ""
+
+        ' Verificar que el ID de la carrera ingresado sea un número válido
+        If carreraID > 0 Then
+
+            Using connection As New SqlConnection(VARIABLES_GLOBALES.cadenaConexion)
+                Try
+                    connection.Open()
+
+                    ' Crear el comando para ejecutar el SELECT
+                    Dim sql As String = "SELECT c.NombreCarrera, f.NombreFacultad " &
+                                       "FROM Carreras c " &
+                                       "INNER JOIN CarrerasFacultad cf ON c.ID = cf.CarreraID " &
+                                       "INNER JOIN Facultades f ON cf.FacultadID = f.ID " &
+                                       "WHERE c.ID = @CarreraID;"
+
+                    Using command As New SqlCommand(sql, connection)
+                        ' Parámetro de entrada: ID de la carrera
+                        command.Parameters.AddWithValue("@CarreraID", carreraID)
+
+                        Using reader As SqlDataReader = command.ExecuteReader()
+                            If reader.Read() Then
+                                nombreCarrera = CStr(reader("NombreCarrera"))
+                                nombreFacultad = CStr(reader("NombreFacultad"))
+                            End If
+                        End Using
+                    End Using
+                Catch ex As Exception
+                    ' Manejar la excepción en caso de error de conexión o ejecución
+                    MessageBox.Show("Error al obtener los datos de la carrera: " & ex.Message)
+                End Try
+            End Using
+        End If
+
+        Return (nombreCarrera, nombreFacultad)
+    End Function
 End Class
