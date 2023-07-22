@@ -41,6 +41,7 @@ CREATE TABLE clientes (
     telefono1 VARCHAR(20),
     telefono2 VARCHAR(20),
     email VARCHAR(100),
+	tipo VARCHAR(100),
     observacion VARCHAR(500)
 );
 CREATE TABLE clienteopciones (
@@ -52,7 +53,6 @@ CREATE TABLE clienteopciones (
     convocatoria VARCHAR(255),
     FOREIGN KEY (id_cliente) REFERENCES clientes(id_clientes)
 );
-
 -- Ejemplo 1
 INSERT INTO servicios (tipo, evento, horainicio, fechainicio, fechafinal, observacion)
 VALUES ('Conferencia', 'Charla de orientación', '09:00:00', '2023-07-25', '2023-07-25', 'Charla de bienvenida y orientación para nuevos estudiantes.');
@@ -97,24 +97,24 @@ VALUES ('Computadoras', 'Laptops', 'Usado', 'Computadoras portátiles disponibles
 
 
 -- Ejemplo 1
-INSERT INTO clientes (nombre, apellido, residencia, lugar_trabajo, telefono1, telefono2, email, observacion)
-VALUES ('Ana', 'García', 'Calle 123, Ciudad Universitaria', 'Biblioteca Central', '+1234567890', '+9876543210', 'ana.garcia@example.com', 'Estudiante de último año de Biología, interesada en la investigación de la vida marina.');
+INSERT INTO clientes (nombre, apellido, residencia, lugar_trabajo, telefono1, telefono2, email, tipo, observacion)
+VALUES ('Ana', 'García', 'Calle 123, Ciudad Universitaria', 'Biblioteca Central', '+1234567890', '+9876543210', 'ana.garcia@example.com', 'Prospecto', 'Estudiante de último año de Biología, interesada en la investigación de la vida marina.');
 
 -- Ejemplo 2
-INSERT INTO clientes (nombre, apellido, residencia, lugar_trabajo, telefono1, telefono2, email, observacion)
-VALUES ('Juan', 'Martínez', 'Avenida Principal, Barrio Universitario', 'Departamento de Física', '+2345678901', NULL, 'juan.martinez@example.com', 'Estudiante de primer año de Física, apasionado por la astronomía.');
+INSERT INTO clientes (nombre, apellido, residencia, lugar_trabajo, telefono1, telefono2, email, tipo, observacion)
+VALUES ('Juan', 'Martínez', 'Avenida Principal, Barrio Universitario', 'Departamento de Física', '+2345678901', NULL, 'juan.martinez@example.com', 'Prospecto', 'Estudiante de primer año de Física, apasionado por la astronomía.');
 
 -- Ejemplo 3
-INSERT INTO clientes (nombre, apellido, residencia, lugar_trabajo, telefono1, telefono2, email, observacion)
-VALUES ('María', 'López', 'Calle Estudiantil, Residencias Universitarias', NULL, '+3456789012', NULL, 'maria.lopez@example.com', 'Estudiante de Ciencias de la Computación, líder de un grupo de desarrollo de aplicaciones móviles.');
+INSERT INTO clientes (nombre, apellido, residencia, lugar_trabajo, telefono1, telefono2, email, tipo, observacion)
+VALUES ('María', 'López', 'Calle Estudiantil, Residencias Universitarias', NULL, '+3456789012', NULL, 'maria.lopez@example.com', 'Estudiante', 'Estudiante de Ciencias de la Computación, líder de un grupo de desarrollo de aplicaciones móviles.');
 
 -- Ejemplo 4
-INSERT INTO clientes (nombre, apellido, residencia, lugar_trabajo, telefono1, telefono2, email, observacion)
-VALUES ('Pedro', 'Ramírez', 'Avenida Universitaria, Edificio C', 'Laboratorio de Química', '+4567890123', '+8765432109', 'pedro.ramirez@example.com', 'Estudiante de tercer año de Química, interesado en la síntesis de materiales.');
+INSERT INTO clientes (nombre, apellido, residencia, lugar_trabajo, telefono1, telefono2, email, tipo, observacion)
+VALUES ('Pedro', 'Ramírez', 'Avenida Universitaria, Edificio C', 'Laboratorio de Química', '+4567890123', '+8765432109', 'pedro.ramirez@example.com', 'Prospecto', 'Estudiante de tercer año de Química, interesado en la síntesis de materiales.');
 
 -- Ejemplo 5
-INSERT INTO clientes (nombre, apellido, residencia, lugar_trabajo, telefono1, telefono2, email, observacion)
-VALUES ('Laura', 'González', 'Calle del Conocimiento, Residencias Estudiantiles', NULL, '+5678901234', NULL, 'laura.gonzalez@example.com', 'Estudiante de Artes Escénicas, participa en varios grupos de teatro universitario.');
+INSERT INTO clientes (nombre, apellido, residencia, lugar_trabajo, telefono1, telefono2, email, tipo, observacion)
+VALUES ('Laura', 'González', 'Calle del Conocimiento, Residencias Estudiantiles', NULL, '+5678901234', NULL, 'laura.gonzalez@example.com', 'Estudiante', 'Estudiante de Artes Escénicas, participa en varios grupos de teatro universitario.');
 
 
 -- Ejemplo 1

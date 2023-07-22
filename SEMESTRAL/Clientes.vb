@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 
 Public Class Clientes
     Dim conexion As New SqlConnection(VARIABLES_GLOBALES.cadenaConexion2)
@@ -8,6 +9,18 @@ Public Class Clientes
     Private Sub Clientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Location = New Point(Form1.Location.X, Form1.Location.Y + 49) ' Establecer la nueva ubicación de Form4 en relación con Form1
         MostrarClientes()
+        tipoCb.Items.Clear()
+        tipoCb.Items.Add("Prospecto")
+        tipoCb.Items.Add("Estudiante")
+        convocatoriaCb.Items.Clear()
+        convocatoriaCb.Items.Add("Primera")
+        convocatoriaCb.Items.Add("Segunda")
+        Opcion1Cb.Items.Clear()
+        Opcion1Cb.Items.Add("Elemento 1")
+        opcion2Cb.Items.Clear()
+        opcion2Cb.Items.Add("Elemento 2")
+        opcion3Cb.Items.Clear()
+        opcion3Cb.Items.Add("Elemento 3")
     End Sub
     Private Sub MostrarClientes()
         Try
@@ -36,7 +49,7 @@ Public Class Clientes
         End Try
     End Sub
 
-    Private Sub MostrarClientes(id_clientes As Integer)
+    Private Sub MostrarCliente(id_clientes As Integer)
         Try
             ' Crear una conexión a la base de datos
             Using connection As New SqlConnection(connectionString)
@@ -96,9 +109,6 @@ Public Class Clientes
                             opcion2Cb.Text = reader("opcion2").ToString()
                             opcion3Cb.Text = reader("opcion3").ToString()
                             ObservacionTb.Text = reader("observacion").ToString()
-                        Else
-                            ' Si no se encuentra el cliente, mostrar mensaje de error
-                            MessageBox.Show("Cliente no encontrado.")
                         End If
                     End Using
                 End Using
@@ -116,35 +126,54 @@ Public Class Clientes
             Using connection As New SqlConnection(connectionString)
                 connection.Open()
 
-                ' Consulta para actualizar los datos del cliente en la base de datos
-                Dim query As String = "UPDATE clientes SET nombre = @nombre, apellido = @apellido, residencia = @residencia, " &
-                                      "telefono1 = @telefono1, telefono2 = @telefono2, email = @email, tipo = @tipo, " &
-                                      "lugar_trabajo = @lugar_trabajo, convocatoria = @convocatoria, opcion1 = @opcion1, " &
-                                      "opcion2 = @opcion2, opcion3 = @opcion3, observacion = @observacion " &
-                                      "WHERE id_clientes = @clienteId"
+                ' Consulta para actualizar los datos del cliente en la tabla clientes
+                Dim queryClientes As String = "UPDATE clientes SET nombre = @nombre, apellido = @apellido, residencia = @residencia, " &
+                                  "telefono1 = @telefono1, telefono2 = @telefono2, email = @email, tipo = @tipo, " &
+                                  "lugar_trabajo = @lugar_trabajo, observacion = @observacion " &
+                                  "WHERE id_clientes = @clienteId"
 
-                ' Crear un comando con la consulta y los parámetros proporcionados
-                Using cmd As New SqlCommand(query, connection)
-                    cmd.Parameters.AddWithValue("@clienteId", id_clientes)
-                    cmd.Parameters.AddWithValue("@nombre", nombreTb.Text)
-                    cmd.Parameters.AddWithValue("@apellido", apellidoTb.Text)
-                    cmd.Parameters.AddWithValue("@residencia", residenciatb.Text)
-                    cmd.Parameters.AddWithValue("@telefono1", telefono1Tb.Text)
-                    cmd.Parameters.AddWithValue("@telefono2", telefono2Tb.Text)
-                    cmd.Parameters.AddWithValue("@email", emailTb.Text)
-                    cmd.Parameters.AddWithValue("@tipo", tipoCb.Text)
-                    cmd.Parameters.AddWithValue("@lugar_trabajo", lugarTrabajoTb.Text)
-                    cmd.Parameters.AddWithValue("@convocatoria", convocatoriaCb.Text)
-                    cmd.Parameters.AddWithValue("@opcion1", Opcion1Cb.Text)
-                    cmd.Parameters.AddWithValue("@opcion2", opcion2Cb.Text)
-                    cmd.Parameters.AddWithValue("@opcion3", opcion3Cb.Text)
-                    cmd.Parameters.AddWithValue("@observacion", ObservacionTb.Text)
+                ' Crear un comando con la consulta y los parámetros proporcionados para la tabla clientes
+                Using cmdClientes As New SqlCommand(queryClientes, connection)
+                    cmdClientes.Parameters.AddWithValue("@clienteId", id_clientes)
+                    cmdClientes.Parameters.AddWithValue("@nombre", nombreTb.Text)
+                    cmdClientes.Parameters.AddWithValue("@apellido", apellidoTb.Text)
+                    cmdClientes.Parameters.AddWithValue("@residencia", residenciatb.Text)
+                    cmdClientes.Parameters.AddWithValue("@telefono1", telefono1Tb.Text)
+                    cmdClientes.Parameters.AddWithValue("@telefono2", telefono2Tb.Text)
+                    cmdClientes.Parameters.AddWithValue("@email", emailTb.Text)
+                    cmdClientes.Parameters.AddWithValue("@tipo", tipoCb.Text)
+                    cmdClientes.Parameters.AddWithValue("@lugar_trabajo", lugarTrabajoTb.Text)
+                    cmdClientes.Parameters.AddWithValue("@observacion", ObservacionTb.Text)
 
-                    ' Ejecutar el comando para actualizar los datos del cliente
-                    cmd.ExecuteNonQuery()
-
-                    MessageBox.Show("Datos del cliente actualizados correctamente.")
+                    ' Ejecutar el comando para actualizar los datos del cliente en la tabla clientes
+                    cmdClientes.ExecuteNonQuery()
                 End Using
+
+                ' Consulta para comprobar si existe el registro del cliente en la tabla clienteopciones
+                Dim queryClienteOpciones As String = "IF EXISTS (SELECT 1 FROM clienteopciones WHERE id_cliente = @clienteId) " &
+                                                "BEGIN " &
+                                                "  UPDATE clienteopciones SET opcion1 = @opcion1, opcion2 = @opcion2, opcion3 = @opcion3, convocatoria = @convocatoria " &
+                                                "  WHERE id_cliente = @clienteId " &
+                                                "END " &
+                                                "ELSE " &
+                                                "BEGIN " &
+                                                "  INSERT INTO clienteopciones (id_cliente, opcion1, opcion2, opcion3, convocatoria) " &
+                                                "  VALUES (@clienteId, @opcion1, @opcion2, @opcion3, @convocatoria) " &
+                                                "END"
+
+                ' Crear un comando con la consulta y los parámetros proporcionados para la tabla clienteopciones
+                Using cmdClienteOpciones As New SqlCommand(queryClienteOpciones, connection)
+                    cmdClienteOpciones.Parameters.AddWithValue("@clienteId", id_clientes)
+                    cmdClienteOpciones.Parameters.AddWithValue("@opcion1", Opcion1Cb.Text)
+                    cmdClienteOpciones.Parameters.AddWithValue("@opcion2", opcion2Cb.Text)
+                    cmdClienteOpciones.Parameters.AddWithValue("@opcion3", opcion3Cb.Text)
+                    cmdClienteOpciones.Parameters.AddWithValue("@convocatoria", convocatoriaCb.Text)
+
+                    ' Ejecutar el comando para actualizar o insertar el registro en la tabla clienteopciones
+                    cmdClienteOpciones.ExecuteNonQuery()
+                End Using
+
+                MessageBox.Show("Datos del cliente y opciones actualizados correctamente.")
 
                 ' Cerrar la conexión
                 connection.Close()
@@ -159,15 +188,26 @@ Public Class Clientes
             Using connection As New SqlConnection(connectionString)
                 connection.Open()
 
-                ' Consulta para eliminar el cliente de la base de datos
-                Dim query As String = "DELETE FROM clientes WHERE id_clientes = @clienteId"
+                ' Eliminar registros relacionados en la tabla clienteopciones
+                Dim queryClienteOpciones As String = "DELETE FROM clienteopciones WHERE id_cliente = @clienteId"
 
                 ' Crear un comando con la consulta y el parámetro proporcionado
-                Using cmd As New SqlCommand(query, connection)
-                    cmd.Parameters.AddWithValue("@clienteId", id_clientes)
+                Using cmdClienteOpciones As New SqlCommand(queryClienteOpciones, connection)
+                    cmdClienteOpciones.Parameters.AddWithValue("@clienteId", id_clientes)
+
+                    ' Ejecutar el comando para eliminar los registros relacionados en la tabla clienteopciones
+                    cmdClienteOpciones.ExecuteNonQuery()
+                End Using
+
+                ' Consulta para eliminar el cliente de la tabla clientes
+                Dim queryClientes As String = "DELETE FROM clientes WHERE id_clientes = @clienteId"
+
+                ' Crear un comando con la consulta y el parámetro proporcionado
+                Using cmdClientes As New SqlCommand(queryClientes, connection)
+                    cmdClientes.Parameters.AddWithValue("@clienteId", id_clientes)
 
                     ' Ejecutar el comando para eliminar el cliente
-                    cmd.ExecuteNonQuery()
+                    cmdClientes.ExecuteNonQuery()
 
                     MessageBox.Show("Cliente eliminado correctamente.")
                 End Using
@@ -179,37 +219,69 @@ Public Class Clientes
             MessageBox.Show("Error al eliminar el cliente: " & ex.Message)
         End Try
     End Sub
+
     Private Sub CrearCliente()
         Try
             ' Crear una conexión a la base de datos
             Using connection As New SqlConnection(connectionString)
                 connection.Open()
 
-                ' Consulta para insertar un nuevo cliente en la base de datos
-                Dim query As String = "INSERT INTO clientes (nombre, apellido, residencia, telefono1, telefono2, email, tipo, lugar_trabajo, convocatoria, opcion1, opcion2, opcion3, observacion) " &
-                                      "VALUES (@nombre, @apellido, @residencia, @telefono1, @telefono2, @email, @tipo, @lugar_trabajo, @convocatoria, @opcion1, @opcion2, @opcion3, @observacion)"
+                ' Consulta para insertar un nuevo cliente en la tabla clientes
+                Dim queryClientes As String = "INSERT INTO clientes (nombre, apellido, residencia, telefono1, telefono2, email, tipo, lugar_trabajo, observacion) " &
+                                          "VALUES (@nombre, @apellido, @residencia, @telefono1, @telefono2, @email, @tipo, @lugar_trabajo, @observacion)"
 
-                ' Crear un comando con la consulta y los parámetros proporcionados
-                Using cmd As New SqlCommand(query, connection)
-                    cmd.Parameters.AddWithValue("@nombre", nombreTb.Text)
-                    cmd.Parameters.AddWithValue("@apellido", apellidoTb.Text)
-                    cmd.Parameters.AddWithValue("@residencia", residenciatb.Text)
-                    cmd.Parameters.AddWithValue("@telefono1", telefono1Tb.Text)
-                    cmd.Parameters.AddWithValue("@telefono2", telefono2Tb.Text)
-                    cmd.Parameters.AddWithValue("@email", emailTb.Text)
-                    cmd.Parameters.AddWithValue("@tipo", tipoCb.Text)
-                    cmd.Parameters.AddWithValue("@lugar_trabajo", lugarTrabajoTb.Text)
-                    cmd.Parameters.AddWithValue("@convocatoria", convocatoriaCb.Text)
-                    cmd.Parameters.AddWithValue("@opcion1", Opcion1Cb.Text)
-                    cmd.Parameters.AddWithValue("@opcion2", opcion2Cb.Text)
-                    cmd.Parameters.AddWithValue("@opcion3", opcion3Cb.Text)
-                    cmd.Parameters.AddWithValue("@observacion", ObservacionTb.Text)
+                ' Crear un comando con la consulta y los parámetros proporcionados para la tabla clientes
+                Using cmdClientes As New SqlCommand(queryClientes, connection)
+                    cmdClientes.Parameters.AddWithValue("@nombre", nombreTb.Text)
+                    cmdClientes.Parameters.AddWithValue("@apellido", apellidoTb.Text)
+                    cmdClientes.Parameters.AddWithValue("@residencia", residenciatb.Text)
+                    cmdClientes.Parameters.AddWithValue("@telefono1", telefono1Tb.Text)
+                    cmdClientes.Parameters.AddWithValue("@telefono2", telefono2Tb.Text)
+                    cmdClientes.Parameters.AddWithValue("@email", emailTb.Text)
+                    cmdClientes.Parameters.AddWithValue("@tipo", tipoCb.Text)
+                    cmdClientes.Parameters.AddWithValue("@lugar_trabajo", lugarTrabajoTb.Text)
+                    cmdClientes.Parameters.AddWithValue("@observacion", ObservacionTb.Text)
 
-                    ' Ejecutar el comando para insertar el nuevo cliente
-                    cmd.ExecuteNonQuery()
-
-                    MessageBox.Show("Nuevo cliente creado correctamente.")
+                    ' Ejecutar el comando para insertar el nuevo cliente en la tabla clientes
+                    cmdClientes.ExecuteNonQuery()
                 End Using
+
+                ' Obtener el ID del cliente recién insertado
+                Dim idCliente As Integer = -1
+                Using cmdGetLastId As New SqlCommand("SELECT SCOPE_IDENTITY()", connection)
+                    Dim result As Object = cmdGetLastId.ExecuteScalar()
+                    If result IsNot DBNull.Value Then
+                        idCliente = CInt(result)
+                    End If
+                End Using
+
+                If idCliente <> -1 Then
+                    ' Consulta para insertar o actualizar el registro del cliente en la tabla clienteopciones
+                    Dim queryClienteOpciones As String = "IF EXISTS (SELECT 1 FROM clienteopciones WHERE id_cliente = @clienteId) " &
+                                                "BEGIN " &
+                                                "  UPDATE clienteopciones SET opcion1 = @opcion1, opcion2 = @opcion2, opcion3 = @opcion3, convocatoria = @convocatoria " &
+                                                "  WHERE id_cliente = @clienteId " &
+                                                "END " &
+                                                "ELSE " &
+                                                "BEGIN " &
+                                                "  INSERT INTO clienteopciones (id_cliente, opcion1, opcion2, opcion3, convocatoria) " &
+                                                "  VALUES (@clienteId, @opcion1, @opcion2, @opcion3, @convocatoria) " &
+                                                "END"
+
+                    ' Crear un comando con la consulta y los parámetros proporcionados para la tabla clienteopciones
+                    Using cmdClienteOpciones As New SqlCommand(queryClienteOpciones, connection)
+                        cmdClienteOpciones.Parameters.AddWithValue("@clienteId", idCliente)
+                        cmdClienteOpciones.Parameters.AddWithValue("@opcion1", Opcion1Cb.Text)
+                        cmdClienteOpciones.Parameters.AddWithValue("@opcion2", opcion2Cb.Text)
+                        cmdClienteOpciones.Parameters.AddWithValue("@opcion3", opcion3Cb.Text)
+                        cmdClienteOpciones.Parameters.AddWithValue("@convocatoria", convocatoriaCb.Text)
+
+                        ' Ejecutar el comando para insertar o actualizar el registro en la tabla clienteopciones
+                        cmdClienteOpciones.ExecuteNonQuery()
+                    End Using
+                End If
+
+                MessageBox.Show("Nuevo cliente creado correctamente.")
 
                 ' Cerrar la conexión
                 connection.Close()
@@ -218,6 +290,9 @@ Public Class Clientes
             MessageBox.Show("Error al crear el cliente: " & ex.Message)
         End Try
     End Sub
+
+
+
     Private Function ClienteExiste(id_clientes As Integer) As Boolean
         Try
             ' Crear una conexión a la base de datos
@@ -247,9 +322,12 @@ Public Class Clientes
         ' Obtener el valor del TextBoxId (asegúrate de validar que el valor sea un número antes de usarlo)
         If Integer.TryParse(TextBoxId.Text, clienteId) Then
             If ClienteExiste(clienteId) Then
-                MostrarClientes(clienteId)
+                MostrarCliente(clienteId)
                 MostrarDatosCliente(clienteId)
-                PanelBotones.Enabled = True
+                panelIngresoDatos2.Enabled = False
+                crearBtn.Enabled = False
+                actualizarBtn.Enabled = True
+                eliminarBtn.Enabled = True
             Else
                 MessageBox.Show("El cliente con ID " & clienteId & " no existe.")
                 TextBoxId.Clear()
@@ -260,47 +338,22 @@ Public Class Clientes
         End If
     End Sub
 
-    Private Sub BtnActualizar_Click(sender As Object, e As EventArgs) Handles BtnActualizar.Click
-        panelIngresoDatos2.Enabled = True
-    End Sub
-
-    Private Sub BtnEliminar_Click(sender As Object, e As EventArgs) Handles BtnEliminar.Click
-
-        If Integer.TryParse(TextBoxId.Text, clienteId) Then
-            If ClienteExiste(clienteId) Then
-                EliminarCliente(clienteId)
-                MostrarDatosCliente(clienteId)
-            Else
-                MessageBox.Show("El cliente con ID " & clienteId & " no existe.")
-            End If
-        Else
-            MessageBox.Show("Ingrese un ID de cliente válido (número entero).")
-        End If
-    End Sub
-
-    Private Sub BtnAceptar_Click(sender As Object, e As EventArgs) Handles BtnAceptar.Click
-        If Integer.TryParse(TextBoxId.Text, clienteId) Then
-            If ClienteExiste(clienteId) Then
-                CrearCliente()
-                MostrarDatosCliente(clienteId)
-                panelIngresoDatos2.Enabled = True
-            Else
-                MessageBox.Show("El cliente con ID " & clienteId & " no existe.")
-            End If
-        Else
-            MessageBox.Show("Ingrese un ID de cliente válido (número entero).")
-        End If
-    End Sub
-
     Private Sub BtnSalirSeleccion_Click(sender As Object, e As EventArgs) Handles BtnSalirSeleccion.Click
         TextBoxId.Clear()
+        crearBtn.Enabled = True
+        actualizarBtn.Enabled = False
+        eliminarBtn.Enabled = False
+        MostrarClientes()
     End Sub
 
     Private Sub BtnIngresarNuevoTicket_Click(sender As Object, e As EventArgs) Handles BtnIngresarNuevoTicket.Click
         If Integer.TryParse(TextBoxId.Text, clienteId) Then
             If ClienteExiste(clienteId) Then
                 ActualizarDatosCliente(clienteId)
-                MostrarDatosCliente(clienteId)
+                MostrarClientes()
+                crearBtn.Enabled = True
+                actualizarBtn.Enabled = False
+                eliminarBtn.Enabled = False
             Else
                 MessageBox.Show("El cliente con ID " & clienteId & " no existe.")
             End If
@@ -310,6 +363,7 @@ Public Class Clientes
     End Sub
 
     Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles BtnVolver.Click
+        TextBoxId.Clear()
         nombreTb.Clear()
         apellidoTb.Clear()
         residenciatb.Clear()
@@ -323,6 +377,52 @@ Public Class Clientes
         Opcion1Cb.SelectedIndex = -1
         opcion2Cb.SelectedIndex = -1
         opcion3Cb.SelectedIndex = -1
-        panelIngresoDatos2.Enabled = False
+        crearBtn.Enabled = True
+        actualizarBtn.Enabled = False
+        eliminarBtn.Enabled = False
+        BtnIngresarNuevoTicket.Visible = False
+    End Sub
+
+    Private Sub crearBtn_Click(sender As Object, e As EventArgs) Handles crearBtn.Click
+        CrearCliente()
+        MostrarClientes()
+        actualizarBtn.Enabled = False
+        eliminarBtn.Enabled = False
+    End Sub
+
+    Private Sub actualizarBtn_Click(sender As Object, e As EventArgs) Handles actualizarBtn.Click
+        panelIngresoDatos2.Enabled = True
+        eliminarBtn.Enabled = False
+        BtnIngresarNuevoTicket.Visible = True
+    End Sub
+
+    Private Sub eliminarBtn_Click(sender As Object, e As EventArgs) Handles eliminarBtn.Click
+        If Integer.TryParse(TextBoxId.Text, clienteId) Then
+            If ClienteExiste(clienteId) Then
+                EliminarCliente(clienteId)
+                MostrarCliente(clienteId)
+                TextBoxId.Clear()
+                nombreTb.Clear()
+                apellidoTb.Clear()
+                residenciatb.Clear()
+                telefono1Tb.Clear()
+                telefono2Tb.Clear()
+                emailTb.Clear()
+                tipoCb.SelectedIndex = -1
+                lugarTrabajoTb.Clear()
+                ObservacionTb.Clear()
+                convocatoriaCb.SelectedIndex = -1
+                Opcion1Cb.SelectedIndex = -1
+                opcion2Cb.SelectedIndex = -1
+                opcion3Cb.SelectedIndex = -1
+                crearBtn.Enabled = False
+                actualizarBtn.Enabled = True
+                eliminarBtn.Enabled = True
+            Else
+                MessageBox.Show("El cliente con ID " & clienteId & " no existe.")
+            End If
+        Else
+            MessageBox.Show("Ingrese un ID de cliente válido (número entero).")
+        End If
     End Sub
 End Class

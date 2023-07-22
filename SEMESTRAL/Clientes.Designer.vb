@@ -60,9 +60,9 @@ Partial Class Clientes
         BtnSeleccionar = New Button()
         Label9 = New Label()
         PanelBotones = New Panel()
-        BtnEliminar = New Button()
-        BtnActualizar = New Button()
-        BtnAceptar = New Button()
+        eliminarBtn = New Button()
+        actualizarBtn = New Button()
+        crearBtn = New Button()
         DataGridView1 = New DataGridView()
         panelIngresoDatos2.SuspendLayout()
         PanelSelecion.SuspendLayout()
@@ -100,7 +100,6 @@ Partial Class Clientes
         panelIngresoDatos2.Controls.Add(Label6)
         panelIngresoDatos2.Controls.Add(apellidoTb)
         panelIngresoDatos2.Controls.Add(Label7)
-        panelIngresoDatos2.Enabled = False
         panelIngresoDatos2.Location = New Point(405, 12)
         panelIngresoDatos2.Name = "panelIngresoDatos2"
         panelIngresoDatos2.Size = New Size(721, 533)
@@ -108,6 +107,7 @@ Partial Class Clientes
         ' 
         ' Opcion1Cb
         ' 
+        Opcion1Cb.DropDownStyle = ComboBoxStyle.DropDownList
         Opcion1Cb.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         Opcion1Cb.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         Opcion1Cb.FormattingEnabled = True
@@ -137,6 +137,7 @@ Partial Class Clientes
         ' 
         ' opcion2Cb
         ' 
+        opcion2Cb.DropDownStyle = ComboBoxStyle.DropDownList
         opcion2Cb.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         opcion2Cb.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         opcion2Cb.FormattingEnabled = True
@@ -159,6 +160,7 @@ Partial Class Clientes
         ' 
         ' opcion3Cb
         ' 
+        opcion3Cb.DropDownStyle = ComboBoxStyle.DropDownList
         opcion3Cb.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         opcion3Cb.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         opcion3Cb.FormattingEnabled = True
@@ -192,6 +194,7 @@ Partial Class Clientes
         ' 
         ' convocatoriaCb
         ' 
+        convocatoriaCb.DropDownStyle = ComboBoxStyle.DropDownList
         convocatoriaCb.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         convocatoriaCb.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         convocatoriaCb.FormattingEnabled = True
@@ -234,6 +237,7 @@ Partial Class Clientes
         ' 
         ' tipoCb
         ' 
+        tipoCb.DropDownStyle = ComboBoxStyle.DropDownList
         tipoCb.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         tipoCb.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         tipoCb.FormattingEnabled = True
@@ -356,6 +360,7 @@ Partial Class Clientes
         BtnIngresarNuevoTicket.TabIndex = 47
         BtnIngresarNuevoTicket.Text = "Actualizar Datos"
         BtnIngresarNuevoTicket.UseVisualStyleBackColor = False
+        BtnIngresarNuevoTicket.Visible = False
         ' 
         ' ObservacionTb
         ' 
@@ -474,62 +479,63 @@ Partial Class Clientes
         ' 
         ' PanelBotones
         ' 
-        PanelBotones.Controls.Add(BtnEliminar)
-        PanelBotones.Controls.Add(BtnActualizar)
-        PanelBotones.Controls.Add(BtnAceptar)
-        PanelBotones.Enabled = False
+        PanelBotones.Controls.Add(eliminarBtn)
+        PanelBotones.Controls.Add(actualizarBtn)
+        PanelBotones.Controls.Add(crearBtn)
         PanelBotones.Location = New Point(12, 265)
         PanelBotones.Name = "PanelBotones"
         PanelBotones.Size = New Size(378, 190)
         PanelBotones.TabIndex = 74
         ' 
-        ' BtnEliminar
+        ' eliminarBtn
         ' 
-        BtnEliminar.BackColor = Color.FromArgb(CByte(0), CByte(116), CByte(255))
-        BtnEliminar.Cursor = Cursors.Hand
-        BtnEliminar.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        BtnEliminar.FlatAppearance.BorderSize = 0
-        BtnEliminar.FlatStyle = FlatStyle.Flat
-        BtnEliminar.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        BtnEliminar.ForeColor = Color.FromArgb(CByte(255), CByte(176), CByte(176))
-        BtnEliminar.Location = New Point(17, 112)
-        BtnEliminar.Name = "BtnEliminar"
-        BtnEliminar.Size = New Size(328, 65)
-        BtnEliminar.TabIndex = 50
-        BtnEliminar.Text = "✖️Eliminar"
-        BtnEliminar.UseVisualStyleBackColor = False
+        eliminarBtn.BackColor = Color.FromArgb(CByte(0), CByte(116), CByte(255))
+        eliminarBtn.Cursor = Cursors.Hand
+        eliminarBtn.Enabled = False
+        eliminarBtn.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        eliminarBtn.FlatAppearance.BorderSize = 0
+        eliminarBtn.FlatStyle = FlatStyle.Flat
+        eliminarBtn.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        eliminarBtn.ForeColor = Color.FromArgb(CByte(255), CByte(176), CByte(176))
+        eliminarBtn.Location = New Point(17, 112)
+        eliminarBtn.Name = "eliminarBtn"
+        eliminarBtn.Size = New Size(328, 65)
+        eliminarBtn.TabIndex = 50
+        eliminarBtn.Text = "✖️Eliminar"
+        eliminarBtn.UseVisualStyleBackColor = False
         ' 
-        ' BtnActualizar
+        ' actualizarBtn
         ' 
-        BtnActualizar.BackColor = Color.FromArgb(CByte(0), CByte(116), CByte(255))
-        BtnActualizar.Cursor = Cursors.Hand
-        BtnActualizar.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        BtnActualizar.FlatAppearance.BorderSize = 0
-        BtnActualizar.FlatStyle = FlatStyle.Flat
-        BtnActualizar.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        BtnActualizar.ForeColor = Color.White
-        BtnActualizar.Location = New Point(196, 22)
-        BtnActualizar.Name = "BtnActualizar"
-        BtnActualizar.Size = New Size(148, 65)
-        BtnActualizar.TabIndex = 49
-        BtnActualizar.Text = "✏️" & vbCrLf & "Actualizar"
-        BtnActualizar.UseVisualStyleBackColor = False
+        actualizarBtn.BackColor = Color.FromArgb(CByte(0), CByte(116), CByte(255))
+        actualizarBtn.Cursor = Cursors.Hand
+        actualizarBtn.Enabled = False
+        actualizarBtn.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        actualizarBtn.FlatAppearance.BorderSize = 0
+        actualizarBtn.FlatStyle = FlatStyle.Flat
+        actualizarBtn.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        actualizarBtn.ForeColor = Color.White
+        actualizarBtn.Location = New Point(196, 22)
+        actualizarBtn.Name = "actualizarBtn"
+        actualizarBtn.Size = New Size(148, 65)
+        actualizarBtn.TabIndex = 49
+        actualizarBtn.Text = "✏️" & vbCrLf & "Actualizar"
+        actualizarBtn.UseVisualStyleBackColor = False
         ' 
-        ' BtnAceptar
+        ' crearBtn
         ' 
-        BtnAceptar.BackColor = Color.FromArgb(CByte(0), CByte(116), CByte(255))
-        BtnAceptar.Cursor = Cursors.Hand
-        BtnAceptar.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        BtnAceptar.FlatAppearance.BorderSize = 0
-        BtnAceptar.FlatStyle = FlatStyle.Flat
-        BtnAceptar.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        BtnAceptar.ForeColor = Color.FromArgb(CByte(255), CByte(230), CByte(133))
-        BtnAceptar.Location = New Point(17, 22)
-        BtnAceptar.Name = "BtnAceptar"
-        BtnAceptar.Size = New Size(150, 65)
-        BtnAceptar.TabIndex = 48
-        BtnAceptar.Text = "➕" & vbCrLf & " Nueva"
-        BtnAceptar.UseVisualStyleBackColor = False
+        crearBtn.BackColor = Color.FromArgb(CByte(0), CByte(116), CByte(255))
+        crearBtn.Cursor = Cursors.Hand
+        crearBtn.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        crearBtn.FlatAppearance.BorderSize = 0
+        crearBtn.FlatStyle = FlatStyle.Flat
+        crearBtn.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        crearBtn.ForeColor = Color.FromArgb(CByte(255), CByte(230), CByte(133))
+        crearBtn.Location = New Point(17, 22)
+        crearBtn.Name = "crearBtn"
+        crearBtn.Size = New Size(150, 65)
+        crearBtn.TabIndex = 48
+        crearBtn.Text = "➕" & vbCrLf & " Nueva"
+        crearBtn.UseVisualStyleBackColor = False
         ' 
         ' DataGridView1
         ' 
@@ -629,9 +635,9 @@ Partial Class Clientes
     Friend WithEvents BtnSeleccionar As Button
     Friend WithEvents Label9 As Label
     Friend WithEvents PanelBotones As Panel
-    Friend WithEvents BtnEliminar As Button
-    Friend WithEvents BtnActualizar As Button
-    Friend WithEvents BtnAceptar As Button
+    Friend WithEvents eliminarBtn As Button
+    Friend WithEvents actualizarBtn As Button
+    Friend WithEvents crearBtn As Button
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents residenciatb As TextBox
     Friend WithEvents nombreTb As TextBox
