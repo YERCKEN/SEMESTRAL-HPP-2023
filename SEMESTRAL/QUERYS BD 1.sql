@@ -147,4 +147,96 @@ EXEC ObtenerRolUsuario 'Administrador';
 EXEC ObtenerRolUsuario 'Coordinador';
 
 
-SELECT NombreFacultad FROM Facultades;
+SELECT ID, NombreFacultad FROM Facultades;
+
+
+-- select ID DE UNA FACULTAD
+
+SELECT ID
+FROM Facultades
+WHERE NombreFacultad = 'Facultad de Ingeniería Industrial';
+
+ --('Facultad de Ingeniería Civil'),
+ --   ('Facultad de Ingeniería Industrial'),
+ --   ('Facultad de Ingeniería Eléctrica'),
+ --   ('Facultad de Ingeniería de Sistemas Computacionales'),
+ --   ('Facultad de Ciencias y Tecnología');
+
+
+
+
+
+
+
+ -- PROCEMIENTOS CARRERAS: obtener ID de la facultad
+
+ CREATE PROCEDURE obtenerIdFacultad
+    @NombreFacultad VARCHAR(100)
+AS
+BEGIN
+    SELECT ID
+    FROM Facultades
+    WHERE NombreFacultad = @NombreFacultad;
+END;
+
+
+ -- PROCEMIENTOS CARRERAS: agregar carrera
+
+ CREATE PROCEDURE agregarCarrera
+    @NombreCarrera VARCHAR(100)
+AS
+BEGIN
+    DECLARE @CarreraID INT;
+
+    INSERT INTO Carreras (NombreCarrera)
+    VALUES (@NombreCarrera);
+
+    SET @CarreraID = SCOPE_IDENTITY(); -- Obtiene el último ID insertado en la tabla Carreras
+
+    SELECT @CarreraID AS CarreraID;
+END;
+
+
+
+ -- PROCEMIENTOS CARRERAS: RELACIONAR CARRERAS FACULTAD
+
+CREATE PROCEDURE relacionarCarrerasFacultad
+    @CarreraID INT,
+    @FacultadID INT
+AS
+BEGIN
+    INSERT INTO CarrerasFacultad (CarreraID, FacultadID)
+    VALUES (@CarreraID, @FacultadID);
+END;
+
+
+--ACTUALIZAR
+
+CREATE PROCEDURE ActualizarNombreCarrera
+    @CarreraID INT,
+    @NuevoNombreCarrera VARCHAR(100)
+AS
+BEGIN
+    UPDATE Carreras
+    SET NombreCarrera = @NuevoNombreCarrera
+    WHERE ID = @CarreraID;
+END;
+
+ CREATE PROCEDURE obtenerIdFacultad
+    @NombreFacultad VARCHAR(100)
+AS
+BEGIN
+    SELECT ID
+    FROM Facultades
+    WHERE NombreFacultad = @NombreFacultad;
+END;
+
+CREATE PROCEDURE ActualizarFacultadID
+    @CarreraID INT,
+    @NuevoFacultadID INT
+AS
+BEGIN
+    UPDATE CarrerasFacultad
+    SET FacultadID = @NuevoFacultadID
+    WHERE CarreraID = @CarreraID;
+END;

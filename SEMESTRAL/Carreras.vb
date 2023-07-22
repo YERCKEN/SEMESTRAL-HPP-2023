@@ -51,6 +51,9 @@ Public Class Carreras
         PanelFacultad.Visible = True
         PanelNombre.Visible = True
         PanelSelecion.Visible = False
+        btnIngresar.Visible = True
+        BtnSalirDeNuevaCarrera.Visible = True
+
 
         'CAMBIOS ESTILOS FORMS 1
         Form1.Menu.BackColor = Color.FromArgb(0, 196, 135)
@@ -70,13 +73,15 @@ Public Class Carreras
 
     Private Sub BtnEliminar_Click(sender As Object, e As EventArgs) Handles BtnEliminar.Click
         limpiar()
+        TextBoxId.Text = ""
         PanelNuevaCarrera.Visible = True
         PanelBotones.Visible = False
         PanelFacultad.Visible = False
         PanelNombre.Visible = False
 
         PanelSelecion.Visible = True
-
+        btnIngresar.Visible = False
+        BtnSalirDeNuevaCarrera.Visible = False
 
         'CAMBIOS ESTILOS FORMS 1
         Form1.Menu.BackColor = Color.FromArgb(250, 80, 80)
@@ -105,16 +110,42 @@ Public Class Carreras
         Form1.BtnMin.BackColor = Color.FromArgb(0, 116, 255)
         Form1.btnCerrar.BackColor = Color.FromArgb(0, 116, 255)
 
+        For Each fila As DataGridViewRow In DataGridView1.Rows
+            fila.DefaultCellStyle.BackColor = DataGridView1.DefaultCellStyle.BackColor ' Establecer el color de fondo predeterminado del DataGridView
+        Next
+
     End Sub
 
+
+    Private Sub BtnSalirSeleccion_Click(sender As Object, e As EventArgs) Handles BtnSalirSeleccion.Click
+        PanelNuevaCarrera.Visible = False
+        PanelBotones.Visible = True
+
+        'CAMBIOS ESTILOS FORMS 1
+        Form1.Menu.BackColor = Color.FromArgb(0, 116, 255)
+        Form1.PictureBox1.BackColor = Color.FromArgb(0, 116, 255)
+        Form1.LabelActividad.BackColor = Color.FromArgb(0, 116, 255)
+        Form1.BtnMin.BackColor = Color.FromArgb(0, 116, 255)
+        Form1.btnCerrar.BackColor = Color.FromArgb(0, 116, 255)
+
+
+        For Each fila As DataGridViewRow In DataGridView1.Rows
+            fila.DefaultCellStyle.BackColor = DataGridView1.DefaultCellStyle.BackColor ' Establecer el color de fondo predeterminado del DataGridView
+        Next
+
+    End Sub
     'ACTUALIZAR =================================================================================================
 
     Private Sub BtnActualizar_Click(sender As Object, e As EventArgs) Handles BtnActualizar.Click
+        TextBoxId.Text = ""
         PanelNuevaCarrera.Visible = True
         PanelBotones.Visible = False
-        PanelFacultad.Visible = True
-        PanelNombre.Visible = True
-        PanelSelecion.Visible = False
+
+        PanelFacultad.Visible = False
+        PanelNombre.Visible = False
+        PanelSelecion.Visible = True
+        btnIngresar.Visible = False
+        BtnSalirDeNuevaCarrera.Visible = False
 
         'CAMBIOS ESTILOS FORMS 1
         Form1.Menu.BackColor = Color.FromArgb(0, 116, 255)
@@ -192,4 +223,168 @@ Public Class Carreras
     End Sub
 
 
+
+    'CONFIRMAR =============================================================================
+    Private Sub btnIngresar_Click(sender As Object, e As EventArgs) Handles btnIngresar.Click
+
+        'CONTROL ------------------------------------------------------------
+        If btnIngresar.Text = "Eliminar Carrera" Then
+
+            MsgBox("TAMOS ELIMININAND")
+
+
+
+
+        ElseIf listaFacultad.Text = "Facultad de Ingeniería Civil" Or listaFacultad.Text = "Facultad de Ingeniería Industrial" Or listaFacultad.Text = "Facultad de Ingeniería Eléctrica" Or listaFacultad.Text = "Facultad de Ingeniería de Sistemas Computacionales" Or listaFacultad.Text = "Facultad de Ciencias y Tecnología" Then
+
+            If textBoxNombre.Text <> "" Then
+
+                'QUERYS -------------------------------------------------------------
+                'AGREGAR CARRERA
+                If btnIngresar.Text = "Agregar Carrera" Then
+
+
+                    Dim carreraID As Integer = querysBDYercken.AgregarCarrera(textBoxNombre.Text)
+                    Dim facultadID As Integer = querysBDYercken.ObtenerIdFacultad(listaFacultad.Text)
+
+                    If carreraID <> -1 AndAlso facultadID <> -1 Then
+
+                        querysBDYercken.RelacionarCarrerasFacultad(carreraID, facultadID)
+                        MessageBox.Show("Carrera agregada y relacionada con la facultad correctamente", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        DataGridView1.DataSource = querysBDYercken.obtenerCarrerasConFacultades()
+                    Else
+                        MessageBox.Show("ERROR: al agregar la carrera o relacionarla con la facultad.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    End If
+
+                    'ACTULIZAR CARRERRA
+
+                ElseIf btnIngresar.Text = "Actualizar Carrera" Then
+
+
+                    querysBDYercken.ActualizarNombreCarrera(TextBoxId.Text, textBoxNombre.Text)
+                    Dim facultadID As Integer = querysBDYercken.ObtenerIdFacultad(listaFacultad.Text)
+
+                    If facultadID <> -1 Then
+                        querysBDYercken.ActualizarFacultadID(TextBoxId.Text, facultadID)
+
+                        MessageBox.Show("Los datos de la carrera fueron actualizados", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        DataGridView1.DataSource = querysBDYercken.obtenerCarrerasConFacultades()
+
+                    Else
+                        MessageBox.Show("No se encontró la facultad con el nombre especificado.")
+                    End If
+
+                End If
+
+
+            Else
+                textBoxNombre.BackColor = Color.FromArgb(255, 222, 222)
+                MessageBox.Show("ERROR: Campo Vacío", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                textBoxNombre.BackColor = Color.White
+            End If
+
+
+        Else
+
+            listaFacultad.BackColor = Color.FromArgb(255, 222, 222)
+            MessageBox.Show("ERROR: Facultad Inexistente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            listaFacultad.BackColor = Color.White
+
+        End If
+
+
+
+    End Sub
+
+    Private Sub TextBoxId_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBoxId.KeyPress
+        If Not Char.IsDigit(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) Then
+
+            TextBoxId.BackColor = Color.FromArgb(255, 222, 222)
+            e.Handled = True
+            MessageBox.Show("ERROR: Caracter ( " & e.KeyChar & " ) No soportado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            TextBoxId.BackColor = Color.White
+
+        End If
+    End Sub
+
+    Private Sub BtnSeleccionar_Click(sender As Object, e As EventArgs) Handles BtnSeleccionar.Click
+        'SI NO ESTÁ VACÍO
+        If TextBoxId.Text <> "" Then
+
+            'CONTROL DETERMINAR SI EL ID EXISTE Y HACER EL UPDATE
+            Dim idBuscado As Integer
+            If Integer.TryParse(Convert.ToInt32(TextBoxId.Text), idBuscado) Then
+                Dim existeId As Boolean = False
+
+                ' Limpiar colores de fondo de todas las filas
+                For Each fila As DataGridViewRow In DataGridView1.Rows
+                    fila.DefaultCellStyle.BackColor = DataGridView1.DefaultCellStyle.BackColor ' Establecer el color de fondo predeterminado del DataGridView
+                Next
+
+                For Each fila As DataGridViewRow In DataGridView1.Rows
+                    Dim valorCelda As Integer
+                    If fila.Cells("ID").Value IsNot Nothing AndAlso Integer.TryParse(fila.Cells("ID").Value.ToString(), valorCelda) Then
+                        If valorCelda = idBuscado Then
+                            existeId = True
+
+                            If btnIngresar.Text = "Eliminar Carrera" Then
+                                fila.DefaultCellStyle.BackColor = Color.FromArgb(255, 222, 222) ' Establecer el color de fondo de la fila encontrada
+
+                            Else
+                                fila.DefaultCellStyle.BackColor = Color.Yellow ' Establecer el color de fondo de la fila encontrada
+
+                            End If
+
+                            Exit For
+                        End If
+                    End If
+                Next
+
+                'SI EL ID EXISTE
+                If existeId Then
+
+                    If btnIngresar.Text = "Eliminar Carrera" Then
+                        PanelFacultad.Visible = False
+                        PanelNombre.Visible = False
+                        PanelSelecion.Visible = True
+                        btnIngresar.Visible = True
+                        BtnSalirDeNuevaCarrera.Visible = True
+                    Else
+
+                        'ACTUALIZAR
+                        Dim result = querysBDYercken.selectCarreraFacultad(TextBoxId.Text)
+
+                        ' Mostrar los resultados en los TextBox correspondientes
+                        textBoxNombre.Text = result.Item1
+                        listaFacultad.Text = result.Item2
+
+                        'VISIBLES
+                        PanelFacultad.Visible = True
+                        PanelNombre.Visible = True
+                        PanelSelecion.Visible = False
+                        btnIngresar.Visible = True
+                        BtnSalirDeNuevaCarrera.Visible = True
+
+                    End If
+
+
+
+                Else
+                    TextBoxId.BackColor = Color.FromArgb(255, 222, 222)
+                    MessageBox.Show("ERROR: EL ID NO EXISTE", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    TextBoxId.BackColor = Color.White
+                End If
+
+
+            End If
+        Else
+            TextBoxId.BackColor = Color.FromArgb(255, 222, 222)
+            MessageBox.Show("ERROR: ID no especificado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            TextBoxId.BackColor = Color.White
+        End If
+    End Sub
+
+
 End Class
+
+
