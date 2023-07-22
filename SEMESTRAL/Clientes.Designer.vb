@@ -22,6 +22,9 @@ Partial Class Clientes
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         panelIngresoDatos2 = New Panel()
         ComboBox4 = New ComboBox()
         Label13 = New Label()
@@ -60,9 +63,11 @@ Partial Class Clientes
         BtnEliminar = New Button()
         BtnActualizar = New Button()
         BtnAceptar = New Button()
+        DataGridView1 = New DataGridView()
         panelIngresoDatos2.SuspendLayout()
         PanelSelecion.SuspendLayout()
         PanelBotones.SuspendLayout()
+        CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' panelIngresoDatos2
@@ -99,7 +104,6 @@ Partial Class Clientes
         panelIngresoDatos2.Name = "panelIngresoDatos2"
         panelIngresoDatos2.Size = New Size(721, 533)
         panelIngresoDatos2.TabIndex = 76
-        panelIngresoDatos2.Visible = False
         ' 
         ' ComboBox4
         ' 
@@ -414,11 +418,10 @@ Partial Class Clientes
         PanelSelecion.Controls.Add(TextBoxId)
         PanelSelecion.Controls.Add(BtnSeleccionar)
         PanelSelecion.Controls.Add(Label9)
-        PanelSelecion.Location = New Point(12, 12)
+        PanelSelecion.Location = New Point(12, 112)
         PanelSelecion.Name = "PanelSelecion"
         PanelSelecion.Size = New Size(378, 91)
         PanelSelecion.TabIndex = 75
-        PanelSelecion.Visible = False
         ' 
         ' BtnSalirSeleccion
         ' 
@@ -477,7 +480,7 @@ Partial Class Clientes
         PanelBotones.Controls.Add(BtnEliminar)
         PanelBotones.Controls.Add(BtnActualizar)
         PanelBotones.Controls.Add(BtnAceptar)
-        PanelBotones.Location = New Point(12, 119)
+        PanelBotones.Location = New Point(12, 265)
         PanelBotones.Name = "PanelBotones"
         PanelBotones.Size = New Size(378, 190)
         PanelBotones.TabIndex = 74
@@ -530,12 +533,57 @@ Partial Class Clientes
         BtnAceptar.Text = "➕" & vbCrLf & " Nueva"
         BtnAceptar.UseVisualStyleBackColor = False
         ' 
+        ' DataGridView1
+        ' 
+        DataGridView1.BackgroundColor = Color.White
+        DataGridView1.BorderStyle = BorderStyle.None
+        DataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal
+        DataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = Color.White
+        DataGridViewCellStyle1.Font = New Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
+        DataGridViewCellStyle1.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        DataGridViewCellStyle1.Padding = New Padding(5)
+        DataGridViewCellStyle1.SelectionBackColor = Color.White
+        DataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(CByte(67), CByte(116), CByte(255))
+        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
+        DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridView1.ColumnHeadersHeight = 50
+        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = SystemColors.Window
+        DataGridViewCellStyle2.Font = New Font("Microsoft JhengHei UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle2.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        DataGridViewCellStyle2.SelectionBackColor = SystemColors.Control
+        DataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.False
+        DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridView1.EnableHeadersVisualStyles = False
+        DataGridView1.GridColor = Color.FromArgb(CByte(230), CByte(235), CByte(242))
+        DataGridView1.Location = New Point(12, 551)
+        DataGridView1.Margin = New Padding(4, 3, 4, 3)
+        DataGridView1.Name = "DataGridView1"
+        DataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = Color.White
+        DataGridViewCellStyle3.Font = New Font("Segoe UI", 9.6F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle3.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        DataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = DataGridViewTriState.True
+        DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
+        DataGridView1.RowHeadersVisible = False
+        DataGridView1.RowHeadersWidth = 51
+        DataGridView1.RowTemplate.Height = 31
+        DataGridView1.Size = New Size(1113, 217)
+        DataGridView1.TabIndex = 77
+        ' 
         ' Clientes
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.White
         ClientSize = New Size(1138, 780)
+        Controls.Add(DataGridView1)
         Controls.Add(panelIngresoDatos2)
         Controls.Add(PanelSelecion)
         Controls.Add(PanelBotones)
@@ -547,6 +595,7 @@ Partial Class Clientes
         PanelSelecion.ResumeLayout(False)
         PanelSelecion.PerformLayout()
         PanelBotones.ResumeLayout(False)
+        CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 
@@ -588,4 +637,5 @@ Partial Class Clientes
     Friend WithEvents BtnEliminar As Button
     Friend WithEvents BtnActualizar As Button
     Friend WithEvents BtnAceptar As Button
+    Friend WithEvents DataGridView1 As DataGridView
 End Class
