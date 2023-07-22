@@ -230,10 +230,10 @@ Public Class Carreras
         'CONTROL ------------------------------------------------------------
         If btnIngresar.Text = "Eliminar Carrera" Then
 
-            MsgBox("TAMOS ELIMININAND")
 
-
-
+            'ELIMINAR CARRERA =================================================
+            querysBDYercken.EliminarCarrera(TextBoxId.Text)
+            DataGridView1.DataSource = querysBDYercken.obtenerCarrerasConFacultades()
 
         ElseIf listaFacultad.Text = "Facultad de Ingeniería Civil" Or listaFacultad.Text = "Facultad de Ingeniería Industrial" Or listaFacultad.Text = "Facultad de Ingeniería Eléctrica" Or listaFacultad.Text = "Facultad de Ingeniería de Sistemas Computacionales" Or listaFacultad.Text = "Facultad de Ciencias y Tecnología" Then
 

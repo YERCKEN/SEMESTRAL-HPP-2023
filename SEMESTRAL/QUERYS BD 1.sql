@@ -240,3 +240,23 @@ BEGIN
     SET FacultadID = @NuevoFacultadID
     WHERE CarreraID = @CarreraID;
 END;
+
+
+
+
+
+CREATE PROCEDURE selectDatosCarrera
+    @CarreraID INT,
+    @NombreCarrera VARCHAR(100) OUTPUT,
+    @NombreFacultad VARCHAR(100) OUTPUT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT @NombreCarrera = c.NombreCarrera, @NombreFacultad = f.NombreFacultad
+    FROM Carreras c
+    INNER JOIN CarrerasFacultad cf ON c.ID = cf.CarreraID
+    INNER JOIN Facultades f ON cf.FacultadID = f.ID
+    WHERE c.ID = @CarreraID;
+END;
+GO

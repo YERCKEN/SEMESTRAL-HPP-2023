@@ -212,4 +212,35 @@ Public Class querysBDYercken
 
         Return (nombreCarrera, nombreFacultad)
     End Function
+
+
+
+    Public Sub EliminarCarrera(ByVal carreraID As Integer)
+        Try
+            Using connection As New SqlConnection(VARIABLES_GLOBALES.cadenaConexion)
+                connection.Open()
+
+                ' Eliminar el registro correspondiente de la tabla CarrerasFacultad
+                Dim deleteCarrerasFacultadQuery As String = "DELETE FROM CarrerasFacultad WHERE CarreraID = @CarreraID;"
+                Using cmdDeleteCarrerasFacultad As New SqlCommand(deleteCarrerasFacultadQuery, connection)
+                    cmdDeleteCarrerasFacultad.Parameters.AddWithValue("@CarreraID", carreraID)
+                    cmdDeleteCarrerasFacultad.ExecuteNonQuery()
+                End Using
+
+                ' Eliminar el registro de la tabla Carreras
+                Dim deleteCarreraQuery As String = "DELETE FROM Carreras WHERE ID = @CarreraID;"
+                Using cmdDeleteCarrera As New SqlCommand(deleteCarreraQuery, connection)
+                    cmdDeleteCarrera.Parameters.AddWithValue("@CarreraID", carreraID)
+                    cmdDeleteCarrera.ExecuteNonQuery()
+                End Using
+            End Using
+            MessageBox.Show("Carrera eliminada correctamente.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+        Catch ex As Exception
+
+            MessageBox.Show("Error al eliminar la carrera: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+        End Try
+    End Sub
+
 End Class
