@@ -22,37 +22,36 @@ Partial Class Clientes
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
         panelIngresoDatos2 = New Panel()
+        residenciatb = New TextBox()
+        nombreTb = New TextBox()
         ComboBox4 = New ComboBox()
         Label13 = New Label()
         ComboBox5 = New ComboBox()
         Label14 = New Label()
-        ComboBox3 = New ComboBox()
         Label12 = New Label()
         ComboBox2 = New ComboBox()
         Label11 = New Label()
-        TextBox2 = New TextBox()
+        lugarTrabajoTb = New TextBox()
         Label10 = New Label()
         ComboBox1 = New ComboBox()
         Label8 = New Label()
-        TextBox1 = New TextBox()
+        telefono3Tb = New TextBox()
         Label5 = New Label()
-        TextBoxCostoFinal = New TextBox()
+        telefono2Tb = New TextBox()
         Label4 = New Label()
-        TextBoxCostoInicial = New TextBox()
+        telefono1Tb = New TextBox()
         Label3 = New Label()
-        ListaEstado = New ComboBox()
         Label2 = New Label()
-        ListaTipoSoporte = New ComboBox()
         BtnVolver = New Button()
         BtnIngresarNuevoTicket = New Button()
-        TextBoxObservacion = New TextBox()
+        ObservacionTb = New TextBox()
         Label1 = New Label()
         Label6 = New Label()
-        TextBoxEquipo = New TextBox()
+        apellidoTb = New TextBox()
         Label7 = New Label()
         PanelSelecion = New Panel()
         BtnSalirSeleccion = New Button()
@@ -64,6 +63,7 @@ Partial Class Clientes
         BtnActualizar = New Button()
         BtnAceptar = New Button()
         DataGridView1 = New DataGridView()
+        ComboBox3 = New ComboBox()
         panelIngresoDatos2.SuspendLayout()
         PanelSelecion.SuspendLayout()
         PanelBotones.SuspendLayout()
@@ -72,38 +72,56 @@ Partial Class Clientes
         ' 
         ' panelIngresoDatos2
         ' 
+        panelIngresoDatos2.Controls.Add(ComboBox3)
+        panelIngresoDatos2.Controls.Add(residenciatb)
+        panelIngresoDatos2.Controls.Add(nombreTb)
         panelIngresoDatos2.Controls.Add(ComboBox4)
         panelIngresoDatos2.Controls.Add(Label13)
         panelIngresoDatos2.Controls.Add(ComboBox5)
         panelIngresoDatos2.Controls.Add(Label14)
-        panelIngresoDatos2.Controls.Add(ComboBox3)
         panelIngresoDatos2.Controls.Add(Label12)
         panelIngresoDatos2.Controls.Add(ComboBox2)
         panelIngresoDatos2.Controls.Add(Label11)
-        panelIngresoDatos2.Controls.Add(TextBox2)
+        panelIngresoDatos2.Controls.Add(lugarTrabajoTb)
         panelIngresoDatos2.Controls.Add(Label10)
         panelIngresoDatos2.Controls.Add(ComboBox1)
         panelIngresoDatos2.Controls.Add(Label8)
-        panelIngresoDatos2.Controls.Add(TextBox1)
+        panelIngresoDatos2.Controls.Add(telefono3Tb)
         panelIngresoDatos2.Controls.Add(Label5)
-        panelIngresoDatos2.Controls.Add(TextBoxCostoFinal)
+        panelIngresoDatos2.Controls.Add(telefono2Tb)
         panelIngresoDatos2.Controls.Add(Label4)
-        panelIngresoDatos2.Controls.Add(TextBoxCostoInicial)
+        panelIngresoDatos2.Controls.Add(telefono1Tb)
         panelIngresoDatos2.Controls.Add(Label3)
-        panelIngresoDatos2.Controls.Add(ListaEstado)
         panelIngresoDatos2.Controls.Add(Label2)
-        panelIngresoDatos2.Controls.Add(ListaTipoSoporte)
         panelIngresoDatos2.Controls.Add(BtnVolver)
         panelIngresoDatos2.Controls.Add(BtnIngresarNuevoTicket)
-        panelIngresoDatos2.Controls.Add(TextBoxObservacion)
+        panelIngresoDatos2.Controls.Add(ObservacionTb)
         panelIngresoDatos2.Controls.Add(Label1)
         panelIngresoDatos2.Controls.Add(Label6)
-        panelIngresoDatos2.Controls.Add(TextBoxEquipo)
+        panelIngresoDatos2.Controls.Add(apellidoTb)
         panelIngresoDatos2.Controls.Add(Label7)
         panelIngresoDatos2.Location = New Point(405, 12)
         panelIngresoDatos2.Name = "panelIngresoDatos2"
         panelIngresoDatos2.Size = New Size(721, 533)
         panelIngresoDatos2.TabIndex = 76
+        ' 
+        ' residenciatb
+        ' 
+        residenciatb.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        residenciatb.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        residenciatb.Location = New Point(436, 57)
+        residenciatb.Name = "residenciatb"
+        residenciatb.Size = New Size(184, 30)
+        residenciatb.TabIndex = 73
+        ' 
+        ' nombreTb
+        ' 
+        nombreTb.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        nombreTb.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        nombreTb.Location = New Point(5, 57)
+        nombreTb.Name = "nombreTb"
+        nombreTb.Size = New Size(184, 30)
+        nombreTb.TabIndex = 72
         ' 
         ' ComboBox4
         ' 
@@ -149,17 +167,6 @@ Partial Class Clientes
         Label14.TabIndex = 68
         Label14.Text = "Opción #3"
         ' 
-        ' ComboBox3
-        ' 
-        ComboBox3.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        ComboBox3.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        ComboBox3.FormattingEnabled = True
-        ComboBox3.Items.AddRange(New Object() {"En espera", "En proceso", "Terminado"})
-        ComboBox3.Location = New Point(5, 334)
-        ComboBox3.Name = "ComboBox3"
-        ComboBox3.Size = New Size(184, 33)
-        ComboBox3.TabIndex = 65
-        ' 
         ' Label12
         ' 
         Label12.AutoSize = True
@@ -193,14 +200,14 @@ Partial Class Clientes
         Label11.TabIndex = 62
         Label11.Text = "Convocatoria"
         ' 
-        ' TextBox2
+        ' lugarTrabajoTb
         ' 
-        TextBox2.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        TextBox2.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        TextBox2.Location = New Point(232, 239)
-        TextBox2.Name = "TextBox2"
-        TextBox2.Size = New Size(163, 30)
-        TextBox2.TabIndex = 60
+        lugarTrabajoTb.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        lugarTrabajoTb.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        lugarTrabajoTb.Location = New Point(232, 239)
+        lugarTrabajoTb.Name = "lugarTrabajoTb"
+        lugarTrabajoTb.Size = New Size(163, 30)
+        lugarTrabajoTb.TabIndex = 60
         ' 
         ' Label10
         ' 
@@ -235,14 +242,14 @@ Partial Class Clientes
         Label8.TabIndex = 58
         Label8.Text = "Tipo"
         ' 
-        ' TextBox1
+        ' telefono3Tb
         ' 
-        TextBox1.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        TextBox1.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        TextBox1.Location = New Point(436, 146)
-        TextBox1.Name = "TextBox1"
-        TextBox1.Size = New Size(163, 30)
-        TextBox1.TabIndex = 56
+        telefono3Tb.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        telefono3Tb.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        telefono3Tb.Location = New Point(436, 146)
+        telefono3Tb.Name = "telefono3Tb"
+        telefono3Tb.Size = New Size(163, 30)
+        telefono3Tb.TabIndex = 56
         ' 
         ' Label5
         ' 
@@ -255,14 +262,14 @@ Partial Class Clientes
         Label5.TabIndex = 57
         Label5.Text = "Email"
         ' 
-        ' TextBoxCostoFinal
+        ' telefono2Tb
         ' 
-        TextBoxCostoFinal.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        TextBoxCostoFinal.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        TextBoxCostoFinal.Location = New Point(232, 146)
-        TextBoxCostoFinal.Name = "TextBoxCostoFinal"
-        TextBoxCostoFinal.Size = New Size(163, 30)
-        TextBoxCostoFinal.TabIndex = 54
+        telefono2Tb.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        telefono2Tb.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        telefono2Tb.Location = New Point(232, 146)
+        telefono2Tb.Name = "telefono2Tb"
+        telefono2Tb.Size = New Size(163, 30)
+        telefono2Tb.TabIndex = 54
         ' 
         ' Label4
         ' 
@@ -275,14 +282,14 @@ Partial Class Clientes
         Label4.TabIndex = 55
         Label4.Text = "Teléfono 2"
         ' 
-        ' TextBoxCostoInicial
+        ' telefono1Tb
         ' 
-        TextBoxCostoInicial.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        TextBoxCostoInicial.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        TextBoxCostoInicial.Location = New Point(4, 146)
-        TextBoxCostoInicial.Name = "TextBoxCostoInicial"
-        TextBoxCostoInicial.Size = New Size(184, 30)
-        TextBoxCostoInicial.TabIndex = 52
+        telefono1Tb.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        telefono1Tb.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        telefono1Tb.Location = New Point(4, 146)
+        telefono1Tb.Name = "telefono1Tb"
+        telefono1Tb.Size = New Size(184, 30)
+        telefono1Tb.TabIndex = 52
         ' 
         ' Label3
         ' 
@@ -295,17 +302,6 @@ Partial Class Clientes
         Label3.TabIndex = 53
         Label3.Text = "Teléfono 1"
         ' 
-        ' ListaEstado
-        ' 
-        ListaEstado.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        ListaEstado.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        ListaEstado.FormattingEnabled = True
-        ListaEstado.Items.AddRange(New Object() {"En espera", "En proceso", "Terminado"})
-        ListaEstado.Location = New Point(436, 57)
-        ListaEstado.Name = "ListaEstado"
-        ListaEstado.Size = New Size(184, 33)
-        ListaEstado.TabIndex = 51
-        ' 
         ' Label2
         ' 
         Label2.AutoSize = True
@@ -316,17 +312,6 @@ Partial Class Clientes
         Label2.Size = New Size(118, 25)
         Label2.TabIndex = 50
         Label2.Text = "Residencia"
-        ' 
-        ' ListaTipoSoporte
-        ' 
-        ListaTipoSoporte.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        ListaTipoSoporte.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        ListaTipoSoporte.FormattingEnabled = True
-        ListaTipoSoporte.Items.AddRange(New Object() {"Preventivo", "Correctivo", "Predictivo"})
-        ListaTipoSoporte.Location = New Point(4, 57)
-        ListaTipoSoporte.Name = "ListaTipoSoporte"
-        ListaTipoSoporte.Size = New Size(184, 33)
-        ListaTipoSoporte.TabIndex = 49
         ' 
         ' BtnVolver
         ' 
@@ -360,15 +345,15 @@ Partial Class Clientes
         BtnIngresarNuevoTicket.Text = "Actualizar Datos"
         BtnIngresarNuevoTicket.UseVisualStyleBackColor = False
         ' 
-        ' TextBoxObservacion
+        ' ObservacionTb
         ' 
-        TextBoxObservacion.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        TextBoxObservacion.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        TextBoxObservacion.Location = New Point(5, 434)
-        TextBoxObservacion.Multiline = True
-        TextBoxObservacion.Name = "TextBoxObservacion"
-        TextBoxObservacion.Size = New Size(415, 68)
-        TextBoxObservacion.TabIndex = 19
+        ObservacionTb.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        ObservacionTb.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        ObservacionTb.Location = New Point(5, 434)
+        ObservacionTb.Multiline = True
+        ObservacionTb.Name = "ObservacionTb"
+        ObservacionTb.Size = New Size(415, 68)
+        ObservacionTb.TabIndex = 19
         ' 
         ' Label1
         ' 
@@ -392,14 +377,14 @@ Partial Class Clientes
         Label6.TabIndex = 16
         Label6.Text = "Nombre"
         ' 
-        ' TextBoxEquipo
+        ' apellidoTb
         ' 
-        TextBoxEquipo.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        TextBoxEquipo.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        TextBoxEquipo.Location = New Point(232, 57)
-        TextBoxEquipo.Name = "TextBoxEquipo"
-        TextBoxEquipo.Size = New Size(184, 30)
-        TextBoxEquipo.TabIndex = 14
+        apellidoTb.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        apellidoTb.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        apellidoTb.Location = New Point(232, 57)
+        apellidoTb.Name = "apellidoTb"
+        apellidoTb.Size = New Size(184, 30)
+        apellidoTb.TabIndex = 14
         ' 
         ' Label7
         ' 
@@ -539,43 +524,54 @@ Partial Class Clientes
         DataGridView1.BorderStyle = BorderStyle.None
         DataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal
         DataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = Color.White
-        DataGridViewCellStyle1.Font = New Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
-        DataGridViewCellStyle1.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        DataGridViewCellStyle1.Padding = New Padding(5)
-        DataGridViewCellStyle1.SelectionBackColor = Color.White
-        DataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(CByte(67), CByte(116), CByte(255))
-        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
-        DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle4.BackColor = Color.White
+        DataGridViewCellStyle4.Font = New Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
+        DataGridViewCellStyle4.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        DataGridViewCellStyle4.Padding = New Padding(5)
+        DataGridViewCellStyle4.SelectionBackColor = Color.White
+        DataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(CByte(67), CByte(116), CByte(255))
+        DataGridViewCellStyle4.WrapMode = DataGridViewTriState.True
+        DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
         DataGridView1.ColumnHeadersHeight = 50
-        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = SystemColors.Window
-        DataGridViewCellStyle2.Font = New Font("Microsoft JhengHei UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point)
-        DataGridViewCellStyle2.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        DataGridViewCellStyle2.SelectionBackColor = SystemColors.Control
-        DataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.False
-        DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = SystemColors.Window
+        DataGridViewCellStyle5.Font = New Font("Microsoft JhengHei UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle5.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        DataGridViewCellStyle5.SelectionBackColor = SystemColors.Control
+        DataGridViewCellStyle5.SelectionForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        DataGridViewCellStyle5.WrapMode = DataGridViewTriState.False
+        DataGridView1.DefaultCellStyle = DataGridViewCellStyle5
         DataGridView1.EnableHeadersVisualStyles = False
         DataGridView1.GridColor = Color.FromArgb(CByte(230), CByte(235), CByte(242))
         DataGridView1.Location = New Point(12, 551)
         DataGridView1.Margin = New Padding(4, 3, 4, 3)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = Color.White
-        DataGridViewCellStyle3.Font = New Font("Segoe UI", 9.6F, FontStyle.Regular, GraphicsUnit.Point)
-        DataGridViewCellStyle3.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        DataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = DataGridViewTriState.True
-        DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = Color.White
+        DataGridViewCellStyle6.Font = New Font("Segoe UI", 9.6F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle6.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        DataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = DataGridViewTriState.True
+        DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
         DataGridView1.RowHeadersVisible = False
         DataGridView1.RowHeadersWidth = 51
         DataGridView1.RowTemplate.Height = 31
         DataGridView1.Size = New Size(1113, 217)
         DataGridView1.TabIndex = 77
+        ' 
+        ' ComboBox3
+        ' 
+        ComboBox3.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        ComboBox3.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        ComboBox3.FormattingEnabled = True
+        ComboBox3.Items.AddRange(New Object() {"En espera", "En proceso", "Terminado"})
+        ComboBox3.Location = New Point(5, 334)
+        ComboBox3.Name = "ComboBox3"
+        ComboBox3.Size = New Size(184, 33)
+        ComboBox3.TabIndex = 74
         ' 
         ' Clientes
         ' 
@@ -604,29 +600,26 @@ Partial Class Clientes
     Friend WithEvents Label13 As Label
     Friend WithEvents ComboBox5 As ComboBox
     Friend WithEvents Label14 As Label
-    Friend WithEvents ComboBox3 As ComboBox
     Friend WithEvents Label12 As Label
     Friend WithEvents ComboBox2 As ComboBox
     Friend WithEvents Label11 As Label
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents lugarTrabajoTb As TextBox
     Friend WithEvents Label10 As Label
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents Label8 As Label
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents telefono3Tb As TextBox
     Friend WithEvents Label5 As Label
-    Friend WithEvents TextBoxCostoFinal As TextBox
+    Friend WithEvents telefono2Tb As TextBox
     Friend WithEvents Label4 As Label
-    Friend WithEvents TextBoxCostoInicial As TextBox
+    Friend WithEvents telefono1Tb As TextBox
     Friend WithEvents Label3 As Label
-    Friend WithEvents ListaEstado As ComboBox
     Friend WithEvents Label2 As Label
-    Friend WithEvents ListaTipoSoporte As ComboBox
     Friend WithEvents BtnVolver As Button
     Friend WithEvents BtnIngresarNuevoTicket As Button
-    Friend WithEvents TextBoxObservacion As TextBox
+    Friend WithEvents ObservacionTb As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label6 As Label
-    Friend WithEvents TextBoxEquipo As TextBox
+    Friend WithEvents apellidoTb As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents PanelSelecion As Panel
     Friend WithEvents BtnSalirSeleccion As Button
@@ -638,4 +631,7 @@ Partial Class Clientes
     Friend WithEvents BtnActualizar As Button
     Friend WithEvents BtnAceptar As Button
     Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents residenciatb As TextBox
+    Friend WithEvents nombreTb As TextBox
+    Friend WithEvents ComboBox3 As ComboBox
 End Class
