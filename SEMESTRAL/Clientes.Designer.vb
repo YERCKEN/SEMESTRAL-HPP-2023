@@ -104,7 +104,6 @@ Partial Class Clientes
         panelIngresoDatos2.Name = "panelIngresoDatos2"
         panelIngresoDatos2.Size = New Size(721, 533)
         panelIngresoDatos2.TabIndex = 76
-        panelIngresoDatos2.Visible = False
         ' 
         ' ComboBox4
         ' 
@@ -423,7 +422,6 @@ Partial Class Clientes
         PanelSelecion.Name = "PanelSelecion"
         PanelSelecion.Size = New Size(378, 91)
         PanelSelecion.TabIndex = 75
-        PanelSelecion.Visible = False
         ' 
         ' BtnSalirSeleccion
         ' 
