@@ -12,7 +12,7 @@ Module VARIABLES_GLOBALES
 
     'JEISSON
     Public cadenaConexion As String = "Data Source=JEISSONPC\SQLEXPRESS;Initial Catalog=baseDeDatos1;Integrated Security=True"
-    'Public cadenaConexion As String = "Data Source=JEISSONPC\SQLEXPRESS;Initial Catalog=baseDeDatos2;Integrated Security=True"
+    Public cadenaConexion2 As String = "Data Source=JEISSONPC\SQLEXPRESS;Initial Catalog=baseDeDatos2;Integrated Security=True"
 
 
 
