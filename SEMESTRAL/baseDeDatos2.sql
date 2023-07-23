@@ -46,21 +46,16 @@ CREATE TABLE clienteopciones (
     convocatoria VARCHAR(255),
     FOREIGN KEY (id_cliente) REFERENCES clientes(id_clientes)
 );
--- Ejemplo 1
-INSERT INTO servicios (tipo, evento, horainicio, fechainicio, fechafinal, observacion)
-VALUES ('Conferencia', 'Charla de orientación', '09:00:00', '2023-07-25', '2023-07-25', 'Charla de bienvenida y orientación para nuevos estudiantes.');
 
+-- DATOS SERVICIOS
 INSERT INTO servicios (tipo, evento, horainicio, fechainicio, fechafinal, observacion)
-VALUES ('Taller', 'Taller de escritura', '14:30:00', '2023-08-02', '2023-08-04', 'Taller intensivo para mejorar habilidades de escritura académica.');
+VALUES 
+    ('Conferencia', 'Charla de orientación', '09:00:00', '2023-07-25', '2023-07-25', 'Charla de bienvenida y orientación para nuevos estudiantes.'),
+    ('Taller', 'Taller de escritura', '14:30:00', '2023-08-02', '2023-08-04', 'Taller intensivo para mejorar habilidades de escritura académica.'),
+    ('Exposición', 'Feria de carreras', '10:00:00', '2023-09-10', '2023-09-10', 'Exposición de todas las carreras ofrecidas por la universidad para futuros estudiantes.'),
+    ('Reunión', 'Reunión de profesores', '15:00:00', '2023-09-20', '2023-09-20', 'Reunión del cuerpo docente para discutir el plan académico del próximo semestre.'),
+    ('Actividad deportiva', 'Torneo interuniversitario', '09:00:00', '2023-10-05', '2023-10-07', 'Torneo deportivo entre diferentes universidades con múltiples disciplinas.');
 
-INSERT INTO servicios (tipo, evento, horainicio, fechainicio, fechafinal, observacion)
-VALUES ('Exposición', 'Feria de carreras', '10:00:00', '2023-09-10', '2023-09-10', 'Exposición de todas las carreras ofrecidas por la universidad para futuros estudiantes.');
-
-INSERT INTO servicios (tipo, evento, horainicio, fechainicio, fechafinal, observacion)
-VALUES ('Reunión', 'Reunión de profesores', '15:00:00', '2023-09-20', '2023-09-20', 'Reunión del cuerpo docente para discutir el plan académico del próximo semestre.');
-
-INSERT INTO servicios (tipo, evento, horainicio, fechainicio, fechafinal, observacion)
-VALUES ('Actividad deportiva', 'Torneo interuniversitario', '09:00:00', '2023-10-05', '2023-10-07', 'Torneo deportivo entre diferentes universidades con múltiples disciplinas.');
 
 
 -- Ejemplo 1
@@ -123,8 +118,7 @@ VALUES (5, 'Participar en grupos de teatro universitario', 'Asistir a talleres d
 
 
 -- INVENTARIO ==============================================================================================================
-
-
+GO
 
 CREATE TABLE Inventario (
     ID INT PRIMARY KEY,
@@ -135,6 +129,9 @@ CREATE TABLE Inventario (
     Ubicacion VARCHAR(100) NOT NULL,
     Observaciones VARCHAR(255)
 );
+
+
+GO
 
 INSERT INTO Inventario (ID, Tipo, Nombre, Cantidad, Estado, Ubicacion, Observaciones)
 VALUES
@@ -152,12 +149,16 @@ VALUES
 
 -- PROCESOS ALMACENADOS PARA LOS SELECTS ------------
 
+GO
+
 CREATE PROCEDURE ObtenerTodosLosRegistros
 AS
 BEGIN
     SELECT *
     FROM Inventario;
 END;
+
+GO
 
 CREATE PROCEDURE ObtenerRegistrosTipoEquipo
 AS
@@ -167,6 +168,7 @@ BEGIN
     WHERE Tipo = 'Equipo';
 END;
 
+GO
 
 CREATE PROCEDURE ObtenerRegistrosTipoRecurso
 AS
@@ -175,6 +177,8 @@ BEGIN
     FROM Inventario
     WHERE Tipo = 'Recurso';
 END;
+
+GO
 
 EXEC ObtenerTodosLosRegistros;
 EXEC ObtenerRegistrosTipoEquipo;

@@ -19,8 +19,17 @@
         DataGridView1.Columns("ID").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
         DataGridView1.Columns("ID").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
 
-        DataGridView1.Columns("Tipo").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-        DataGridView1.Columns("Tipo").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridView1.Columns("Nombre").AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+        DataGridView1.Columns("Nombre").Width = 300
+
+        DataGridView1.Columns("Tipo").AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+        DataGridView1.Columns("Tipo").Width = 100
+
+        DataGridView1.Columns("Ubicacion").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+        DataGridView1.Columns("Observaciones").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+        'DATA SIN EDITAR
+        DataGridView1.ClearSelection()
+        DataGridView1.ReadOnly = True
 
 
     End Sub
@@ -46,6 +55,11 @@
             DataGridView1.DataSource = querysBDYercken.ObtenerDatosInventario(query)
 
         End If
+
+        ' Luego, quita el enfoque del listaFacultad moviéndolo al formulario
+        Me.Focus()
+        Me.SelectNextControl(listaMostrar, True, True, True, True)
+
     End Sub
 
 End Class
