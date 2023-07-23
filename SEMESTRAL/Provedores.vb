@@ -234,10 +234,8 @@ Public Class Provedores
             If ExisteProveedor(idProveedor) Then
                 MostrarDatosProveedor(idProveedor)
                 MostrarProveedor(idProveedor)
-                panelIngresoDatos2.Enabled = False
-                crearBtn.Enabled = False
-                actualizarBtn.Enabled = True
-                eliminarBtn.Enabled = True
+                panelIngresoDatos2.Visible = True
+                PanelSelecion.Visible = False
             Else
                 MessageBox.Show("El proveedor no existe.")
             End If
@@ -270,16 +268,14 @@ Public Class Provedores
 
     Private Sub BtnSalirSeleccion_Click(sender As Object, e As EventArgs) Handles BtnSalirSeleccion.Click
         idProveedoresTb.Clear()
-        crearBtn.Enabled = True
-        actualizarBtn.Enabled = False
-        eliminarBtn.Enabled = False
+        PanelBotones.Visible = True
+        PanelSelecion.Visible = False
         MostrarProveedores()
     End Sub
 
     Private Sub actualizarBtn_Click(sender As Object, e As EventArgs) Handles actualizarBtn.Click
-        panelIngresoDatos2.Enabled = True
-        eliminarBtn.Enabled = False
-        BtnIngresarNuevoTicket.Visible = True
+        PanelSelecion.Visible = True
+        PanelBotones.Visible = False
     End Sub
 
     Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles BtnVolver.Click
@@ -290,17 +286,15 @@ Public Class Provedores
         tipoCb.SelectedIndex = -1
         telefonoTb.Clear()
         observacionTb.Clear()
-        crearBtn.Enabled = True
-        actualizarBtn.Enabled = False
-        eliminarBtn.Enabled = False
-        BtnIngresarNuevoTicket.Visible = False
+        panelIngresoDatos2.Visible = False
+        PanelBotones.Visible = True
     End Sub
 
     Private Sub crearBtn_Click(sender As Object, e As EventArgs) Handles crearBtn.Click
         CrearProveedor()
         MostrarProveedores()
-        actualizarBtn.Enabled = False
-        eliminarBtn.Enabled = False
+        panelIngresoDatos2.Visible = True
+        PanelBotones.Visible = False
     End Sub
 
     Private Sub eliminarBtn_Click(sender As Object, e As EventArgs) Handles eliminarBtn.Click
@@ -320,9 +314,8 @@ Public Class Provedores
                 tipoCb.SelectedIndex = -1
                 telefonoTb.Clear()
                 observacionTb.Clear()
-                crearBtn.Enabled = False
-                actualizarBtn.Enabled = True
-                eliminarBtn.Enabled = True
+                PanelSelecion.Visible = True
+                PanelBotones.Visible = False
             Else
                 MessageBox.Show("El proveedor no existe.")
             End If

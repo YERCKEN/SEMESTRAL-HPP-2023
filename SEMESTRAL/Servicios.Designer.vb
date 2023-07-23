@@ -26,23 +26,25 @@ Partial Class Servicios
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         panelIngresoDatos2 = New Panel()
-        DateTimePicker3 = New DateTimePicker()
+        BtnNuevoTicket = New Button()
+        Label9 = New Label()
+        horaInicioDt = New DateTimePicker()
         Label5 = New Label()
-        DateTimePicker2 = New DateTimePicker()
+        fechaFinalizacionDt = New DateTimePicker()
         Label8 = New Label()
-        DateTimePicker1 = New DateTimePicker()
-        ListaTipoSoporte = New ComboBox()
+        fechaInicioDt = New DateTimePicker()
+        tipoCb = New ComboBox()
         BtnVolver = New Button()
-        BtnIngresarNuevoTicket = New Button()
-        TextBoxObservacion = New TextBox()
+        BtnactualizarNuevoTicket = New Button()
+        observacionTb = New TextBox()
         Label1 = New Label()
         Label6 = New Label()
-        TextBoxEquipo = New TextBox()
+        eventoTb = New TextBox()
         Label7 = New Label()
-        Label9 = New Label()
         PanelSelecion = New Panel()
+        btnselecccionarElimina = New Button()
         BtnSalirSeleccion = New Button()
-        idProveedoresTb = New TextBox()
+        idServicioTb = New TextBox()
         BtnSeleccionar = New Button()
         Label2 = New Label()
         PanelBotones = New Panel()
@@ -58,19 +60,20 @@ Partial Class Servicios
         ' 
         ' panelIngresoDatos2
         ' 
+        panelIngresoDatos2.Controls.Add(BtnNuevoTicket)
         panelIngresoDatos2.Controls.Add(Label9)
-        panelIngresoDatos2.Controls.Add(DateTimePicker3)
+        panelIngresoDatos2.Controls.Add(horaInicioDt)
         panelIngresoDatos2.Controls.Add(Label5)
-        panelIngresoDatos2.Controls.Add(DateTimePicker2)
+        panelIngresoDatos2.Controls.Add(fechaFinalizacionDt)
         panelIngresoDatos2.Controls.Add(Label8)
-        panelIngresoDatos2.Controls.Add(DateTimePicker1)
-        panelIngresoDatos2.Controls.Add(ListaTipoSoporte)
+        panelIngresoDatos2.Controls.Add(fechaInicioDt)
+        panelIngresoDatos2.Controls.Add(tipoCb)
         panelIngresoDatos2.Controls.Add(BtnVolver)
-        panelIngresoDatos2.Controls.Add(BtnIngresarNuevoTicket)
-        panelIngresoDatos2.Controls.Add(TextBoxObservacion)
+        panelIngresoDatos2.Controls.Add(BtnactualizarNuevoTicket)
+        panelIngresoDatos2.Controls.Add(observacionTb)
         panelIngresoDatos2.Controls.Add(Label1)
         panelIngresoDatos2.Controls.Add(Label6)
-        panelIngresoDatos2.Controls.Add(TextBoxEquipo)
+        panelIngresoDatos2.Controls.Add(eventoTb)
         panelIngresoDatos2.Controls.Add(Label7)
         panelIngresoDatos2.Location = New Point(446, 12)
         panelIngresoDatos2.Name = "panelIngresoDatos2"
@@ -78,18 +81,47 @@ Partial Class Servicios
         panelIngresoDatos2.TabIndex = 72
         panelIngresoDatos2.Visible = False
         ' 
-        ' DateTimePicker3
+        ' BtnNuevoTicket
         ' 
-        DateTimePicker3.CalendarFont = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        DateTimePicker3.CalendarForeColor = Color.Gray
-        DateTimePicker3.CalendarTitleBackColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        DateTimePicker3.CalendarTitleForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        DateTimePicker3.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        DateTimePicker3.Format = DateTimePickerFormat.Time
-        DateTimePicker3.Location = New Point(411, 57)
-        DateTimePicker3.Name = "DateTimePicker3"
-        DateTimePicker3.Size = New Size(163, 30)
-        DateTimePicker3.TabIndex = 61
+        BtnNuevoTicket.BackColor = Color.FromArgb(CByte(67), CByte(116), CByte(255))
+        BtnNuevoTicket.Cursor = Cursors.Hand
+        BtnNuevoTicket.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        BtnNuevoTicket.FlatAppearance.BorderSize = 0
+        BtnNuevoTicket.FlatStyle = FlatStyle.Flat
+        BtnNuevoTicket.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        BtnNuevoTicket.ForeColor = Color.White
+        BtnNuevoTicket.Location = New Point(423, 262)
+        BtnNuevoTicket.Name = "BtnNuevoTicket"
+        BtnNuevoTicket.Size = New Size(159, 65)
+        BtnNuevoTicket.TabIndex = 63
+        BtnNuevoTicket.Text = "Nuevos Datos"
+        BtnNuevoTicket.UseVisualStyleBackColor = False
+        BtnNuevoTicket.Visible = False
+        ' 
+        ' Label9
+        ' 
+        Label9.AutoSize = True
+        Label9.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        Label9.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        Label9.Location = New Point(411, 11)
+        Label9.Name = "Label9"
+        Label9.Size = New Size(144, 25)
+        Label9.TabIndex = 62
+        Label9.Text = "Hora de inicio"
+        ' 
+        ' horaInicioDt
+        ' 
+        horaInicioDt.CalendarFont = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        horaInicioDt.CalendarForeColor = Color.Gray
+        horaInicioDt.CalendarTitleBackColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        horaInicioDt.CalendarTitleForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        horaInicioDt.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        horaInicioDt.Format = DateTimePickerFormat.Time
+        horaInicioDt.Location = New Point(411, 57)
+        horaInicioDt.Name = "horaInicioDt"
+        horaInicioDt.Size = New Size(163, 30)
+        horaInicioDt.TabIndex = 61
+        horaInicioDt.Value = New Date(2023, 7, 23, 17, 55, 59, 0)
         ' 
         ' Label5
         ' 
@@ -102,18 +134,18 @@ Partial Class Servicios
         Label5.TabIndex = 60
         Label5.Text = "Fecha de finalización"
         ' 
-        ' DateTimePicker2
+        ' fechaFinalizacionDt
         ' 
-        DateTimePicker2.CalendarFont = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        DateTimePicker2.CalendarForeColor = Color.Gray
-        DateTimePicker2.CalendarTitleBackColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        DateTimePicker2.CalendarTitleForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        DateTimePicker2.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        DateTimePicker2.Format = DateTimePickerFormat.Custom
-        DateTimePicker2.Location = New Point(187, 159)
-        DateTimePicker2.Name = "DateTimePicker2"
-        DateTimePicker2.Size = New Size(163, 30)
-        DateTimePicker2.TabIndex = 59
+        fechaFinalizacionDt.CalendarFont = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        fechaFinalizacionDt.CalendarForeColor = Color.Gray
+        fechaFinalizacionDt.CalendarTitleBackColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        fechaFinalizacionDt.CalendarTitleForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        fechaFinalizacionDt.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        fechaFinalizacionDt.Format = DateTimePickerFormat.Custom
+        fechaFinalizacionDt.Location = New Point(187, 159)
+        fechaFinalizacionDt.Name = "fechaFinalizacionDt"
+        fechaFinalizacionDt.Size = New Size(163, 30)
+        fechaFinalizacionDt.TabIndex = 59
         ' 
         ' Label8
         ' 
@@ -126,29 +158,29 @@ Partial Class Servicios
         Label8.TabIndex = 58
         Label8.Text = "Fecha de inicio"
         ' 
-        ' DateTimePicker1
+        ' fechaInicioDt
         ' 
-        DateTimePicker1.CalendarFont = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        DateTimePicker1.CalendarForeColor = Color.Gray
-        DateTimePicker1.CalendarTitleBackColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        DateTimePicker1.CalendarTitleForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        DateTimePicker1.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        DateTimePicker1.Format = DateTimePickerFormat.Custom
-        DateTimePicker1.Location = New Point(4, 159)
-        DateTimePicker1.Name = "DateTimePicker1"
-        DateTimePicker1.Size = New Size(163, 30)
-        DateTimePicker1.TabIndex = 57
+        fechaInicioDt.CalendarFont = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        fechaInicioDt.CalendarForeColor = Color.Gray
+        fechaInicioDt.CalendarTitleBackColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        fechaInicioDt.CalendarTitleForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        fechaInicioDt.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        fechaInicioDt.Format = DateTimePickerFormat.Custom
+        fechaInicioDt.Location = New Point(4, 159)
+        fechaInicioDt.Name = "fechaInicioDt"
+        fechaInicioDt.Size = New Size(163, 30)
+        fechaInicioDt.TabIndex = 57
         ' 
-        ' ListaTipoSoporte
+        ' tipoCb
         ' 
-        ListaTipoSoporte.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        ListaTipoSoporte.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        ListaTipoSoporte.FormattingEnabled = True
-        ListaTipoSoporte.Items.AddRange(New Object() {"Preventivo", "Correctivo", "Predictivo"})
-        ListaTipoSoporte.Location = New Point(3, 59)
-        ListaTipoSoporte.Name = "ListaTipoSoporte"
-        ListaTipoSoporte.Size = New Size(184, 33)
-        ListaTipoSoporte.TabIndex = 49
+        tipoCb.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        tipoCb.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        tipoCb.FormattingEnabled = True
+        tipoCb.Items.AddRange(New Object() {"Preventivo", "Correctivo", "Predictivo"})
+        tipoCb.Location = New Point(3, 59)
+        tipoCb.Name = "tipoCb"
+        tipoCb.Size = New Size(184, 33)
+        tipoCb.TabIndex = 49
         ' 
         ' BtnVolver
         ' 
@@ -166,31 +198,32 @@ Partial Class Servicios
         BtnVolver.Text = "🔙"
         BtnVolver.UseVisualStyleBackColor = False
         ' 
-        ' BtnIngresarNuevoTicket
+        ' BtnactualizarNuevoTicket
         ' 
-        BtnIngresarNuevoTicket.BackColor = Color.FromArgb(CByte(67), CByte(116), CByte(255))
-        BtnIngresarNuevoTicket.Cursor = Cursors.Hand
-        BtnIngresarNuevoTicket.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        BtnIngresarNuevoTicket.FlatAppearance.BorderSize = 0
-        BtnIngresarNuevoTicket.FlatStyle = FlatStyle.Flat
-        BtnIngresarNuevoTicket.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        BtnIngresarNuevoTicket.ForeColor = Color.White
-        BtnIngresarNuevoTicket.Location = New Point(424, 262)
-        BtnIngresarNuevoTicket.Name = "BtnIngresarNuevoTicket"
-        BtnIngresarNuevoTicket.Size = New Size(159, 65)
-        BtnIngresarNuevoTicket.TabIndex = 47
-        BtnIngresarNuevoTicket.Text = "Actualizar Datos"
-        BtnIngresarNuevoTicket.UseVisualStyleBackColor = False
+        BtnactualizarNuevoTicket.BackColor = Color.FromArgb(CByte(67), CByte(116), CByte(255))
+        BtnactualizarNuevoTicket.Cursor = Cursors.Hand
+        BtnactualizarNuevoTicket.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        BtnactualizarNuevoTicket.FlatAppearance.BorderSize = 0
+        BtnactualizarNuevoTicket.FlatStyle = FlatStyle.Flat
+        BtnactualizarNuevoTicket.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        BtnactualizarNuevoTicket.ForeColor = Color.White
+        BtnactualizarNuevoTicket.Location = New Point(424, 262)
+        BtnactualizarNuevoTicket.Name = "BtnactualizarNuevoTicket"
+        BtnactualizarNuevoTicket.Size = New Size(159, 65)
+        BtnactualizarNuevoTicket.TabIndex = 47
+        BtnactualizarNuevoTicket.Text = "Actualizar Datos"
+        BtnactualizarNuevoTicket.UseVisualStyleBackColor = False
+        BtnactualizarNuevoTicket.Visible = False
         ' 
-        ' TextBoxObservacion
+        ' observacionTb
         ' 
-        TextBoxObservacion.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        TextBoxObservacion.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        TextBoxObservacion.Location = New Point(4, 259)
-        TextBoxObservacion.Multiline = True
-        TextBoxObservacion.Name = "TextBoxObservacion"
-        TextBoxObservacion.Size = New Size(415, 68)
-        TextBoxObservacion.TabIndex = 19
+        observacionTb.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        observacionTb.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        observacionTb.Location = New Point(4, 259)
+        observacionTb.Multiline = True
+        observacionTb.Name = "observacionTb"
+        observacionTb.Size = New Size(415, 68)
+        observacionTb.TabIndex = 19
         ' 
         ' Label1
         ' 
@@ -214,14 +247,14 @@ Partial Class Servicios
         Label6.TabIndex = 16
         Label6.Text = "Tipo"
         ' 
-        ' TextBoxEquipo
+        ' eventoTb
         ' 
-        TextBoxEquipo.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        TextBoxEquipo.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        TextBoxEquipo.Location = New Point(209, 56)
-        TextBoxEquipo.Name = "TextBoxEquipo"
-        TextBoxEquipo.Size = New Size(184, 30)
-        TextBoxEquipo.TabIndex = 14
+        eventoTb.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        eventoTb.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        eventoTb.Location = New Point(209, 56)
+        eventoTb.Name = "eventoTb"
+        eventoTb.Size = New Size(184, 30)
+        eventoTb.TabIndex = 14
         ' 
         ' Label7
         ' 
@@ -234,27 +267,35 @@ Partial Class Servicios
         Label7.TabIndex = 18
         Label7.Text = "Evento"
         ' 
-        ' Label9
-        ' 
-        Label9.AutoSize = True
-        Label9.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        Label9.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        Label9.Location = New Point(411, 11)
-        Label9.Name = "Label9"
-        Label9.Size = New Size(158, 25)
-        Label9.TabIndex = 62
-        Label9.Text = "Fecha de inicio"
-        ' 
         ' PanelSelecion
         ' 
+        PanelSelecion.Controls.Add(btnselecccionarElimina)
         PanelSelecion.Controls.Add(BtnSalirSeleccion)
-        PanelSelecion.Controls.Add(idProveedoresTb)
+        PanelSelecion.Controls.Add(idServicioTb)
         PanelSelecion.Controls.Add(BtnSeleccionar)
         PanelSelecion.Controls.Add(Label2)
         PanelSelecion.Location = New Point(16, 7)
         PanelSelecion.Name = "PanelSelecion"
         PanelSelecion.Size = New Size(378, 91)
         PanelSelecion.TabIndex = 81
+        PanelSelecion.Visible = False
+        ' 
+        ' btnselecccionarElimina
+        ' 
+        btnselecccionarElimina.BackColor = Color.FromArgb(CByte(229), CByte(229), CByte(229))
+        btnselecccionarElimina.Cursor = Cursors.Hand
+        btnselecccionarElimina.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        btnselecccionarElimina.FlatAppearance.BorderSize = 0
+        btnselecccionarElimina.FlatStyle = FlatStyle.Flat
+        btnselecccionarElimina.Font = New Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point)
+        btnselecccionarElimina.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        btnselecccionarElimina.Location = New Point(268, 33)
+        btnselecccionarElimina.Name = "btnselecccionarElimina"
+        btnselecccionarElimina.Size = New Size(45, 48)
+        btnselecccionarElimina.TabIndex = 58
+        btnselecccionarElimina.Text = "✓"
+        btnselecccionarElimina.UseVisualStyleBackColor = False
+        btnselecccionarElimina.Visible = False
         ' 
         ' BtnSalirSeleccion
         ' 
@@ -272,14 +313,14 @@ Partial Class Servicios
         BtnSalirSeleccion.Text = "🔙"
         BtnSalirSeleccion.UseVisualStyleBackColor = False
         ' 
-        ' idProveedoresTb
+        ' idServicioTb
         ' 
-        idProveedoresTb.Font = New Font("Microsoft Sans Serif", 14.999999F, FontStyle.Bold, GraphicsUnit.Point)
-        idProveedoresTb.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        idProveedoresTb.Location = New Point(17, 41)
-        idProveedoresTb.Name = "idProveedoresTb"
-        idProveedoresTb.Size = New Size(238, 36)
-        idProveedoresTb.TabIndex = 56
+        idServicioTb.Font = New Font("Microsoft Sans Serif", 14.999999F, FontStyle.Bold, GraphicsUnit.Point)
+        idServicioTb.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        idServicioTb.Location = New Point(17, 41)
+        idServicioTb.Name = "idServicioTb"
+        idServicioTb.Size = New Size(238, 36)
+        idServicioTb.TabIndex = 56
         ' 
         ' BtnSeleccionar
         ' 
@@ -296,6 +337,7 @@ Partial Class Servicios
         BtnSeleccionar.TabIndex = 55
         BtnSeleccionar.Text = "✓"
         BtnSeleccionar.UseVisualStyleBackColor = False
+        BtnSeleccionar.Visible = False
         ' 
         ' Label2
         ' 
@@ -322,7 +364,6 @@ Partial Class Servicios
         ' 
         eliminarBtn.BackColor = Color.FromArgb(CByte(0), CByte(116), CByte(255))
         eliminarBtn.Cursor = Cursors.Hand
-        eliminarBtn.Enabled = False
         eliminarBtn.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         eliminarBtn.FlatAppearance.BorderSize = 0
         eliminarBtn.FlatStyle = FlatStyle.Flat
@@ -339,7 +380,6 @@ Partial Class Servicios
         ' 
         actualizarBtn.BackColor = Color.FromArgb(CByte(0), CByte(116), CByte(255))
         actualizarBtn.Cursor = Cursors.Hand
-        actualizarBtn.Enabled = False
         actualizarBtn.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         actualizarBtn.FlatAppearance.BorderSize = 0
         actualizarBtn.FlatStyle = FlatStyle.Flat
@@ -436,22 +476,22 @@ Partial Class Servicios
 
     Friend WithEvents panelIngresoDatos2 As Panel
     Friend WithEvents Label8 As Label
-    Friend WithEvents DateTimePicker1 As DateTimePicker
-    Friend WithEvents ListaTipoSoporte As ComboBox
+    Friend WithEvents fechaInicioDt As DateTimePicker
+    Friend WithEvents tipoCb As ComboBox
     Friend WithEvents BtnVolver As Button
-    Friend WithEvents BtnIngresarNuevoTicket As Button
-    Friend WithEvents TextBoxObservacion As TextBox
+    Friend WithEvents BtnactualizarNuevoTicket As Button
+    Friend WithEvents observacionTb As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label6 As Label
-    Friend WithEvents TextBoxEquipo As TextBox
+    Friend WithEvents eventoTb As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents Label5 As Label
-    Friend WithEvents DateTimePicker2 As DateTimePicker
-    Friend WithEvents DateTimePicker3 As DateTimePicker
+    Friend WithEvents fechaFinalizacionDt As DateTimePicker
+    Friend WithEvents horaInicioDt As DateTimePicker
     Friend WithEvents Label9 As Label
     Friend WithEvents PanelSelecion As Panel
     Friend WithEvents BtnSalirSeleccion As Button
-    Friend WithEvents idProveedoresTb As TextBox
+    Friend WithEvents idServicioTb As TextBox
     Friend WithEvents BtnSeleccionar As Button
     Friend WithEvents Label2 As Label
     Friend WithEvents PanelBotones As Panel
@@ -459,4 +499,6 @@ Partial Class Servicios
     Friend WithEvents actualizarBtn As Button
     Friend WithEvents crearBtn As Button
     Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents BtnNuevoTicket As Button
+    Friend WithEvents btnselecccionarElimina As Button
 End Class
