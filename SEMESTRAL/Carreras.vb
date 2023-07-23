@@ -23,6 +23,8 @@ Public Class Carreras
         DataGridView1.DataSource = querysBDYercken.obtenerCarrerasConFacultades()
 
         'ESTILO DATAGRIDVIEW
+        DataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
+
         DataGridView1.Columns("ID").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
         DataGridView1.Columns("ID").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
 
