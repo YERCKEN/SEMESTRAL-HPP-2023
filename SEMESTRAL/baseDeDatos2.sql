@@ -22,14 +22,7 @@ CREATE TABLE proveedores (
     observacion VARCHAR(500)
 );
 
--- Crear tabla inventario
-CREATE TABLE inventario (
-    id_inventario INT IDENTITY(1,1) PRIMARY KEY,
-    tipo VARCHAR(50),
-    descripcion VARCHAR(255),
-    estado VARCHAR(50),
-    observacion VARCHAR(500)
-);
+
 
 -- Crear tabla clientes
 CREATE TABLE clientes (
@@ -83,18 +76,6 @@ INSERT INTO proveedores (ruc, nombre, correo, tipo, telefono, observacion)
 VALUES ('45678901203', 'Proveedor C', 'proveedorC@example.com', 'Servicios de limpieza', '+4567890120', 'Proveedor que ofrece servicios de limpieza para edificios y áreas comunes.');
 
 
--- Ejemplo 1
-INSERT INTO inventario (tipo, descripcion, estado, observacion)
-VALUES ('Equipo de laboratorio', 'Microscopios', 'Buen estado', 'Conjunto de 10 microscopios para el laboratorio de Biología.');
-
--- Ejemplo 2
-INSERT INTO inventario (tipo, descripcion, estado, observacion)
-VALUES ('Mobiliario', 'Mesas y sillas', 'Nuevo', 'Juego de 20 mesas y 40 sillas para aulas y salones de estudio.');
-
--- Ejemplo 3
-INSERT INTO inventario (tipo, descripcion, estado, observacion)
-VALUES ('Computadoras', 'Laptops', 'Usado', 'Computadoras portátiles disponibles para préstamo en la biblioteca.');
-
 
 -- Ejemplo 1
 INSERT INTO clientes (nombre, apellido, residencia, lugar_trabajo, telefono1, telefono2, email, tipo, observacion)
@@ -137,3 +118,64 @@ VALUES (4, 'Realizar prácticas en laboratorio de química', 'Participar en proyec
 INSERT INTO clienteopciones (id_cliente, opcion1, opcion2, opcion3, convocatoria)
 VALUES (5, 'Participar en grupos de teatro universitario', 'Asistir a talleres de actuación', 'Organizar eventos culturales', 'Convocatoria para estudiantes interesados en arte y teatro universitario.');
 
+
+
+
+
+-- INVENTARIO ==============================================================================================================
+
+
+
+CREATE TABLE Inventario (
+    ID INT PRIMARY KEY,
+    Tipo VARCHAR(50) NOT NULL,
+    Nombre VARCHAR(100) NOT NULL,
+    Cantidad INT,
+    Estado VARCHAR(50) NOT NULL,
+    Ubicacion VARCHAR(100) NOT NULL,
+    Observaciones VARCHAR(255)
+);
+
+INSERT INTO Inventario (ID, Tipo, Nombre, Cantidad, Estado, Ubicacion, Observaciones)
+VALUES
+    (1, 'Equipo', 'Proyector', 3, 'En uso', 'Aula 101', 'Funciona correctamente'),
+    (2, 'Equipo', 'Computadora', 30, 'En uso', 'Laboratorio 201', 'Actualizar software'),
+    (3, 'Equipo', 'Impresora', 5, 'Reparación', 'Almacén', 'Problema de papel'),
+    (4, 'Recurso', 'Libro', 200, 'Disponible', 'Biblioteca', ''),
+    (5, 'Recurso', 'Microscopio', 10, 'En uso', 'Laboratorio 301', 'Lente dañado'),
+    (6, 'Recurso', 'Material de arte', 50, 'Disponible', 'Aula 105', ''),
+    (7, 'Equipo', 'Pizarra Interactiva', 2, 'En uso', 'Aula 202', 'Calibración necesaria'),
+    (8, 'Equipo', 'Cámara fotográfica', 8, 'Disponible', 'Laboratorio 401', ''),
+    (9, 'Recurso', 'Mapas', 20, 'Disponible', 'Departamento de Geografía', ''),
+    (10, 'Equipo', 'Escáner', 4, 'Reparación', 'Almacén', 'Atascado con papel');
+
+
+-- PROCESOS ALMACENADOS PARA LOS SELECTS ------------
+
+CREATE PROCEDURE ObtenerTodosLosRegistros
+AS
+BEGIN
+    SELECT *
+    FROM Inventario;
+END;
+
+CREATE PROCEDURE ObtenerRegistrosTipoEquipo
+AS
+BEGIN
+    SELECT *
+    FROM Inventario
+    WHERE Tipo = 'Equipo';
+END;
+
+
+CREATE PROCEDURE ObtenerRegistrosTipoRecurso
+AS
+BEGIN
+    SELECT *
+    FROM Inventario
+    WHERE Tipo = 'Recurso';
+END;
+
+EXEC ObtenerTodosLosRegistros;
+EXEC ObtenerRegistrosTipoEquipo;
+EXEC ObtenerRegistrosTipoRecurso;

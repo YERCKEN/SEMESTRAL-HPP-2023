@@ -243,4 +243,37 @@ Public Class querysBDYercken
         End Try
     End Sub
 
+
+    'BASE DE DATOS 2 ===================================================================================================================================================================================
+
+    'SELECTS DE INVENTARIO 
+
+    Public Function ObtenerDatosInventario(query As String) As DataTable
+        Dim dataTable As New DataTable()
+
+        Using connection As New SqlConnection(VARIABLES_GLOBALES.cadenaConexion2)
+            Try
+                connection.Open()
+
+                ' Crear el comando y asignar el nombre del procedimiento almacenado
+                Dim command As New SqlCommand(query, connection)
+                command.CommandType = CommandType.StoredProcedure
+
+                ' Crear el adaptador y llenar la tabla
+                Dim adapter As New SqlDataAdapter(command)
+                adapter.Fill(dataTable)
+
+
+
+            Catch ex As Exception
+                MessageBox.Show("Error al obtener datos del Inventario: " & ex.Message)
+            Finally
+                connection.Close()
+            End Try
+        End Using
+
+        Return dataTable
+    End Function
+
+
 End Class

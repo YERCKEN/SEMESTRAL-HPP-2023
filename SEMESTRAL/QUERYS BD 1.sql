@@ -260,3 +260,7 @@ BEGIN
     WHERE c.ID = @CarreraID;
 END;
 GO
+
+
+-- ELIMINAR ---
+
