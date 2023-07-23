@@ -112,7 +112,7 @@ Partial Class Clientes
         Opcion1Cb.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         Opcion1Cb.FormattingEnabled = True
         Opcion1Cb.Items.AddRange(New Object() {"En espera", "En proceso", "Terminado"})
-        Opcion1Cb.Location = New Point(5, 334)
+        Opcion1Cb.Location = New Point(5, 316)
         Opcion1Cb.Name = "Opcion1Cb"
         Opcion1Cb.Size = New Size(184, 33)
         Opcion1Cb.TabIndex = 74
@@ -142,7 +142,7 @@ Partial Class Clientes
         opcion2Cb.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         opcion2Cb.FormattingEnabled = True
         opcion2Cb.Items.AddRange(New Object() {"En espera", "En proceso", "Terminado"})
-        opcion2Cb.Location = New Point(232, 334)
+        opcion2Cb.Location = New Point(4, 404)
         opcion2Cb.Name = "opcion2Cb"
         opcion2Cb.Size = New Size(184, 33)
         opcion2Cb.TabIndex = 71
@@ -152,7 +152,7 @@ Partial Class Clientes
         Label13.AutoSize = True
         Label13.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         Label13.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        Label13.Location = New Point(232, 288)
+        Label13.Location = New Point(8, 365)
         Label13.Name = "Label13"
         Label13.Size = New Size(111, 25)
         Label13.TabIndex = 70
@@ -165,7 +165,7 @@ Partial Class Clientes
         opcion3Cb.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         opcion3Cb.FormattingEnabled = True
         opcion3Cb.Items.AddRange(New Object() {"En espera", "En proceso", "Terminado"})
-        opcion3Cb.Location = New Point(436, 334)
+        opcion3Cb.Location = New Point(4, 479)
         opcion3Cb.Name = "opcion3Cb"
         opcion3Cb.Size = New Size(184, 33)
         opcion3Cb.TabIndex = 69
@@ -175,7 +175,7 @@ Partial Class Clientes
         Label14.AutoSize = True
         Label14.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         Label14.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        Label14.Location = New Point(436, 288)
+        Label14.Location = New Point(8, 447)
         Label14.Name = "Label14"
         Label14.Size = New Size(111, 25)
         Label14.TabIndex = 68
@@ -338,7 +338,7 @@ Partial Class Clientes
         BtnVolver.FlatStyle = FlatStyle.Flat
         BtnVolver.Font = New Font("Microsoft Sans Serif", 28.2F, FontStyle.Regular, GraphicsUnit.Point)
         BtnVolver.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        BtnVolver.Location = New Point(589, 434)
+        BtnVolver.Location = New Point(495, 427)
         BtnVolver.Name = "BtnVolver"
         BtnVolver.Size = New Size(77, 65)
         BtnVolver.TabIndex = 48
@@ -354,7 +354,7 @@ Partial Class Clientes
         BtnIngresarNuevoTicket.FlatStyle = FlatStyle.Flat
         BtnIngresarNuevoTicket.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         BtnIngresarNuevoTicket.ForeColor = Color.White
-        BtnIngresarNuevoTicket.Location = New Point(424, 434)
+        BtnIngresarNuevoTicket.Location = New Point(310, 427)
         BtnIngresarNuevoTicket.Name = "BtnIngresarNuevoTicket"
         BtnIngresarNuevoTicket.Size = New Size(159, 65)
         BtnIngresarNuevoTicket.TabIndex = 47
@@ -366,7 +366,7 @@ Partial Class Clientes
         ' 
         ObservacionTb.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         ObservacionTb.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        ObservacionTb.Location = New Point(5, 434)
+        ObservacionTb.Location = New Point(232, 322)
         ObservacionTb.Multiline = True
         ObservacionTb.Name = "ObservacionTb"
         ObservacionTb.Size = New Size(415, 68)
@@ -377,7 +377,7 @@ Partial Class Clientes
         Label1.AutoSize = True
         Label1.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         Label1.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        Label1.Location = New Point(4, 391)
+        Label1.Location = New Point(232, 288)
         Label1.Name = "Label1"
         Label1.Size = New Size(134, 25)
         Label1.TabIndex = 20

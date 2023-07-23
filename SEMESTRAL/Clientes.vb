@@ -2,9 +2,8 @@
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 
 Public Class Clientes
-    Dim conexion As New SqlConnection(VARIABLES_GLOBALES.cadenaConexion2)
-
-    Dim connectionString As String = VARIABLES_GLOBALES.cadenaConexion2
+    Dim connectionString2 As String = VARIABLES_GLOBALES.cadenaConexion2
+    Dim connectionString1 As String = VARIABLES_GLOBALES.cadenaConexion
     Dim clienteId As Integer
     Private Sub Clientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Location = New Point(Form1.Location.X, Form1.Location.Y + 49) ' Establecer la nueva ubicación de Form4 en relación con Form1
@@ -16,16 +15,57 @@ Public Class Clientes
         convocatoriaCb.Items.Add("Primera")
         convocatoriaCb.Items.Add("Segunda")
         Opcion1Cb.Items.Clear()
-        Opcion1Cb.Items.Add("Elemento 1")
+        'Opcion1Cb.Items.Add("Elemento 1")
         opcion2Cb.Items.Clear()
-        opcion2Cb.Items.Add("Elemento 2")
+        'opcion2Cb.Items.Add("Elemento 2")
         opcion3Cb.Items.Clear()
-        opcion3Cb.Items.Add("Elemento 3")
+        'opcion3Cb.Items.Add("Elemento 3")
+        MostrarCarreras()
     End Sub
+    Private Sub MostrarCarreras()
+        Try
+            ' Crear una conexión a la base de datos
+            Using connection As New SqlConnection(connectionString1)
+                connection.Open()
+
+                ' Consulta para obtener todas las carreras de la tabla Carreras
+                Dim query As String = "SELECT * FROM Carreras"
+
+                ' Crear un adaptador de datos con la consulta
+                Using adapter As New SqlDataAdapter(query, connection)
+                    ' Crear un nuevo DataTable
+                    Dim dt As New DataTable()
+
+                    ' Llenar el DataTable con los datos de la tabla Carreras
+                    adapter.Fill(dt)
+
+                    ' Configurar los ComboBox para mostrar las carreras
+                    Opcion1Cb.DataSource = dt.Copy()
+                    Opcion1Cb.DisplayMember = "NombreCarrera"
+                    Opcion1Cb.ValueMember = "id"
+
+                    opcion2Cb.DataSource = dt.Copy()
+                    opcion2Cb.DisplayMember = "NombreCarrera"
+                    opcion2Cb.ValueMember = "id"
+
+                    opcion3Cb.DataSource = dt.Copy()
+                    opcion3Cb.DisplayMember = "NombreCarrera"
+                    opcion3Cb.ValueMember = "id"
+                End Using
+
+                ' Cerrar la conexión
+                connection.Close()
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Error al cargar las carreras: " & ex.Message)
+        End Try
+    End Sub
+
+
     Private Sub MostrarClientes()
         Try
             ' Crear una conexión a la base de datos
-            Using connection As New SqlConnection(connectionString)
+            Using connection As New SqlConnection(connectionString2)
                 connection.Open()
 
                 ' Consulta para obtener datos de las tablas clientes y clienteopciones
@@ -52,7 +92,7 @@ Public Class Clientes
     Private Sub MostrarCliente(id_clientes As Integer)
         Try
             ' Crear una conexión a la base de datos
-            Using connection As New SqlConnection(connectionString)
+            Using connection As New SqlConnection(connectionString2)
                 connection.Open()
 
                 ' Consulta para obtener datos de las tablas clientes y clienteopciones filtrados por id_clientes
@@ -80,7 +120,7 @@ Public Class Clientes
     Private Sub MostrarDatosCliente(id_clientes As Integer)
         Try
             ' Crear una conexión a la base de datos
-            Using connection As New SqlConnection(connectionString)
+            Using connection As New SqlConnection(connectionString2)
                 connection.Open()
 
                 ' Consulta para obtener los datos del cliente filtrado por id_clientes
@@ -123,7 +163,7 @@ Public Class Clientes
     Private Sub ActualizarDatosCliente(id_clientes As Integer)
         Try
             ' Crear una conexión a la base de datos
-            Using connection As New SqlConnection(connectionString)
+            Using connection As New SqlConnection(connectionString2)
                 connection.Open()
 
                 ' Consulta para actualizar los datos del cliente en la tabla clientes
@@ -185,7 +225,7 @@ Public Class Clientes
     Private Sub EliminarCliente(id_clientes As Integer)
         Try
             ' Crear una conexión a la base de datos
-            Using connection As New SqlConnection(connectionString)
+            Using connection As New SqlConnection(connectionString2)
                 connection.Open()
 
                 ' Eliminar registros relacionados en la tabla clienteopciones
@@ -223,7 +263,7 @@ Public Class Clientes
     Private Sub CrearCliente()
         Try
             ' Crear una conexión a la base de datos
-            Using connection As New SqlConnection(connectionString)
+            Using connection As New SqlConnection(connectionString2)
                 connection.Open()
 
                 ' Iniciar una transacción
@@ -282,7 +322,7 @@ Public Class Clientes
                 connection.Close()
             End Using
         Catch ex As Exception
-            MessageBox.Show("Error al establecer la conexión con la base de datos: " & ex.Message)
+
         End Try
     End Sub
 
@@ -291,7 +331,7 @@ Public Class Clientes
     Private Function ClienteExiste(id_clientes As Integer) As Boolean
         Try
             ' Crear una conexión a la base de datos
-            Using connection As New SqlConnection(connectionString)
+            Using connection As New SqlConnection(connectionString2)
                 connection.Open()
 
                 ' Consulta para verificar si el cliente existe en la base de datos
