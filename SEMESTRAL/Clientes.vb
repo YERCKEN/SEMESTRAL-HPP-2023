@@ -226,68 +226,63 @@ Public Class Clientes
             Using connection As New SqlConnection(connectionString)
                 connection.Open()
 
-                ' Consulta para insertar un nuevo cliente en la tabla clientes
-                Dim queryClientes As String = "INSERT INTO clientes (nombre, apellido, residencia, telefono1, telefono2, email, tipo, lugar_trabajo, observacion) " &
+                ' Iniciar una transacción
+                Dim transaction As SqlTransaction = connection.BeginTransaction()
+
+                Try
+                    ' Consulta para insertar un nuevo cliente en la tabla clientes
+                    Dim queryClientes As String = "INSERT INTO clientes (nombre, apellido, residencia, telefono1, telefono2, email, tipo, lugar_trabajo, observacion) " &
+                                          "OUTPUT INSERTED.id_clientes " &
                                           "VALUES (@nombre, @apellido, @residencia, @telefono1, @telefono2, @email, @tipo, @lugar_trabajo, @observacion)"
 
-                ' Crear un comando con la consulta y los parámetros proporcionados para la tabla clientes
-                Using cmdClientes As New SqlCommand(queryClientes, connection)
-                    cmdClientes.Parameters.AddWithValue("@nombre", nombreTb.Text)
-                    cmdClientes.Parameters.AddWithValue("@apellido", apellidoTb.Text)
-                    cmdClientes.Parameters.AddWithValue("@residencia", residenciatb.Text)
-                    cmdClientes.Parameters.AddWithValue("@telefono1", telefono1Tb.Text)
-                    cmdClientes.Parameters.AddWithValue("@telefono2", telefono2Tb.Text)
-                    cmdClientes.Parameters.AddWithValue("@email", emailTb.Text)
-                    cmdClientes.Parameters.AddWithValue("@tipo", tipoCb.Text)
-                    cmdClientes.Parameters.AddWithValue("@lugar_trabajo", lugarTrabajoTb.Text)
-                    cmdClientes.Parameters.AddWithValue("@observacion", ObservacionTb.Text)
+                    ' Crear un comando con la consulta y los parámetros proporcionados para la tabla clientes
+                    Using cmdClientes As New SqlCommand(queryClientes, connection, transaction)
+                        cmdClientes.Parameters.AddWithValue("@nombre", nombreTb.Text)
+                        cmdClientes.Parameters.AddWithValue("@apellido", apellidoTb.Text)
+                        cmdClientes.Parameters.AddWithValue("@residencia", residenciatb.Text)
+                        cmdClientes.Parameters.AddWithValue("@telefono1", telefono1Tb.Text)
+                        cmdClientes.Parameters.AddWithValue("@telefono2", telefono2Tb.Text)
+                        cmdClientes.Parameters.AddWithValue("@email", emailTb.Text)
+                        cmdClientes.Parameters.AddWithValue("@tipo", tipoCb.Text)
+                        cmdClientes.Parameters.AddWithValue("@lugar_trabajo", lugarTrabajoTb.Text)
+                        cmdClientes.Parameters.AddWithValue("@observacion", ObservacionTb.Text)
 
-                    ' Ejecutar el comando para insertar el nuevo cliente en la tabla clientes
-                    cmdClientes.ExecuteNonQuery()
-                End Using
+                        ' Ejecutar el comando para insertar el nuevo cliente en la tabla clientes y recuperar el ID del cliente recién insertado
+                        Dim idCliente As Integer = CInt(cmdClientes.ExecuteScalar())
 
-                ' Obtener el ID del cliente recién insertado
-                Dim idCliente As Integer = -1
-                Using cmdGetLastId As New SqlCommand("SELECT SCOPE_IDENTITY()", connection)
-                    Dim result As Object = cmdGetLastId.ExecuteScalar()
-                    If result IsNot DBNull.Value Then
-                        idCliente = CInt(result)
-                    End If
-                End Using
+                        ' Consulta para insertar las opciones del cliente en la tabla clienteopciones
+                        Dim queryClienteOpciones As String = "INSERT INTO clienteopciones (id_cliente, opcion1, opcion2, opcion3, convocatoria) " &
+                                                "VALUES (@clienteId, @opcion1, @opcion2, @opcion3, @convocatoria)"
 
-                If idCliente <> -1 Then
-                    ' Consulta para insertar o actualizar el registro del cliente en la tabla clienteopciones
-                    Dim queryClienteOpciones As String = "IF EXISTS (SELECT 1 FROM clienteopciones WHERE id_cliente = @clienteId) " &
-                                                "BEGIN " &
-                                                "  UPDATE clienteopciones SET opcion1 = @opcion1, opcion2 = @opcion2, opcion3 = @opcion3, convocatoria = @convocatoria " &
-                                                "  WHERE id_cliente = @clienteId " &
-                                                "END " &
-                                                "ELSE " &
-                                                "BEGIN " &
-                                                "  INSERT INTO clienteopciones (id_cliente, opcion1, opcion2, opcion3, convocatoria) " &
-                                                "  VALUES (@clienteId, @opcion1, @opcion2, @opcion3, @convocatoria) " &
-                                                "END"
+                        ' Crear un comando con la consulta y los parámetros proporcionados para la tabla clienteopciones
+                        Using cmdClienteOpciones As New SqlCommand(queryClienteOpciones, connection, transaction)
+                            cmdClienteOpciones.Parameters.AddWithValue("@clienteId", idCliente)
+                            cmdClienteOpciones.Parameters.AddWithValue("@opcion1", Opcion1Cb.Text)
+                            cmdClienteOpciones.Parameters.AddWithValue("@opcion2", opcion2Cb.Text)
+                            cmdClienteOpciones.Parameters.AddWithValue("@opcion3", opcion3Cb.Text)
+                            cmdClienteOpciones.Parameters.AddWithValue("@convocatoria", convocatoriaCb.Text)
 
-                    ' Crear un comando con la consulta y los parámetros proporcionados para la tabla clienteopciones
-                    Using cmdClienteOpciones As New SqlCommand(queryClienteOpciones, connection)
-                        cmdClienteOpciones.Parameters.AddWithValue("@clienteId", idCliente)
-                        cmdClienteOpciones.Parameters.AddWithValue("@opcion1", Opcion1Cb.Text)
-                        cmdClienteOpciones.Parameters.AddWithValue("@opcion2", opcion2Cb.Text)
-                        cmdClienteOpciones.Parameters.AddWithValue("@opcion3", opcion3Cb.Text)
-                        cmdClienteOpciones.Parameters.AddWithValue("@convocatoria", convocatoriaCb.Text)
-
-                        ' Ejecutar el comando para insertar o actualizar el registro en la tabla clienteopciones
-                        cmdClienteOpciones.ExecuteNonQuery()
+                            ' Ejecutar el comando para insertar las opciones del cliente en la tabla clienteopciones
+                            cmdClienteOpciones.ExecuteNonQuery()
+                        End Using
                     End Using
-                End If
 
-                MessageBox.Show("Nuevo cliente creado correctamente.")
+                    ' Cometer la transacción si todas las consultas se ejecutan correctamente
+                    transaction.Commit()
+
+                    MessageBox.Show("Nuevo cliente creado correctamente.")
+                Catch ex As Exception
+                    ' Deshacer la transacción si alguna de las consultas falla
+                    transaction.Rollback()
+
+                    MessageBox.Show("Error al crear el cliente: " & ex.Message)
+                End Try
 
                 ' Cerrar la conexión
                 connection.Close()
             End Using
         Catch ex As Exception
-            MessageBox.Show("Error al crear el cliente: " & ex.Message)
+            MessageBox.Show("Error al establecer la conexión con la base de datos: " & ex.Message)
         End Try
     End Sub
 
