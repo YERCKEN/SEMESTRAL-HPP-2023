@@ -56,7 +56,7 @@ Public Class Form1
             encabezado.HorizontalAlignment = Excel.Constants.xlCenter
 
             'COLOR
-            encabezado.Interior.Color = RGB(255, 0, 0)
+            encabezado.Interior.Color = RGB(0, 116, 255)
             encabezado.Font.Color = Color.White
 
             'NEGRITA y tamaño
@@ -65,27 +65,46 @@ Public Class Form1
 
 
             ' Agregar título de tabla
-            Dim rangoTituloDeLaTabla As Excel.Range = excelWorkSheet.Range("A2", excelWorkSheet.Cells(2, dataTable.Columns.Count))
+            Dim rangoTituloDeLaTabla As Excel.Range = excelWorkSheet.Range("A3", excelWorkSheet.Cells(3, dataTable.Columns.Count))
             rangoTituloDeLaTabla.Merge()
             rangoTituloDeLaTabla.Value = "Titulo De la tabla"
             rangoTituloDeLaTabla.HorizontalAlignment = Excel.Constants.xlCenter
 
+            'COLORs
+            rangoTituloDeLaTabla.Interior.Color = Color.White
 
+            rangoTituloDeLaTabla.Font.Color = RGB(0, 116, 255)
+
+            'NEGRITA y tamaño
+            rangoTituloDeLaTabla.Font.Size = 15
+            rangoTituloDeLaTabla.Font.Bold = True
+
+            rangoTituloDeLaTabla.Font.Italic = True
 
 
 
             ' Escribir el encabezado de la tabla
-            Dim headerRange As Excel.Range = excelWorkSheet.Range("A3", excelWorkSheet.Cells(3, dataTable.Columns.Count))
-            Dim columnNames As String() = dataTable.Columns.Cast(Of DataColumn)().Select(Function(x) x.ColumnName).ToArray()
-            headerRange.Value = columnNames
+            Dim headerRange As Excel.Range = excelWorkSheet.Range("A5", excelWorkSheet.Cells(5, dataTable.Columns.Count))
+            ' Cambiar los nombres de las columnas de la DataTable según tus necesidades
+            Dim newColumnNames As String() = {"ID", "RUC", "Nombre", "Correo", "Tipo", "Teléfono", "Observación"}
+            headerRange.Value = newColumnNames
             headerRange.Font.Bold = True
 
+            headerRange.HorizontalAlignment = Excel.Constants.xlCenter
+
+            headerRange.Font.Color = Color.FromArgb(83, 97, 98)
+
+
+
             ' Escribir los datos en la hoja de trabajo
-            Dim startCell As Excel.Range = excelWorkSheet.Range("A4")
+            Dim startCell As Excel.Range = excelWorkSheet.Range("A6")
             Dim dataArr(dataTable.Rows.Count - 1, dataTable.Columns.Count - 1) As Object
             For i As Integer = 0 To dataTable.Rows.Count - 1
                 For j As Integer = 0 To dataTable.Columns.Count - 1
                     dataArr(i, j) = dataTable.Rows(i)(j)
+
+                    startCell.Offset(i, j).Font.Color = RGB(120, 127, 130)
+
                 Next
             Next
             startCell.Resize(dataTable.Rows.Count, dataTable.Columns.Count).Value = dataArr
