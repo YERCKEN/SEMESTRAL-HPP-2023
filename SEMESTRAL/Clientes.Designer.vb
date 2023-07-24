@@ -118,7 +118,7 @@ Partial Class Clientes
         BtnNuevoTicket.FlatStyle = FlatStyle.Flat
         BtnNuevoTicket.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         BtnNuevoTicket.ForeColor = Color.White
-        BtnNuevoTicket.Location = New Point(310, 396)
+        BtnNuevoTicket.Location = New Point(310, 427)
         BtnNuevoTicket.Name = "BtnNuevoTicket"
         BtnNuevoTicket.Size = New Size(159, 65)
         BtnNuevoTicket.TabIndex = 75
@@ -457,7 +457,7 @@ Partial Class Clientes
         btnselecccionarElimina.FlatStyle = FlatStyle.Flat
         btnselecccionarElimina.Font = New Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point)
         btnselecccionarElimina.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        btnselecccionarElimina.Location = New Point(268, 3)
+        btnselecccionarElimina.Location = New Point(268, 33)
         btnselecccionarElimina.Name = "btnselecccionarElimina"
         btnselecccionarElimina.Size = New Size(45, 48)
         btnselecccionarElimina.TabIndex = 59
