@@ -236,6 +236,8 @@ Public Class Provedores
                 MostrarProveedor(idProveedor)
                 panelIngresoDatos2.Visible = True
                 PanelSelecion.Visible = False
+                BtnactualizarNuevoTicket.Visible = True
+                BtnNuevoTicket.Visible = False
             Else
                 MessageBox.Show("El proveedor no existe.")
             End If
@@ -245,7 +247,7 @@ Public Class Provedores
 
     End Sub
 
-    Private Sub BtnIngresarNuevoTicket_Click(sender As Object, e As EventArgs) Handles BtnIngresarNuevoTicket.Click
+    Private Sub BtnIngresarNuevoTicket_Click(sender As Object, e As EventArgs) Handles BtnactualizarNuevoTicket.Click
         ' Crear una variable para almacenar el id del proveedor
         Dim idProveedor As Integer
 
@@ -255,9 +257,8 @@ Public Class Provedores
             If ExisteProveedor(idProveedor) Then
                 ActualizarProveedor(idProveedor)
                 MostrarProveedores()
-                crearBtn.Enabled = True
-                actualizarBtn.Enabled = False
-                eliminarBtn.Enabled = False
+                panelIngresoDatos2.Visible = False
+                PanelBotones.Visible = True
             Else
                 MessageBox.Show("El proveedor no existe.")
             End If
@@ -276,6 +277,8 @@ Public Class Provedores
     Private Sub actualizarBtn_Click(sender As Object, e As EventArgs) Handles actualizarBtn.Click
         PanelSelecion.Visible = True
         PanelBotones.Visible = False
+        btnselecccionarElimina.Visible = False
+        BtnSeleccionar.Visible = True
     End Sub
 
     Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles BtnVolver.Click
@@ -286,21 +289,28 @@ Public Class Provedores
         tipoCb.SelectedIndex = -1
         telefonoTb.Clear()
         observacionTb.Clear()
+        MostrarProveedores()
         panelIngresoDatos2.Visible = False
         PanelBotones.Visible = True
     End Sub
 
     Private Sub crearBtn_Click(sender As Object, e As EventArgs) Handles crearBtn.Click
-        CrearProveedor()
-        MostrarProveedores()
         panelIngresoDatos2.Visible = True
         PanelBotones.Visible = False
+        BtnActualizarNuevoTicket.Visible = False
+        BtnNuevoTicket.Visible = True
     End Sub
 
     Private Sub eliminarBtn_Click(sender As Object, e As EventArgs) Handles eliminarBtn.Click
+        PanelSelecion.Visible = True
+        PanelBotones.Visible = False
+        btnselecccionarElimina.Visible = True
+        BtnSeleccionar.Visible = False
+    End Sub
+
+    Private Sub btnselecccionarElimina_Click(sender As Object, e As EventArgs) Handles btnselecccionarElimina.Click
         ' Crear una variable para almacenar el id del proveedor
         Dim idProveedor As Integer
-
         ' Intentar convertir el texto del TextBox a un número entero
         If Integer.TryParse(idProveedoresTb.Text, idProveedor) Then
             ' Si la conversión es exitosa, utilizar la función ExisteProveedor para verificar si el proveedor existe
@@ -314,13 +324,20 @@ Public Class Provedores
                 tipoCb.SelectedIndex = -1
                 telefonoTb.Clear()
                 observacionTb.Clear()
-                PanelSelecion.Visible = True
-                PanelBotones.Visible = False
+                PanelSelecion.Visible = False
+                PanelBotones.Visible = True
             Else
                 MessageBox.Show("El proveedor no existe.")
             End If
         Else
             MessageBox.Show("Por favor, introduce un número válido para el ID del proveedor.")
         End If
+    End Sub
+
+    Private Sub BtnNuevoTicket_Click(sender As Object, e As EventArgs) Handles BtnNuevoTicket.Click
+        CrearProveedor()
+        MostrarProveedores()
+        panelIngresoDatos2.Visible = False
+        PanelBotones.Visible = True
     End Sub
 End Class

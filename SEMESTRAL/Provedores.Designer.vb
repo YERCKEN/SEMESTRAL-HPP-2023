@@ -26,6 +26,7 @@ Partial Class Provedores
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         panelIngresoDatos2 = New Panel()
+        BtnNuevoTicket = New Button()
         correoTb = New TextBox()
         rucTb = New TextBox()
         tipoCb = New ComboBox()
@@ -34,13 +35,14 @@ Partial Class Provedores
         Label3 = New Label()
         Label2 = New Label()
         BtnVolver = New Button()
-        BtnIngresarNuevoTicket = New Button()
+        BtnactualizarNuevoTicket = New Button()
         observacionTb = New TextBox()
         Label1 = New Label()
         Label6 = New Label()
         nombreTb = New TextBox()
         Label7 = New Label()
         PanelSelecion = New Panel()
+        btnselecccionarElimina = New Button()
         BtnSalirSeleccion = New Button()
         idProveedoresTb = New TextBox()
         BtnSeleccionar = New Button()
@@ -58,6 +60,7 @@ Partial Class Provedores
         ' 
         ' panelIngresoDatos2
         ' 
+        panelIngresoDatos2.Controls.Add(BtnNuevoTicket)
         panelIngresoDatos2.Controls.Add(correoTb)
         panelIngresoDatos2.Controls.Add(rucTb)
         panelIngresoDatos2.Controls.Add(tipoCb)
@@ -66,7 +69,7 @@ Partial Class Provedores
         panelIngresoDatos2.Controls.Add(Label3)
         panelIngresoDatos2.Controls.Add(Label2)
         panelIngresoDatos2.Controls.Add(BtnVolver)
-        panelIngresoDatos2.Controls.Add(BtnIngresarNuevoTicket)
+        panelIngresoDatos2.Controls.Add(BtnactualizarNuevoTicket)
         panelIngresoDatos2.Controls.Add(observacionTb)
         panelIngresoDatos2.Controls.Add(Label1)
         panelIngresoDatos2.Controls.Add(Label6)
@@ -77,6 +80,23 @@ Partial Class Provedores
         panelIngresoDatos2.Size = New Size(721, 343)
         panelIngresoDatos2.TabIndex = 77
         panelIngresoDatos2.Visible = False
+        ' 
+        ' BtnNuevoTicket
+        ' 
+        BtnNuevoTicket.BackColor = Color.FromArgb(CByte(67), CByte(116), CByte(255))
+        BtnNuevoTicket.Cursor = Cursors.Hand
+        BtnNuevoTicket.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        BtnNuevoTicket.FlatAppearance.BorderSize = 0
+        BtnNuevoTicket.FlatStyle = FlatStyle.Flat
+        BtnNuevoTicket.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        BtnNuevoTicket.ForeColor = Color.White
+        BtnNuevoTicket.Location = New Point(447, 229)
+        BtnNuevoTicket.Name = "BtnNuevoTicket"
+        BtnNuevoTicket.Size = New Size(159, 65)
+        BtnNuevoTicket.TabIndex = 74
+        BtnNuevoTicket.Text = "Nuevos Datos"
+        BtnNuevoTicket.UseVisualStyleBackColor = False
+        BtnNuevoTicket.Visible = False
         ' 
         ' correoTb
         ' 
@@ -166,21 +186,21 @@ Partial Class Provedores
         BtnVolver.Text = "🔙"
         BtnVolver.UseVisualStyleBackColor = False
         ' 
-        ' BtnIngresarNuevoTicket
+        ' BtnactualizarNuevoTicket
         ' 
-        BtnIngresarNuevoTicket.BackColor = Color.FromArgb(CByte(67), CByte(116), CByte(255))
-        BtnIngresarNuevoTicket.Cursor = Cursors.Hand
-        BtnIngresarNuevoTicket.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        BtnIngresarNuevoTicket.FlatAppearance.BorderSize = 0
-        BtnIngresarNuevoTicket.FlatStyle = FlatStyle.Flat
-        BtnIngresarNuevoTicket.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        BtnIngresarNuevoTicket.ForeColor = Color.White
-        BtnIngresarNuevoTicket.Location = New Point(447, 229)
-        BtnIngresarNuevoTicket.Name = "BtnIngresarNuevoTicket"
-        BtnIngresarNuevoTicket.Size = New Size(159, 65)
-        BtnIngresarNuevoTicket.TabIndex = 47
-        BtnIngresarNuevoTicket.Text = "Actualizar Datos"
-        BtnIngresarNuevoTicket.UseVisualStyleBackColor = False
+        BtnactualizarNuevoTicket.BackColor = Color.FromArgb(CByte(67), CByte(116), CByte(255))
+        BtnactualizarNuevoTicket.Cursor = Cursors.Hand
+        BtnactualizarNuevoTicket.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        BtnactualizarNuevoTicket.FlatAppearance.BorderSize = 0
+        BtnactualizarNuevoTicket.FlatStyle = FlatStyle.Flat
+        BtnactualizarNuevoTicket.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        BtnactualizarNuevoTicket.ForeColor = Color.White
+        BtnactualizarNuevoTicket.Location = New Point(447, 229)
+        BtnactualizarNuevoTicket.Name = "BtnactualizarNuevoTicket"
+        BtnactualizarNuevoTicket.Size = New Size(159, 65)
+        BtnactualizarNuevoTicket.TabIndex = 47
+        BtnactualizarNuevoTicket.Text = "Actualizar Datos"
+        BtnactualizarNuevoTicket.UseVisualStyleBackColor = False
         ' 
         ' observacionTb
         ' 
@@ -236,6 +256,7 @@ Partial Class Provedores
         ' 
         ' PanelSelecion
         ' 
+        PanelSelecion.Controls.Add(btnselecccionarElimina)
         PanelSelecion.Controls.Add(BtnSalirSeleccion)
         PanelSelecion.Controls.Add(idProveedoresTb)
         PanelSelecion.Controls.Add(BtnSeleccionar)
@@ -245,6 +266,23 @@ Partial Class Provedores
         PanelSelecion.Size = New Size(378, 91)
         PanelSelecion.TabIndex = 79
         PanelSelecion.Visible = False
+        ' 
+        ' btnselecccionarElimina
+        ' 
+        btnselecccionarElimina.BackColor = Color.FromArgb(CByte(229), CByte(229), CByte(229))
+        btnselecccionarElimina.Cursor = Cursors.Hand
+        btnselecccionarElimina.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        btnselecccionarElimina.FlatAppearance.BorderSize = 0
+        btnselecccionarElimina.FlatStyle = FlatStyle.Flat
+        btnselecccionarElimina.Font = New Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point)
+        btnselecccionarElimina.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        btnselecccionarElimina.Location = New Point(268, 33)
+        btnselecccionarElimina.Name = "btnselecccionarElimina"
+        btnselecccionarElimina.Size = New Size(45, 48)
+        btnselecccionarElimina.TabIndex = 59
+        btnselecccionarElimina.Text = "✓"
+        btnselecccionarElimina.UseVisualStyleBackColor = False
+        btnselecccionarElimina.Visible = False
         ' 
         ' BtnSalirSeleccion
         ' 
@@ -431,7 +469,7 @@ Partial Class Provedores
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents BtnVolver As Button
-    Friend WithEvents BtnIngresarNuevoTicket As Button
+    Friend WithEvents BtnactualizarNuevoTicket As Button
     Friend WithEvents observacionTb As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label6 As Label
@@ -447,4 +485,6 @@ Partial Class Provedores
     Friend WithEvents actualizarBtn As Button
     Friend WithEvents crearBtn As Button
     Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents btnselecccionarElimina As Button
+    Friend WithEvents BtnNuevoTicket As Button
 End Class

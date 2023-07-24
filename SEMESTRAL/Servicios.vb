@@ -268,11 +268,13 @@ Public Class Servicios
     End Sub
 
     Private Sub BtnSalirSeleccion_Click(sender As Object, e As EventArgs) Handles BtnSalirSeleccion.Click
+        idServicioTb.Clear()
         PanelBotones.Visible = True
         PanelSelecion.Visible = False
     End Sub
 
     Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles BtnVolver.Click
+        idServicioTb.Clear()
         panelIngresoDatos2.Visible = False
         PanelBotones.Visible = True
     End Sub
