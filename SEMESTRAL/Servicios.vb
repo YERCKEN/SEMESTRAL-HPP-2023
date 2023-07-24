@@ -242,6 +242,7 @@ Public Class Servicios
             ' Si la conversión es exitosa, utilizar la función ExisteProveedor para verificar si el proveedor existe
             If ExisteServicio() Then
                 EliminarServicio(servicioId)
+                MostrarServicios()
                 PanelSelecion.Visible = False
                 PanelBotones.Visible = True
             Else
