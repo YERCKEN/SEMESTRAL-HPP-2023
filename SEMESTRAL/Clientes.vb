@@ -359,10 +359,10 @@ Public Class Clientes
             If ClienteExiste(clienteId) Then
                 MostrarCliente(clienteId)
                 MostrarDatosCliente(clienteId)
-                panelIngresoDatos2.Enabled = False
-                crearBtn.Enabled = False
-                actualizarBtn.Enabled = True
-                eliminarBtn.Enabled = True
+                panelIngresoDatos2.Visible = True
+                PanelSelecion.Visible = False
+                BtnactualizarNuevoTicket.Visible = True
+                BtnNuevoTicket.Visible = False
             Else
                 MessageBox.Show("El cliente con ID " & clienteId & " no existe.")
                 TextBoxId.Clear()
@@ -375,20 +375,19 @@ Public Class Clientes
 
     Private Sub BtnSalirSeleccion_Click(sender As Object, e As EventArgs) Handles BtnSalirSeleccion.Click
         TextBoxId.Clear()
-        crearBtn.Enabled = True
-        actualizarBtn.Enabled = False
-        eliminarBtn.Enabled = False
+        PanelBotones.Visible = True
+        PanelSelecion.Visible = False
         MostrarClientes()
     End Sub
 
-    Private Sub BtnIngresarNuevoTicket_Click(sender As Object, e As EventArgs) Handles BtnIngresarNuevoTicket.Click
+    Private Sub BtnIngresarNuevoTicket_Click(sender As Object, e As EventArgs) Handles BtnactualizarNuevoTicket.Click
         If Integer.TryParse(TextBoxId.Text, clienteId) Then
             If ClienteExiste(clienteId) Then
+                TextBoxId.Clear()
                 ActualizarDatosCliente(clienteId)
                 MostrarClientes()
-                crearBtn.Enabled = True
-                actualizarBtn.Enabled = False
-                eliminarBtn.Enabled = False
+                panelIngresoDatos2.Visible = False
+                PanelBotones.Visible = True
             Else
                 MessageBox.Show("El cliente con ID " & clienteId & " no existe.")
             End If
@@ -412,30 +411,37 @@ Public Class Clientes
         Opcion1Cb.SelectedIndex = -1
         opcion2Cb.SelectedIndex = -1
         opcion3Cb.SelectedIndex = -1
-        crearBtn.Enabled = True
-        actualizarBtn.Enabled = False
-        eliminarBtn.Enabled = False
-        BtnIngresarNuevoTicket.Visible = False
+        panelIngresoDatos2.Visible = False
+        PanelBotones.Visible = True
     End Sub
 
     Private Sub crearBtn_Click(sender As Object, e As EventArgs) Handles crearBtn.Click
-        CrearCliente()
-        MostrarClientes()
-        actualizarBtn.Enabled = False
-        eliminarBtn.Enabled = False
+        panelIngresoDatos2.Visible = True
+        PanelBotones.Visible = False
+        BtnactualizarNuevoTicket.Visible = False
+        BtnNuevoTicket.Visible = True
+
     End Sub
 
     Private Sub actualizarBtn_Click(sender As Object, e As EventArgs) Handles actualizarBtn.Click
-        panelIngresoDatos2.Enabled = True
-        eliminarBtn.Enabled = False
-        BtnIngresarNuevoTicket.Visible = True
+        PanelSelecion.Visible = True
+        PanelBotones.Visible = False
+        btnselecccionarElimina.Visible = False
+        BtnSeleccionar.Visible = True
     End Sub
 
     Private Sub eliminarBtn_Click(sender As Object, e As EventArgs) Handles eliminarBtn.Click
+        PanelSelecion.Visible = True
+        PanelBotones.Visible = False
+        btnselecccionarElimina.Visible = True
+        BtnSeleccionar.Visible = False
+    End Sub
+
+    Private Sub btnselecccionarElimina_Click(sender As Object, e As EventArgs) Handles btnselecccionarElimina.Click
         If Integer.TryParse(TextBoxId.Text, clienteId) Then
             If ClienteExiste(clienteId) Then
                 EliminarCliente(clienteId)
-                MostrarCliente(clienteId)
+                MostrarClientes()
                 TextBoxId.Clear()
                 nombreTb.Clear()
                 apellidoTb.Clear()
@@ -450,14 +456,20 @@ Public Class Clientes
                 Opcion1Cb.SelectedIndex = -1
                 opcion2Cb.SelectedIndex = -1
                 opcion3Cb.SelectedIndex = -1
-                crearBtn.Enabled = False
-                actualizarBtn.Enabled = True
-                eliminarBtn.Enabled = True
+                PanelSelecion.Visible = False
+                PanelBotones.Visible = True
             Else
                 MessageBox.Show("El cliente con ID " & clienteId & " no existe.")
             End If
         Else
             MessageBox.Show("Ingrese un ID de cliente válido (número entero).")
         End If
+    End Sub
+
+    Private Sub BtnNuevoTicket_Click(sender As Object, e As EventArgs) Handles BtnNuevoTicket.Click
+        CrearCliente()
+        MostrarClientes()
+        panelIngresoDatos2.Visible = False
+        PanelBotones.Visible = True
     End Sub
 End Class
