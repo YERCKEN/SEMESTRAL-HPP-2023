@@ -1,8 +1,12 @@
 ﻿Imports System.Data.SqlClient
 
+Imports Outlook = Microsoft.Office.Interop.Outlook
+
+
+
 Public Class correo
 
-    Dim correo As String
+    Dim correoDestinatario As String
     Private Sub correo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         'CARGAR PROVEDORES ------------------------
@@ -58,7 +62,45 @@ Public Class correo
 
     Private Sub ListaProvedores_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListaProvedores.SelectedIndexChanged
 
-        correo = ObtenerCorreoProveedor(ListaProvedores.Text)
-        MsgBox(correo)
+        correoDestinatario = ObtenerCorreoProveedor(ListaProvedores.Text)
+        MsgBox(correoDestinatario)
     End Sub
+
+
+
+
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
+        Try
+            ' Crear una instancia de la aplicación Outlook
+            Dim outlookApp As Outlook.Application = New Outlook.Application()
+
+            ' Crear un nuevo correo
+            Dim correo As Outlook.MailItem = outlookApp.CreateItem(Outlook.OlItemType.olMailItem)
+
+            ' Establecer los campos del correo
+            correo.Subject = TextBoxAsunto.Text
+            correo.To = correoDestinatario.ToString
+            correo.Body = TextBoxCuerpo.Text
+
+            ' Opcional: Puedes adjuntar archivos al correo si lo deseas
+            'correo.Attachments.Add("C:\Ruta\archivo_adjunto.txt")
+
+            ' Enviar el correo
+            correo.Send()
+
+            ' Liberar recursos
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(correo)
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(outlookApp)
+
+            ' Mostrar un mensaje de éxito
+            MessageBox.Show("Correo enviado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+        Catch ex As Exception
+            MessageBox.Show("Error al enviar el correo: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+
 End Class
