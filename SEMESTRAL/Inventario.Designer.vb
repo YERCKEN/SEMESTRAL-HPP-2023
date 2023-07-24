@@ -22,9 +22,9 @@ Partial Class Inventario
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
         DataGridView1 = New DataGridView()
         listaMostrar = New ComboBox()
         LabelFiltro = New Label()
@@ -36,10 +36,9 @@ Partial Class Inventario
         BtnActualizar = New Button()
         BtnNuevaCarrera = New Button()
         panelIngresoDatos2 = New Panel()
+        ListaUbicación = New ComboBox()
         TextBoxUbicacion = New TextBox()
         Label4 = New Label()
-        TextBoxCantidad = New TextBox()
-        Label3 = New Label()
         ListaEstado = New ComboBox()
         Label2 = New Label()
         ListaTipo = New ComboBox()
@@ -75,39 +74,39 @@ Partial Class Inventario
         DataGridView1.BorderStyle = BorderStyle.None
         DataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal
         DataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = Color.FromArgb(CByte(240), CByte(245), CByte(252))
-        DataGridViewCellStyle1.Font = New Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
-        DataGridViewCellStyle1.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        DataGridViewCellStyle1.Padding = New Padding(5)
-        DataGridViewCellStyle1.SelectionBackColor = Color.White
-        DataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(CByte(67), CByte(116), CByte(255))
-        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
-        DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle4.BackColor = Color.FromArgb(CByte(240), CByte(245), CByte(252))
+        DataGridViewCellStyle4.Font = New Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
+        DataGridViewCellStyle4.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        DataGridViewCellStyle4.Padding = New Padding(5)
+        DataGridViewCellStyle4.SelectionBackColor = Color.White
+        DataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(CByte(67), CByte(116), CByte(255))
+        DataGridViewCellStyle4.WrapMode = DataGridViewTriState.True
+        DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
         DataGridView1.ColumnHeadersHeight = 50
-        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = SystemColors.Window
-        DataGridViewCellStyle2.Font = New Font("Microsoft JhengHei UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point)
-        DataGridViewCellStyle2.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        DataGridViewCellStyle2.Padding = New Padding(0, 5, 0, 5)
-        DataGridViewCellStyle2.SelectionBackColor = SystemColors.Control
-        DataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.False
-        DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = SystemColors.Window
+        DataGridViewCellStyle5.Font = New Font("Microsoft JhengHei UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle5.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        DataGridViewCellStyle5.Padding = New Padding(0, 5, 0, 5)
+        DataGridViewCellStyle5.SelectionBackColor = SystemColors.Control
+        DataGridViewCellStyle5.SelectionForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        DataGridViewCellStyle5.WrapMode = DataGridViewTriState.False
+        DataGridView1.DefaultCellStyle = DataGridViewCellStyle5
         DataGridView1.EnableHeadersVisualStyles = False
         DataGridView1.GridColor = Color.FromArgb(CByte(230), CByte(235), CByte(242))
         DataGridView1.Location = New Point(10, 78)
         DataGridView1.Margin = New Padding(4, 3, 4, 3)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = Color.White
-        DataGridViewCellStyle3.Font = New Font("Segoe UI", 9.6F, FontStyle.Regular, GraphicsUnit.Point)
-        DataGridViewCellStyle3.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        DataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = DataGridViewTriState.True
-        DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = Color.White
+        DataGridViewCellStyle6.Font = New Font("Segoe UI", 9.6F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle6.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        DataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = DataGridViewTriState.True
+        DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
         DataGridView1.RowHeadersVisible = False
         DataGridView1.RowHeadersWidth = 51
         DataGridView1.RowTemplate.Height = 31
@@ -191,7 +190,7 @@ Partial Class Inventario
         BtnEliminar.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         BtnEliminar.FlatAppearance.BorderSize = 0
         BtnEliminar.FlatStyle = FlatStyle.Flat
-        BtnEliminar.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        BtnEliminar.Font = New Font("Montserrat", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
         BtnEliminar.ForeColor = Color.FromArgb(CByte(255), CByte(176), CByte(176))
         BtnEliminar.Location = New Point(23, 118)
         BtnEliminar.Name = "BtnEliminar"
@@ -207,7 +206,7 @@ Partial Class Inventario
         BtnActualizar.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         BtnActualizar.FlatAppearance.BorderSize = 0
         BtnActualizar.FlatStyle = FlatStyle.Flat
-        BtnActualizar.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        BtnActualizar.Font = New Font("Montserrat", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
         BtnActualizar.ForeColor = Color.White
         BtnActualizar.Location = New Point(225, 23)
         BtnActualizar.Name = "BtnActualizar"
@@ -223,7 +222,7 @@ Partial Class Inventario
         BtnNuevaCarrera.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         BtnNuevaCarrera.FlatAppearance.BorderSize = 0
         BtnNuevaCarrera.FlatStyle = FlatStyle.Flat
-        BtnNuevaCarrera.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        BtnNuevaCarrera.Font = New Font("Montserrat", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
         BtnNuevaCarrera.ForeColor = Color.FromArgb(CByte(189), CByte(255), CByte(221))
         BtnNuevaCarrera.Location = New Point(23, 23)
         BtnNuevaCarrera.Name = "BtnNuevaCarrera"
@@ -234,10 +233,9 @@ Partial Class Inventario
         ' 
         ' panelIngresoDatos2
         ' 
+        panelIngresoDatos2.Controls.Add(ListaUbicación)
         panelIngresoDatos2.Controls.Add(TextBoxUbicacion)
         panelIngresoDatos2.Controls.Add(Label4)
-        panelIngresoDatos2.Controls.Add(TextBoxCantidad)
-        panelIngresoDatos2.Controls.Add(Label3)
         panelIngresoDatos2.Controls.Add(ListaEstado)
         panelIngresoDatos2.Controls.Add(Label2)
         panelIngresoDatos2.Controls.Add(ListaTipo)
@@ -254,49 +252,40 @@ Partial Class Inventario
         panelIngresoDatos2.TabIndex = 70
         panelIngresoDatos2.Visible = False
         ' 
+        ' ListaUbicación
+        ' 
+        ListaUbicación.Font = New Font("Microsoft Sans Serif", 12.0F, FontStyle.Regular, GraphicsUnit.Point)
+        ListaUbicación.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        ListaUbicación.FormattingEnabled = True
+        ListaUbicación.Items.AddRange(New Object() {"Aula 101", "Aula 102", "Aula 103", "Aula 104", "Aula 105", "Aula de Arte", "Departamento de Finanzas", "Depósito", "Laboratorio de Ciencias", "Laboratorio de Informática", "Laboratorio 1", "Laboratorio 2", "Laboratorio 3", "Laboratorio 4", "Laboratorio 5", "Salón de Conferencias", "Secretaría Académica", "Secretaría de Investigación", "Secretaría General", "Departamento de Recursos Humanos", "Departamento de Tecnologías de la Información"})
+        ListaUbicación.Location = New Point(259, 106)
+        ListaUbicación.Name = "ListaUbicación"
+        ListaUbicación.Size = New Size(430, 33)
+        ListaUbicación.TabIndex = 56
+        ' 
         ' TextBoxUbicacion
         ' 
-        TextBoxUbicacion.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        TextBoxUbicacion.Font = New Font("Microsoft Sans Serif", 12.0F, FontStyle.Regular, GraphicsUnit.Point)
         TextBoxUbicacion.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        TextBoxUbicacion.Location = New Point(419, 199)
+        TextBoxUbicacion.Location = New Point(259, 199)
         TextBoxUbicacion.Name = "TextBoxUbicacion"
-        TextBoxUbicacion.Size = New Size(270, 30)
+        TextBoxUbicacion.Size = New Size(430, 30)
         TextBoxUbicacion.TabIndex = 54
         ' 
         ' Label4
         ' 
         Label4.AutoSize = True
-        Label4.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        Label4.Font = New Font("Montserrat", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
         Label4.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        Label4.Location = New Point(266, 199)
+        Label4.Location = New Point(259, 142)
         Label4.Name = "Label4"
         Label4.Size = New Size(117, 27)
         Label4.TabIndex = 55
         Label4.Text = "Ubicación"
         ' 
-        ' TextBoxCantidad
-        ' 
-        TextBoxCantidad.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        TextBoxCantidad.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        TextBoxCantidad.Location = New Point(419, 141)
-        TextBoxCantidad.Name = "TextBoxCantidad"
-        TextBoxCantidad.Size = New Size(270, 30)
-        TextBoxCantidad.TabIndex = 52
-        ' 
-        ' Label3
-        ' 
-        Label3.AutoSize = True
-        Label3.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        Label3.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        Label3.Location = New Point(266, 142)
-        Label3.Name = "Label3"
-        Label3.Size = New Size(108, 27)
-        Label3.TabIndex = 53
-        Label3.Text = "Cantidad"
-        ' 
         ' ListaEstado
         ' 
-        ListaEstado.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        ListaEstado.Font = New Font("Microsoft Sans Serif", 12.0F, FontStyle.Regular, GraphicsUnit.Point)
         ListaEstado.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         ListaEstado.FormattingEnabled = True
         ListaEstado.Items.AddRange(New Object() {"En uso", "Disponible", "Reparación"})
@@ -308,7 +297,7 @@ Partial Class Inventario
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        Label2.Font = New Font("Montserrat", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
         Label2.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         Label2.Location = New Point(3, 142)
         Label2.Name = "Label2"
@@ -318,7 +307,7 @@ Partial Class Inventario
         ' 
         ' ListaTipo
         ' 
-        ListaTipo.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        ListaTipo.Font = New Font("Microsoft Sans Serif", 12.0F, FontStyle.Regular, GraphicsUnit.Point)
         ListaTipo.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         ListaTipo.FormattingEnabled = True
         ListaTipo.Items.AddRange(New Object() {"Recurso", "Equipo"})
@@ -350,7 +339,7 @@ Partial Class Inventario
         BtnIngresar.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         BtnIngresar.FlatAppearance.BorderSize = 0
         BtnIngresar.FlatStyle = FlatStyle.Flat
-        BtnIngresar.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        BtnIngresar.Font = New Font("Montserrat", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
         BtnIngresar.ForeColor = Color.White
         BtnIngresar.Location = New Point(420, 306)
         BtnIngresar.Name = "BtnIngresar"
@@ -361,7 +350,7 @@ Partial Class Inventario
         ' 
         ' TextBoxObservacion
         ' 
-        TextBoxObservacion.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        TextBoxObservacion.Font = New Font("Microsoft Sans Serif", 12.0F, FontStyle.Regular, GraphicsUnit.Point)
         TextBoxObservacion.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         TextBoxObservacion.Location = New Point(3, 306)
         TextBoxObservacion.Multiline = True
@@ -372,7 +361,7 @@ Partial Class Inventario
         ' Label5
         ' 
         Label5.AutoSize = True
-        Label5.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        Label5.Font = New Font("Montserrat", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
         Label5.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         Label5.Location = New Point(2, 261)
         Label5.Name = "Label5"
@@ -383,9 +372,9 @@ Partial Class Inventario
         ' Label6
         ' 
         Label6.AutoSize = True
-        Label6.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        Label6.Font = New Font("Montserrat", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
         Label6.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        Label6.Location = New Point(3, 17)
+        Label6.Location = New Point(3, 3)
         Label6.Name = "Label6"
         Label6.Size = New Size(115, 27)
         Label6.TabIndex = 16
@@ -393,7 +382,7 @@ Partial Class Inventario
         ' 
         ' TextBoxNombre
         ' 
-        TextBoxNombre.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        TextBoxNombre.Font = New Font("Microsoft Sans Serif", 12.0F, FontStyle.Regular, GraphicsUnit.Point)
         TextBoxNombre.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         TextBoxNombre.Location = New Point(259, 65)
         TextBoxNombre.Name = "TextBoxNombre"
@@ -403,9 +392,9 @@ Partial Class Inventario
         ' Label7
         ' 
         Label7.AutoSize = True
-        Label7.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        Label7.Font = New Font("Montserrat", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
         Label7.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        Label7.Location = New Point(259, 20)
+        Label7.Location = New Point(259, 2)
         Label7.Name = "Label7"
         Label7.Size = New Size(98, 27)
         Label7.TabIndex = 18
@@ -430,7 +419,7 @@ Partial Class Inventario
         BtnSalirSeleccion.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         BtnSalirSeleccion.FlatAppearance.BorderSize = 0
         BtnSalirSeleccion.FlatStyle = FlatStyle.Flat
-        BtnSalirSeleccion.Font = New Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point)
+        BtnSalirSeleccion.Font = New Font("Microsoft Sans Serif", 18.0F, FontStyle.Regular, GraphicsUnit.Point)
         BtnSalirSeleccion.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
         BtnSalirSeleccion.Location = New Point(358, 35)
         BtnSalirSeleccion.Name = "BtnSalirSeleccion"
@@ -441,7 +430,7 @@ Partial Class Inventario
         ' 
         ' TextBoxId
         ' 
-        TextBoxId.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        TextBoxId.Font = New Font("Microsoft Sans Serif", 12.0F, FontStyle.Regular, GraphicsUnit.Point)
         TextBoxId.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         TextBoxId.Location = New Point(10, 47)
         TextBoxId.Name = "TextBoxId"
@@ -467,7 +456,7 @@ Partial Class Inventario
         ' Label9
         ' 
         Label9.AutoSize = True
-        Label9.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        Label9.Font = New Font("Montserrat", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
         Label9.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         Label9.Location = New Point(10, 12)
         Label9.Name = "Label9"
@@ -495,7 +484,7 @@ Partial Class Inventario
         BtnAceptarEliminacion.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         BtnAceptarEliminacion.FlatAppearance.BorderSize = 0
         BtnAceptarEliminacion.FlatStyle = FlatStyle.Flat
-        BtnAceptarEliminacion.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        BtnAceptarEliminacion.Font = New Font("Montserrat", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
         BtnAceptarEliminacion.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
         BtnAceptarEliminacion.Location = New Point(620, 183)
         BtnAceptarEliminacion.Name = "BtnAceptarEliminacion"
@@ -511,7 +500,7 @@ Partial Class Inventario
         BtnCancelar.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         BtnCancelar.FlatAppearance.BorderSize = 0
         BtnCancelar.FlatStyle = FlatStyle.Flat
-        BtnCancelar.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        BtnCancelar.Font = New Font("Montserrat", 12.0F, FontStyle.Bold, GraphicsUnit.Point)
         BtnCancelar.ForeColor = Color.White
         BtnCancelar.Location = New Point(807, 183)
         BtnCancelar.Name = "BtnCancelar"
@@ -535,7 +524,7 @@ Partial Class Inventario
         ' 
         ' PictureBox1
         ' 
-        PictureBox1.BackgroundImage = My.Resources.Resources.INVENTARIO
+        PictureBox1.BackgroundImage = My.Resources.Resources.ACTUALIZAR
         PictureBox1.Location = New Point(700, 80)
         PictureBox1.Name = "PictureBox1"
         PictureBox1.Size = New Size(465, 352)
@@ -544,16 +533,16 @@ Partial Class Inventario
         ' 
         ' Inventario
         ' 
-        AutoScaleDimensions = New SizeF(9F, 21F)
+        AutoScaleDimensions = New SizeF(9.0F, 21.0F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.White
         ClientSize = New Size(1280, 916)
+        Controls.Add(panelIngresoDatos2)
         Controls.Add(Panel1)
         Controls.Add(PictureBox1)
-        Controls.Add(PanelSelecion)
         Controls.Add(PanelBotones)
-        Controls.Add(panelIngresoDatos2)
         Controls.Add(PanelEliminación)
+        Controls.Add(PanelSelecion)
         FormBorderStyle = FormBorderStyle.None
         Name = "Inventario"
         Text = "Inventario"
@@ -584,8 +573,6 @@ Partial Class Inventario
     Friend WithEvents panelIngresoDatos2 As Panel
     Friend WithEvents TextBoxUbicacion As TextBox
     Friend WithEvents Label4 As Label
-    Friend WithEvents TextBoxCantidad As TextBox
-    Friend WithEvents Label3 As Label
     Friend WithEvents ListaEstado As ComboBox
     Friend WithEvents Label2 As Label
     Friend WithEvents ListaTipo As ComboBox
@@ -606,4 +593,5 @@ Partial Class Inventario
     Friend WithEvents BtnAceptarEliminacion As Button
     Friend WithEvents BtnCancelar As Button
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents ListaUbicación As ComboBox
 End Class

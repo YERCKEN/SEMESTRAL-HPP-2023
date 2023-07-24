@@ -276,7 +276,7 @@ Public Class querysBDYercken
     End Function
 
 
-    Public Sub InsertarInventario(ByVal tipo As String, ByVal nombre As String, ByVal cantidad As Integer, ByVal estado As String, ByVal ubicacion As String, ByVal fecha As Date, ByVal observaciones As String)
+    Public Sub InsertarInventario(ByVal tipo As String, ByVal nombre As String, ByVal estado As String, ByVal ubicacion As String, ByVal fecha As Date, ByVal observaciones As String)
         Try
             Using connection As New SqlConnection(VARIABLES_GLOBALES.cadenaConexion2)
                 connection.Open()
@@ -286,7 +286,6 @@ Public Class querysBDYercken
 
                 command.Parameters.AddWithValue("@Tipo", tipo)
                 command.Parameters.AddWithValue("@Nombre", nombre)
-                command.Parameters.AddWithValue("@Cantidad", cantidad)
                 command.Parameters.AddWithValue("@Estado", estado)
                 command.Parameters.AddWithValue("@Ubicacion", ubicacion)
                 command.Parameters.AddWithValue("@Fecha", fecha)
@@ -305,17 +304,16 @@ Public Class querysBDYercken
     End Sub
 
 
-    Public Sub ActualizarInventario(ByVal id As Integer, ByVal tipo As String, ByVal nombre As String, ByVal cantidad As Integer, ByVal estado As String, ByVal ubicacion As String, ByVal fecha As Date, ByVal observaciones As String)
+    Public Sub ActualizarInventario(ByVal id As Integer, ByVal tipo As String, ByVal nombre As String, ByVal estado As String, ByVal ubicacion As String, ByVal fecha As Date, ByVal observaciones As String)
         Try
             Using connection As New SqlConnection(VARIABLES_GLOBALES.cadenaConexion2)
                 connection.Open()
 
-                Dim command As New SqlCommand("UPDATE Inventario SET Tipo = @Tipo, Nombre = @Nombre, Cantidad = @Cantidad, Estado = @Estado, Ubicacion = @Ubicacion, Fecha = @Fecha, Observaciones = @Observaciones WHERE ID = @ID", connection)
+                Dim command As New SqlCommand("UPDATE Inventario SET Tipo = @Tipo, Nombre = @Nombre, Estado = @Estado, Ubicacion = @Ubicacion, Fecha = @Fecha, Observaciones = @Observaciones WHERE ID = @ID", connection)
 
                 command.Parameters.AddWithValue("@ID", id)
                 command.Parameters.AddWithValue("@Tipo", tipo)
                 command.Parameters.AddWithValue("@Nombre", nombre)
-                command.Parameters.AddWithValue("@Cantidad", cantidad)
                 command.Parameters.AddWithValue("@Estado", estado)
                 command.Parameters.AddWithValue("@Ubicacion", ubicacion)
                 command.Parameters.AddWithValue("@Fecha", fecha)

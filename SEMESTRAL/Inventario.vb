@@ -16,7 +16,7 @@
         Me.Location = New Point(Form1.Location.X, Form1.Location.Y + 49) ' Establecer la nueva ubicación de Form4 en relación con Form1
 
 
-        'PictureBox1.BackgroundImage = My.Resources.INVENTARIO
+        PictureBox1.BackgroundImage = My.Resources.INVENTARIO
 
         'CRECIMIENTO DE BOTON
         originalSize = BtnIngresar.Size
@@ -252,6 +252,9 @@
         BtnIngresar.Text = "Actualizar Datos"
         BtnIngresar.BackgroundImage = My.Resources.BTN_AZUL
 
+        PictureBox1.BackgroundImage = My.Resources.ACTUALIZAR
+
+
         DataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(240, 245, 252)
 
     End Sub
@@ -344,7 +347,7 @@
             If filaEncontrada IsNot Nothing Then
                 ListaTipo.Text = filaEncontrada.Cells("Tipo").Value.ToString()
                 TextBoxNombre.Text = filaEncontrada.Cells("Nombre").Value.ToString()
-                TextBoxCantidad.Text = filaEncontrada.Cells("Cantidad").Value.ToString()
+                'TextBoxCantidad.Text = filaEncontrada.Cells("Cantidad").Value.ToString()
                 ListaEstado.Text = filaEncontrada.Cells("Estado").Value.ToString()
                 TextBoxUbicacion.Text = filaEncontrada.Cells("Ubicacion").Value.ToString()
                 TextBoxObservacion.Text = filaEncontrada.Cells("Observaciones").Value.ToString()
@@ -455,10 +458,11 @@
             MessageBox.Show("ERROR: Campo no opcional vacío", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             TextBoxNombre.BackColor = Color.White
 
-        ElseIf TextBoxCantidad.Text = "" Then
-            TextBoxCantidad.BackColor = Color.FromArgb(255, 222, 222)
-            MessageBox.Show("ERROR: Campo no opcional vacío", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            TextBoxCantidad.BackColor = Color.White
+            'ElseIf TextBoxCantidad.Text = "" Then
+            '    TextBoxCantidad.BackColor = Color.FromArgb(255, 222, 222)
+            '    MessageBox.Show("ERROR: Campo no opcional vacío", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            '    TextBoxCantidad.BackColor = Color.White
+
         ElseIf TextBoxUbicacion.Text = "" Then
             TextBoxUbicacion.BackColor = Color.FromArgb(255, 222, 222)
             MessageBox.Show("ERROR: Campo no opcional vacío", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -470,7 +474,7 @@
             If BtnIngresar.Text = "Almacenar" Then
 
                 'REALIZAR INSERT
-                querysBDYercken.InsertarInventario(ListaTipo.Text, TextBoxNombre.Text, TextBoxCantidad.Text, ListaEstado.Text, TextBoxUbicacion.Text, DateTime.Now.ToString("yyyy-MM-dd"), TextBoxObservacion.Text)
+                querysBDYercken.InsertarInventario(ListaTipo.Text, TextBoxNombre.Text, ListaEstado.Text, TextBoxUbicacion.Text, DateTime.Now.ToString("yyyy-MM-dd"), TextBoxObservacion.Text)
                 DataGridView1.DataSource = querysBDYercken.ObtenerDatosInventario(query)
 
 
@@ -480,7 +484,7 @@
             Else
 
 
-                querysBDYercken.ActualizarInventario(idBuscado, ListaTipo.Text, TextBoxNombre.Text, CInt(TextBoxCantidad.Text), ListaEstado.Text, TextBoxUbicacion.Text, DateTime.Now, TextBoxObservacion.Text)
+                querysBDYercken.ActualizarInventario(idBuscado, ListaTipo.Text, TextBoxNombre.Text, ListaEstado.Text, TextBoxUbicacion.Text, DateTime.Now, TextBoxObservacion.Text)
                 DataGridView1.DataSource = querysBDYercken.ObtenerDatosInventario(query)
 
 
@@ -520,23 +524,22 @@
         ListaEstado.Text = ""
         ListaTipo.Text = ""
         TextBoxNombre.Text = ""
-        TextBoxCantidad.Text = ""
         TextBoxUbicacion.Text = ""
         TextBoxObservacion.Text = ""
     End Sub
 
 
 
-    Private Sub TextBoxCantidad_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBoxCantidad.KeyPress
-        If Not Char.IsDigit(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) Then
+    'Private Sub TextBoxCantidad_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBoxCantidad.KeyPress
+    '    If Not Char.IsDigit(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) Then
 
-            TextBoxId.BackColor = Color.FromArgb(255, 222, 222)
-            e.Handled = True
-            MessageBox.Show("ERROR: Caracter ( " & e.KeyChar & " ) No soportado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            TextBoxId.BackColor = Color.White
+    '        TextBoxId.BackColor = Color.FromArgb(255, 222, 222)
+    '        e.Handled = True
+    '        MessageBox.Show("ERROR: Caracter ( " & e.KeyChar & " ) No soportado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+    '        TextBoxId.BackColor = Color.White
 
-        End If
-    End Sub
+    '    End If
+    'End Sub
 
     Private Sub ListaEstado_KeyPress(sender As Object, e As KeyPressEventArgs) Handles ListaEstado.KeyPress
         ' Cancelar la pulsación de tecla para evitar que el usuario escriba en la lista
