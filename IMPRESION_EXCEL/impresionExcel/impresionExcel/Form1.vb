@@ -7,12 +7,15 @@ Imports System.Data.SqlClient
 
 Public Class Form1
 
+    'CADENA CONEXIÓN
+    Dim connectionString As String = "Data source =YERCKEN\SQLEXPRESS; Initial Catalog=baseDeDatos2; integrated security = true"
+    Dim query As String
+
 
 
     Private Sub BtnInventario_Click(sender As Object, e As EventArgs) Handles BtnInventario.Click
-        ' Conexión a la base de datos (ajusta la cadena de conexión según tus datos)
-        Dim connectionString As String = "Data source =YERCKEN\SQLEXPRESS; Initial Catalog=baseDeDatos2; integrated security = true"
-        Dim query As String = "SELECT *FROM proveedores"
+
+        query = "SELECT *FROM proveedores"
 
         Dim dataTable As New System.Data.DataTable() ' Uso del nombre completo del DataTable
 
@@ -43,20 +46,43 @@ Public Class Form1
             excelWorkBook = excelApp.Workbooks.Add()
             excelWorkSheet = excelWorkBook.Sheets(1)
 
-            ' Agregar el encabezado "Universidad de Chiriquí"
-            excelWorkSheet.Range("A1:D1").Merge()
-            excelWorkSheet.Range("A1:D1").Value = "Universidad de Chiriquí"
-            excelWorkSheet.Range("A1:D1").HorizontalAlignment = Excel.Constants.xlCenter
+
+
+
+            ' Agregar el encabezado "Universidad de Chiriquí" que abarque el ancho de la tabla
+            Dim encabezado As Excel.Range = excelWorkSheet.Range("A1", excelWorkSheet.Cells(1, dataTable.Columns.Count))
+            encabezado.Merge()
+            encabezado.Value = "Universidad de Chiriquí"
+            encabezado.HorizontalAlignment = Excel.Constants.xlCenter
+
+            'COLOR
+            encabezado.Interior.Color = RGB(255, 0, 0)
+            encabezado.Font.Color = Color.White
+
+            'NEGRITA y tamaño
+            encabezado.Font.Size = 20
+            encabezado.Font.Bold = True
 
 
             ' Agregar título de tabla
-            excelWorkSheet.Range("A5:D5").Merge()
-            excelWorkSheet.Range("A5:D5").Value = "Título de la tabla"
-            excelWorkSheet.Range("A5:D5").HorizontalAlignment = Excel.Constants.xlCenter
+            Dim rangoTituloDeLaTabla As Excel.Range = excelWorkSheet.Range("A2", excelWorkSheet.Cells(2, dataTable.Columns.Count))
+            rangoTituloDeLaTabla.Merge()
+            rangoTituloDeLaTabla.Value = "Titulo De la tabla"
+            rangoTituloDeLaTabla.HorizontalAlignment = Excel.Constants.xlCenter
+
+
+
+
+
+            ' Escribir el encabezado de la tabla
+            Dim headerRange As Excel.Range = excelWorkSheet.Range("A3", excelWorkSheet.Cells(3, dataTable.Columns.Count))
+            Dim columnNames As String() = dataTable.Columns.Cast(Of DataColumn)().Select(Function(x) x.ColumnName).ToArray()
+            headerRange.Value = columnNames
+            headerRange.Font.Bold = True
 
             ' Escribir los datos en la hoja de trabajo
-            Dim startCell As Excel.Range = excelWorkSheet.Range("A7")
-            Dim dataArr(dataTable.Rows.Count, dataTable.Columns.Count - 1) As Object
+            Dim startCell As Excel.Range = excelWorkSheet.Range("A4")
+            Dim dataArr(dataTable.Rows.Count - 1, dataTable.Columns.Count - 1) As Object
             For i As Integer = 0 To dataTable.Rows.Count - 1
                 For j As Integer = 0 To dataTable.Columns.Count - 1
                     dataArr(i, j) = dataTable.Rows(i)(j)
