@@ -63,7 +63,7 @@ Public Class correo
     Private Sub ListaProvedores_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListaProvedores.SelectedIndexChanged
 
         correoDestinatario = ObtenerCorreoProveedor(ListaProvedores.Text)
-        MsgBox(correoDestinatario)
+        'MsgBox(correoDestinatario)
     End Sub
 
 
@@ -71,35 +71,54 @@ Public Class correo
 
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        If ListaProvedores.Text <> "" Then
+            Try
+                ' Crear una instancia del cuadro de diálogo para seleccionar archivos
+                Dim openFileDialog As New OpenFileDialog()
 
-        Try
-            ' Crear una instancia de la aplicación Outlook
-            Dim outlookApp As Outlook.Application = New Outlook.Application()
+                ' Establecer el título y permitir todos los tipos de archivo
+                openFileDialog.Title = "Seleccione el archivo a adjuntar"
+                openFileDialog.Filter = "Todos los archivos|*.*"
 
-            ' Crear un nuevo correo
-            Dim correo As Outlook.MailItem = outlookApp.CreateItem(Outlook.OlItemType.olMailItem)
+                ' Mostrar el cuadro de diálogo
+                If openFileDialog.ShowDialog() = DialogResult.OK Then
+                    ' Crear una instancia de la aplicación Outlook
+                    Dim outlookApp As Outlook.Application = New Outlook.Application()
 
-            ' Establecer los campos del correo
-            correo.Subject = TextBoxAsunto.Text
-            correo.To = correoDestinatario.ToString
-            correo.Body = TextBoxCuerpo.Text
+                    ' Crear un nuevo correo
+                    Dim correo As Outlook.MailItem = outlookApp.CreateItem(Outlook.OlItemType.olMailItem)
 
-            ' Opcional: Puedes adjuntar archivos al correo si lo deseas
-            'correo.Attachments.Add("C:\Ruta\archivo_adjunto.txt")
+                    ' Establecer los campos del correo
+                    correo.Subject = TextBoxAsunto.Text
+                    correo.To = correoDestinatario.ToString
+                    correo.Body = TextBoxCuerpo.Text
 
-            ' Enviar el correo
-            correo.Send()
+                    ' Adjuntar el archivo seleccionado
+                    correo.Attachments.Add(openFileDialog.FileName)
 
-            ' Liberar recursos
-            System.Runtime.InteropServices.Marshal.ReleaseComObject(correo)
-            System.Runtime.InteropServices.Marshal.ReleaseComObject(outlookApp)
+                    ' Enviar el correo
+                    correo.Send()
 
-            ' Mostrar un mensaje de éxito
-            MessageBox.Show("Correo enviado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    ' Liberar recursos
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(correo)
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(outlookApp)
 
-        Catch ex As Exception
-            MessageBox.Show("Error al enviar el correo: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
+                    ' Mostrar un mensaje de éxito
+                    MessageBox.Show("Correo enviado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    TextBoxAsunto.Text = ""
+                    TextBoxCuerpo.Text = ""
+                    ListaProvedores.Text = ""
+
+                    Me.Close()
+
+
+                End If
+
+
+            Catch ex As Exception
+                MessageBox.Show("Error al enviar el correo: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+        End If
     End Sub
 
 
