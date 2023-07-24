@@ -1,5 +1,6 @@
 CREATE DATABASE baseDeDatos2;
 USE baseDeDatos2;
+
 -- Crear tabla servicios
 CREATE TABLE servicios (
     id_servicios INT IDENTITY(1,1) PRIMARY KEY,
@@ -57,98 +58,64 @@ VALUES
     ('Actividad deportiva', 'Torneo interuniversitario', '09:00:00', '2023-10-05', '2023-10-07', 'Torneo deportivo entre diferentes universidades con múltiples disciplinas.');
 
 
-
--- Ejemplo 1
+-- INSERT INTO proveedores
 INSERT INTO proveedores (ruc, nombre, correo, tipo, telefono, observacion)
-VALUES ('12345678901', 'Proveedor A', 'proveedorA@example.com', 'Suministros de oficina', '+1234567890', 'Proveedor confiable para suministros de oficina.');
+VALUES 
+    ('12345678901', 'Proveedor A', 'proveedorA@example.com', 'Suministros de oficina', '+1234567890', 'Proveedor confiable para suministros de oficina.'),
+    ('98765432102', 'Proveedor B', 'proveedorB@example.com', 'Catering', '+9876543210', 'Proveedor especializado en servicios de catering para eventos.'),
+    ('45678901203', 'Proveedor C', 'proveedorC@example.com', 'Servicios de limpieza', '+4567890120', 'Proveedor que ofrece servicios de limpieza para edificios y áreas comunes.');
 
--- Ejemplo 2
-INSERT INTO proveedores (ruc, nombre, correo, tipo, telefono, observacion)
-VALUES ('98765432102', 'Proveedor B', 'proveedorB@example.com', 'Catering', '+9876543210', 'Proveedor especializado en servicios de catering para eventos.');
-
--- Ejemplo 3
-INSERT INTO proveedores (ruc, nombre, correo, tipo, telefono, observacion)
-VALUES ('45678901203', 'Proveedor C', 'proveedorC@example.com', 'Servicios de limpieza', '+4567890120', 'Proveedor que ofrece servicios de limpieza para edificios y áreas comunes.');
-
-
-
--- Ejemplo 1
+-- INSERT INTO clientes
 INSERT INTO clientes (nombre, apellido, residencia, lugar_trabajo, telefono1, telefono2, email, tipo, observacion)
-VALUES ('Ana', 'García', 'Calle 123, Ciudad Universitaria', 'Biblioteca Central', '+1234567890', '+9876543210', 'ana.garcia@example.com', 'Prospecto', 'Estudiante de último año de Biología, interesada en la investigación de la vida marina.');
+VALUES 
+    ('Ana', 'García', 'Calle 123, Ciudad Universitaria', 'Biblioteca Central', '+1234567890', '+9876543210', 'ana.garcia@example.com', 'Prospecto', 'Estudiante de último año de Biología, interesada en la investigación de la vida marina.'),
+    ('Juan', 'Martínez', 'Avenida Principal, Barrio Universitario', 'Departamento de Física', '+2345678901', NULL, 'juan.martinez@example.com', 'Prospecto', 'Estudiante de primer año de Física, apasionado por la astronomía.'),
+    ('María', 'López', 'Calle Estudiantil, Residencias Universitarias', NULL, '+3456789012', NULL, 'maria.lopez@example.com', 'Estudiante', 'Estudiante de Ciencias de la Computación, líder de un grupo de desarrollo de aplicaciones móviles.'),
+    ('Pedro', 'Ramírez', 'Avenida Universitaria, Edificio C', 'Laboratorio de Química', '+4567890123', '+8765432109', 'pedro.ramirez@example.com', 'Prospecto', 'Estudiante de tercer año de Química, interesado en la síntesis de materiales.'),
+    ('Laura', 'González', 'Calle del Conocimiento, Residencias Estudiantiles', NULL, '+5678901234', NULL, 'laura.gonzalez@example.com', 'Estudiante', 'Estudiante de Artes Escénicas, participa en varios grupos de teatro universitario.');
 
--- Ejemplo 2
-INSERT INTO clientes (nombre, apellido, residencia, lugar_trabajo, telefono1, telefono2, email, tipo, observacion)
-VALUES ('Juan', 'Martínez', 'Avenida Principal, Barrio Universitario', 'Departamento de Física', '+2345678901', NULL, 'juan.martinez@example.com', 'Prospecto', 'Estudiante de primer año de Física, apasionado por la astronomía.');
-
--- Ejemplo 3
-INSERT INTO clientes (nombre, apellido, residencia, lugar_trabajo, telefono1, telefono2, email, tipo, observacion)
-VALUES ('María', 'López', 'Calle Estudiantil, Residencias Universitarias', NULL, '+3456789012', NULL, 'maria.lopez@example.com', 'Estudiante', 'Estudiante de Ciencias de la Computación, líder de un grupo de desarrollo de aplicaciones móviles.');
-
--- Ejemplo 4
-INSERT INTO clientes (nombre, apellido, residencia, lugar_trabajo, telefono1, telefono2, email, tipo, observacion)
-VALUES ('Pedro', 'Ramírez', 'Avenida Universitaria, Edificio C', 'Laboratorio de Química', '+4567890123', '+8765432109', 'pedro.ramirez@example.com', 'Prospecto', 'Estudiante de tercer año de Química, interesado en la síntesis de materiales.');
-
--- Ejemplo 5
-INSERT INTO clientes (nombre, apellido, residencia, lugar_trabajo, telefono1, telefono2, email, tipo, observacion)
-VALUES ('Laura', 'González', 'Calle del Conocimiento, Residencias Estudiantiles', NULL, '+5678901234', NULL, 'laura.gonzalez@example.com', 'Estudiante', 'Estudiante de Artes Escénicas, participa en varios grupos de teatro universitario.');
-
-
--- Ejemplo 1
+-- INSERT INTO clienteopciones
 INSERT INTO clienteopciones (id_cliente, opcion1, opcion2, opcion3, convocatoria)
-VALUES (1, 'Participar en proyecto de investigación', 'Asistir a conferencias sobre biología marina', 'Realizar prácticas en laboratorio', 'Convocatoria para estudiantes interesados en proyectos de investigación.');
-
--- Ejemplo 2
-INSERT INTO clienteopciones (id_cliente, opcion1, opcion2, opcion3, convocatoria)
-VALUES (2, 'Inscribirse en club de astronomía', 'Participar en observaciones astronómicas', 'Asistir a talleres de física', 'Convocatoria para actividades extracurriculares en el área de astronomía.');
-
--- Ejemplo 3
-INSERT INTO clienteopciones (id_cliente, opcion1, opcion2, opcion3, convocatoria)
-VALUES (3, 'Participar en desarrollo de aplicaciones móviles', 'Realizar cursos de programación', 'Unirse a equipo de robótica', 'Convocatoria para estudiantes interesados en tecnología y desarrollo de aplicaciones móviles.');
-
--- Ejemplo 4
-INSERT INTO clienteopciones (id_cliente, opcion1, opcion2, opcion3, convocatoria)
-VALUES (4, 'Realizar prácticas en laboratorio de química', 'Participar en proyectos de investigación', 'Asistir a seminarios sobre química', 'Convocatoria para estudiantes interesados en prácticas de laboratorio.');
-
--- Ejemplo 5
-INSERT INTO clienteopciones (id_cliente, opcion1, opcion2, opcion3, convocatoria)
-VALUES (5, 'Participar en grupos de teatro universitario', 'Asistir a talleres de actuación', 'Organizar eventos culturales', 'Convocatoria para estudiantes interesados en arte y teatro universitario.');
-
-
+VALUES 
+    (1, 'Participar en proyecto de investigación', 'Asistir a conferencias sobre biología marina', 'Realizar prácticas en laboratorio', 'Convocatoria para estudiantes interesados en proyectos de investigación.'),
+    (2, 'Inscribirse en club de astronomía', 'Participar en observaciones astronómicas', 'Asistir a talleres de física', 'Convocatoria para actividades extracurriculares en el área de astronomía.'),
+    (3, 'Participar en desarrollo de aplicaciones móviles', 'Realizar cursos de programación', 'Unirse a equipo de robótica', 'Convocatoria para estudiantes interesados en tecnología y desarrollo de aplicaciones móviles.'),
+    (4, 'Realizar prácticas en laboratorio de química', 'Participar en proyectos de investigación', 'Asistir a seminarios sobre química', 'Convocatoria para estudiantes interesados en prácticas de laboratorio.'),
+    (5, 'Participar en grupos de teatro universitario', 'Asistir a talleres de actuación', 'Organizar eventos culturales', 'Convocatoria para estudiantes interesados en arte y teatro universitario.');
 
 
 
 -- INVENTARIO ==============================================================================================================
 GO
 
+
 CREATE TABLE Inventario (
-    ID INT PRIMARY KEY,
+    ID INT IDENTITY(1,1) PRIMARY KEY,
     Tipo VARCHAR(50) NOT NULL,
     Nombre VARCHAR(100) NOT NULL,
     Cantidad INT,
     Estado VARCHAR(50) NOT NULL,
     Ubicacion VARCHAR(100) NOT NULL,
+    Fecha DATE NOT NULL,
     Observaciones VARCHAR(255)
 );
 
-
 GO
 
-INSERT INTO Inventario (ID, Tipo, Nombre, Cantidad, Estado, Ubicacion, Observaciones)
+INSERT INTO Inventario (Tipo, Nombre, Cantidad, Estado, Ubicacion, Fecha, Observaciones)
 VALUES
-    (1, 'Equipo', 'Proyector', 3, 'En uso', 'Aula 101', 'Funciona correctamente'),
-    (2, 'Equipo', 'Computadora', 30, 'En uso', 'Laboratorio 201', 'Actualizar software'),
-    (3, 'Equipo', 'Impresora', 5, 'Reparación', 'Almacén', 'Problema de papel'),
-    (4, 'Recurso', 'Libro', 200, 'Disponible', 'Biblioteca', ''),
-    (5, 'Recurso', 'Microscopio', 10, 'En uso', 'Laboratorio 301', 'Lente dañado'),
-    (6, 'Recurso', 'Material de arte', 50, 'Disponible', 'Aula 105', ''),
-    (7, 'Equipo', 'Pizarra Interactiva', 2, 'En uso', 'Aula 202', 'Calibración necesaria'),
-    (8, 'Equipo', 'Cámara fotográfica', 8, 'Disponible', 'Laboratorio 401', ''),
-    (9, 'Recurso', 'Mapas', 20, 'Disponible', 'Departamento de Geografía', ''),
-    (10, 'Equipo', 'Escáner', 4, 'Reparación', 'Almacén', 'Atascado con papel');
-
+    ('Equipo', 'Portátil', 5, 'En uso', 'Oficina 101', '2023-07-23', 'Actualización de software'),
+    ('Recurso', 'Borrador', 50, 'Disponible', 'Aula 201', '2023-07-23', ''),
+    ('Equipo', 'Proyector', 2, 'Reparación', 'Almacén', '2023-07-23', 'Problema de lámpara'),
+    ('Recurso', 'Calculadora', 20, 'En uso', 'Aula 102', '2023-07-23', ''),
+    ('Equipo', 'Impresora', 3, 'Disponible', 'Oficina 202', '2023-07-23', ''),
+    ('Recurso', 'Cuadernos', 100, 'Disponible', 'Biblioteca', '2023-07-23', ''),
+    ('Equipo', 'Escritorio', 10, 'En uso', 'Oficina 203', '2023-07-23', 'Reparar pata rota'),
+    ('Recurso', 'Lápices', 200, 'Disponible', 'Aula 103', '2023-07-23', ''),
+    ('Equipo', 'Monitor', 15, 'En uso', 'Laboratorio 301', '2023-07-23', ''),
+    ('Recurso', 'Tijeras', 30, 'Disponible', 'Aula 104', '2023-07-23', '');
 
 -- PROCESOS ALMACENADOS PARA LOS SELECTS ------------
-
 GO
 
 CREATE PROCEDURE ObtenerTodosLosRegistros
@@ -183,3 +150,27 @@ GO
 EXEC ObtenerTodosLosRegistros;
 EXEC ObtenerRegistrosTipoEquipo;
 EXEC ObtenerRegistrosTipoRecurso;
+
+
+
+-- INSERT 
+
+CREATE PROCEDURE InsertarInventario
+(
+    @Tipo VARCHAR(50),
+    @Nombre VARCHAR(100),
+    @Cantidad INT,
+    @Estado VARCHAR(50),
+    @Ubicacion VARCHAR(100),
+    @Fecha DATE,
+    @Observaciones VARCHAR(255)
+)
+AS
+BEGIN
+    -- Insertar los datos en la tabla Inventario
+    INSERT INTO Inventario (Tipo, Nombre, Cantidad, Estado, Ubicacion, Fecha, Observaciones)
+    VALUES (@Tipo, @Nombre, @Cantidad, @Estado, @Ubicacion, @Fecha, @Observaciones)
+END;
+
+
+EXEC InsertarInventario 'TipoEjemplo', 'NombreEjemplo', 10, 'EstadoEjemplo', 'UbicacionEjemplo', '2023-07-24', 'ObservacionesEjemplo';

@@ -276,4 +276,79 @@ Public Class querysBDYercken
     End Function
 
 
+    Public Sub InsertarInventario(ByVal tipo As String, ByVal nombre As String, ByVal cantidad As Integer, ByVal estado As String, ByVal ubicacion As String, ByVal fecha As Date, ByVal observaciones As String)
+        Try
+            Using connection As New SqlConnection(VARIABLES_GLOBALES.cadenaConexion2)
+                connection.Open()
+
+                Dim command As New SqlCommand("InsertarInventario", connection)
+                command.CommandType = CommandType.StoredProcedure
+
+                command.Parameters.AddWithValue("@Tipo", tipo)
+                command.Parameters.AddWithValue("@Nombre", nombre)
+                command.Parameters.AddWithValue("@Cantidad", cantidad)
+                command.Parameters.AddWithValue("@Estado", estado)
+                command.Parameters.AddWithValue("@Ubicacion", ubicacion)
+                command.Parameters.AddWithValue("@Fecha", fecha)
+                command.Parameters.AddWithValue("@Observaciones", observaciones)
+
+                command.ExecuteNonQuery()
+            End Using
+
+            MessageBox.Show("Datos insertados correctamente.", "WERNARDO", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+        Catch ex As Exception
+
+            MessageBox.Show("Error al insertar los datos: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+        End Try
+    End Sub
+
+
+    Public Sub ActualizarInventario(ByVal id As Integer, ByVal tipo As String, ByVal nombre As String, ByVal cantidad As Integer, ByVal estado As String, ByVal ubicacion As String, ByVal fecha As Date, ByVal observaciones As String)
+        Try
+            Using connection As New SqlConnection(VARIABLES_GLOBALES.cadenaConexion2)
+                connection.Open()
+
+                Dim command As New SqlCommand("UPDATE Inventario SET Tipo = @Tipo, Nombre = @Nombre, Cantidad = @Cantidad, Estado = @Estado, Ubicacion = @Ubicacion, Fecha = @Fecha, Observaciones = @Observaciones WHERE ID = @ID", connection)
+
+                command.Parameters.AddWithValue("@ID", id)
+                command.Parameters.AddWithValue("@Tipo", tipo)
+                command.Parameters.AddWithValue("@Nombre", nombre)
+                command.Parameters.AddWithValue("@Cantidad", cantidad)
+                command.Parameters.AddWithValue("@Estado", estado)
+                command.Parameters.AddWithValue("@Ubicacion", ubicacion)
+                command.Parameters.AddWithValue("@Fecha", fecha)
+                command.Parameters.AddWithValue("@Observaciones", observaciones)
+
+                command.ExecuteNonQuery()
+            End Using
+
+            MessageBox.Show("Datos actualizados correctamente.", "WERNARDO", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+        Catch ex As Exception
+            MessageBox.Show("Error al actualizar los datos: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+        End Try
+    End Sub
+
+
+    Public Sub EliminarInventario(ByVal id As Integer)
+        Try
+            Using connection As New SqlConnection(VARIABLES_GLOBALES.cadenaConexion2)
+                connection.Open()
+
+                Dim command As New SqlCommand("DELETE FROM Inventario WHERE ID = @ID", connection)
+                command.Parameters.AddWithValue("@ID", id)
+
+                command.ExecuteNonQuery()
+            End Using
+
+            MessageBox.Show("Registro eliminado correctamente.", "WERNARDO", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+        Catch ex As Exception
+            MessageBox.Show("Error al eliminar el registro: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
 End Class
