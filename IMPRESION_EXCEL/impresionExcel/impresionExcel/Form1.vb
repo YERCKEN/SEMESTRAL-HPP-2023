@@ -10,12 +10,9 @@ Public Class Form1
     'CADENA CONEXIÓN
     Dim connectionString As String = "Data source =YERCKEN\SQLEXPRESS; Initial Catalog=baseDeDatos2; integrated security = true"
     Dim query As String
-
-
-
-    Private Sub BtnInventario_Click(sender As Object, e As EventArgs) Handles BtnInventario.Click
-
-        query = "SELECT *FROM proveedores"
+    Dim newColumnNames As String()
+    Dim tituloTabla As String
+    Sub generadorDeExcel()
 
         Dim dataTable As New System.Data.DataTable() ' Uso del nombre completo del DataTable
 
@@ -67,7 +64,7 @@ Public Class Form1
             ' Agregar título de tabla
             Dim rangoTituloDeLaTabla As Excel.Range = excelWorkSheet.Range("A3", excelWorkSheet.Cells(3, dataTable.Columns.Count))
             rangoTituloDeLaTabla.Merge()
-            rangoTituloDeLaTabla.Value = "Titulo De la tabla"
+            rangoTituloDeLaTabla.Value = tituloTabla
             rangoTituloDeLaTabla.HorizontalAlignment = Excel.Constants.xlCenter
 
             'COLORs
@@ -86,7 +83,9 @@ Public Class Form1
             ' Escribir el encabezado de la tabla
             Dim headerRange As Excel.Range = excelWorkSheet.Range("A5", excelWorkSheet.Cells(5, dataTable.Columns.Count))
             ' Cambiar los nombres de las columnas de la DataTable según tus necesidades
-            Dim newColumnNames As String() = {"ID", "RUC", "Nombre", "Correo", "Tipo", "Teléfono", "Observación"}
+
+            'Dim newColumnNames As String() = {"ID", "RUC", "Nombre", "Correo", "Tipo", "Teléfono", "Observación"}
+
             headerRange.Value = newColumnNames
             headerRange.Font.Bold = True
 
@@ -129,8 +128,6 @@ Public Class Form1
             MessageBox.Show("Error al imprimir en Excel: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
-
-
     Private Sub ReleaseObject(ByVal obj As Object)
         Try
             If obj IsNot Nothing Then
@@ -144,7 +141,28 @@ Public Class Form1
         End Try
     End Sub
 
+    Private Sub BtnProvedores_Click(sender As Object, e As EventArgs) Handles BtnProvedores.Click
+        query = "SELECT *FROM proveedores"
+        newColumnNames = {"ID", "RUC", "Nombre", "Correo", "Tipo", "Teléfono", "Observación"}
+        tituloTabla = "PROVEDORES"
+        generadorDeExcel()
+    End Sub
 
+    Private Sub BtnClientes_Click(sender As Object, e As EventArgs) Handles BtnClientes.Click
 
-
+        query = "SELECT 
+                    id_clientes,
+                    nombre,
+                    apellido,
+                    residencia,
+                    lugar_trabajo,
+                    telefono1,
+                    telefono2,
+                    email,
+                    tipo
+                FROM clientes;"
+        newColumnNames = {"ID", "Nombre", "Apellido", "Residencia", "Lugar de Trabajo", "Teléfono 1", "Teléfono 2", "Correo", "Tipo", "Observación"}
+        tituloTabla = "Clientes"
+        generadorDeExcel()
+    End Sub
 End Class
