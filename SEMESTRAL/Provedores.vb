@@ -106,6 +106,17 @@ Public Class Provedores
     End Sub
     Private Sub ActualizarProveedor(id_proveedor As Integer)
         Try
+            ' Comprueba que las entradas no sean nulas
+            If String.IsNullOrEmpty(rucTb.Text) OrElse
+           String.IsNullOrEmpty(nombreTb.Text) OrElse
+           String.IsNullOrEmpty(correoTb.Text) OrElse
+           String.IsNullOrEmpty(telefonoTb.Text) OrElse
+           String.IsNullOrEmpty(tipoCb.Text) OrElse
+           String.IsNullOrEmpty(observacionTb.Text) Then
+
+                MessageBox.Show("Por favor asegúrese de que todos los campos están llenos.")
+                Return
+            End If
             ' Crear una conexión a la base de datos
             Using connection As New SqlConnection(connectionString2)
                 connection.Open()
@@ -193,6 +204,17 @@ Public Class Provedores
     End Sub
     Private Sub CrearProveedor()
         Try
+            ' Comprueba que las entradas no sean nulas
+            If String.IsNullOrEmpty(rucTb.Text) OrElse
+           String.IsNullOrEmpty(nombreTb.Text) OrElse
+           String.IsNullOrEmpty(correoTb.Text) OrElse
+           String.IsNullOrEmpty(telefonoTb.Text) OrElse
+           String.IsNullOrEmpty(tipoCb.Text) OrElse
+           String.IsNullOrEmpty(observacionTb.Text) Then
+
+                MessageBox.Show("Por favor asegúrese de que todos los campos están llenos.")
+                Return
+            End If
             ' Crear una conexión a la base de datos
             Using connection As New SqlConnection(connectionString2)
                 connection.Open()

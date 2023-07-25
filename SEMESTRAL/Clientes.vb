@@ -69,8 +69,8 @@ Public Class Clientes
                 connection.Open()
 
                 ' Consulta para obtener datos de las tablas clientes y clienteopciones
-                Dim query As String = "SELECT c.id_clientes, c.nombre, c.apellido, c.residencia, c.lugar_trabajo, c.telefono1, c.telefono2, c.email, co.opcion1, co.opcion2, co.opcion3, co.convocatoria " &
-                                      "FROM clientes c LEFT JOIN clienteopciones co ON c.id_clientes = co.id_cliente"
+                Dim query As String = "SELECT c.id_clientes, c.nombre, c.apellido, c.residencia, c.tipo, c.lugar_trabajo, c.telefono1, c.telefono2, c.email, co.opcion1, co.opcion2, co.opcion3, co.convocatoria " &
+                                  "FROM clientes c LEFT JOIN clienteopciones co ON c.id_clientes = co.id_cliente"
 
                 ' Crear un adaptador para ejecutar la consulta y llenar un DataTable
                 Using adapter As New SqlDataAdapter(query, connection)
@@ -88,6 +88,7 @@ Public Class Clientes
             MessageBox.Show("Error al cargar los datos: " & ex.Message)
         End Try
     End Sub
+
 
     Private Sub MostrarCliente(id_clientes As Integer)
         Try
@@ -162,15 +163,28 @@ Public Class Clientes
     End Sub
     Private Sub ActualizarDatosCliente(id_clientes As Integer)
         Try
+            ' Comprobar si los campos están vacíos
+            If String.IsNullOrWhiteSpace(nombreTb.Text) Or String.IsNullOrWhiteSpace(apellidoTb.Text) Or
+           String.IsNullOrWhiteSpace(residenciatb.Text) Or String.IsNullOrWhiteSpace(telefono1Tb.Text) Or
+           String.IsNullOrWhiteSpace(telefono2Tb.Text) Or String.IsNullOrWhiteSpace(emailTb.Text) Or
+           String.IsNullOrWhiteSpace(tipoCb.Text) Or String.IsNullOrWhiteSpace(lugarTrabajoTb.Text) Or
+           String.IsNullOrWhiteSpace(ObservacionTb.Text) Or String.IsNullOrWhiteSpace(Opcion1Cb.Text) Or
+           String.IsNullOrWhiteSpace(opcion2Cb.Text) Or String.IsNullOrWhiteSpace(opcion3Cb.Text) Or
+           String.IsNullOrWhiteSpace(convocatoriaCb.Text) Then
+
+                MessageBox.Show("Por favor, rellene todos los campos.")
+                Exit Sub
+            End If
+
             ' Crear una conexión a la base de datos
             Using connection As New SqlConnection(connectionString2)
                 connection.Open()
 
                 ' Consulta para actualizar los datos del cliente en la tabla clientes
                 Dim queryClientes As String = "UPDATE clientes SET nombre = @nombre, apellido = @apellido, residencia = @residencia, " &
-                                  "telefono1 = @telefono1, telefono2 = @telefono2, email = @email, tipo = @tipo, " &
-                                  "lugar_trabajo = @lugar_trabajo, observacion = @observacion " &
-                                  "WHERE id_clientes = @clienteId"
+                              "telefono1 = @telefono1, telefono2 = @telefono2, email = @email, tipo = @tipo, " &
+                              "lugar_trabajo = @lugar_trabajo, observacion = @observacion " &
+                              "WHERE id_clientes = @clienteId"
 
                 ' Crear un comando con la consulta y los parámetros proporcionados para la tabla clientes
                 Using cmdClientes As New SqlCommand(queryClientes, connection)
@@ -191,15 +205,15 @@ Public Class Clientes
 
                 ' Consulta para comprobar si existe el registro del cliente en la tabla clienteopciones
                 Dim queryClienteOpciones As String = "IF EXISTS (SELECT 1 FROM clienteopciones WHERE id_cliente = @clienteId) " &
-                                                "BEGIN " &
-                                                "  UPDATE clienteopciones SET opcion1 = @opcion1, opcion2 = @opcion2, opcion3 = @opcion3, convocatoria = @convocatoria " &
-                                                "  WHERE id_cliente = @clienteId " &
-                                                "END " &
-                                                "ELSE " &
-                                                "BEGIN " &
-                                                "  INSERT INTO clienteopciones (id_cliente, opcion1, opcion2, opcion3, convocatoria) " &
-                                                "  VALUES (@clienteId, @opcion1, @opcion2, @opcion3, @convocatoria) " &
-                                                "END"
+                                            "BEGIN " &
+                                            "  UPDATE clienteopciones SET opcion1 = @opcion1, opcion2 = @opcion2, opcion3 = @opcion3, convocatoria = @convocatoria " &
+                                            "  WHERE id_cliente = @clienteId " &
+                                            "END " &
+                                            "ELSE " &
+                                            "BEGIN " &
+                                            "  INSERT INTO clienteopciones (id_cliente, opcion1, opcion2, opcion3, convocatoria) " &
+                                            "  VALUES (@clienteId, @opcion1, @opcion2, @opcion3, @convocatoria) " &
+                                            "END"
 
                 ' Crear un comando con la consulta y los parámetros proporcionados para la tabla clienteopciones
                 Using cmdClienteOpciones As New SqlCommand(queryClienteOpciones, connection)
@@ -222,6 +236,7 @@ Public Class Clientes
             MessageBox.Show("Error al actualizar los datos: " & ex.Message)
         End Try
     End Sub
+
     Private Sub EliminarCliente(id_clientes As Integer)
         Try
             ' Crear una conexión a la base de datos
@@ -262,6 +277,24 @@ Public Class Clientes
 
     Private Sub CrearCliente()
         Try
+            ' Comprueba que las entradas no sean nulas
+            If String.IsNullOrEmpty(nombreTb.Text) OrElse
+           String.IsNullOrEmpty(apellidoTb.Text) OrElse
+           String.IsNullOrEmpty(residenciatb.Text) OrElse
+           String.IsNullOrEmpty(telefono1Tb.Text) OrElse
+           String.IsNullOrEmpty(telefono2Tb.Text) OrElse
+           String.IsNullOrEmpty(emailTb.Text) OrElse
+           String.IsNullOrEmpty(tipoCb.Text) OrElse
+           String.IsNullOrEmpty(lugarTrabajoTb.Text) OrElse
+           String.IsNullOrEmpty(ObservacionTb.Text) OrElse
+           String.IsNullOrEmpty(Opcion1Cb.Text) OrElse
+           String.IsNullOrEmpty(opcion2Cb.Text) OrElse
+           String.IsNullOrEmpty(opcion3Cb.Text) OrElse
+           String.IsNullOrEmpty(convocatoriaCb.Text) Then
+
+                MessageBox.Show("Por favor asegúrese de que todos los campos están llenos.")
+                Return
+            End If
             ' Crear una conexión a la base de datos
             Using connection As New SqlConnection(connectionString2)
                 connection.Open()
@@ -322,7 +355,7 @@ Public Class Clientes
                 connection.Close()
             End Using
         Catch ex As Exception
-
+            MessageBox.Show("Error al crear el cliente: " & ex.Message)
         End Try
     End Sub
 

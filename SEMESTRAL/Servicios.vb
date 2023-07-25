@@ -6,6 +6,11 @@ Public Class Servicios
     Private Sub Servicios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Location = New Point(Form1.Location.X, Form1.Location.Y + 49) ' Establecer la nueva ubicación de Form4 en relación con Form1
         MostrarServicios()
+        tipoCb.Items.Clear()
+        tipoCb.Items.Add("Eventos especiales")
+        tipoCb.Items.Add("Giras de promoción de carreras")
+        tipoCb.Items.Add("Descuento de carreras")
+        tipoCb.Items.Add("Atención al cliente")
     End Sub
     Private Sub MostrarServicios()
         Try
