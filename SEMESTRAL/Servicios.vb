@@ -131,6 +131,18 @@ Public Class Servicios
     End Function
     Private Sub ActualizarServicio()
         Try
+            ' Verificar si las entradas son nulas o están vacías
+            If String.IsNullOrEmpty(idServicioTb.Text) OrElse
+           String.IsNullOrEmpty(tipoCb.Text) OrElse
+           String.IsNullOrEmpty(eventoTb.Text) OrElse
+           String.IsNullOrEmpty(horaInicioDt.Value.ToString()) OrElse
+           String.IsNullOrEmpty(fechaInicioDt.Value.ToString()) OrElse
+           String.IsNullOrEmpty(fechaFinalizacionDt.Value.ToString()) OrElse
+           String.IsNullOrEmpty(observacionTb.Text) Then
+
+                MessageBox.Show("Por favor asegúrese de que todos los campos están llenos.")
+                Return
+            End If
             ' Crear una conexión a la base de datos
             Using connection As New SqlConnection(connectionString2)
                 connection.Open()
@@ -164,6 +176,18 @@ Public Class Servicios
     End Sub
     Private Sub CrearServicio()
         Try
+            ' Verificar si las entradas son nulas o están vacías
+            If String.IsNullOrEmpty(idServicioTb.Text) OrElse
+           String.IsNullOrEmpty(tipoCb.Text) OrElse
+           String.IsNullOrEmpty(eventoTb.Text) OrElse
+           String.IsNullOrEmpty(horaInicioDt.Value.ToString()) OrElse
+           String.IsNullOrEmpty(fechaInicioDt.Value.ToString()) OrElse
+           String.IsNullOrEmpty(fechaFinalizacionDt.Value.ToString()) OrElse
+           String.IsNullOrEmpty(observacionTb.Text) Then
+
+                MessageBox.Show("Por favor asegúrese de que todos los campos están llenos.")
+                Return
+            End If
             ' Crear una conexión a la base de datos
             Using connection As New SqlConnection(connectionString2)
                 connection.Open()
