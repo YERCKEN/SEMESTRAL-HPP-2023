@@ -1,4 +1,6 @@
-﻿Public Class Login
+﻿Imports System.Threading
+
+Public Class Login
 
     'VARIABLES
     Dim querysBDYercken As New querysBDYercken()
@@ -8,12 +10,12 @@
         Me.Location = New Point(Form1.Location.X, Form1.Location.Y + 49) ' Establecer la nueva ubicación de Form4 en relación con Form1
 
         'BOTONES INVISIBLES
-        'Form1.ClientesToolStripMenuItem.Visible = False
-        'Form1.ServiciosToolStripMenuItem.Visible = False
-        'Form1.ProvedoresToolStripMenuItem.Visible = False
-        'Form1.CarrerasToolStripMenuItem.Visible = False
-        'Form1.InventarioToolStripMenuItem.Visible = False
-        'Form1.InformeToolStripMenuItem.Visible = False
+        Form1.ClientesToolStripMenuItem.Visible = False
+        Form1.ServiciosToolStripMenuItem.Visible = False
+        Form1.ProvedoresToolStripMenuItem.Visible = False
+        Form1.CarrerasToolStripMenuItem.Visible = False
+        Form1.InventarioToolStripMenuItem.Visible = False
+        Form1.InformeToolStripMenuItem.Visible = False
 
 
     End Sub
@@ -81,6 +83,9 @@
                 Form1.ProvedoresToolStripMenuItem.Visible = True
                 Form1.InformeToolStripMenuItem.Visible = True
 
+                ' Configurar el temporizador para cambiar de imagen 12 veces por segundo (aproximadamente 83 milisegundos)
+                Form1.Timer1.Interval = 83
+                Form1.Timer1.Enabled = True
 
             ElseIf querysBDYercken.rollUsuarioLogeado = "Usuario" Then
 
@@ -98,7 +103,9 @@
                 Form1.InformeToolStripMenuItem.Visible = True
 
 
-
+                ' Configurar el temporizador para cambiar de imagen 12 veces por segundo (aproximadamente 83 milisegundos)
+                Form1.Timer1.Interval = 83
+                Form1.Timer1.Enabled = True
 
             ElseIf querysBDYercken.rollUsuarioLogeado = "Coordinador" Then
 
@@ -114,6 +121,10 @@
                 Form1.CarrerasToolStripMenuItem.Visible = True
                 Form1.InventarioToolStripMenuItem.Visible = True
                 Form1.InformeToolStripMenuItem.Visible = True
+
+                ' Configurar el temporizador para cambiar de imagen 12 veces por segundo (aproximadamente 83 milisegundos)
+                Form1.Timer1.Interval = 83
+                Form1.Timer1.Enabled = True
 
             End If
 

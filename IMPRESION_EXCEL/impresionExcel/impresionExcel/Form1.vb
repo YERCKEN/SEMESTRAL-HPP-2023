@@ -311,6 +311,9 @@ Public Class Form1
     End Sub
 
 
+
+
+
     Private Sub ListaProvedores_SelectedValueChanged(sender As Object, e As EventArgs) Handles ListaProvedores.SelectedValueChanged
 
         ' Luego, quita el enfoque del listaFacultad moviéndolo al formulario

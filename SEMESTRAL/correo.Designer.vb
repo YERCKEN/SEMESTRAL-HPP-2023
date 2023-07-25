@@ -22,7 +22,6 @@ Partial Class correo
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(correo))
         ListaProvedores = New ComboBox()
         TextBoxCuerpo = New TextBox()
         Label5 = New Label()
@@ -115,7 +114,7 @@ Partial Class correo
         AutoScaleDimensions = New SizeF(9F, 21F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.White
-        BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
+        BackgroundImage = My.Resources.Resources.FONDO_CORREO
         ClientSize = New Size(1163, 525)
         Controls.Add(Button1)
         Controls.Add(Label1)

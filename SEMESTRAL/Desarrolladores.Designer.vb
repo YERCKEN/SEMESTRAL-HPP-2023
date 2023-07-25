@@ -28,7 +28,7 @@ Partial Class Desarrolladores
         ' 
         AutoScaleDimensions = New SizeF(9F, 21F)
         AutoScaleMode = AutoScaleMode.Font
-        BackgroundImage = My.Resources.Resources.FONDO_EMPRESA
+        BackgroundImage = My.Resources.Resources.FONDO_EMPRESA1
         ClientSize = New Size(1280, 572)
         FormBorderStyle = FormBorderStyle.None
         Name = "Desarrolladores"

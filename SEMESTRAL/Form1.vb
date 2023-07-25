@@ -4,7 +4,15 @@ Imports System.Reflection.Emit
 Imports System.Runtime.InteropServices
 Imports System.Windows.Forms
 Public Class Form1
+
+
     Dim querysBDYercken As New querysBDYercken()
+
+    'PARA EL MANEJO DEL INICIO
+    Private listaImagenes As New List(Of Image)
+    Private indiceActual As Integer = 0
+
+
 
     'CARGA DEL FORMS----------------------------------------------------------------------
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -18,6 +26,49 @@ Public Class Form1
         'SHOW LOGIN
         Login.Show()
         Login.Owner = Me
+
+        'Panel1.Visible = False
+
+
+        ' Ruta de la carpeta que contiene las imágenes
+        Dim rutaCarpeta As String = "C:\Users\edkac\OneDrive\Documentos\MEGAsync\U 2023\HPP\SEMESTRAL\SEMESTRAL\SEMESTRAL\IMG\SECUENCIA ANIMACION\"
+
+        ' Agregar las imágenes a la lista (asumiendo que los nombres son secuecIA00, secuecIA01, ... hasta secuecIA28)
+        For i As Integer = 0 To 28
+            Dim nombreImagen As String = "secuecIA" & i.ToString("00") & ".jpg"
+            Dim rutaImagen As String = rutaCarpeta & nombreImagen
+
+            ' Verificar si la imagen existe antes de agregarla a la lista
+            If System.IO.File.Exists(rutaImagen) Then
+                listaImagenes.Add(Image.FromFile(rutaImagen))
+            End If
+        Next
+
+        ' Mostrar la primera imagen al cargar el formulario
+        If listaImagenes.Count > 0 Then
+            PictureBox2.Image = listaImagenes(0)
+        End If
+
+
+
+    End Sub
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        ' Cambiar a la siguiente imagen
+        If listaImagenes.Count > 0 Then
+            indiceActual = (indiceActual + 1) Mod listaImagenes.Count
+            PictureBox2.Image = listaImagenes(indiceActual)
+
+            ' Verificar si se llegó a la última imagen (índice 28)
+            If indiceActual = 28 Then
+                ' Ocultar el PictureBox
+                PictureBox2.Visible = False
+
+                ' Deshabilitar el contador para detener la animación
+                Timer1.Enabled = False
+            End If
+        End If
+
     End Sub
 
     'MOVIMIENTO-=====================================================================================
@@ -194,7 +245,9 @@ Public Class Form1
 
     End Sub
 
+    Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles PictureBox2.Click
 
+    End Sub
 End Class
 
 
