@@ -2,8 +2,7 @@
 
 Imports Microsoft.Office.Interop
 Imports System.Data.SqlClient
-
-
+Imports System.Drawing.Printing
 
 Public Class Form1
 
@@ -18,13 +17,36 @@ Public Class Form1
 
         Try
             ' Abrir la conexión y ejecutar la consulta
-            Using connection As New SqlConnection(connectionString)
-                Dim command As New SqlCommand(query, connection)
-                connection.Open()
+            'Using connection As New SqlConnection(connectionString)
+            '    Dim command As New SqlCommand(query, connection)
+            '    connection.Open()
 
-                ' Llenar el DataTable con los resultados del SELECT
-                dataTable.Load(command.ExecuteReader())
-            End Using
+            '    ' Llenar el DataTable con los resultados del SELECT
+            '    dataTable.Load(command.ExecuteReader())
+            'End Using
+
+            Try
+                ' Crear una nueva conexión a la base de datos
+                Using connection As New SqlConnection(connectionString)
+                    ' Crear una nueva consulta SQL
+
+                    ' Crear un nuevo SqlDataAdapter para ejecutar la consulta
+                    Using adapter As New SqlDataAdapter(query, connection)
+                        ' Crear un nuevo DataTable para almacenar los datos
+
+
+                        ' Llenar el DataTable con los datos de la consulta
+                        adapter.Fill(dataTable)
+
+                        ' Configurar el DataGridView para mostrar los datos
+                    End Using
+                End Using
+            Catch ex As Exception
+                ' Mostrar un mensaje si hay un error
+                MessageBox.Show("Error al cargar los datos de los servicios: " & ex.Message)
+            End Try
+
+
 
             ' Crear una nueva instancia de Excel
             Dim excelApp As New Excel.Application
@@ -179,9 +201,62 @@ Public Class Form1
 
     Private Sub BtnClientes_Click(sender As Object, e As EventArgs) Handles BtnClientes.Click
 
+        connectionString = "Data source =YERCKEN\SQLEXPRESS; Initial Catalog=baseDeDatos2; integrated security = true"
+
         query = "SELECT * FROM clientes;"
         newColumnNames = {"ID", "Nombre", "Apellido", "Residencia", "Lugar de Trabajo", "Teléfono 1", "Teléfono 2", "Correo", "Tipo", "Observación"}
         tituloTabla = "Clientes"
+        generadorDeExcel()
+    End Sub
+
+    Private Sub BtnServicios_Click(sender As Object, e As EventArgs) Handles BtnServicios.Click
+
+        connectionString = "Data source =YERCKEN\SQLEXPRESS; Initial Catalog=baseDeDatos2; integrated security = true"
+
+        'query = "SELECT *FROM servicios;"
+        query = "SELECT * FROM servicios;"
+
+        'newColumnNames = {"ID", "Nombre", "Apellido", "Residencia", "Lugar de Trabajo", "Teléfono 1", "Teléfono 2", "Correo", "Tipo", "Observación"}
+
+        'newColumnNames = {"ID", "Tipo", "Evento", "Hora de Inicio", "Fecha de Inicio", "Fecha de Finalización", "Observación"}
+        tituloTabla = "Servicios"
+        generadorDeExcel()
+    End Sub
+
+    Private Sub BtnCarrerras_Click(sender As Object, e As EventArgs) Handles BtnCarrerras.Click
+
+        connectionString = "Data source =YERCKEN\SQLEXPRESS; Initial Catalog=baseDeDatos1; integrated security = true"
+
+        query = "SELECT Carreras.ID, Carreras.NombreCarrera, Facultades.NombreFacultad
+                FROM Carreras
+                JOIN CarrerasFacultad ON Carreras.ID = CarrerasFacultad.CarreraID
+                JOIN Facultades ON Facultades.ID = CarrerasFacultad.FacultadID;"
+
+
+
+        newColumnNames = {"ID", "Carrera", "Facultad"}
+
+        tituloTabla = "Carreras"
+        generadorDeExcel()
+    End Sub
+
+    Private Sub BtnInventario_Click(sender As Object, e As EventArgs) Handles BtnInventario.Click
+
+        connectionString = "Data source =YERCKEN\SQLEXPRESS; Initial Catalog=baseDeDatos2; integrated security = true"
+
+        query = "  SELECT I.ID, I.Tipo, I.Nombre, C.Cantidad, I.Estado, I.Ubicacion, I.Fecha, I.Observaciones
+                    FROM Inventario I
+                    INNER JOIN (
+                        SELECT Nombre, COUNT(*) AS Cantidad
+                        FROM Inventario
+                        GROUP BY Nombre
+                    ) C ON I.Nombre = C.Nombre;"
+
+
+
+        newColumnNames = {"ID", "Tipo", "Nombre", "Cantidad", "Estado", "Ubicación", "Fecha de Entrada", "Observación"}
+
+        tituloTabla = "Inventario"
         generadorDeExcel()
     End Sub
 End Class

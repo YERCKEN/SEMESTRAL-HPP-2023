@@ -198,5 +198,20 @@ EXEC InsertarInventario 'TipoEjemplo', 'NombreEjemplo', 'EstadoEjemplo', 'Ubicac
 
 
 
+-- provedores
+
+SELECT *FROM proveedores;
+
+SELECT nombre FROM proveedores;
 
 
+SELECT *FROM clientes;
+SELECT *FROM servicios;
+
+SELECT Carreras.ID, Carreras.NombreCarrera, Facultades.NombreFacultad
+FROM Carreras
+JOIN CarrerasFacultad ON Carreras.ID = CarrerasFacultad.CarreraID
+JOIN Facultades ON Facultades.ID = CarrerasFacultad.FacultadID;
+
+
+SELECT * FROM Inventario;
