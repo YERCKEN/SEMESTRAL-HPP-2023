@@ -22,117 +22,55 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        BtnProvedores = New System.Windows.Forms.Button()
-        BtnServicios = New System.Windows.Forms.Button()
-        BtnClientes = New System.Windows.Forms.Button()
-        BtnCarrerras = New System.Windows.Forms.Button()
-        BtnInventario = New System.Windows.Forms.Button()
+        BtnGenerarInforme = New System.Windows.Forms.Button()
+        ListaProvedores = New ComboBox()
         SuspendLayout()
         ' 
-        ' BtnProvedores
+        ' BtnGenerarInforme
         ' 
-        BtnProvedores.BackColor = Color.FromArgb(CByte(12), CByte(202), CByte(102))
-        BtnProvedores.Cursor = Cursors.Hand
-        BtnProvedores.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        BtnProvedores.FlatAppearance.BorderSize = 0
-        BtnProvedores.FlatStyle = FlatStyle.Flat
-        BtnProvedores.Font = New System.Drawing.Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        BtnProvedores.ForeColor = Color.White
-        BtnProvedores.Location = New System.Drawing.Point(116, 113)
-        BtnProvedores.Name = "BtnProvedores"
-        BtnProvedores.Size = New Size(311, 68)
-        BtnProvedores.TabIndex = 48
-        BtnProvedores.Text = "Provedores .xlsx"
-        BtnProvedores.UseVisualStyleBackColor = False
+        BtnGenerarInforme.BackColor = Color.FromArgb(CByte(12), CByte(202), CByte(102))
+        BtnGenerarInforme.Cursor = Cursors.Hand
+        BtnGenerarInforme.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        BtnGenerarInforme.FlatAppearance.BorderSize = 0
+        BtnGenerarInforme.FlatStyle = FlatStyle.Flat
+        BtnGenerarInforme.Font = New System.Drawing.Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        BtnGenerarInforme.ForeColor = Color.White
+        BtnGenerarInforme.Location = New System.Drawing.Point(381, 281)
+        BtnGenerarInforme.Name = "BtnGenerarInforme"
+        BtnGenerarInforme.Size = New Size(388, 68)
+        BtnGenerarInforme.TabIndex = 52
+        BtnGenerarInforme.Text = "Generar Informe.xlsx"
+        BtnGenerarInforme.UseVisualStyleBackColor = False
         ' 
-        ' BtnServicios
+        ' ListaProvedores
         ' 
-        BtnServicios.BackColor = Color.FromArgb(CByte(12), CByte(202), CByte(102))
-        BtnServicios.Cursor = Cursors.Hand
-        BtnServicios.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        BtnServicios.FlatAppearance.BorderSize = 0
-        BtnServicios.FlatStyle = FlatStyle.Flat
-        BtnServicios.Font = New System.Drawing.Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        BtnServicios.ForeColor = Color.White
-        BtnServicios.Location = New System.Drawing.Point(116, 207)
-        BtnServicios.Name = "BtnServicios"
-        BtnServicios.Size = New Size(311, 68)
-        BtnServicios.TabIndex = 49
-        BtnServicios.Text = "Servicios .xlsx"
-        BtnServicios.UseVisualStyleBackColor = False
-        ' 
-        ' BtnClientes
-        ' 
-        BtnClientes.BackColor = Color.FromArgb(CByte(12), CByte(202), CByte(102))
-        BtnClientes.Cursor = Cursors.Hand
-        BtnClientes.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        BtnClientes.FlatAppearance.BorderSize = 0
-        BtnClientes.FlatStyle = FlatStyle.Flat
-        BtnClientes.Font = New System.Drawing.Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        BtnClientes.ForeColor = Color.White
-        BtnClientes.Location = New System.Drawing.Point(450, 113)
-        BtnClientes.Name = "BtnClientes"
-        BtnClientes.Size = New Size(311, 68)
-        BtnClientes.TabIndex = 50
-        BtnClientes.Text = "Clientes .xlsx"
-        BtnClientes.UseVisualStyleBackColor = False
-        ' 
-        ' BtnCarrerras
-        ' 
-        BtnCarrerras.BackColor = Color.FromArgb(CByte(12), CByte(202), CByte(102))
-        BtnCarrerras.Cursor = Cursors.Hand
-        BtnCarrerras.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        BtnCarrerras.FlatAppearance.BorderSize = 0
-        BtnCarrerras.FlatStyle = FlatStyle.Flat
-        BtnCarrerras.Font = New System.Drawing.Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        BtnCarrerras.ForeColor = Color.White
-        BtnCarrerras.Location = New System.Drawing.Point(450, 207)
-        BtnCarrerras.Name = "BtnCarrerras"
-        BtnCarrerras.Size = New Size(311, 68)
-        BtnCarrerras.TabIndex = 51
-        BtnCarrerras.Text = "Carreras .xlsx"
-        BtnCarrerras.UseVisualStyleBackColor = False
-        ' 
-        ' BtnInventario
-        ' 
-        BtnInventario.BackColor = Color.FromArgb(CByte(12), CByte(202), CByte(102))
-        BtnInventario.Cursor = Cursors.Hand
-        BtnInventario.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        BtnInventario.FlatAppearance.BorderSize = 0
-        BtnInventario.FlatStyle = FlatStyle.Flat
-        BtnInventario.Font = New System.Drawing.Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        BtnInventario.ForeColor = Color.White
-        BtnInventario.Location = New System.Drawing.Point(116, 325)
-        BtnInventario.Name = "BtnInventario"
-        BtnInventario.Size = New Size(645, 68)
-        BtnInventario.TabIndex = 52
-        BtnInventario.Text = "Inventario .xlsx"
-        BtnInventario.UseVisualStyleBackColor = False
+        ListaProvedores.Font = New System.Drawing.Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        ListaProvedores.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        ListaProvedores.FormattingEnabled = True
+        ListaProvedores.Location = New System.Drawing.Point(381, 181)
+        ListaProvedores.Name = "ListaProvedores"
+        ListaProvedores.Size = New Size(388, 33)
+        ListaProvedores.TabIndex = 53
         ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(9F, 21F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.White
-        ClientSize = New Size(899, 466)
-        Controls.Add(BtnInventario)
-        Controls.Add(BtnCarrerras)
-        Controls.Add(BtnClientes)
-        Controls.Add(BtnServicios)
-        Controls.Add(BtnProvedores)
+        BackgroundImage = My.Resources.Resources.FONDO_EXECL
+        ClientSize = New Size(1163, 525)
+        Controls.Add(ListaProvedores)
+        Controls.Add(BtnGenerarInforme)
         FormBorderStyle = FormBorderStyle.FixedSingle
         Name = "Form1"
+        StartPosition = FormStartPosition.CenterScreen
         Text = "GENERAR INFORMES"
         ResumeLayout(False)
     End Sub
-
-    Friend WithEvents BtnProvedores As System.Windows.Forms.Button
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents Button4 As System.Windows.Forms.Button
-    Friend WithEvents BtnClientes As System.Windows.Forms.Button
-    Friend WithEvents BtnServicios As System.Windows.Forms.Button
-    Friend WithEvents BtnCarrerras As System.Windows.Forms.Button
-    Friend WithEvents BtnInventario As System.Windows.Forms.Button
+    Friend WithEvents BtnGenerarInforme As System.Windows.Forms.Button
+    Friend WithEvents ListaProvedores As ComboBox
 End Class

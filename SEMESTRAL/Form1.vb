@@ -4,6 +4,7 @@ Imports System.Reflection.Emit
 Imports System.Runtime.InteropServices
 Imports System.Windows.Forms
 Public Class Form1
+    Dim querysBDYercken As New querysBDYercken()
 
     'CARGA DEL FORMS----------------------------------------------------------------------
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -188,6 +189,7 @@ Public Class Form1
 
         Dim impresionForm As New impresionExcel.Form1
 
+        impresionForm.UsuarioLogeado = VARIABLES_GLOBALES.rollUsuarioLogeado
         impresionForm.Show()
 
     End Sub

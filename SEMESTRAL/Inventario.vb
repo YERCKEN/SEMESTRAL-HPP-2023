@@ -229,6 +229,9 @@
 
         ListaEstado.Text = "Disponible"
         TextBoxUbicacion.Text = "Depósito"
+
+        Button1.Visible = False
+
     End Sub
 
     Private Sub BtnActualizar_Click(sender As Object, e As EventArgs) Handles BtnActualizar.Click
@@ -256,6 +259,7 @@
 
 
         DataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(240, 245, 252)
+        Button1.Visible = False
 
     End Sub
 
@@ -291,6 +295,7 @@
 
         DataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.White
 
+        Button1.Visible = False
 
     End Sub
 
@@ -310,7 +315,7 @@
 
         festiloDelFormsStandar()
         PictureBox1.BackgroundImage = My.Resources.INVENTARIO
-
+        Button1.Visible = True
 
     End Sub
 
@@ -396,6 +401,7 @@
         If BtnIngresar.Text = "Almacenar" Then
             festiloDelFormsStandar()
             PictureBox1.Visible = True
+            Button1.Visible = True
         Else
             PanelSelecion.Visible = True
             PictureBox1.Visible = True
@@ -479,6 +485,7 @@
 
 
                 panelIngresoDatos2.Visible = False
+                Button1.Visible = True
                 festiloDelFormsStandar()
 
             Else

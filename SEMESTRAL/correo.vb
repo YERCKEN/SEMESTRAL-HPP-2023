@@ -118,7 +118,20 @@ Public Class correo
             Catch ex As Exception
                 MessageBox.Show("Error al enviar el correo: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
+        Else
+            MessageBox.Show("NO HA SELECCIONADO UN PROVEEDOR", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
+    End Sub
+
+
+
+
+
+    Private Sub ListaProvedores_KeyPress(sender As Object, e As KeyPressEventArgs) Handles ListaProvedores.KeyPress
+        ' Cancelar la pulsación de tecla para evitar que el usuario escriba en la lista
+        MessageBox.Show("La escritura sobre este campo está prohíbida", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        e.Handled = True
+
     End Sub
 
 

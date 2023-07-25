@@ -542,11 +542,11 @@ Partial Class Inventario
         BackColor = Color.White
         ClientSize = New Size(1280, 916)
         Controls.Add(Button1)
-        Controls.Add(panelIngresoDatos2)
         Controls.Add(Panel1)
         Controls.Add(PictureBox1)
-        Controls.Add(PanelBotones)
         Controls.Add(PanelSelecion)
+        Controls.Add(panelIngresoDatos2)
+        Controls.Add(PanelBotones)
         Controls.Add(PanelEliminación)
         FormBorderStyle = FormBorderStyle.None
         Name = "Inventario"

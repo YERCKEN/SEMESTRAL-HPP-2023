@@ -11,6 +11,9 @@ Public Class Form1
     Dim query As String
     Dim newColumnNames As String()
     Dim tituloTabla As String
+
+    Public Property UsuarioLogeado As String
+
     Sub generadorDeExcel()
 
         Dim dataTable As New System.Data.DataTable() ' Uso del nombre completo del DataTable
@@ -193,61 +196,85 @@ Public Class Form1
         End Try
     End Sub
 
-    Private Sub BtnProvedores_Click(sender As Object, e As EventArgs) Handles BtnProvedores.Click
-        connectionString = "Data source =YERCKEN\SQLEXPRESS; Initial Catalog=baseDeDatos2; integrated security = true"
 
-        query = "SELECT *FROM proveedores"
-        newColumnNames = {"ID", "RUC", "Nombre", "Correo", "Tipo", "Teléfono", "Observación"}
-        tituloTabla = "PROVEDORES"
-        generadorDeExcel()
+
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+
+        'LLENAR LISTAS SEGÚN TIPO DE USUARIO
+        ListaProvedores.Items.Clear()
+
+        If UsuarioLogeado = "Admin" Then
+
+            ' Agrega nuevos valores a la lista desplegable
+            ListaProvedores.Items.Add("Clientes")
+            ListaProvedores.Items.Add("Servicios")
+            ListaProvedores.Items.Add("Proveedores")
+            ListaProvedores.Items.Add("Inventario")
+
+
+
+        ElseIf UsuarioLogeado = "Usuario" Then
+
+            ListaProvedores.Items.Add("Clientes")
+            ListaProvedores.Items.Add("Servicios")
+            ListaProvedores.Items.Add("Proveedores")
+        Else
+            ListaProvedores.Items.Add("Carreras")
+            ListaProvedores.Items.Add("Inventario")
+
+        End If
+
     End Sub
 
-    Private Sub BtnClientes_Click(sender As Object, e As EventArgs) Handles BtnClientes.Click
+    Private Sub ListaProvedores_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListaProvedores.SelectedIndexChanged
 
-        connectionString = "Data source =YERCKEN\SQLEXPRESS; Initial Catalog=baseDeDatos2; integrated security = true"
+        If ListaProvedores.Text = "Clientes" Then
 
-        query = "SELECT * FROM clientes;"
-        newColumnNames = {"ID", "Nombre", "Apellido", "Residencia", "Lugar de Trabajo", "Teléfono 1", "Teléfono 2", "Correo", "Tipo", "Observación"}
-        tituloTabla = "Clientes"
-        generadorDeExcel()
-    End Sub
+            connectionString = "Data source =YERCKEN\SQLEXPRESS; Initial Catalog=baseDeDatos2; integrated security = true"
 
-    Private Sub BtnServicios_Click(sender As Object, e As EventArgs) Handles BtnServicios.Click
+            query = "SELECT * FROM clientes;"
+            newColumnNames = {"ID", "Nombre", "Apellido", "Residencia", "Lugar de Trabajo", "Teléfono 1", "Teléfono 2", "Correo", "Tipo", "Observación"}
+            tituloTabla = "CLIENTES"
 
-        connectionString = "Data source =YERCKEN\SQLEXPRESS; Initial Catalog=baseDeDatos2; integrated security = true"
+        ElseIf ListaProvedores.Text = "Servicios" Then
 
-        'query = "SELECT *FROM servicios;"
-        query = "SELECT * FROM servicios;"
+            connectionString = "Data source =YERCKEN\SQLEXPRESS; Initial Catalog=baseDeDatos2; integrated security = true"
+            query = "SELECT * FROM servicios;"
 
-        'newColumnNames = {"ID", "Nombre", "Apellido", "Residencia", "Lugar de Trabajo", "Teléfono 1", "Teléfono 2", "Correo", "Tipo", "Observación"}
 
-        'newColumnNames = {"ID", "Tipo", "Evento", "Hora de Inicio", "Fecha de Inicio", "Fecha de Finalización", "Observación"}
-        tituloTabla = "Servicios"
-        generadorDeExcel()
-    End Sub
+            newColumnNames = {"ID", "Tipo", "Evento", "Hora de Inicio", "Fecha de Inicio", "Fecha de Finalización", "Observación"}
+            tituloTabla = "SERVICIOS"
 
-    Private Sub BtnCarrerras_Click(sender As Object, e As EventArgs) Handles BtnCarrerras.Click
+        ElseIf ListaProvedores.Text = "Proveedores" Then
 
-        connectionString = "Data source =YERCKEN\SQLEXPRESS; Initial Catalog=baseDeDatos1; integrated security = true"
 
-        query = "SELECT Carreras.ID, Carreras.NombreCarrera, Facultades.NombreFacultad
+            connectionString = "Data source =YERCKEN\SQLEXPRESS; Initial Catalog=baseDeDatos2; integrated security = true"
+
+            query = "SELECT *FROM proveedores"
+            newColumnNames = {"ID", "RUC", "Nombre", "Correo", "Tipo", "Teléfono", "Observación"}
+            tituloTabla = "PROVEDORES"
+
+
+
+        ElseIf ListaProvedores.Text = "Carreras" Then
+
+            connectionString = "Data source =YERCKEN\SQLEXPRESS; Initial Catalog=baseDeDatos1; integrated security = true"
+
+            query = "SELECT Carreras.ID, Carreras.NombreCarrera, Facultades.NombreFacultad
                 FROM Carreras
                 JOIN CarrerasFacultad ON Carreras.ID = CarrerasFacultad.CarreraID
                 JOIN Facultades ON Facultades.ID = CarrerasFacultad.FacultadID;"
 
+            newColumnNames = {"ID", "Carrera", "Facultad"}
 
+            tituloTabla = "CARRERAS"
 
-        newColumnNames = {"ID", "Carrera", "Facultad"}
+        ElseIf ListaProvedores.Text = "Inventario" Then
 
-        tituloTabla = "Carreras"
-        generadorDeExcel()
-    End Sub
+            connectionString = "Data source =YERCKEN\SQLEXPRESS; Initial Catalog=baseDeDatos2; integrated security = true"
 
-    Private Sub BtnInventario_Click(sender As Object, e As EventArgs) Handles BtnInventario.Click
-
-        connectionString = "Data source =YERCKEN\SQLEXPRESS; Initial Catalog=baseDeDatos2; integrated security = true"
-
-        query = "  SELECT I.ID, I.Tipo, I.Nombre, C.Cantidad, I.Estado, I.Ubicacion, I.Fecha, I.Observaciones
+            query = "  SELECT I.ID, I.Tipo, I.Nombre, C.Cantidad, I.Estado, I.Ubicacion, I.Fecha, I.Observaciones
                     FROM Inventario I
                     INNER JOIN (
                         SELECT Nombre, COUNT(*) AS Cantidad
@@ -257,9 +284,38 @@ Public Class Form1
 
 
 
-        newColumnNames = {"ID", "Tipo", "Nombre", "Cantidad", "Estado", "Ubicación", "Fecha de Entrada", "Observación"}
+            newColumnNames = {"ID", "Tipo", "Nombre", "Cantidad", "Estado", "Ubicación", "Fecha de Entrada", "Observación"}
 
-        tituloTabla = "Inventario"
-        generadorDeExcel()
+            tituloTabla = "INVENTARIO"
+
+        End If
     End Sub
+
+    Private Sub BtnGenerarInforme_Click(sender As Object, e As EventArgs) Handles BtnGenerarInforme.Click
+
+        If ListaProvedores.Text <> "" Then
+            generadorDeExcel()
+
+        Else
+            MessageBox.Show("Campo Vacío.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End If
+    End Sub
+
+
+
+    Private Sub ListaProvedores_KeyPress(sender As Object, e As KeyPressEventArgs) Handles ListaProvedores.KeyPress
+        ' Cancelar la pulsación de tecla para evitar que el usuario escriba en la lista
+        MessageBox.Show("La escritura sobre este campo está prohíbida", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        e.Handled = True
+
+    End Sub
+
+
+    Private Sub ListaProvedores_SelectedValueChanged(sender As Object, e As EventArgs) Handles ListaProvedores.SelectedValueChanged
+
+        ' Luego, quita el enfoque del listaFacultad moviéndolo al formulario
+        Me.Focus()
+        Me.SelectNextControl(ListaProvedores, True, True, True, True)
+    End Sub
+
 End Class

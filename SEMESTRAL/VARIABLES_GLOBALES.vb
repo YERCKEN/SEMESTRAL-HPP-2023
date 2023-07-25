@@ -3,7 +3,7 @@ Module VARIABLES_GLOBALES
 
 
     'CADENAS DE CONEXIONES
-
+    Public rollUsuarioLogeado As String
     'BD1====================================================================================================================================
 
     'YERCKEN

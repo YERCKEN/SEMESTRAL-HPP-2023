@@ -30,7 +30,6 @@ Partial Class correo
         Label7 = New Label()
         Label1 = New Label()
         Button1 = New Button()
-        btnAdjuntarArchivo = New Button()
         SuspendLayout()
         ' 
         ' ListaProvedores
@@ -111,22 +110,6 @@ Partial Class correo
         Button1.Text = "Enviar"
         Button1.UseVisualStyleBackColor = False
         ' 
-        ' btnAdjuntarArchivo
-        ' 
-        btnAdjuntarArchivo.BackColor = Color.FromArgb(CByte(0), CByte(116), CByte(255))
-        btnAdjuntarArchivo.Cursor = Cursors.Hand
-        btnAdjuntarArchivo.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        btnAdjuntarArchivo.FlatAppearance.BorderSize = 0
-        btnAdjuntarArchivo.FlatStyle = FlatStyle.Flat
-        btnAdjuntarArchivo.Font = New Font("Montserrat", 13.7999992F, FontStyle.Bold, GraphicsUnit.Point)
-        btnAdjuntarArchivo.ForeColor = Color.White
-        btnAdjuntarArchivo.Location = New Point(1077, 73)
-        btnAdjuntarArchivo.Name = "btnAdjuntarArchivo"
-        btnAdjuntarArchivo.Size = New Size(53, 52)
-        btnAdjuntarArchivo.TabIndex = 76
-        btnAdjuntarArchivo.Text = "📄"
-        btnAdjuntarArchivo.UseVisualStyleBackColor = False
-        ' 
         ' correo
         ' 
         AutoScaleDimensions = New SizeF(9F, 21F)
@@ -134,7 +117,6 @@ Partial Class correo
         BackColor = Color.White
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         ClientSize = New Size(1163, 525)
-        Controls.Add(btnAdjuntarArchivo)
         Controls.Add(Button1)
         Controls.Add(Label1)
         Controls.Add(TextBoxAsunto)
@@ -157,5 +139,4 @@ Partial Class correo
     Friend WithEvents Label7 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents Button1 As Button
-    Friend WithEvents btnAdjuntarArchivo As Button
 End Class

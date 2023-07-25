@@ -56,11 +56,14 @@
         If querysBDYercken.Login(textboxUsuario.Text, TextBoxContraseña.Text) > 0 Then
 
 
-            MsgBox("CORRECTO INICIASTE")
+            'MsgBox("CORRECTO INICIASTE")
             querysBDYercken.usuarioLogeado = textboxUsuario.Text
             querysBDYercken.obtenerRolUsuario(querysBDYercken.usuarioLogeado)
-            MsgBox("USUARIO: " & querysBDYercken.usuarioLogeado & vbCrLf & vbCrLf & "ROLL: " & querysBDYercken.rollUsuarioLogeado)
 
+
+            'MsgBox("USUARIO: " & querysBDYercken.usuarioLogeado & vbCrLf & vbCrLf & "ROLL: " & querysBDYercken.rollUsuarioLogeado)
+
+            VARIABLES_GLOBALES.rollUsuarioLogeado = querysBDYercken.rollUsuarioLogeado
 
             'DEFINICIÓN DE VARIABLES GLOBALES
             If querysBDYercken.rollUsuarioLogeado = "Admin" Then
