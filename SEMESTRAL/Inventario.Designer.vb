@@ -38,8 +38,6 @@ Partial Class Inventario
         panelIngresoDatos2 = New Panel()
         TextBoxUbicacion = New TextBox()
         Label4 = New Label()
-        TextBoxCantidad = New TextBox()
-        Label3 = New Label()
         ListaEstado = New ComboBox()
         Label2 = New Label()
         ListaTipo = New ComboBox()
@@ -60,6 +58,7 @@ Partial Class Inventario
         BtnCancelar = New Button()
         LabelMensaje = New Label()
         PictureBox1 = New PictureBox()
+        Button1 = New Button()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         Panel1.SuspendLayout()
         PanelBotones.SuspendLayout()
@@ -236,8 +235,6 @@ Partial Class Inventario
         ' 
         panelIngresoDatos2.Controls.Add(TextBoxUbicacion)
         panelIngresoDatos2.Controls.Add(Label4)
-        panelIngresoDatos2.Controls.Add(TextBoxCantidad)
-        panelIngresoDatos2.Controls.Add(Label3)
         panelIngresoDatos2.Controls.Add(ListaEstado)
         panelIngresoDatos2.Controls.Add(Label2)
         panelIngresoDatos2.Controls.Add(ListaTipo)
@@ -258,9 +255,9 @@ Partial Class Inventario
         ' 
         TextBoxUbicacion.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         TextBoxUbicacion.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        TextBoxUbicacion.Location = New Point(419, 199)
+        TextBoxUbicacion.Location = New Point(259, 199)
         TextBoxUbicacion.Name = "TextBoxUbicacion"
-        TextBoxUbicacion.Size = New Size(270, 30)
+        TextBoxUbicacion.Size = New Size(430, 30)
         TextBoxUbicacion.TabIndex = 54
         ' 
         ' Label4
@@ -268,31 +265,11 @@ Partial Class Inventario
         Label4.AutoSize = True
         Label4.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
         Label4.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        Label4.Location = New Point(266, 199)
+        Label4.Location = New Point(259, 142)
         Label4.Name = "Label4"
         Label4.Size = New Size(117, 27)
         Label4.TabIndex = 55
         Label4.Text = "Ubicación"
-        ' 
-        ' TextBoxCantidad
-        ' 
-        TextBoxCantidad.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        TextBoxCantidad.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        TextBoxCantidad.Location = New Point(419, 141)
-        TextBoxCantidad.Name = "TextBoxCantidad"
-        TextBoxCantidad.Size = New Size(270, 30)
-        TextBoxCantidad.TabIndex = 52
-        ' 
-        ' Label3
-        ' 
-        Label3.AutoSize = True
-        Label3.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        Label3.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        Label3.Location = New Point(266, 142)
-        Label3.Name = "Label3"
-        Label3.Size = New Size(108, 27)
-        Label3.TabIndex = 53
-        Label3.Text = "Cantidad"
         ' 
         ' ListaEstado
         ' 
@@ -385,7 +362,7 @@ Partial Class Inventario
         Label6.AutoSize = True
         Label6.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
         Label6.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        Label6.Location = New Point(3, 17)
+        Label6.Location = New Point(3, 3)
         Label6.Name = "Label6"
         Label6.Size = New Size(115, 27)
         Label6.TabIndex = 16
@@ -405,7 +382,7 @@ Partial Class Inventario
         Label7.AutoSize = True
         Label7.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
         Label7.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        Label7.Location = New Point(259, 20)
+        Label7.Location = New Point(259, 2)
         Label7.Name = "Label7"
         Label7.Size = New Size(98, 27)
         Label7.TabIndex = 18
@@ -535,12 +512,28 @@ Partial Class Inventario
         ' 
         ' PictureBox1
         ' 
-        PictureBox1.BackgroundImage = My.Resources.Resources.INVENTARIO
+        PictureBox1.BackgroundImage = My.Resources.Resources.ACTUALIZAR
         PictureBox1.Location = New Point(700, 80)
         PictureBox1.Name = "PictureBox1"
         PictureBox1.Size = New Size(465, 352)
         PictureBox1.TabIndex = 73
         PictureBox1.TabStop = False
+        ' 
+        ' Button1
+        ' 
+        Button1.BackColor = Color.FromArgb(CByte(0), CByte(116), CByte(255))
+        Button1.Cursor = Cursors.Hand
+        Button1.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        Button1.FlatAppearance.BorderSize = 0
+        Button1.FlatStyle = FlatStyle.Flat
+        Button1.Font = New Font("Microsoft Sans Serif", 28.2F, FontStyle.Regular, GraphicsUnit.Point)
+        Button1.ForeColor = Color.White
+        Button1.Location = New Point(984, -5)
+        Button1.Name = "Button1"
+        Button1.Size = New Size(91, 68)
+        Button1.TabIndex = 74
+        Button1.Text = "📩"
+        Button1.UseVisualStyleBackColor = False
         ' 
         ' Inventario
         ' 
@@ -548,11 +541,12 @@ Partial Class Inventario
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.White
         ClientSize = New Size(1280, 916)
+        Controls.Add(Button1)
+        Controls.Add(panelIngresoDatos2)
         Controls.Add(Panel1)
         Controls.Add(PictureBox1)
-        Controls.Add(PanelSelecion)
         Controls.Add(PanelBotones)
-        Controls.Add(panelIngresoDatos2)
+        Controls.Add(PanelSelecion)
         Controls.Add(PanelEliminación)
         FormBorderStyle = FormBorderStyle.None
         Name = "Inventario"
@@ -584,8 +578,6 @@ Partial Class Inventario
     Friend WithEvents panelIngresoDatos2 As Panel
     Friend WithEvents TextBoxUbicacion As TextBox
     Friend WithEvents Label4 As Label
-    Friend WithEvents TextBoxCantidad As TextBox
-    Friend WithEvents Label3 As Label
     Friend WithEvents ListaEstado As ComboBox
     Friend WithEvents Label2 As Label
     Friend WithEvents ListaTipo As ComboBox
@@ -603,7 +595,8 @@ Partial Class Inventario
     Friend WithEvents Label9 As Label
     Friend WithEvents PanelEliminación As Panel
     Friend WithEvents LabelMensaje As Label
-    Friend WithEvents BtnAceptarEliminacion As Button
     Friend WithEvents BtnCancelar As Button
     Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents BtnAceptarEliminacion As Button
+    Friend WithEvents Button1 As Button
 End Class

@@ -184,6 +184,14 @@ Public Class Form1
 
     End Sub
 
+    Private Sub InformeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InformeToolStripMenuItem.Click
+
+        Dim impresionForm As New impresionExcel.Form1
+
+        impresionForm.Show()
+
+    End Sub
+
 
 End Class
 

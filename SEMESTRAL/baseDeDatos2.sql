@@ -6,11 +6,13 @@ CREATE TABLE servicios (
     id_servicios INT IDENTITY(1,1) PRIMARY KEY,
     tipo VARCHAR(255),
     evento VARCHAR(255),
-	horainicio TIME,
+	horainicio VARCHAR(50),
     fechainicio DATE,
     fechafinal DATE,
     observacion VARCHAR(500)
 );
+
+
 -- Eliminar la tabla "servicios"
 -- Crear tabla proveedores
 CREATE TABLE proveedores (
@@ -93,7 +95,6 @@ CREATE TABLE Inventario (
     ID INT IDENTITY(1,1) PRIMARY KEY,
     Tipo VARCHAR(50) NOT NULL,
     Nombre VARCHAR(100) NOT NULL,
-    Cantidad INT,
     Estado VARCHAR(50) NOT NULL,
     Ubicacion VARCHAR(100) NOT NULL,
     Fecha DATE NOT NULL,
@@ -102,18 +103,23 @@ CREATE TABLE Inventario (
 
 GO
 
-INSERT INTO Inventario (Tipo, Nombre, Cantidad, Estado, Ubicacion, Fecha, Observaciones)
+INSERT INTO Inventario (Tipo, Nombre, Estado, Ubicacion, Fecha, Observaciones)
 VALUES
-    ('Equipo', 'Portátil', 5, 'En uso', 'Oficina 101', '2023-07-23', 'Actualización de software'),
-    ('Recurso', 'Borrador', 50, 'Disponible', 'Aula 201', '2023-07-23', ''),
-    ('Equipo', 'Proyector', 2, 'Reparación', 'Almacén', '2023-07-23', 'Problema de lámpara'),
-    ('Recurso', 'Calculadora', 20, 'En uso', 'Aula 102', '2023-07-23', ''),
-    ('Equipo', 'Impresora', 3, 'Disponible', 'Oficina 202', '2023-07-23', ''),
-    ('Recurso', 'Cuadernos', 100, 'Disponible', 'Biblioteca', '2023-07-23', ''),
-    ('Equipo', 'Escritorio', 10, 'En uso', 'Oficina 203', '2023-07-23', 'Reparar pata rota'),
-    ('Recurso', 'Lápices', 200, 'Disponible', 'Aula 103', '2023-07-23', ''),
-    ('Equipo', 'Monitor', 15, 'En uso', 'Laboratorio 301', '2023-07-23', ''),
-    ('Recurso', 'Tijeras', 30, 'Disponible', 'Aula 104', '2023-07-23', '');
+    ('Equipo', 'Laptop Dell XPS 15', 'En uso', 'Oficina 101', '2023-07-23', 'Actualización de software'),
+    ('Recurso', 'Borrador BIC', 'Disponible', 'Aula 201', '2023-07-23', ''),
+    ('Equipo', 'Proyector Epson PowerLite 2150', 'Reparación', 'Almacén', '2023-07-23', 'Problema de lámpara'),
+    ('Recurso', 'Calculadora Casio', 'En uso', 'Aula 102', '2023-07-23', ''),
+    ('Equipo', 'Impresora HP LaserJet', 'Disponible', 'Oficina 202', '2023-07-23', ''),
+    ('Recurso', 'Cuadernos Norma', 'Disponible', 'Biblioteca', '2023-07-23', ''),
+    ('Equipo', 'Escritorio de madera', 'En uso', 'Oficina 203', '2023-07-23', 'Reparar pata rota'),
+    ('Recurso', 'Lápices Faber-Castell 2B', 'Disponible', 'Aula 103', '2023-07-23', ''),
+    ('Equipo', 'Monitor LG 27GL850-B', 'En uso', 'Laboratorio 301', '2023-07-23', ''),
+    ('Recurso', 'Tijeras Fiskars Titanium', 'Disponible', 'Aula 104', '2023-07-23', ''),
+	('Recurso', 'Tijeras Fiskars Titanium', 'Disponible', 'Aula 104', '2023-07-23', '');
+
+INSERT INTO Inventario (Tipo, Nombre, Estado, Ubicacion, Fecha, Observaciones)
+VALUES
+('Recurso', 'Tijeras Fiskars Titanium', 'Disponible', 'Aula 104', '2023-07-23', '');
 
 -- PROCESOS ALMACENADOS PARA LOS SELECTS ------------
 GO
@@ -121,18 +127,30 @@ GO
 CREATE PROCEDURE ObtenerTodosLosRegistros
 AS
 BEGIN
-    SELECT *
-    FROM Inventario;
+       SELECT I.ID, I.Tipo, I.Nombre, C.Cantidad, I.Estado, I.Ubicacion, I.Fecha, I.Observaciones
+    FROM Inventario I
+    INNER JOIN (
+        SELECT Nombre, COUNT(*) AS Cantidad
+        FROM Inventario
+        GROUP BY Nombre
+    ) C ON I.Nombre = C.Nombre;
 END;
 
+
+  
 GO
 
 CREATE PROCEDURE ObtenerRegistrosTipoEquipo
 AS
 BEGIN
-    SELECT *
-    FROM Inventario
-    WHERE Tipo = 'Equipo';
+    SELECT I.ID, I.Tipo, I.Nombre, C.Cantidad, I.Estado, I.Ubicacion, I.Fecha, I.Observaciones
+    FROM Inventario I
+    INNER JOIN (
+        SELECT Nombre, COUNT(*) AS Cantidad
+        FROM Inventario
+        GROUP BY Nombre
+    ) C ON I.Nombre = C.Nombre
+    WHERE I.Tipo = 'Equipo';
 END;
 
 GO
@@ -140,9 +158,14 @@ GO
 CREATE PROCEDURE ObtenerRegistrosTipoRecurso
 AS
 BEGIN
-    SELECT *
-    FROM Inventario
-    WHERE Tipo = 'Recurso';
+    SELECT I.ID, I.Tipo, I.Nombre, C.Cantidad, I.Estado, I.Ubicacion, I.Fecha, I.Observaciones
+    FROM Inventario I
+    INNER JOIN (
+        SELECT Nombre, COUNT(*) AS Cantidad
+        FROM Inventario
+        GROUP BY Nombre
+    ) C ON I.Nombre = C.Nombre
+    WHERE I.Tipo = 'Recurso';
 END;
 
 GO
@@ -159,7 +182,6 @@ CREATE PROCEDURE InsertarInventario
 (
     @Tipo VARCHAR(50),
     @Nombre VARCHAR(100),
-    @Cantidad INT,
     @Estado VARCHAR(50),
     @Ubicacion VARCHAR(100),
     @Fecha DATE,
@@ -168,9 +190,31 @@ CREATE PROCEDURE InsertarInventario
 AS
 BEGIN
     -- Insertar los datos en la tabla Inventario
-    INSERT INTO Inventario (Tipo, Nombre, Cantidad, Estado, Ubicacion, Fecha, Observaciones)
-    VALUES (@Tipo, @Nombre, @Cantidad, @Estado, @Ubicacion, @Fecha, @Observaciones)
+    INSERT INTO Inventario (Tipo, Nombre, Estado, Ubicacion, Fecha, Observaciones)
+    VALUES (@Tipo, @Nombre, @Estado, @Ubicacion, @Fecha, @Observaciones)
 END;
 
 
-EXEC InsertarInventario 'TipoEjemplo', 'NombreEjemplo', 10, 'EstadoEjemplo', 'UbicacionEjemplo', '2023-07-24', 'ObservacionesEjemplo';
+
+
+-- provedores
+
+SELECT *FROM proveedores;
+
+SELECT nombre FROM proveedores;
+
+
+SELECT *FROM clientes;
+SELECT *FROM servicios;
+
+
+
+  SELECT I.ID, I.Tipo, I.Nombre, C.Cantidad, I.Estado, I.Ubicacion, I.Fecha, I.Observaciones
+    FROM Inventario I
+    INNER JOIN (
+        SELECT Nombre, COUNT(*) AS Cantidad
+        FROM Inventario
+        GROUP BY Nombre
+    ) C ON I.Nombre = C.Nombre;
+
+

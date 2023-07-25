@@ -75,7 +75,7 @@ Partial Class Form1
         ClientesToolStripMenuItem.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
         ClientesToolStripMenuItem.Name = "ClientesToolStripMenuItem"
         ClientesToolStripMenuItem.Padding = New Padding(0, 5, 0, 1)
-        ClientesToolStripMenuItem.Size = New Size(196, 34)
+        ClientesToolStripMenuItem.Size = New Size(224, 34)
         ClientesToolStripMenuItem.Text = "Clientes"
         ' 
         ' ServiciosToolStripMenuItem
@@ -84,7 +84,7 @@ Partial Class Form1
         ServiciosToolStripMenuItem.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
         ServiciosToolStripMenuItem.Name = "ServiciosToolStripMenuItem"
         ServiciosToolStripMenuItem.Padding = New Padding(0, 5, 0, 1)
-        ServiciosToolStripMenuItem.Size = New Size(196, 34)
+        ServiciosToolStripMenuItem.Size = New Size(224, 34)
         ServiciosToolStripMenuItem.Text = "Servicios"
         ' 
         ' ProvedoresToolStripMenuItem
@@ -93,7 +93,7 @@ Partial Class Form1
         ProvedoresToolStripMenuItem.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
         ProvedoresToolStripMenuItem.Name = "ProvedoresToolStripMenuItem"
         ProvedoresToolStripMenuItem.Padding = New Padding(0, 5, 0, 1)
-        ProvedoresToolStripMenuItem.Size = New Size(196, 34)
+        ProvedoresToolStripMenuItem.Size = New Size(224, 34)
         ProvedoresToolStripMenuItem.Text = "Provedores"
         ' 
         ' CarrerasToolStripMenuItem
@@ -102,7 +102,7 @@ Partial Class Form1
         CarrerasToolStripMenuItem.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
         CarrerasToolStripMenuItem.Name = "CarrerasToolStripMenuItem"
         CarrerasToolStripMenuItem.Padding = New Padding(0, 5, 0, 1)
-        CarrerasToolStripMenuItem.Size = New Size(196, 34)
+        CarrerasToolStripMenuItem.Size = New Size(224, 34)
         CarrerasToolStripMenuItem.Text = "Carreras"
         ' 
         ' InventarioToolStripMenuItem
@@ -111,7 +111,7 @@ Partial Class Form1
         InventarioToolStripMenuItem.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
         InventarioToolStripMenuItem.Name = "InventarioToolStripMenuItem"
         InventarioToolStripMenuItem.Padding = New Padding(0, 5, 0, 1)
-        InventarioToolStripMenuItem.Size = New Size(196, 34)
+        InventarioToolStripMenuItem.Size = New Size(224, 34)
         InventarioToolStripMenuItem.Text = "Inventario"
         ' 
         ' InformeToolStripMenuItem
@@ -120,14 +120,14 @@ Partial Class Form1
         InformeToolStripMenuItem.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
         InformeToolStripMenuItem.Name = "InformeToolStripMenuItem"
         InformeToolStripMenuItem.Padding = New Padding(0, 5, 0, 1)
-        InformeToolStripMenuItem.Size = New Size(196, 34)
+        InformeToolStripMenuItem.Size = New Size(224, 34)
         InformeToolStripMenuItem.Text = "Informe"
         ' 
         ' ToolStripSeparator1
         ' 
         ToolStripSeparator1.Name = "ToolStripSeparator1"
         ToolStripSeparator1.Padding = New Padding(0, 5, 0, 1)
-        ToolStripSeparator1.Size = New Size(193, 6)
+        ToolStripSeparator1.Size = New Size(221, 6)
         ' 
         ' SalirToolStripMenuItem
         ' 
@@ -135,7 +135,7 @@ Partial Class Form1
         SalirToolStripMenuItem.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
         SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
         SalirToolStripMenuItem.Padding = New Padding(0, 5, 0, 1)
-        SalirToolStripMenuItem.Size = New Size(196, 34)
+        SalirToolStripMenuItem.Size = New Size(224, 34)
         SalirToolStripMenuItem.Text = "Salir"
         ' 
         ' ToolStripMenuItem1
