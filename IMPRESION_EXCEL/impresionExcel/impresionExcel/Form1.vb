@@ -84,7 +84,6 @@ Public Class Form1
             Dim headerRange As Excel.Range = excelWorkSheet.Range("A5", excelWorkSheet.Cells(5, dataTable.Columns.Count))
             ' Cambiar los nombres de las columnas de la DataTable según tus necesidades
 
-            'Dim newColumnNames As String() = {"ID", "RUC", "Nombre", "Correo", "Tipo", "Teléfono", "Observación"}
 
             headerRange.Value = newColumnNames
             headerRange.Font.Bold = True
@@ -92,6 +91,27 @@ Public Class Form1
             headerRange.HorizontalAlignment = Excel.Constants.xlCenter
 
             headerRange.Font.Color = Color.FromArgb(83, 97, 98)
+
+            ' Encontrar la columna "observacion" o "Observaciones"
+            Dim observacionColumnIndex As Integer = -1
+            For i As Integer = 1 To dataTable.Columns.Count
+                If String.Equals(dataTable.Columns(i - 1).ColumnName, "observacion", StringComparison.OrdinalIgnoreCase) _
+                OrElse String.Equals(dataTable.Columns(i - 1).ColumnName, "Observaciones", StringComparison.OrdinalIgnoreCase) Then
+                    observacionColumnIndex = i
+                    Exit For
+                End If
+            Next
+
+            ' Si se encuentra la columna "observacion" o "Observaciones", aplicar WrapText
+            If observacionColumnIndex > 0 Then
+                Dim observacionColumn As Excel.Range = excelWorkSheet.Range(excelWorkSheet.Cells(6, observacionColumnIndex), excelWorkSheet.Cells(excelWorkSheet.Rows.Count, observacionColumnIndex))
+                observacionColumn.WrapText = True
+                observacionColumn.HorizontalAlignment = Excel.Constants.xlCenter
+
+                observacionColumn.ColumnWidth = 30
+
+
+            End If
 
 
 
@@ -102,11 +122,20 @@ Public Class Form1
                 For j As Integer = 0 To dataTable.Columns.Count - 1
                     dataArr(i, j) = dataTable.Rows(i)(j)
 
-                    startCell.Offset(i, j).Font.Color = RGB(120, 127, 130)
+                    Dim currentCell As Excel.Range = startCell.Offset(i, j)
 
+                    'ESTILO 
+                    currentCell.Font.Color = RGB(120, 127, 130)
+                    currentCell.HorizontalAlignment = Excel.Constants.xlCenter
+                    currentCell.VerticalAlignment = Excel.Constants.xlCenter
                 Next
             Next
+
             startCell.Resize(dataTable.Rows.Count, dataTable.Columns.Count).Value = dataArr
+
+
+
+
 
             ' Ajustar el ancho de las columnas para que se ajusten al contenido
             excelWorkSheet.Columns.AutoFit()
@@ -150,17 +179,7 @@ Public Class Form1
 
     Private Sub BtnClientes_Click(sender As Object, e As EventArgs) Handles BtnClientes.Click
 
-        query = "SELECT 
-                    id_clientes,
-                    nombre,
-                    apellido,
-                    residencia,
-                    lugar_trabajo,
-                    telefono1,
-                    telefono2,
-                    email,
-                    tipo
-                FROM clientes;"
+        query = "SELECT * FROM clientes;"
         newColumnNames = {"ID", "Nombre", "Apellido", "Residencia", "Lugar de Trabajo", "Teléfono 1", "Teléfono 2", "Correo", "Tipo", "Observación"}
         tituloTabla = "Clientes"
         generadorDeExcel()
