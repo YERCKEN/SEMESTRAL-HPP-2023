@@ -176,7 +176,7 @@ Public Class Servicios
     End Sub
     Private Sub CrearServicio()
         Try
-            ' Verificar si las entradas son nulas o están vacías
+            ' Verificar si las entradas son nulas o están vacías8
             If String.IsNullOrEmpty(idServicioTb.Text) OrElse
            String.IsNullOrEmpty(tipoCb.Text) OrElse
            String.IsNullOrEmpty(eventoTb.Text) OrElse
