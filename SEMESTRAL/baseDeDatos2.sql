@@ -6,11 +6,13 @@ CREATE TABLE servicios (
     id_servicios INT IDENTITY(1,1) PRIMARY KEY,
     tipo VARCHAR(255),
     evento VARCHAR(255),
-	horainicio TIME,
+	horainicio VARCHAR(50),
     fechainicio DATE,
     fechafinal DATE,
     observacion VARCHAR(500)
 );
+
+
 -- Eliminar la tabla "servicios"
 -- Crear tabla proveedores
 CREATE TABLE proveedores (
@@ -193,9 +195,6 @@ BEGIN
 END;
 
 
-EXEC InsertarInventario 'TipoEjemplo', 'NombreEjemplo', 'EstadoEjemplo', 'UbicacionEjemplo', '2023-07-24', 'ObservacionesEjemplo';
-
-
 
 
 -- provedores
@@ -208,10 +207,14 @@ SELECT nombre FROM proveedores;
 SELECT *FROM clientes;
 SELECT *FROM servicios;
 
-SELECT Carreras.ID, Carreras.NombreCarrera, Facultades.NombreFacultad
-FROM Carreras
-JOIN CarrerasFacultad ON Carreras.ID = CarrerasFacultad.CarreraID
-JOIN Facultades ON Facultades.ID = CarrerasFacultad.FacultadID;
 
 
-SELECT * FROM Inventario;
+  SELECT I.ID, I.Tipo, I.Nombre, C.Cantidad, I.Estado, I.Ubicacion, I.Fecha, I.Observaciones
+    FROM Inventario I
+    INNER JOIN (
+        SELECT Nombre, COUNT(*) AS Cantidad
+        FROM Inventario
+        GROUP BY Nombre
+    ) C ON I.Nombre = C.Nombre;
+
+

@@ -17,34 +17,13 @@ Public Class Form1
 
         Try
             ' Abrir la conexión y ejecutar la consulta
-            'Using connection As New SqlConnection(connectionString)
-            '    Dim command As New SqlCommand(query, connection)
-            '    connection.Open()
+            Using connection As New SqlConnection(connectionString)
+                Dim command As New SqlCommand(query, connection)
+                connection.Open()
 
-            '    ' Llenar el DataTable con los resultados del SELECT
-            '    dataTable.Load(command.ExecuteReader())
-            'End Using
-
-            Try
-                ' Crear una nueva conexión a la base de datos
-                Using connection As New SqlConnection(connectionString)
-                    ' Crear una nueva consulta SQL
-
-                    ' Crear un nuevo SqlDataAdapter para ejecutar la consulta
-                    Using adapter As New SqlDataAdapter(query, connection)
-                        ' Crear un nuevo DataTable para almacenar los datos
-
-
-                        ' Llenar el DataTable con los datos de la consulta
-                        adapter.Fill(dataTable)
-
-                        ' Configurar el DataGridView para mostrar los datos
-                    End Using
-                End Using
-            Catch ex As Exception
-                ' Mostrar un mensaje si hay un error
-                MessageBox.Show("Error al cargar los datos de los servicios: " & ex.Message)
-            End Try
+                ' Llenar el DataTable con los resultados del SELECT
+                dataTable.Load(command.ExecuteReader())
+            End Using
 
 
 
@@ -136,6 +115,28 @@ Public Class Form1
             End If
 
 
+            'ver su hay hora 
+
+            Dim horainicioColumnIndex As Integer = -1
+
+            For i As Integer = 1 To dataTable.Columns.Count
+                If String.Equals(dataTable.Columns(i - 1).ColumnName, "horainicio", StringComparison.OrdinalIgnoreCase) Then
+                    horainicioColumnIndex = i
+                    Exit For
+                End If
+            Next
+
+            ' Si se encuentra la columna "horainicio", transformarla al formato hora
+            If horainicioColumnIndex > 0 Then
+                Dim horainicioColumn As Excel.Range = excelWorkSheet.Range(excelWorkSheet.Cells(6, horainicioColumnIndex), excelWorkSheet.Cells(excelWorkSheet.Rows.Count, horainicioColumnIndex))
+
+                ' Definir el formato de hora para la columna
+                horainicioColumn.NumberFormat = "HH:mm:ss AM/PM"
+            End If
+
+
+
+
 
             ' Escribir los datos en la hoja de trabajo
             Dim startCell As Excel.Range = excelWorkSheet.Range("A6")
@@ -193,6 +194,8 @@ Public Class Form1
     End Sub
 
     Private Sub BtnProvedores_Click(sender As Object, e As EventArgs) Handles BtnProvedores.Click
+        connectionString = "Data source =YERCKEN\SQLEXPRESS; Initial Catalog=baseDeDatos2; integrated security = true"
+
         query = "SELECT *FROM proveedores"
         newColumnNames = {"ID", "RUC", "Nombre", "Correo", "Tipo", "Teléfono", "Observación"}
         tituloTabla = "PROVEDORES"
