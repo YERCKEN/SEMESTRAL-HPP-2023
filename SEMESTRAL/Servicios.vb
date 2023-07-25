@@ -6,6 +6,11 @@ Public Class Servicios
     Private Sub Servicios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Location = New Point(Form1.Location.X, Form1.Location.Y + 49) ' Establecer la nueva ubicación de Form4 en relación con Form1
         MostrarServicios()
+        tipoCb.Items.Clear()
+        tipoCb.Items.Add("Eventos especiales")
+        tipoCb.Items.Add("Giras de promoción de carreras")
+        tipoCb.Items.Add("Descuento de carreras")
+        tipoCb.Items.Add("Atención al cliente")
     End Sub
     Private Sub MostrarServicios()
         Try
@@ -126,6 +131,18 @@ Public Class Servicios
     End Function
     Private Sub ActualizarServicio()
         Try
+            ' Verificar si las entradas son nulas o están vacías
+            If String.IsNullOrEmpty(idServicioTb.Text) OrElse
+           String.IsNullOrEmpty(tipoCb.Text) OrElse
+           String.IsNullOrEmpty(eventoTb.Text) OrElse
+           String.IsNullOrEmpty(horaInicioDt.Value.ToString()) OrElse
+           String.IsNullOrEmpty(fechaInicioDt.Value.ToString()) OrElse
+           String.IsNullOrEmpty(fechaFinalizacionDt.Value.ToString()) OrElse
+           String.IsNullOrEmpty(observacionTb.Text) Then
+
+                MessageBox.Show("Por favor asegúrese de que todos los campos están llenos.")
+                Return
+            End If
             ' Crear una conexión a la base de datos
             Using connection As New SqlConnection(connectionString2)
                 connection.Open()
@@ -159,6 +176,18 @@ Public Class Servicios
     End Sub
     Private Sub CrearServicio()
         Try
+            ' Verificar si las entradas son nulas o están vacías8
+            If String.IsNullOrEmpty(idServicioTb.Text) OrElse
+           String.IsNullOrEmpty(tipoCb.Text) OrElse
+           String.IsNullOrEmpty(eventoTb.Text) OrElse
+           String.IsNullOrEmpty(horaInicioDt.Value.ToString()) OrElse
+           String.IsNullOrEmpty(fechaInicioDt.Value.ToString()) OrElse
+           String.IsNullOrEmpty(fechaFinalizacionDt.Value.ToString()) OrElse
+           String.IsNullOrEmpty(observacionTb.Text) Then
+
+                MessageBox.Show("Por favor asegúrese de que todos los campos están llenos.")
+                Return
+            End If
             ' Crear una conexión a la base de datos
             Using connection As New SqlConnection(connectionString2)
                 connection.Open()
