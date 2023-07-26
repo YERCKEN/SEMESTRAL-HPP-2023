@@ -11,6 +11,23 @@ Public Class Servicios
         tipoCb.Items.Add("Giras de promoción de carreras")
         tipoCb.Items.Add("Descuento de carreras")
         tipoCb.Items.Add("Atención al cliente")
+
+        'ESTILO DATAGRIDVIEW
+        DataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
+        DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+
+        'RENOMBRADO =============================================================================
+
+        DataGridView1.Columns("id_Servicios").HeaderText = "ID"
+        DataGridView1.Columns("id_Servicios").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+        DataGridView1.Columns("tipo").HeaderText = "Tipo"
+        DataGridView1.Columns("evento").HeaderText = "Evento"
+        DataGridView1.Columns("horainicio").HeaderText = "Hora de Inicio"
+        DataGridView1.Columns("fechainicio").HeaderText = "F.Inicio"
+        DataGridView1.Columns("fechafinal").HeaderText = "F.Final"
+        DataGridView1.Columns("observacion").HeaderText = "Observacion"
+
+
     End Sub
     Private Sub MostrarServicios()
         Try
@@ -306,6 +323,7 @@ Public Class Servicios
         idServicioTb.Clear()
         panelIngresoDatos2.Visible = False
         PanelBotones.Visible = True
+
     End Sub
 
     Private Sub crearBtn_Click(sender As Object, e As EventArgs) Handles crearBtn.Click

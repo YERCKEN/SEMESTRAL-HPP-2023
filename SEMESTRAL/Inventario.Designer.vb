@@ -544,9 +544,9 @@ Partial Class Inventario
         Controls.Add(Button1)
         Controls.Add(Panel1)
         Controls.Add(PictureBox1)
-        Controls.Add(PanelSelecion)
-        Controls.Add(panelIngresoDatos2)
         Controls.Add(PanelBotones)
+        Controls.Add(panelIngresoDatos2)
+        Controls.Add(PanelSelecion)
         Controls.Add(PanelEliminación)
         FormBorderStyle = FormBorderStyle.None
         Name = "Inventario"

@@ -22,11 +22,10 @@ Partial Class Servicios
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         panelIngresoDatos2 = New Panel()
-        BtnNuevoTicket = New Button()
         Label9 = New Label()
         horaInicioDt = New DateTimePicker()
         Label5 = New Label()
@@ -35,12 +34,13 @@ Partial Class Servicios
         fechaInicioDt = New DateTimePicker()
         tipoCb = New ComboBox()
         BtnVolver = New Button()
-        BtnactualizarNuevoTicket = New Button()
         observacionTb = New TextBox()
         Label1 = New Label()
         Label6 = New Label()
         eventoTb = New TextBox()
         Label7 = New Label()
+        BtnNuevoTicket = New Button()
+        BtnactualizarNuevoTicket = New Button()
         PanelSelecion = New Panel()
         btnselecccionarElimina = New Button()
         BtnSalirSeleccion = New Button()
@@ -60,7 +60,6 @@ Partial Class Servicios
         ' 
         ' panelIngresoDatos2
         ' 
-        panelIngresoDatos2.Controls.Add(BtnNuevoTicket)
         panelIngresoDatos2.Controls.Add(Label9)
         panelIngresoDatos2.Controls.Add(horaInicioDt)
         panelIngresoDatos2.Controls.Add(Label5)
@@ -69,43 +68,27 @@ Partial Class Servicios
         panelIngresoDatos2.Controls.Add(fechaInicioDt)
         panelIngresoDatos2.Controls.Add(tipoCb)
         panelIngresoDatos2.Controls.Add(BtnVolver)
-        panelIngresoDatos2.Controls.Add(BtnactualizarNuevoTicket)
         panelIngresoDatos2.Controls.Add(observacionTb)
         panelIngresoDatos2.Controls.Add(Label1)
         panelIngresoDatos2.Controls.Add(Label6)
         panelIngresoDatos2.Controls.Add(eventoTb)
         panelIngresoDatos2.Controls.Add(Label7)
-        panelIngresoDatos2.Location = New Point(446, 12)
+        panelIngresoDatos2.Controls.Add(BtnNuevoTicket)
+        panelIngresoDatos2.Controls.Add(BtnactualizarNuevoTicket)
+        panelIngresoDatos2.Location = New Point(83, 53)
         panelIngresoDatos2.Name = "panelIngresoDatos2"
-        panelIngresoDatos2.Size = New Size(671, 335)
+        panelIngresoDatos2.Size = New Size(825, 412)
         panelIngresoDatos2.TabIndex = 72
         panelIngresoDatos2.Visible = False
-        ' 
-        ' BtnNuevoTicket
-        ' 
-        BtnNuevoTicket.BackColor = Color.FromArgb(CByte(67), CByte(116), CByte(255))
-        BtnNuevoTicket.Cursor = Cursors.Hand
-        BtnNuevoTicket.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        BtnNuevoTicket.FlatAppearance.BorderSize = 0
-        BtnNuevoTicket.FlatStyle = FlatStyle.Flat
-        BtnNuevoTicket.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        BtnNuevoTicket.ForeColor = Color.White
-        BtnNuevoTicket.Location = New Point(423, 262)
-        BtnNuevoTicket.Name = "BtnNuevoTicket"
-        BtnNuevoTicket.Size = New Size(159, 65)
-        BtnNuevoTicket.TabIndex = 63
-        BtnNuevoTicket.Text = "Nuevos Datos"
-        BtnNuevoTicket.UseVisualStyleBackColor = False
-        BtnNuevoTicket.Visible = False
         ' 
         ' Label9
         ' 
         Label9.AutoSize = True
-        Label9.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        Label9.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        Label9.Location = New Point(411, 11)
+        Label9.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        Label9.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        Label9.Location = New Point(583, 148)
         Label9.Name = "Label9"
-        Label9.Size = New Size(144, 25)
+        Label9.Size = New Size(157, 27)
         Label9.TabIndex = 62
         Label9.Text = "Hora de inicio"
         ' 
@@ -114,23 +97,23 @@ Partial Class Servicios
         horaInicioDt.CalendarFont = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         horaInicioDt.CalendarForeColor = Color.Gray
         horaInicioDt.CalendarTitleBackColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        horaInicioDt.CalendarTitleForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        horaInicioDt.CalendarTitleForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         horaInicioDt.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         horaInicioDt.Format = DateTimePickerFormat.Time
-        horaInicioDt.Location = New Point(411, 57)
+        horaInicioDt.Location = New Point(583, 188)
         horaInicioDt.Name = "horaInicioDt"
-        horaInicioDt.Size = New Size(163, 30)
+        horaInicioDt.Size = New Size(206, 30)
         horaInicioDt.TabIndex = 61
-        horaInicioDt.Value = New Date(2023, 7, 23, 17, 55, 59, 0)
+        horaInicioDt.Value = New DateTime(2023, 7, 23, 17, 55, 59, 0)
         ' 
         ' Label5
         ' 
         Label5.AutoSize = True
-        Label5.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        Label5.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        Label5.Location = New Point(187, 114)
+        Label5.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        Label5.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        Label5.Location = New Point(302, 148)
         Label5.Name = "Label5"
-        Label5.Size = New Size(216, 25)
+        Label5.Size = New Size(235, 27)
         Label5.TabIndex = 60
         Label5.Text = "Fecha de finalización"
         ' 
@@ -139,22 +122,22 @@ Partial Class Servicios
         fechaFinalizacionDt.CalendarFont = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         fechaFinalizacionDt.CalendarForeColor = Color.Gray
         fechaFinalizacionDt.CalendarTitleBackColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        fechaFinalizacionDt.CalendarTitleForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        fechaFinalizacionDt.CalendarTitleForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         fechaFinalizacionDt.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         fechaFinalizacionDt.Format = DateTimePickerFormat.Custom
-        fechaFinalizacionDt.Location = New Point(187, 159)
+        fechaFinalizacionDt.Location = New Point(302, 188)
         fechaFinalizacionDt.Name = "fechaFinalizacionDt"
-        fechaFinalizacionDt.Size = New Size(163, 30)
+        fechaFinalizacionDt.Size = New Size(206, 30)
         fechaFinalizacionDt.TabIndex = 59
         ' 
         ' Label8
         ' 
         Label8.AutoSize = True
-        Label8.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        Label8.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        Label8.Location = New Point(4, 114)
+        Label8.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        Label8.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        Label8.Location = New Point(0, 148)
         Label8.Name = "Label8"
-        Label8.Size = New Size(158, 25)
+        Label8.Size = New Size(172, 27)
         Label8.TabIndex = 58
         Label8.Text = "Fecha de inicio"
         ' 
@@ -163,12 +146,12 @@ Partial Class Servicios
         fechaInicioDt.CalendarFont = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         fechaInicioDt.CalendarForeColor = Color.Gray
         fechaInicioDt.CalendarTitleBackColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        fechaInicioDt.CalendarTitleForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        fechaInicioDt.CalendarTitleForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         fechaInicioDt.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         fechaInicioDt.Format = DateTimePickerFormat.Custom
-        fechaInicioDt.Location = New Point(4, 159)
+        fechaInicioDt.Location = New Point(3, 188)
         fechaInicioDt.Name = "fechaInicioDt"
-        fechaInicioDt.Size = New Size(163, 30)
+        fechaInicioDt.Size = New Size(206, 30)
         fechaInicioDt.TabIndex = 57
         ' 
         ' tipoCb
@@ -177,9 +160,9 @@ Partial Class Servicios
         tipoCb.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         tipoCb.FormattingEnabled = True
         tipoCb.Items.AddRange(New Object() {"Preventivo", "Correctivo", "Predictivo"})
-        tipoCb.Location = New Point(3, 59)
+        tipoCb.Location = New Point(3, 56)
         tipoCb.Name = "tipoCb"
-        tipoCb.Size = New Size(184, 33)
+        tipoCb.Size = New Size(206, 33)
         tipoCb.TabIndex = 49
         ' 
         ' BtnVolver
@@ -191,59 +174,42 @@ Partial Class Servicios
         BtnVolver.FlatStyle = FlatStyle.Flat
         BtnVolver.Font = New Font("Microsoft Sans Serif", 28.2F, FontStyle.Regular, GraphicsUnit.Point)
         BtnVolver.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        BtnVolver.Location = New Point(588, 262)
+        BtnVolver.Location = New Point(702, 325)
         BtnVolver.Name = "BtnVolver"
-        BtnVolver.Size = New Size(77, 65)
+        BtnVolver.Size = New Size(87, 68)
         BtnVolver.TabIndex = 48
         BtnVolver.Text = "🔙"
         BtnVolver.UseVisualStyleBackColor = False
-        ' 
-        ' BtnactualizarNuevoTicket
-        ' 
-        BtnactualizarNuevoTicket.BackColor = Color.FromArgb(CByte(67), CByte(116), CByte(255))
-        BtnactualizarNuevoTicket.Cursor = Cursors.Hand
-        BtnactualizarNuevoTicket.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        BtnactualizarNuevoTicket.FlatAppearance.BorderSize = 0
-        BtnactualizarNuevoTicket.FlatStyle = FlatStyle.Flat
-        BtnactualizarNuevoTicket.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        BtnactualizarNuevoTicket.ForeColor = Color.White
-        BtnactualizarNuevoTicket.Location = New Point(424, 262)
-        BtnactualizarNuevoTicket.Name = "BtnactualizarNuevoTicket"
-        BtnactualizarNuevoTicket.Size = New Size(159, 65)
-        BtnactualizarNuevoTicket.TabIndex = 47
-        BtnactualizarNuevoTicket.Text = "Actualizar Datos"
-        BtnactualizarNuevoTicket.UseVisualStyleBackColor = False
-        BtnactualizarNuevoTicket.Visible = False
         ' 
         ' observacionTb
         ' 
         observacionTb.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         observacionTb.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        observacionTb.Location = New Point(4, 259)
+        observacionTb.Location = New Point(7, 305)
         observacionTb.Multiline = True
         observacionTb.Name = "observacionTb"
-        observacionTb.Size = New Size(415, 68)
+        observacionTb.Size = New Size(434, 88)
         observacionTb.TabIndex = 19
         ' 
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        Label1.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        Label1.Location = New Point(3, 216)
+        Label1.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        Label1.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        Label1.Location = New Point(3, 267)
         Label1.Name = "Label1"
-        Label1.Size = New Size(134, 25)
+        Label1.Size = New Size(145, 27)
         Label1.TabIndex = 20
         Label1.Text = "Observación"
         ' 
         ' Label6
         ' 
         Label6.AutoSize = True
-        Label6.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        Label6.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        Label6.Location = New Point(3, 13)
+        Label6.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        Label6.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        Label6.Location = New Point(3, 9)
         Label6.Name = "Label6"
-        Label6.Size = New Size(55, 25)
+        Label6.Size = New Size(57, 27)
         Label6.TabIndex = 16
         Label6.Text = "Tipo"
         ' 
@@ -251,21 +217,55 @@ Partial Class Servicios
         ' 
         eventoTb.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         eventoTb.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        eventoTb.Location = New Point(209, 56)
+        eventoTb.Location = New Point(302, 59)
         eventoTb.Name = "eventoTb"
-        eventoTb.Size = New Size(184, 30)
+        eventoTb.Size = New Size(487, 30)
         eventoTb.TabIndex = 14
         ' 
         ' Label7
         ' 
         Label7.AutoSize = True
-        Label7.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        Label7.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        Label7.Location = New Point(209, 11)
+        Label7.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        Label7.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        Label7.Location = New Point(302, 11)
         Label7.Name = "Label7"
-        Label7.Size = New Size(79, 25)
+        Label7.Size = New Size(86, 27)
         Label7.TabIndex = 18
         Label7.Text = "Evento"
+        ' 
+        ' BtnNuevoTicket
+        ' 
+        BtnNuevoTicket.BackColor = Color.FromArgb(CByte(0), CByte(116), CByte(255))
+        BtnNuevoTicket.Cursor = Cursors.Hand
+        BtnNuevoTicket.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        BtnNuevoTicket.FlatAppearance.BorderSize = 0
+        BtnNuevoTicket.FlatStyle = FlatStyle.Flat
+        BtnNuevoTicket.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        BtnNuevoTicket.ForeColor = Color.White
+        BtnNuevoTicket.Location = New Point(517, 325)
+        BtnNuevoTicket.Name = "BtnNuevoTicket"
+        BtnNuevoTicket.Size = New Size(179, 68)
+        BtnNuevoTicket.TabIndex = 63
+        BtnNuevoTicket.Text = "Nuevos Datos"
+        BtnNuevoTicket.UseVisualStyleBackColor = False
+        BtnNuevoTicket.Visible = False
+        ' 
+        ' BtnactualizarNuevoTicket
+        ' 
+        BtnactualizarNuevoTicket.BackColor = Color.FromArgb(CByte(0), CByte(116), CByte(255))
+        BtnactualizarNuevoTicket.Cursor = Cursors.Hand
+        BtnactualizarNuevoTicket.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        BtnactualizarNuevoTicket.FlatAppearance.BorderSize = 0
+        BtnactualizarNuevoTicket.FlatStyle = FlatStyle.Flat
+        BtnactualizarNuevoTicket.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        BtnactualizarNuevoTicket.ForeColor = Color.White
+        BtnactualizarNuevoTicket.Location = New Point(517, 325)
+        BtnactualizarNuevoTicket.Name = "BtnactualizarNuevoTicket"
+        BtnactualizarNuevoTicket.Size = New Size(179, 68)
+        BtnactualizarNuevoTicket.TabIndex = 47
+        BtnactualizarNuevoTicket.Text = "Actualizar Datos"
+        BtnactualizarNuevoTicket.UseVisualStyleBackColor = False
+        BtnactualizarNuevoTicket.Visible = False
         ' 
         ' PanelSelecion
         ' 
@@ -274,9 +274,9 @@ Partial Class Servicios
         PanelSelecion.Controls.Add(idServicioTb)
         PanelSelecion.Controls.Add(BtnSeleccionar)
         PanelSelecion.Controls.Add(Label2)
-        PanelSelecion.Location = New Point(16, 7)
+        PanelSelecion.Location = New Point(124, 226)
         PanelSelecion.Name = "PanelSelecion"
-        PanelSelecion.Size = New Size(378, 91)
+        PanelSelecion.Size = New Size(425, 96)
         PanelSelecion.TabIndex = 81
         PanelSelecion.Visible = False
         ' 
@@ -289,9 +289,9 @@ Partial Class Servicios
         btnselecccionarElimina.FlatStyle = FlatStyle.Flat
         btnselecccionarElimina.Font = New Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point)
         btnselecccionarElimina.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        btnselecccionarElimina.Location = New Point(268, 33)
+        btnselecccionarElimina.Location = New Point(302, 35)
         btnselecccionarElimina.Name = "btnselecccionarElimina"
-        btnselecccionarElimina.Size = New Size(45, 48)
+        btnselecccionarElimina.Size = New Size(51, 50)
         btnselecccionarElimina.TabIndex = 58
         btnselecccionarElimina.Text = "✓"
         btnselecccionarElimina.UseVisualStyleBackColor = False
@@ -306,9 +306,9 @@ Partial Class Servicios
         BtnSalirSeleccion.FlatStyle = FlatStyle.Flat
         BtnSalirSeleccion.Font = New Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point)
         BtnSalirSeleccion.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        BtnSalirSeleccion.Location = New Point(318, 32)
+        BtnSalirSeleccion.Location = New Point(358, 34)
         BtnSalirSeleccion.Name = "BtnSalirSeleccion"
-        BtnSalirSeleccion.Size = New Size(44, 48)
+        BtnSalirSeleccion.Size = New Size(50, 50)
         BtnSalirSeleccion.TabIndex = 57
         BtnSalirSeleccion.Text = "🔙"
         BtnSalirSeleccion.UseVisualStyleBackColor = False
@@ -317,9 +317,9 @@ Partial Class Servicios
         ' 
         idServicioTb.Font = New Font("Microsoft Sans Serif", 14.999999F, FontStyle.Bold, GraphicsUnit.Point)
         idServicioTb.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        idServicioTb.Location = New Point(17, 41)
+        idServicioTb.Location = New Point(19, 43)
         idServicioTb.Name = "idServicioTb"
-        idServicioTb.Size = New Size(238, 36)
+        idServicioTb.Size = New Size(267, 36)
         idServicioTb.TabIndex = 56
         ' 
         ' BtnSeleccionar
@@ -331,9 +331,9 @@ Partial Class Servicios
         BtnSeleccionar.FlatStyle = FlatStyle.Flat
         BtnSeleccionar.Font = New Font("Microsoft Sans Serif", 16.2F, FontStyle.Bold, GraphicsUnit.Point)
         BtnSeleccionar.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        BtnSeleccionar.Location = New Point(268, 32)
+        BtnSeleccionar.Location = New Point(302, 34)
         BtnSeleccionar.Name = "BtnSeleccionar"
-        BtnSeleccionar.Size = New Size(45, 48)
+        BtnSeleccionar.Size = New Size(51, 50)
         BtnSeleccionar.TabIndex = 55
         BtnSeleccionar.Text = "✓"
         BtnSeleccionar.UseVisualStyleBackColor = False
@@ -344,7 +344,7 @@ Partial Class Servicios
         Label2.AutoSize = True
         Label2.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         Label2.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        Label2.Location = New Point(17, 14)
+        Label2.Location = New Point(19, 15)
         Label2.Name = "Label2"
         Label2.Size = New Size(33, 25)
         Label2.TabIndex = 54
@@ -355,9 +355,9 @@ Partial Class Servicios
         PanelBotones.Controls.Add(eliminarBtn)
         PanelBotones.Controls.Add(actualizarBtn)
         PanelBotones.Controls.Add(crearBtn)
-        PanelBotones.Location = New Point(16, 160)
+        PanelBotones.Location = New Point(124, 175)
         PanelBotones.Name = "PanelBotones"
-        PanelBotones.Size = New Size(378, 190)
+        PanelBotones.Size = New Size(425, 199)
         PanelBotones.TabIndex = 80
         ' 
         ' eliminarBtn
@@ -367,11 +367,11 @@ Partial Class Servicios
         eliminarBtn.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         eliminarBtn.FlatAppearance.BorderSize = 0
         eliminarBtn.FlatStyle = FlatStyle.Flat
-        eliminarBtn.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        eliminarBtn.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
         eliminarBtn.ForeColor = Color.FromArgb(CByte(255), CByte(176), CByte(176))
-        eliminarBtn.Location = New Point(17, 112)
+        eliminarBtn.Location = New Point(23, 118)
         eliminarBtn.Name = "eliminarBtn"
-        eliminarBtn.Size = New Size(328, 65)
+        eliminarBtn.Size = New Size(369, 68)
         eliminarBtn.TabIndex = 50
         eliminarBtn.Text = "✖️Eliminar"
         eliminarBtn.UseVisualStyleBackColor = False
@@ -383,11 +383,11 @@ Partial Class Servicios
         actualizarBtn.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         actualizarBtn.FlatAppearance.BorderSize = 0
         actualizarBtn.FlatStyle = FlatStyle.Flat
-        actualizarBtn.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        actualizarBtn.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
         actualizarBtn.ForeColor = Color.White
-        actualizarBtn.Location = New Point(196, 22)
+        actualizarBtn.Location = New Point(224, 23)
         actualizarBtn.Name = "actualizarBtn"
-        actualizarBtn.Size = New Size(148, 65)
+        actualizarBtn.Size = New Size(166, 68)
         actualizarBtn.TabIndex = 49
         actualizarBtn.Text = "✏️" & vbCrLf & "Actualizar"
         actualizarBtn.UseVisualStyleBackColor = False
@@ -399,11 +399,11 @@ Partial Class Servicios
         crearBtn.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         crearBtn.FlatAppearance.BorderSize = 0
         crearBtn.FlatStyle = FlatStyle.Flat
-        crearBtn.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        crearBtn.ForeColor = Color.FromArgb(CByte(255), CByte(230), CByte(133))
-        crearBtn.Location = New Point(17, 22)
+        crearBtn.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        crearBtn.ForeColor = Color.FromArgb(CByte(189), CByte(255), CByte(221))
+        crearBtn.Location = New Point(23, 23)
         crearBtn.Name = "crearBtn"
-        crearBtn.Size = New Size(150, 65)
+        crearBtn.Size = New Size(169, 68)
         crearBtn.TabIndex = 48
         crearBtn.Text = "➕" & vbCrLf & " Nueva"
         crearBtn.UseVisualStyleBackColor = False
@@ -414,54 +414,54 @@ Partial Class Servicios
         DataGridView1.BorderStyle = BorderStyle.None
         DataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal
         DataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle4.BackColor = Color.White
-        DataGridViewCellStyle4.Font = New Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
-        DataGridViewCellStyle4.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        DataGridViewCellStyle4.Padding = New Padding(5)
-        DataGridViewCellStyle4.SelectionBackColor = Color.White
-        DataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(CByte(67), CByte(116), CByte(255))
-        DataGridViewCellStyle4.WrapMode = DataGridViewTriState.True
-        DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = Color.FromArgb(CByte(240), CByte(245), CByte(252))
+        DataGridViewCellStyle1.Font = New Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
+        DataGridViewCellStyle1.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        DataGridViewCellStyle1.Padding = New Padding(5)
+        DataGridViewCellStyle1.SelectionBackColor = Color.White
+        DataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(CByte(67), CByte(116), CByte(255))
+        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
+        DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         DataGridView1.ColumnHeadersHeight = 50
-        DataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = SystemColors.Window
-        DataGridViewCellStyle5.Font = New Font("Microsoft JhengHei UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point)
-        DataGridViewCellStyle5.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        DataGridViewCellStyle5.SelectionBackColor = SystemColors.Control
-        DataGridViewCellStyle5.SelectionForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        DataGridViewCellStyle5.WrapMode = DataGridViewTriState.False
-        DataGridView1.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = SystemColors.Window
+        DataGridViewCellStyle2.Font = New Font("Microsoft JhengHei UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle2.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        DataGridViewCellStyle2.SelectionBackColor = SystemColors.Control
+        DataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.False
+        DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
         DataGridView1.EnableHeadersVisualStyles = False
         DataGridView1.GridColor = Color.FromArgb(CByte(230), CByte(235), CByte(242))
-        DataGridView1.Location = New Point(12, 361)
+        DataGridView1.Location = New Point(40, 506)
         DataGridView1.Margin = New Padding(4, 3, 4, 3)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = Color.White
-        DataGridViewCellStyle6.Font = New Font("Segoe UI", 9.6F, FontStyle.Regular, GraphicsUnit.Point)
-        DataGridViewCellStyle6.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        DataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = DataGridViewTriState.True
-        DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = Color.White
+        DataGridViewCellStyle3.Font = New Font("Segoe UI", 9.6F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle3.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        DataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = DataGridViewTriState.True
+        DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
         DataGridView1.RowHeadersVisible = False
         DataGridView1.RowHeadersWidth = 51
         DataGridView1.RowTemplate.Height = 31
-        DataGridView1.Size = New Size(1113, 172)
+        DataGridView1.Size = New Size(1200, 248)
         DataGridView1.TabIndex = 82
         ' 
         ' Servicios
         ' 
-        AutoScaleDimensions = New SizeF(8F, 20F)
+        AutoScaleDimensions = New SizeF(9F, 21F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.White
-        ClientSize = New Size(1138, 545)
-        Controls.Add(DataGridView1)
-        Controls.Add(PanelSelecion)
+        ClientSize = New Size(1280, 781)
         Controls.Add(PanelBotones)
+        Controls.Add(DataGridView1)
         Controls.Add(panelIngresoDatos2)
+        Controls.Add(PanelSelecion)
         FormBorderStyle = FormBorderStyle.None
         Name = "Servicios"
         Text = "Servicios"

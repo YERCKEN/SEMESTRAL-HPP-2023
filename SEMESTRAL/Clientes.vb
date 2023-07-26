@@ -446,6 +446,10 @@ Public Class Clientes
         opcion3Cb.SelectedIndex = -1
         panelIngresoDatos2.Visible = False
         PanelBotones.Visible = True
+
+
+        MostrarClientes()
+
     End Sub
 
     Private Sub crearBtn_Click(sender As Object, e As EventArgs) Handles crearBtn.Click
@@ -504,5 +508,22 @@ Public Class Clientes
         MostrarClientes()
         panelIngresoDatos2.Visible = False
         PanelBotones.Visible = True
+    End Sub
+
+    Private Sub panelIngresoDatos2_Paint(sender As Object, e As PaintEventArgs) Handles panelIngresoDatos2.Paint
+
+    End Sub
+
+    Private Sub Label8_Click(sender As Object, e As EventArgs) Handles Label8.Click
+
+    End Sub
+
+    Private Sub Label11_Click(sender As Object, e As EventArgs) Handles Label11.Click
+    End Sub
+
+    Private Sub convocatoriaCb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles convocatoriaCb.SelectedIndexChanged
+    End Sub
+
+    Private Sub tipoCb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles tipoCb.SelectedIndexChanged
     End Sub
 End Class
