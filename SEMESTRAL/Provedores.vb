@@ -5,13 +5,38 @@ Public Class Provedores
     Dim connectionString2 As String = VARIABLES_GLOBALES.cadenaConexion2
     Dim connectionString1 As String = VARIABLES_GLOBALES.cadenaConexion
     Private Sub Provedores_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Form1.Location = New Point(Form1.Location.X, 100)
+
         Me.Location = New Point(Form1.Location.X, Form1.Location.Y + 49) ' Establecer la nueva ubicación de Form4 en relación con Form1
         tipoCb.Items.Clear()
         tipoCb.Items.Add("Insumos")
         tipoCb.Items.Add("Mensajería")
         tipoCb.Items.Add("Logística")
         MostrarProveedores()
+
+
+        'ESTILO DATAGRIDVIEW
+        DataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
+        DataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+
+
+        DataGridView1.Columns("id_proveedores").HeaderText = "ID"
+        DataGridView1.Columns("id_proveedores").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+        DataGridView1.Columns("ruc").HeaderText = "RUC"
+        DataGridView1.Columns("nombre").HeaderText = "Nombre"
+        DataGridView1.Columns("correo").HeaderText = "Correo"
+        DataGridView1.Columns("tipo").HeaderText = "Tipo"
+
+        DataGridView1.Columns("telefono").HeaderText = "Teléfono"
+        DataGridView1.Columns("observacion").HeaderText = "Observación"
+
+
     End Sub
+
+
+
+
+
     Private Sub MostrarProveedores()
         Try
             ' Crear una conexión a la base de datos
@@ -260,6 +285,9 @@ Public Class Provedores
                 PanelSelecion.Visible = False
                 BtnactualizarNuevoTicket.Visible = True
                 BtnNuevoTicket.Visible = False
+
+                Me.BackgroundImage = My.Resources.fondoProvedores2
+
             Else
                 MessageBox.Show("El proveedor no existe.")
             End If
@@ -272,6 +300,8 @@ Public Class Provedores
     Private Sub BtnIngresarNuevoTicket_Click(sender As Object, e As EventArgs) Handles BtnactualizarNuevoTicket.Click
         ' Crear una variable para almacenar el id del proveedor
         Dim idProveedor As Integer
+
+        Me.BackgroundImage = My.Resources.fondoProvedores
 
         ' Intentar convertir el texto del TextBox a un número entero
         If Integer.TryParse(idProveedoresTb.Text, idProveedor) Then
@@ -314,6 +344,9 @@ Public Class Provedores
         MostrarProveedores()
         panelIngresoDatos2.Visible = False
         PanelBotones.Visible = True
+
+
+        Me.BackgroundImage = My.Resources.fondoProvedores
     End Sub
 
     Private Sub crearBtn_Click(sender As Object, e As EventArgs) Handles crearBtn.Click
@@ -321,6 +354,8 @@ Public Class Provedores
         PanelBotones.Visible = False
         BtnActualizarNuevoTicket.Visible = False
         BtnNuevoTicket.Visible = True
+        Me.BackgroundImage = My.Resources.fondoProvedores2
+
     End Sub
 
     Private Sub eliminarBtn_Click(sender As Object, e As EventArgs) Handles eliminarBtn.Click
@@ -361,5 +396,8 @@ Public Class Provedores
         MostrarProveedores()
         panelIngresoDatos2.Visible = False
         PanelBotones.Visible = True
+
+        Me.BackgroundImage = My.Resources.fondoProvedores
+
     End Sub
 End Class

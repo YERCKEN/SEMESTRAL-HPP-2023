@@ -462,8 +462,8 @@ Partial Class Servicios
         BackgroundImage = My.Resources.Resources.fondoServicios_png2
         ClientSize = New Size(1280, 781)
         Controls.Add(DataGridView1)
-        Controls.Add(PanelSelecion)
         Controls.Add(PanelBotones)
+        Controls.Add(PanelSelecion)
         Controls.Add(panelIngresoDatos2)
         FormBorderStyle = FormBorderStyle.None
         Name = "Servicios"
