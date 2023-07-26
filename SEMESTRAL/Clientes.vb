@@ -6,7 +6,13 @@ Public Class Clientes
     Dim connectionString1 As String = VARIABLES_GLOBALES.cadenaConexion
     Dim clienteId As Integer
     Private Sub Clientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        'posición
+        Form1.Location = New Point(Form1.Location.X, 30)
         Me.Location = New Point(Form1.Location.X, Form1.Location.Y + 49) ' Establecer la nueva ubicación de Form4 en relación con Form1
+
+
+
         MostrarClientes()
         tipoCb.Items.Clear()
         tipoCb.Items.Add("Prospecto")
@@ -21,6 +27,33 @@ Public Class Clientes
         opcion3Cb.Items.Clear()
         'opcion3Cb.Items.Add("Elemento 3")
         MostrarCarreras()
+
+
+        'ESTILO DATA GRIDVIEW
+        'RENOMBRADO =============================================================================
+        DataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells
+
+        DataGridView1.Columns("id_clientes").HeaderText = "ID"
+        DataGridView1.Columns("id_clientes").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+        DataGridView1.Columns("nombre").HeaderText = "Nombre"
+        DataGridView1.Columns("apellido").HeaderText = "Apellido"
+        DataGridView1.Columns("residencia").HeaderText = "Residencia"
+        DataGridView1.Columns("lugar_trabajo").HeaderText = "Lugar de Trabajo"
+        DataGridView1.Columns("lugar_trabajo").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+
+        DataGridView1.Columns("telefono1").HeaderText = "Teléfono 1"
+        DataGridView1.Columns("telefono2").HeaderText = "Teléfono 2"
+        DataGridView1.Columns("email").HeaderText = "Correo"
+        DataGridView1.Columns("opcion1").HeaderText = "Opcion 1"
+        DataGridView1.Columns("opcion2").HeaderText = "Opcion 2"
+        DataGridView1.Columns("opcion3").HeaderText = "Opcion 3"
+        DataGridView1.Columns("convocatoria").HeaderText = "Convocatoria"
+        DataGridView1.Columns("convocatoria").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+
+        DataGridView1.Columns("tipo").HeaderText = "Tipo"
+
+
+
     End Sub
     Private Sub MostrarCarreras()
         Try
