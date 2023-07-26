@@ -33,7 +33,7 @@ Partial Class Form1
         InventarioToolStripMenuItem = New ToolStripMenuItem()
         InformeToolStripMenuItem = New ToolStripMenuItem()
         ToolStripSeparator2 = New ToolStripSeparator()
-        ToolStripMenuItem4 = New ToolStripMenuItem()
+        ToolStripMenuItemCerrarSesion = New ToolStripMenuItem()
         ToolStripSeparator1 = New ToolStripSeparator()
         SalirToolStripMenuItem = New ToolStripMenuItem()
         ToolStripMenuItem1 = New ToolStripMenuItem()
@@ -69,7 +69,7 @@ Partial Class Form1
         ' 
         ' MenuToolStripMenuItem
         ' 
-        MenuToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {ClientesToolStripMenuItem, ServiciosToolStripMenuItem, ProvedoresToolStripMenuItem, CarrerasToolStripMenuItem, InventarioToolStripMenuItem, InformeToolStripMenuItem, ToolStripSeparator2, ToolStripMenuItem4, ToolStripSeparator1, SalirToolStripMenuItem})
+        MenuToolStripMenuItem.DropDownItems.AddRange(New ToolStripItem() {ClientesToolStripMenuItem, ServiciosToolStripMenuItem, ProvedoresToolStripMenuItem, CarrerasToolStripMenuItem, InventarioToolStripMenuItem, InformeToolStripMenuItem, ToolStripSeparator2, ToolStripMenuItemCerrarSesion, ToolStripSeparator1, SalirToolStripMenuItem})
         MenuToolStripMenuItem.Font = New Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
         MenuToolStripMenuItem.ForeColor = Color.White
         MenuToolStripMenuItem.Margin = New Padding(60, 0, 0, 0)
@@ -138,14 +138,14 @@ Partial Class Form1
         ToolStripSeparator2.Padding = New Padding(0, 5, 0, 1)
         ToolStripSeparator2.Size = New Size(244, 6)
         ' 
-        ' ToolStripMenuItem4
+        ' ToolStripMenuItemCerrarSesion
         ' 
-        ToolStripMenuItem4.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        ToolStripMenuItem4.ForeColor = Color.FromArgb(CByte(0), CByte(116), CByte(255))
-        ToolStripMenuItem4.Name = "ToolStripMenuItem4"
-        ToolStripMenuItem4.Padding = New Padding(0, 5, 0, 1)
-        ToolStripMenuItem4.Size = New Size(247, 34)
-        ToolStripMenuItem4.Text = "← Cerrar Sesión "
+        ToolStripMenuItemCerrarSesion.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        ToolStripMenuItemCerrarSesion.ForeColor = Color.FromArgb(CByte(0), CByte(116), CByte(255))
+        ToolStripMenuItemCerrarSesion.Name = "ToolStripMenuItemCerrarSesion"
+        ToolStripMenuItemCerrarSesion.Padding = New Padding(0, 5, 0, 1)
+        ToolStripMenuItemCerrarSesion.Size = New Size(247, 34)
+        ToolStripMenuItemCerrarSesion.Text = "← Cerrar Sesión "
         ' 
         ' ToolStripSeparator1
         ' 
@@ -305,7 +305,7 @@ Partial Class Form1
     Friend WithEvents ToolStripMenuItem3 As ToolStripMenuItem
     Friend WithEvents Panel1 As Panel
     Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
-    Friend WithEvents ToolStripMenuItem4 As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItemCerrarSesion As ToolStripMenuItem
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents Timer1 As Timer
 End Class

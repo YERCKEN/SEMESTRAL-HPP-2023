@@ -1,4 +1,5 @@
 ﻿Imports System.Threading
+Imports System.Timers
 
 Public Class Login
 
@@ -17,6 +18,7 @@ Public Class Login
         Form1.InventarioToolStripMenuItem.Visible = False
         Form1.InformeToolStripMenuItem.Visible = False
 
+        Form1.ToolStripMenuItemCerrarSesion.Visible = False
 
     End Sub
 
@@ -67,6 +69,7 @@ Public Class Login
 
             VARIABLES_GLOBALES.rollUsuarioLogeado = querysBDYercken.rollUsuarioLogeado
 
+            Form1.fcargaDeImagenes()
             'DEFINICIÓN DE VARIABLES GLOBALES
             If querysBDYercken.rollUsuarioLogeado = "Admin" Then
 
@@ -82,10 +85,15 @@ Public Class Login
                 Form1.ServiciosToolStripMenuItem.Visible = True
                 Form1.ProvedoresToolStripMenuItem.Visible = True
                 Form1.InformeToolStripMenuItem.Visible = True
+                Form1.ToolStripMenuItemCerrarSesion.Visible = True
 
-                ' Configurar el temporizador para cambiar de imagen 12 veces por segundo (aproximadamente 83 milisegundos)
-                Form1.Timer1.Interval = 83
-                Form1.Timer1.Enabled = True
+
+                Form1.PictureBox2.Image = Form1.listaImagenes(0)
+                ' Mostrar el PictureBox si estaba oculto
+                Form1.PictureBox2.Visible = True
+
+                ' Iniciar el Timer
+                Form1.Timer1.Start()
 
             ElseIf querysBDYercken.rollUsuarioLogeado = "Usuario" Then
 
@@ -101,11 +109,14 @@ Public Class Login
                 Form1.ProvedoresToolStripMenuItem.Visible = True
                 Form1.ClientesToolStripMenuItem.Visible = True
                 Form1.InformeToolStripMenuItem.Visible = True
+                Form1.ToolStripMenuItemCerrarSesion.Visible = True
 
+                Form1.PictureBox2.Image = Form1.listaImagenes(0)
+                ' Mostrar el PictureBox si estaba oculto
+                Form1.PictureBox2.Visible = True
 
-                ' Configurar el temporizador para cambiar de imagen 12 veces por segundo (aproximadamente 83 milisegundos)
-                Form1.Timer1.Interval = 83
-                Form1.Timer1.Enabled = True
+                ' Iniciar el Timer
+                Form1.Timer1.Start()
 
             ElseIf querysBDYercken.rollUsuarioLogeado = "Coordinador" Then
 
@@ -121,10 +132,14 @@ Public Class Login
                 Form1.CarrerasToolStripMenuItem.Visible = True
                 Form1.InventarioToolStripMenuItem.Visible = True
                 Form1.InformeToolStripMenuItem.Visible = True
+                Form1.ToolStripMenuItemCerrarSesion.Visible = True
 
-                ' Configurar el temporizador para cambiar de imagen 12 veces por segundo (aproximadamente 83 milisegundos)
-                Form1.Timer1.Interval = 83
-                Form1.Timer1.Enabled = True
+                Form1.PictureBox2.Image = Form1.listaImagenes(0)
+                ' Mostrar el PictureBox si estaba oculto
+                Form1.PictureBox2.Visible = True
+
+                ' Iniciar el Timer
+                Form1.Timer1.Start()
 
             End If
 

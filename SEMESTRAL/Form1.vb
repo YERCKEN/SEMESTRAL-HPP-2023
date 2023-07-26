@@ -9,8 +9,8 @@ Public Class Form1
     Dim querysBDYercken As New querysBDYercken()
 
     'PARA EL MANEJO DEL INICIO
-    Private listaImagenes As New List(Of Image)
-    Private indiceActual As Integer = 0
+    Public listaImagenes As New List(Of Image)
+    Public indiceActual As Integer
 
 
 
@@ -29,7 +29,17 @@ Public Class Form1
 
         'Panel1.Visible = False
 
+        Timer1.Enabled = False ' No iniciar automáticamente
+        Timer1.Interval = 83
 
+
+
+    End Sub
+
+
+    Sub fcargaDeImagenes()
+
+        indiceActual = 0
         ' Ruta de la carpeta que contiene las imágenes
         Dim rutaCarpeta As String = "C:\Users\edkac\OneDrive\Documentos\MEGAsync\U 2023\HPP\SEMESTRAL\SEMESTRAL\SEMESTRAL\IMG\SECUENCIA ANIMACION\"
 
@@ -49,14 +59,17 @@ Public Class Form1
             PictureBox2.Image = listaImagenes(0)
         End If
 
-
-
     End Sub
+
+
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         ' Cambiar a la siguiente imagen
         If listaImagenes.Count > 0 Then
+
+
             indiceActual = (indiceActual + 1) Mod listaImagenes.Count
+
             PictureBox2.Image = listaImagenes(indiceActual)
 
             ' Verificar si se llegó a la última imagen (índice 28)
@@ -65,7 +78,8 @@ Public Class Form1
                 PictureBox2.Visible = False
 
                 ' Deshabilitar el contador para detener la animación
-                Timer1.Enabled = False
+                ' Timer1.Enabled = False
+                Timer1.Stop()
             End If
         End If
 
@@ -248,6 +262,26 @@ Public Class Form1
     Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles PictureBox2.Click
 
     End Sub
+
+    Private Sub ToolStripMenuItemCerrarSesion_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemCerrarSesion.Click
+
+        'MOSTRAR LOGIN
+        Login.Show()
+        PictureBox2.Visible = True
+
+        'CERRAR FORMS
+        Carreras.Close()
+        Clientes.Close()
+        correo.Close()
+        Desarrolladores.Close()
+        Inventario.Close()
+        Provedores.Close()
+        Servicios.Close()
+
+    End Sub
+
+
+
 End Class
 
 
@@ -274,26 +308,7 @@ End Class
 Public Class Cols
     Inherits ProfessionalColorTable
 
-    'over de menu
-    'Public Overrides ReadOnly Property MenuItemSelected As Color
-    '    ' cuando el menú está seleccionado
-    '    Get
-    '        Return System.Drawing.Color.FromArgb(180, 125, 255) 'Elige el color que desees para el fondo del menú seleccionado
-    '    End Get
-    'End Property
 
-    'Public Overrides ReadOnly Property MenuItemSelectedGradientBegin As Color
-    '    Get
-    '        Return System.Drawing.Color.FromArgb(180, 125, 255) 'Elige el color que desees para el inicio del gradiente del menú seleccionado
-    '    End Get
-    'End Property
-
-    ''sub menu
-    'Public Overrides ReadOnly Property MenuItemSelectedGradientEnd As Color
-    '    Get
-    '        Return System.Drawing.Color.FromArgb(180, 125, 255) 'Elige el color que desees para el final del gradiente del menú seleccionado
-    '    End Get
-    'End Property
 
     'Seleccion de menu
 
