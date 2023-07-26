@@ -4,6 +4,8 @@ Public Class Servicios
     Dim connectionString2 As String = VARIABLES_GLOBALES.cadenaConexion2
     Dim connectionString1 As String = VARIABLES_GLOBALES.cadenaConexion
     Private Sub Servicios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Form1.Location = New Point(Form1.Location.X, 60)
+
         Me.Location = New Point(Form1.Location.X, Form1.Location.Y + 49) ' Establecer la nueva ubicación de Form4 en relación con Form1
         MostrarServicios()
         tipoCb.Items.Clear()
@@ -27,6 +29,7 @@ Public Class Servicios
         DataGridView1.Columns("fechafinal").HeaderText = "F.Final"
         DataGridView1.Columns("observacion").HeaderText = "Observacion"
 
+        Me.BackgroundImage = My.Resources.fondoServicios_png
 
     End Sub
     Private Sub MostrarServicios()
@@ -274,6 +277,9 @@ Public Class Servicios
                 PanelSelecion.Visible = False
                 BtnactualizarNuevoTicket.Visible = True
                 BtnNuevoTicket.Visible = False
+
+                Me.BackgroundImage = My.Resources.fondoServicios_png2
+
             Else
                 MessageBox.Show("El servicio no existe.")
             End If
@@ -291,6 +297,7 @@ Public Class Servicios
                 MostrarServicios()
                 PanelSelecion.Visible = False
                 PanelBotones.Visible = True
+
             Else
                 MessageBox.Show("El servicio no existe.")
             End If
@@ -324,6 +331,7 @@ Public Class Servicios
         panelIngresoDatos2.Visible = False
         PanelBotones.Visible = True
 
+        Me.BackgroundImage = My.Resources.fondoServicios_png
     End Sub
 
     Private Sub crearBtn_Click(sender As Object, e As EventArgs) Handles crearBtn.Click
@@ -331,6 +339,9 @@ Public Class Servicios
         PanelBotones.Visible = False
         BtnactualizarNuevoTicket.Visible = False
         BtnNuevoTicket.Visible = True
+
+        Me.BackgroundImage = My.Resources.fondoServicios_png2
+
     End Sub
 
     Private Sub BtnNuevoTicket_Click(sender As Object, e As EventArgs) Handles BtnNuevoTicket.Click

@@ -60,6 +60,7 @@ Partial Class Servicios
         ' 
         ' panelIngresoDatos2
         ' 
+        panelIngresoDatos2.BackColor = Color.Transparent
         panelIngresoDatos2.Controls.Add(Label9)
         panelIngresoDatos2.Controls.Add(horaInicioDt)
         panelIngresoDatos2.Controls.Add(Label5)
@@ -75,7 +76,7 @@ Partial Class Servicios
         panelIngresoDatos2.Controls.Add(Label7)
         panelIngresoDatos2.Controls.Add(BtnNuevoTicket)
         panelIngresoDatos2.Controls.Add(BtnactualizarNuevoTicket)
-        panelIngresoDatos2.Location = New Point(83, 53)
+        panelIngresoDatos2.Location = New Point(53, 53)
         panelIngresoDatos2.Name = "panelIngresoDatos2"
         panelIngresoDatos2.Size = New Size(825, 412)
         panelIngresoDatos2.TabIndex = 72
@@ -96,7 +97,7 @@ Partial Class Servicios
         ' 
         horaInicioDt.CalendarFont = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         horaInicioDt.CalendarForeColor = Color.Gray
-        horaInicioDt.CalendarTitleBackColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        horaInicioDt.CalendarTitleBackColor = Color.Transparent
         horaInicioDt.CalendarTitleForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         horaInicioDt.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         horaInicioDt.Format = DateTimePickerFormat.Time
@@ -416,7 +417,7 @@ Partial Class Servicios
         DataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
         DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle1.BackColor = Color.FromArgb(CByte(240), CByte(245), CByte(252))
-        DataGridViewCellStyle1.Font = New Font("Microsoft Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
+        DataGridViewCellStyle1.Font = New Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
         DataGridViewCellStyle1.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
         DataGridViewCellStyle1.Padding = New Padding(5)
         DataGridViewCellStyle1.SelectionBackColor = Color.White
@@ -428,13 +429,14 @@ Partial Class Servicios
         DataGridViewCellStyle2.BackColor = SystemColors.Window
         DataGridViewCellStyle2.Font = New Font("Microsoft JhengHei UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point)
         DataGridViewCellStyle2.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        DataGridViewCellStyle2.Padding = New Padding(0, 5, 0, 5)
         DataGridViewCellStyle2.SelectionBackColor = SystemColors.Control
         DataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         DataGridViewCellStyle2.WrapMode = DataGridViewTriState.False
         DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
         DataGridView1.EnableHeadersVisualStyles = False
         DataGridView1.GridColor = Color.FromArgb(CByte(230), CByte(235), CByte(242))
-        DataGridView1.Location = New Point(40, 506)
+        DataGridView1.Location = New Point(41, 491)
         DataGridView1.Margin = New Padding(4, 3, 4, 3)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
@@ -449,7 +451,7 @@ Partial Class Servicios
         DataGridView1.RowHeadersVisible = False
         DataGridView1.RowHeadersWidth = 51
         DataGridView1.RowTemplate.Height = 31
-        DataGridView1.Size = New Size(1200, 248)
+        DataGridView1.Size = New Size(1192, 278)
         DataGridView1.TabIndex = 82
         ' 
         ' Servicios
@@ -457,11 +459,12 @@ Partial Class Servicios
         AutoScaleDimensions = New SizeF(9F, 21F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.White
+        BackgroundImage = My.Resources.Resources.fondoServicios_png2
         ClientSize = New Size(1280, 781)
-        Controls.Add(PanelBotones)
         Controls.Add(DataGridView1)
-        Controls.Add(panelIngresoDatos2)
         Controls.Add(PanelSelecion)
+        Controls.Add(PanelBotones)
+        Controls.Add(panelIngresoDatos2)
         FormBorderStyle = FormBorderStyle.None
         Name = "Servicios"
         Text = "Servicios"
@@ -498,7 +501,7 @@ Partial Class Servicios
     Friend WithEvents eliminarBtn As Button
     Friend WithEvents actualizarBtn As Button
     Friend WithEvents crearBtn As Button
-    Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents BtnNuevoTicket As Button
     Friend WithEvents btnselecccionarElimina As Button
+    Friend WithEvents DataGridView1 As DataGridView
 End Class

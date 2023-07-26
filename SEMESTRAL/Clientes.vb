@@ -490,7 +490,20 @@ Public Class Clientes
         PanelBotones.Visible = False
         BtnactualizarNuevoTicket.Visible = False
         BtnNuevoTicket.Visible = True
-
+        TextBoxId.Clear()
+        nombreTb.Clear()
+        apellidoTb.Clear()
+        residenciatb.Clear()
+        telefono1Tb.Clear()
+        telefono2Tb.Clear()
+        emailTb.Clear()
+        tipoCb.SelectedIndex = -1
+        lugarTrabajoTb.Clear()
+        ObservacionTb.Clear()
+        convocatoriaCb.SelectedIndex = -1
+        Opcion1Cb.SelectedIndex = -1
+        opcion2Cb.SelectedIndex = -1
+        opcion3Cb.SelectedIndex = -1
     End Sub
 
     Private Sub actualizarBtn_Click(sender As Object, e As EventArgs) Handles actualizarBtn.Click
@@ -543,20 +556,75 @@ Public Class Clientes
         PanelBotones.Visible = True
     End Sub
 
-    Private Sub panelIngresoDatos2_Paint(sender As Object, e As PaintEventArgs) Handles panelIngresoDatos2.Paint
-
-    End Sub
-
-    Private Sub Label8_Click(sender As Object, e As EventArgs) Handles Label8.Click
-
-    End Sub
-
-    Private Sub Label11_Click(sender As Object, e As EventArgs) Handles Label11.Click
-    End Sub
 
     Private Sub convocatoriaCb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles convocatoriaCb.SelectedIndexChanged
+        Me.Focus()
+        Me.SelectNextControl(convocatoriaCb, True, True, True, True)
     End Sub
 
     Private Sub tipoCb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles tipoCb.SelectedIndexChanged
+        Me.Focus()
+        Me.SelectNextControl(tipoCb, True, True, True, True)
     End Sub
+
+    Private Sub Opcion1Cb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles Opcion1Cb.SelectedIndexChanged
+        Me.Focus()
+        Me.SelectNextControl(Opcion1Cb, True, True, True, True)
+    End Sub
+
+    Private Sub opcion2Cb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles opcion2Cb.SelectedIndexChanged
+        Me.Focus()
+        Me.SelectNextControl(opcion2Cb, True, True, True, True)
+    End Sub
+
+    Private Sub opcion3Cb_SelectedIndexChanged(sender As Object, e As EventArgs) Handles opcion3Cb.SelectedIndexChanged
+        Me.Focus()
+        Me.SelectNextControl(opcion3Cb, True, True, True, True)
+    End Sub
+
+
+    Private Sub opcion3Cb_KeyPress(sender As Object, e As KeyPressEventArgs) Handles opcion3Cb.KeyPress
+        ' Cancelar la pulsación de tecla para evitar que el usuario escriba en la lista
+        MessageBox.Show("La escritura sobre este campo está prohíbida", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        e.Handled = True
+    End Sub
+
+    Private Sub opcion2Cb_KeyPress(sender As Object, e As KeyPressEventArgs) Handles opcion2Cb.KeyPress
+        ' Cancelar la pulsación de tecla para evitar que el usuario escriba en la lista
+        MessageBox.Show("La escritura sobre este campo está prohíbida", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        e.Handled = True
+    End Sub
+
+    Private Sub opcion1Cb_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Opcion1Cb.KeyPress
+        ' Cancelar la pulsación de tecla para evitar que el usuario escriba en la lista
+        MessageBox.Show("La escritura sobre este campo está prohíbida", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        e.Handled = True
+    End Sub
+
+
+    Private Sub convocatoriaCb_KeyPress(sender As Object, e As KeyPressEventArgs) Handles convocatoriaCb.KeyPress
+        ' Cancelar la pulsación de tecla para evitar que el usuario escriba en la lista
+        MessageBox.Show("La escritura sobre este campo está prohíbida", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        e.Handled = True
+    End Sub
+
+    Private Sub tipoCb_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tipoCb.KeyPress
+        ' Cancelar la pulsación de tecla para evitar que el usuario escriba en la lista
+        MessageBox.Show("La escritura sobre este campo está prohíbida", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        e.Handled = True
+    End Sub
+
+
+    'BSUQUEDAD
+    Private Sub TextBoxBusquedad_TextChanged(sender As Object, e As EventArgs) Handles TextBoxBusquedad.TextChanged
+        ' Obtener el texto ingresado en el TextBox de búsqueda
+        Dim filtro As String = TextBoxBusquedad.Text.Trim()
+
+        ' Obtener la vista de la tabla de datos del DataGridView
+        Dim vista As DataView = DirectCast(DataGridView1.DataSource, DataTable).DefaultView
+
+        ' Aplicar el filtro al campo "usuario" en la vista de datos
+        vista.RowFilter = $"Nombre LIKE '%{filtro}%'"
+    End Sub
+
 End Class
