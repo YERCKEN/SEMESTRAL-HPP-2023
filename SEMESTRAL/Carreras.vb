@@ -103,7 +103,7 @@ Public Class Carreras
     'BTN VOLVER =================================================================================================
 
     Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles BtnSalirDeNuevaCarrera.Click
-
+        PanelSelecion.Visible = False
         PanelNuevaCarrera.Visible = False
         PanelBotones.Visible = True
 
@@ -124,7 +124,7 @@ Public Class Carreras
     Private Sub BtnSalirSeleccion_Click(sender As Object, e As EventArgs) Handles BtnSalirSeleccion.Click
         PanelNuevaCarrera.Visible = False
         PanelBotones.Visible = True
-
+        PanelSelecion.Visible = False
         'CAMBIOS ESTILOS FORMS 1
         Form1.Menu.BackColor = Color.FromArgb(0, 116, 255)
         Form1.PictureBox1.BackColor = Color.FromArgb(0, 116, 255)
@@ -335,7 +335,7 @@ Public Class Carreras
                                 fila.DefaultCellStyle.BackColor = Color.FromArgb(255, 222, 222) ' Establecer el color de fondo de la fila encontrada
 
                             Else
-                                fila.DefaultCellStyle.BackColor = Color.Yellow ' Establecer el color de fondo de la fila encontrada
+                                fila.DefaultCellStyle.BackColor = Color.FromArgb(240, 245, 252) ' Establecer el color de fondo de la fila encontrada
 
                             End If
 

@@ -53,37 +53,34 @@ CREATE TABLE clienteopciones (
 -- DATOS SERVICIOS
 INSERT INTO servicios (tipo, evento, horainicio, fechainicio, fechafinal, observacion)
 VALUES 
-    ('Conferencia', 'Charla de orientación', '09:00:00', '2023-07-25', '2023-07-25', 'Charla de bienvenida y orientación para nuevos estudiantes.'),
-    ('Taller', 'Taller de escritura', '14:30:00', '2023-08-02', '2023-08-04', 'Taller intensivo para mejorar habilidades de escritura académica.'),
-    ('Exposición', 'Feria de carreras', '10:00:00', '2023-09-10', '2023-09-10', 'Exposición de todas las carreras ofrecidas por la universidad para futuros estudiantes.'),
-    ('Reunión', 'Reunión de profesores', '15:00:00', '2023-09-20', '2023-09-20', 'Reunión del cuerpo docente para discutir el plan académico del próximo semestre.'),
-    ('Actividad deportiva', 'Torneo interuniversitario', '09:00:00', '2023-10-05', '2023-10-07', 'Torneo deportivo entre diferentes universidades con múltiples disciplinas.');
+    ('Eventos especiales', 'Conferencia inaugural', '10:00:00', '2023-07-28', '2023-07-28', 'Evento de apertura del nuevo año académico con discursos y presentaciones destacadas.'),
+    ('Giras de promoción de carreras', 'Gira en colegios secundarios', '08:30:00', '2023-08-10', '2023-08-15', 'Visita a diferentes colegios para promocionar las carreras universitarias.'),
+    ('Descuento de carreras', 'Semana de descuentos', '09:00:00', '2023-09-02', '2023-09-09', 'Semana especial con descuentos en la matrícula de todas las carreras.'),
+    ('Atención al cliente', 'Jornada de puertas abiertas', '14:00:00', '2023-10-15', '2023-10-15', 'Jornada especial para recibir a futuros estudiantes y brindarles atención personalizada.');
 
 
--- INSERT INTO proveedores
 INSERT INTO proveedores (ruc, nombre, correo, tipo, telefono, observacion)
 VALUES 
-    ('12345678901', 'Proveedor A', 'proveedorA@example.com', 'Suministros de oficina', '+1234567890', 'Proveedor confiable para suministros de oficina.'),
-    ('98765432102', 'Proveedor B', 'proveedorB@example.com', 'Catering', '+9876543210', 'Proveedor especializado en servicios de catering para eventos.'),
-    ('45678901203', 'Proveedor C', 'proveedorC@example.com', 'Servicios de limpieza', '+4567890120', 'Proveedor que ofrece servicios de limpieza para edificios y áreas comunes.');
+    ('12345678901', 'Proveedor X', 'proveedorX@example.com', 'Insumos', '+50761234567', 'Proveedor confiable para suministros de oficina.'),
+    ('98765432102', 'Proveedor Y', 'proveedorY@example.com', 'Mensajería', '+50761234568', 'Proveedor especializado en servicios de mensajería y entrega de paquetes.'),
+    ('45678901203', 'Proveedor Z', 'proveedorZ@example.com', 'Logística', '+50761234569', 'Proveedor que ofrece soluciones logísticas y de transporte para empresas.');
 
--- INSERT INTO clientes
+
 INSERT INTO clientes (nombre, apellido, residencia, lugar_trabajo, telefono1, telefono2, email, tipo, observacion)
 VALUES 
-    ('Ana', 'García', 'Calle 123, Ciudad Universitaria', 'Biblioteca Central', '+1234567890', '+9876543210', 'ana.garcia@example.com', 'Prospecto', 'Estudiante de último año de Biología, interesada en la investigación de la vida marina.'),
-    ('Juan', 'Martínez', 'Avenida Principal, Barrio Universitario', 'Departamento de Física', '+2345678901', NULL, 'juan.martinez@example.com', 'Prospecto', 'Estudiante de primer año de Física, apasionado por la astronomía.'),
-    ('María', 'López', 'Calle Estudiantil, Residencias Universitarias', NULL, '+3456789012', NULL, 'maria.lopez@example.com', 'Estudiante', 'Estudiante de Ciencias de la Computación, líder de un grupo de desarrollo de aplicaciones móviles.'),
-    ('Pedro', 'Ramírez', 'Avenida Universitaria, Edificio C', 'Laboratorio de Química', '+4567890123', '+8765432109', 'pedro.ramirez@example.com', 'Prospecto', 'Estudiante de tercer año de Química, interesado en la síntesis de materiales.'),
-    ('Laura', 'González', 'Calle del Conocimiento, Residencias Estudiantiles', NULL, '+5678901234', NULL, 'laura.gonzalez@example.com', 'Estudiante', 'Estudiante de Artes Escénicas, participa en varios grupos de teatro universitario.');
+    ('Ana', 'García', 'Calle 123, Ciudad Universitaria', 'Biblioteca Central', '+50761234567', '+50762123456', 'ana.garcia@example.com', 'Prospecto', 'Estudiante de último año de Biología, interesada en la investigación de la vida marina.'),
+    ('Juan', 'Martínez', 'Avenida Principal, Barrio Universitario', 'Departamento de Física', '+50761234568', NULL, 'juan.martinez@example.com', 'Prospecto', 'Estudiante de primer año de Física, apasionado por la astronomía.'),
+    ('María', 'López', 'Calle Estudiantil, Residencias Universitarias', NULL, '+50761234569', NULL, 'maria.lopez@example.com', 'Estudiante', 'Estudiante de Ciencias de la Computación, líder de un grupo de desarrollo de aplicaciones móviles.'),
+    ('Pedro', 'Ramírez', 'Avenida Universitaria, Edificio C', 'Laboratorio de Química', '+50761234570', '+50761234571', 'pedro.ramirez@example.com', 'Prospecto', 'Estudiante de tercer año de Química, interesado en la síntesis de materiales.'),
+    ('Laura', 'González', 'Calle del Conocimiento, Residencias Estudiantiles', NULL, '+50761234572', NULL, 'laura.gonzalez@example.com', 'Estudiante', 'Estudiante de Artes Escénicas, participa en varios grupos de teatro universitario.');
 
--- INSERT INTO clienteopciones
 INSERT INTO clienteopciones (id_cliente, opcion1, opcion2, opcion3, convocatoria)
 VALUES 
-    (1, 'Participar en proyecto de investigación', 'Asistir a conferencias sobre biología marina', 'Realizar prácticas en laboratorio', 'Convocatoria para estudiantes interesados en proyectos de investigación.'),
-    (2, 'Inscribirse en club de astronomía', 'Participar en observaciones astronómicas', 'Asistir a talleres de física', 'Convocatoria para actividades extracurriculares en el área de astronomía.'),
-    (3, 'Participar en desarrollo de aplicaciones móviles', 'Realizar cursos de programación', 'Unirse a equipo de robótica', 'Convocatoria para estudiantes interesados en tecnología y desarrollo de aplicaciones móviles.'),
-    (4, 'Realizar prácticas en laboratorio de química', 'Participar en proyectos de investigación', 'Asistir a seminarios sobre química', 'Convocatoria para estudiantes interesados en prácticas de laboratorio.'),
-    (5, 'Participar en grupos de teatro universitario', 'Asistir a talleres de actuación', 'Organizar eventos culturales', 'Convocatoria para estudiantes interesados en arte y teatro universitario.');
+    (1, 'Licenciatura en Ingeniería Civil', 'Licenciatura en Ingeniería Industrial', 'Licenciatura en Ingeniería Mecánica Industrial', 'Convocatoria 1'),
+    (2, 'Licenciatura en Ingeniería Electromecánica', 'Licenciatura en Ingeniería de Sistemas y Computación', 'Licenciatura en Ingeniería en Alimentos', 'Convocatoria 2'),
+    (3, 'Licenciatura en Ingeniería de Sistemas y Información Software', NULL, NULL, 'Convocatoria 1'),
+    (4, 'Licenciatura en Ingeniería Civil', 'Licenciatura en Ingeniería Industrial', 'Licenciatura en Ingeniería Mecánica Industrial', 'Convocatoria 1'),
+    (5, 'Licenciatura en Ingeniería Electromecánica', 'Licenciatura en Ingeniería de Sistemas y Computación', 'Licenciatura en Ingeniería en Alimentos', 'Convocatoria 2');
 
 
 
