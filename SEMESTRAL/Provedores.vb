@@ -24,11 +24,25 @@ Public Class Provedores
         DataGridView1.Columns("id_proveedores").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
         DataGridView1.Columns("ruc").HeaderText = "RUC"
         DataGridView1.Columns("nombre").HeaderText = "Nombre"
+        DataGridView1.Columns("nombre").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+
         DataGridView1.Columns("correo").HeaderText = "Correo"
         DataGridView1.Columns("tipo").HeaderText = "Tipo"
 
         DataGridView1.Columns("telefono").HeaderText = "Teléfono"
         DataGridView1.Columns("observacion").HeaderText = "Observación"
+        'DATA SIN EDITAR
+        DataGridView1.ClearSelection()
+        DataGridView1.ReadOnly = True
+
+        ' Configura la columna de observación como de varias líneas
+        Dim cellStyle As DataGridViewCellStyle = New DataGridViewCellStyle()
+        cellStyle.WrapMode = DataGridViewTriState.True
+        DataGridView1.Columns("observacion").DefaultCellStyle = cellStyle
+
+        DataGridView1.Columns("observacion").Width = 300
+
+        DataGridView1.Columns("correo").Width = 200
 
 
     End Sub
@@ -400,4 +414,12 @@ Public Class Provedores
         Me.BackgroundImage = My.Resources.fondoProvedores
 
     End Sub
+
+    Private Sub tipoCb_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tipoCb.KeyPress
+        ' Cancelar la pulsación de tecla para evitar que el usuario escriba en la lista
+        MessageBox.Show("La escritura sobre este campo está prohíbida", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        e.Handled = True
+    End Sub
+
+
 End Class

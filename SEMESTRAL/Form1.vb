@@ -267,6 +267,7 @@ Public Class Form1
 
         'MOSTRAR LOGIN
         Login.Show()
+        Login.Owner = Me
         PictureBox2.Visible = True
 
         'CERRAR FORMS
@@ -277,7 +278,7 @@ Public Class Form1
         Inventario.Close()
         Provedores.Close()
         Servicios.Close()
-
+        LabelActividad.Text = "Login"
     End Sub
 
 

@@ -411,7 +411,7 @@ Partial Class Clientes
         BtnNuevoTicket.FlatStyle = FlatStyle.Flat
         BtnNuevoTicket.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
         BtnNuevoTicket.ForeColor = Color.White
-        BtnNuevoTicket.Location = New Point(846, 750)
+        BtnNuevoTicket.Location = New Point(846, 752)
         BtnNuevoTicket.Name = "BtnNuevoTicket"
         BtnNuevoTicket.Size = New Size(225, 68)
         BtnNuevoTicket.TabIndex = 75

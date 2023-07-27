@@ -53,7 +53,15 @@ Public Class Clientes
         DataGridView1.Columns("tipo").HeaderText = "Tipo"
 
 
+        ' Configura la columna de observación como de varias líneas
+        Dim cellStyle As DataGridViewCellStyle = New DataGridViewCellStyle()
+        cellStyle.WrapMode = DataGridViewTriState.True
+        DataGridView1.Columns("observacion").DefaultCellStyle = cellStyle
 
+        DataGridView1.Columns("observacion").Width = 600
+        'DATA SIN EDITAR
+        DataGridView1.ClearSelection()
+        DataGridView1.ReadOnly = True
     End Sub
     Private Sub MostrarCarreras()
         Try
@@ -102,7 +110,7 @@ Public Class Clientes
                 connection.Open()
 
                 ' Consulta para obtener datos de las tablas clientes y clienteopciones
-                Dim query As String = "SELECT c.id_clientes, c.nombre, c.apellido, c.residencia, c.tipo, c.lugar_trabajo, c.telefono1, c.telefono2, c.email, co.opcion1, co.opcion2, co.opcion3, co.convocatoria " &
+                Dim query As String = "SELECT c.id_clientes, c.nombre, c.apellido, c.residencia, c.tipo, c.lugar_trabajo, c.telefono1, c.telefono2, c.email, c.observacion, co.opcion1, co.opcion2, co.opcion3, co.convocatoria " &
                                   "FROM clientes c LEFT JOIN clienteopciones co ON c.id_clientes = co.id_cliente"
 
                 ' Crear un adaptador para ejecutar la consulta y llenar un DataTable
@@ -123,34 +131,6 @@ Public Class Clientes
     End Sub
 
 
-    Private Sub MostrarCliente(id_clientes As Integer)
-        Try
-            ' Crear una conexión a la base de datos
-            Using connection As New SqlConnection(connectionString2)
-                connection.Open()
-
-                ' Consulta para obtener datos de las tablas clientes y clienteopciones filtrados por id_clientes
-                Dim query As String = "SELECT c.id_clientes, c.nombre, c.apellido, c.residencia, c.lugar_trabajo, c.telefono1, c.telefono2, c.email, co.opcion1, co.opcion2, co.opcion3, co.convocatoria " &
-                                      "FROM clientes c LEFT JOIN clienteopciones co ON c.id_clientes = co.id_cliente " &
-                                      "WHERE c.id_clientes = @clienteId"
-
-                ' Crear un adaptador para ejecutar la consulta y llenar un DataTable con el parámetro proporcionado
-                Using adapter As New SqlDataAdapter(query, connection)
-                    adapter.SelectCommand.Parameters.AddWithValue("@clienteId", id_clientes)
-                    Dim dt As New DataTable()
-                    adapter.Fill(dt)
-
-                    ' Asignar el DataTable al DataGridView
-                    DataGridView1.DataSource = dt
-                End Using
-
-                ' Cerrar la conexión
-                connection.Close()
-            End Using
-        Catch ex As Exception
-            MessageBox.Show("Error al cargar los datos: " & ex.Message)
-        End Try
-    End Sub
     Private Sub MostrarDatosCliente(id_clientes As Integer)
         Try
             ' Crear una conexión a la base de datos
@@ -423,7 +403,6 @@ Public Class Clientes
         ' Obtener el valor del TextBoxId (asegúrate de validar que el valor sea un número antes de usarlo)
         If Integer.TryParse(TextBoxId.Text, clienteId) Then
             If ClienteExiste(clienteId) Then
-                MostrarCliente(clienteId)
                 MostrarDatosCliente(clienteId)
                 panelIngresoDatos2.Visible = True
                 PanelSelecion.Visible = False

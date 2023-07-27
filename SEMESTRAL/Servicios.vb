@@ -30,6 +30,10 @@ Public Class Servicios
         DataGridView1.Columns("observacion").HeaderText = "Observacion"
 
         Me.BackgroundImage = My.Resources.fondoServicios_png
+        'DATA SIN EDITAR
+        DataGridView1.ClearSelection()
+        DataGridView1.ReadOnly = True
+
 
     End Sub
     Private Sub MostrarServicios()
@@ -197,8 +201,7 @@ Public Class Servicios
     Private Sub CrearServicio()
         Try
             ' Verificar si las entradas son nulas o están vacías8
-            If String.IsNullOrEmpty(idServicioTb.Text) OrElse
-           String.IsNullOrEmpty(tipoCb.Text) OrElse
+            If String.IsNullOrEmpty(tipoCb.Text) OrElse
            String.IsNullOrEmpty(eventoTb.Text) OrElse
            String.IsNullOrEmpty(horaInicioDt.Value.ToString()) OrElse
            String.IsNullOrEmpty(fechaInicioDt.Value.ToString()) OrElse
@@ -324,6 +327,8 @@ Public Class Servicios
         idServicioTb.Clear()
         PanelBotones.Visible = True
         PanelSelecion.Visible = False
+        Me.BackgroundImage = My.Resources.fondoServicios_png
+
     End Sub
 
     Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles BtnVolver.Click
@@ -342,6 +347,10 @@ Public Class Servicios
 
         Me.BackgroundImage = My.Resources.fondoServicios_png2
 
+        eventoTb.Clear()
+        observacionTb.Clear()
+        tipoCb.SelectedIndex = -1
+
     End Sub
 
     Private Sub BtnNuevoTicket_Click(sender As Object, e As EventArgs) Handles BtnNuevoTicket.Click
@@ -349,6 +358,9 @@ Public Class Servicios
         MostrarServicios()
         panelIngresoDatos2.Visible = False
         PanelBotones.Visible = True
+
+        Me.BackgroundImage = My.Resources.fondoServicios_png
+
     End Sub
 
     Private Sub BtnactualizarNuevoTicket_Click(sender As Object, e As EventArgs) Handles BtnactualizarNuevoTicket.Click
@@ -356,6 +368,15 @@ Public Class Servicios
         MostrarServicios()
         panelIngresoDatos2.Visible = False
         PanelBotones.Visible = True
+
+        Me.BackgroundImage = My.Resources.fondoServicios_png
+    End Sub
+
+
+    Private Sub tipoCb_KeyPress(sender As Object, e As KeyPressEventArgs) Handles tipoCb.KeyPress
+        ' Cancelar la pulsación de tecla para evitar que el usuario escriba en la lista
+        MessageBox.Show("La escritura sobre este campo está prohíbida", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        e.Handled = True
     End Sub
 
 

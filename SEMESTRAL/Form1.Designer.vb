@@ -46,6 +46,7 @@ Partial Class Form1
         Panel1 = New Panel()
         PictureBox2 = New PictureBox()
         Timer1 = New Timer(components)
+        ToolStripMenuItem5 = New ToolStripMenuItem()
         Menu.SuspendLayout()
         CType(BtnMin, ComponentModel.ISupportInitialize).BeginInit()
         CType(btnCerrar, ComponentModel.ISupportInitialize).BeginInit()
@@ -183,6 +184,7 @@ Partial Class Form1
         ' 
         ' ToolStripMenuItem2
         ' 
+        ToolStripMenuItem2.DropDownItems.AddRange(New ToolStripItem() {ToolStripMenuItem5})
         ToolStripMenuItem2.Font = New Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
         ToolStripMenuItem2.ForeColor = Color.White
         ToolStripMenuItem2.Name = "ToolStripMenuItem2"
@@ -259,6 +261,14 @@ Partial Class Form1
         ' Timer1
         ' 
         ' 
+        ' ToolStripMenuItem5
+        ' 
+        ToolStripMenuItem5.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        ToolStripMenuItem5.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        ToolStripMenuItem5.Name = "ToolStripMenuItem5"
+        ToolStripMenuItem5.Size = New Size(224, 30)
+        ToolStripMenuItem5.Text = "6.0"
+        ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(9F, 21F)
@@ -290,7 +300,6 @@ Partial Class Form1
     Friend WithEvents MenuToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem2 As ToolStripMenuItem
-    Friend WithEvents ClientesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ServiciosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ProvedoresToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents CarrerasToolStripMenuItem As ToolStripMenuItem
@@ -308,4 +317,6 @@ Partial Class Form1
     Friend WithEvents ToolStripMenuItemCerrarSesion As ToolStripMenuItem
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents Timer1 As Timer
+    Friend WithEvents ToolStripMenuItem5 As ToolStripMenuItem
+    Public WithEvents ClientesToolStripMenuItem As ToolStripMenuItem
 End Class

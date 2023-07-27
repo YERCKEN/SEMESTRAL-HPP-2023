@@ -225,7 +225,7 @@
         ListaEstado.Items.Add("Disponible")
         ListaEstado.Items.Add("En uso")
 
-
+        fLimpiezaDeFormulario()
 
         ListaEstado.Text = "Disponible"
         TextBoxUbicacion.Text = "Depósito"
