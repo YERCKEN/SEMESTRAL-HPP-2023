@@ -39,6 +39,7 @@ Partial Class Form1
         ToolStripMenuItem1 = New ToolStripMenuItem()
         ToolStripMenuItem3 = New ToolStripMenuItem()
         ToolStripMenuItem2 = New ToolStripMenuItem()
+        ToolStripMenuItem5 = New ToolStripMenuItem()
         BtnMin = New PictureBox()
         btnCerrar = New PictureBox()
         PictureBox1 = New PictureBox()
@@ -46,7 +47,6 @@ Partial Class Form1
         Panel1 = New Panel()
         PictureBox2 = New PictureBox()
         Timer1 = New Timer(components)
-        ToolStripMenuItem5 = New ToolStripMenuItem()
         Menu.SuspendLayout()
         CType(BtnMin, ComponentModel.ISupportInitialize).BeginInit()
         CType(btnCerrar, ComponentModel.ISupportInitialize).BeginInit()
@@ -192,6 +192,14 @@ Partial Class Form1
         ToolStripMenuItem2.Size = New Size(91, 48)
         ToolStripMenuItem2.Text = "Versión"
         ' 
+        ' ToolStripMenuItem5
+        ' 
+        ToolStripMenuItem5.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        ToolStripMenuItem5.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        ToolStripMenuItem5.Name = "ToolStripMenuItem5"
+        ToolStripMenuItem5.Size = New Size(126, 30)
+        ToolStripMenuItem5.Text = "6.0"
+        ' 
         ' BtnMin
         ' 
         BtnMin.BackColor = Color.FromArgb(CByte(0), CByte(116), CByte(255))
@@ -260,14 +268,6 @@ Partial Class Form1
         ' 
         ' Timer1
         ' 
-        ' 
-        ' ToolStripMenuItem5
-        ' 
-        ToolStripMenuItem5.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        ToolStripMenuItem5.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        ToolStripMenuItem5.Name = "ToolStripMenuItem5"
-        ToolStripMenuItem5.Size = New Size(224, 30)
-        ToolStripMenuItem5.Text = "6.0"
         ' 
         ' Form1
         ' 

@@ -63,24 +63,25 @@ INSERT INTO proveedores (ruc, nombre, correo, tipo, telefono, observacion)
 VALUES 
     ('12345678901', 'Proveedor X', 'proveedorX@example.com', 'Insumos', '+50761234567', 'Proveedor confiable para suministros de oficina.'),
     ('98765432102', 'Proveedor Y', 'proveedorY@example.com', 'Mensajería', '+50761234568', 'Proveedor especializado en servicios de mensajería y entrega de paquetes.'),
-    ('45678901203', 'Proveedor Z', 'proveedorZ@example.com', 'Logística', '+50761234569', 'Proveedor que ofrece soluciones logísticas y de transporte para empresas.');
+    ('45678901203', 'Proveedor Z', 'proveedorZ@example.com', 'Logística', '+50761234569', 'Proveedor que ofrece soluciones logísticas y de transporte para empresas.'),
+    ('4814336', 'MIA_TECNO', 'mialdeadecoctemoja@gmail.com', 'Insumos', '62917825', 'UN PROVEDOR');
 
 
 INSERT INTO clientes (nombre, apellido, residencia, lugar_trabajo, telefono1, telefono2, email, tipo, observacion)
 VALUES 
-    ('Ana', 'García', 'Calle 123, Ciudad Universitaria', 'Biblioteca Central', '+50761234567', '+50762123456', 'ana.garcia@example.com', 'Prospecto', 'Estudiante de último año de Biología, interesada en la investigación de la vida marina.'),
-    ('Juan', 'Martínez', 'Avenida Principal, Barrio Universitario', 'Departamento de Física', '+50761234568', NULL, 'juan.martinez@example.com', 'Prospecto', 'Estudiante de primer año de Física, apasionado por la astronomía.'),
-    ('María', 'López', 'Calle Estudiantil, Residencias Universitarias', NULL, '+50761234569', NULL, 'maria.lopez@example.com', 'Estudiante', 'Estudiante de Ciencias de la Computación, líder de un grupo de desarrollo de aplicaciones móviles.'),
-    ('Pedro', 'Ramírez', 'Avenida Universitaria, Edificio C', 'Laboratorio de Química', '+50761234570', '+50761234571', 'pedro.ramirez@example.com', 'Prospecto', 'Estudiante de tercer año de Química, interesado en la síntesis de materiales.'),
-    ('Laura', 'González', 'Calle del Conocimiento, Residencias Estudiantiles', NULL, '+50761234572', NULL, 'laura.gonzalez@example.com', 'Estudiante', 'Estudiante de Artes Escénicas, participa en varios grupos de teatro universitario.');
+    ('Ana', 'García', 'Calle 123, Ciudad Universitaria', 'Biblioteca Central', '+50761234567', '+50762123456', 'ana.garcia@example.com', 'Prospecto', 'Amante de la lectura y la investigación'),
+    ('Juan', 'Martínez', 'Avenida Principal, Barrio Universitario', 'Departamento de Física', '+50761234568', NULL, 'juan.martinez@example.com', 'Prospecto', 'Apasionado por la física teórica y la experimentación'),
+    ('María', 'López', 'Calle Estudiantil, Residencias Universitarias', NULL, '+50761234569', NULL, 'maria.lopez@example.com', 'Estudiante', 'Apasionada por la tecnología y la programación'),
+    ('Pedro', 'Ramírez', 'Avenida Universitaria, Edificio C', 'Laboratorio de Química', '+50761234570', '+50761234571', 'pedro.ramirez@example.com', 'Prospecto', 'Interesado en la química orgánica y los materiales'),
+    ('Laura', 'González', 'Calle del Conocimiento, Residencias Estudiantiles', NULL, '+50761234572', NULL, 'laura.gonzalez@example.com', 'Estudiante', 'Apasionada por el arte y la creatividad');
 
 INSERT INTO clienteopciones (id_cliente, opcion1, opcion2, opcion3, convocatoria)
 VALUES 
-    (1, 'Licenciatura en Ingeniería Civil', 'Licenciatura en Ingeniería Industrial', 'Licenciatura en Ingeniería Mecánica Industrial', 'Convocatoria 1'),
-    (2, 'Licenciatura en Ingeniería Electromecánica', 'Licenciatura en Ingeniería de Sistemas y Computación', 'Licenciatura en Ingeniería en Alimentos', 'Convocatoria 2'),
-    (3, 'Licenciatura en Ingeniería de Sistemas y Información Software', NULL, NULL, 'Convocatoria 1'),
-    (4, 'Licenciatura en Ingeniería Civil', 'Licenciatura en Ingeniería Industrial', 'Licenciatura en Ingeniería Mecánica Industrial', 'Convocatoria 1'),
-    (5, 'Licenciatura en Ingeniería Electromecánica', 'Licenciatura en Ingeniería de Sistemas y Computación', 'Licenciatura en Ingeniería en Alimentos', 'Convocatoria 2');
+    (1, 'Licenciatura en Ingeniería Civil', 'Licenciatura en Ingeniería Industrial', 'Licenciatura en Ingeniería Mecánica Industrial', 'Primera'),
+    (2, 'Licenciatura en Ingeniería Electromecánica', 'Licenciatura en Ingeniería de Sistemas y Computación', 'Licenciatura en Ingeniería en Alimentos', 'Segunda'),
+    (3, 'Licenciatura en Ingeniería de Sistemas y Información Software', NULL, NULL, 'Primera'),
+    (4, 'Licenciatura en Ingeniería Civil', 'Licenciatura en Ingeniería Industrial', 'Licenciatura en Ingeniería Mecánica Industrial', 'Segunda'),
+    (5, 'Licenciatura en Ingeniería Electromecánica', 'Licenciatura en Ingeniería de Sistemas y Computación', 'Licenciatura en Ingeniería en Alimentos', 'Primera');
 
 
 
@@ -215,3 +216,6 @@ SELECT *FROM servicios;
     ) C ON I.Nombre = C.Nombre;
 
 
+	SELECT c.id_clientes, c.nombre, c.apellido, c.residencia, c.lugar_trabajo, c.telefono1, c.telefono2, c.email, co.opcion1, co.opcion2, co.opcion3, co.convocatoria, c.observacion
+                                      FROM clientes c LEFT JOIN clienteopciones co ON c.id_clientes = co.id_cliente
+                                      WHERE c.id_clientes =1

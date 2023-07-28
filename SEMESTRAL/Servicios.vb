@@ -380,4 +380,60 @@ Public Class Servicios
     End Sub
 
 
+    'marcar Aproximacin
+
+    Private Sub DataGridView1_CellFormatting(sender As Object, e As DataGridViewCellFormattingEventArgs) Handles DataGridView1.CellFormatting
+
+
+        If PanelBotones IsNot Nothing Then
+
+            If DataGridView1.Columns(e.ColumnIndex).Name = "fechainicio" Then
+                Dim value = e.Value
+
+                If Not DBNull.Value.Equals(value) Then
+                    Dim fechaFinalizacion As Date = CDate(value)
+                    Dim diasRestantes As Integer = (fechaFinalizacion - DateTime.Now).Days
+
+
+                    ' Verificar si la fecha de finalización está próxima
+                    ' Verificar si la fecha de finalización está próxima
+                    If diasRestantes = 0 Then
+                        ' MsgBox(diasRestantes)
+                        e.CellStyle.BackColor = Color.FromArgb(255, 222, 222)
+                        e.CellStyle.ForeColor = Color.Red
+
+                        'MsgBox("Tikets con fecha de finalizacuón hoy")
+
+                    ElseIf diasRestantes <= 3 Then
+                        ' MsgBox(diasRestantes)
+                        e.CellStyle.BackColor = Color.FromArgb(255, 222, 222)
+                        e.CellStyle.ForeColor = Color.Red
+
+                    ElseIf diasRestantes <= 5 And diasRestantes > 3 Then
+                        'MsgBox(diasRestantes)
+
+                        e.CellStyle.BackColor = Color.FromArgb(255, 234, 222)
+
+
+                    ElseIf diasRestantes <= 7 And diasRestantes > 5 Then
+                        ' MsgBox(diasRestantes)
+
+                        e.CellStyle.BackColor = Color.FromArgb(255, 252, 222)
+
+                    ElseIf diasRestantes <= 20 And diasRestantes > 7 Then
+                        ' MsgBox(diasRestantes)
+
+                        e.CellStyle.BackColor = Color.FromArgb(234, 255, 222)
+
+                    End If
+
+                End If
+            End If
+        End If
+    End Sub
+
+
+
+
+
 End Class
