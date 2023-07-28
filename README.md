@@ -12,6 +12,12 @@ Requiere que usted (es) confeccione un sistema (Módulos) que permita:
 
 ![image](https://github.com/YERCKEN/SEMESTRAL-HPP-2023/assets/42678417/e0e135aa-f902-4c77-8f1c-7ee2839043be)
 
+# ROLES Y PERMISOS
+
+**ADMIN =** Clientes, Servicios, Proveedores, Inventario, informe _(DE LOS MÓDULOS QUE TIENE PERMISO)_
+**COORDINADOR =** Carreras, Inventario, informe _(DE LOS MÓDULOS QUE TIENE PERMISO)_
+**USUARIO =** Clientes, Servicios, Proveedores, informe _(DE LOS MÓDULOS QUE TIENE PERMISO)_
+
 
 # AVISO
 
