@@ -15,7 +15,9 @@ Requiere que usted (es) confeccione un sistema (Módulos) que permita:
 # ROLES Y PERMISOS
 
 **ADMIN =** Clientes, Servicios, Proveedores, Inventario, informe _(DE LOS MÓDULOS QUE TIENE PERMISO)_
+
 **COORDINADOR =** Carreras, Inventario, informe _(DE LOS MÓDULOS QUE TIENE PERMISO)_
+
 **USUARIO =** Clientes, Servicios, Proveedores, informe _(DE LOS MÓDULOS QUE TIENE PERMISO)_
 
 
