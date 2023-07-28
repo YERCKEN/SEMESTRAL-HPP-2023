@@ -100,6 +100,7 @@ Public Class querysBDYercken
             End Using
         End Using
 
+
         Return facultadID
     End Function
 

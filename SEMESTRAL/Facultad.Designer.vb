@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Carreras
+Partial Class Facultad
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -22,9 +22,9 @@ Partial Class Carreras
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         DataGridView1 = New DataGridView()
         PanelBotones = New Panel()
         BtnEliminar = New Button()
@@ -35,21 +35,16 @@ Partial Class Carreras
         PanelNombre = New Panel()
         textBoxNombre = New TextBox()
         Label1 = New Label()
-        PanelFacultad = New Panel()
-        listaFacultad = New ComboBox()
-        Label4 = New Label()
         btnIngresar = New Button()
         PanelSelecion = New Panel()
         BtnSalirSeleccion = New Button()
         TextBoxId = New TextBox()
         BtnSeleccionar = New Button()
         Label9 = New Label()
-        Button1 = New Button()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         PanelBotones.SuspendLayout()
         PanelNuevaCarrera.SuspendLayout()
         PanelNombre.SuspendLayout()
-        PanelFacultad.SuspendLayout()
         PanelSelecion.SuspendLayout()
         SuspendLayout()
         ' 
@@ -59,55 +54,54 @@ Partial Class Carreras
         DataGridView1.BorderStyle = BorderStyle.None
         DataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal
         DataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle4.BackColor = Color.White
-        DataGridViewCellStyle4.Font = New Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
-        DataGridViewCellStyle4.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        DataGridViewCellStyle4.Padding = New Padding(5)
-        DataGridViewCellStyle4.SelectionBackColor = Color.White
-        DataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(CByte(67), CByte(116), CByte(255))
-        DataGridViewCellStyle4.WrapMode = DataGridViewTriState.True
-        DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = Color.White
+        DataGridViewCellStyle1.Font = New Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
+        DataGridViewCellStyle1.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        DataGridViewCellStyle1.Padding = New Padding(5)
+        DataGridViewCellStyle1.SelectionBackColor = Color.White
+        DataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(CByte(67), CByte(116), CByte(255))
+        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
+        DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         DataGridView1.ColumnHeadersHeight = 50
-        DataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = SystemColors.Window
-        DataGridViewCellStyle5.Font = New Font("Microsoft JhengHei UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point)
-        DataGridViewCellStyle5.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        DataGridViewCellStyle5.Padding = New Padding(0, 5, 0, 5)
-        DataGridViewCellStyle5.SelectionBackColor = SystemColors.Control
-        DataGridViewCellStyle5.SelectionForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        DataGridViewCellStyle5.WrapMode = DataGridViewTriState.False
-        DataGridView1.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = SystemColors.Window
+        DataGridViewCellStyle2.Font = New Font("Microsoft JhengHei UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle2.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        DataGridViewCellStyle2.Padding = New Padding(0, 5, 0, 5)
+        DataGridViewCellStyle2.SelectionBackColor = SystemColors.Control
+        DataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.False
+        DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
         DataGridView1.EnableHeadersVisualStyles = False
         DataGridView1.GridColor = Color.FromArgb(CByte(230), CByte(235), CByte(242))
-        DataGridView1.Location = New Point(67, 52)
+        DataGridView1.Location = New Point(43, 38)
         DataGridView1.Margin = New Padding(4, 3, 4, 3)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = Color.White
-        DataGridViewCellStyle6.Font = New Font("Segoe UI", 9.6F, FontStyle.Regular, GraphicsUnit.Point)
-        DataGridViewCellStyle6.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        DataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = DataGridViewTriState.True
-        DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = Color.White
+        DataGridViewCellStyle3.Font = New Font("Segoe UI", 9.6F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle3.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        DataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = DataGridViewTriState.True
+        DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
         DataGridView1.RowHeadersVisible = False
         DataGridView1.RowHeadersWidth = 51
         DataGridView1.RowTemplate.Height = 31
         DataGridView1.Size = New Size(572, 436)
-        DataGridView1.TabIndex = 5
+        DataGridView1.TabIndex = 6
         ' 
         ' PanelBotones
         ' 
         PanelBotones.Controls.Add(BtnEliminar)
-        PanelBotones.Controls.Add(Button1)
         PanelBotones.Controls.Add(BtnActualizar)
         PanelBotones.Controls.Add(BtnNuevaCarrera)
-        PanelBotones.Location = New Point(760, 123)
+        PanelBotones.Location = New Point(703, 162)
         PanelBotones.Name = "PanelBotones"
-        PanelBotones.Size = New Size(425, 319)
-        PanelBotones.TabIndex = 68
+        PanelBotones.Size = New Size(425, 203)
+        PanelBotones.TabIndex = 69
         ' 
         ' BtnEliminar
         ' 
@@ -161,12 +155,11 @@ Partial Class Carreras
         ' 
         PanelNuevaCarrera.Controls.Add(BtnSalirDeNuevaCarrera)
         PanelNuevaCarrera.Controls.Add(PanelNombre)
-        PanelNuevaCarrera.Controls.Add(PanelFacultad)
         PanelNuevaCarrera.Controls.Add(btnIngresar)
-        PanelNuevaCarrera.Location = New Point(698, 118)
+        PanelNuevaCarrera.Location = New Point(657, 90)
         PanelNuevaCarrera.Name = "PanelNuevaCarrera"
-        PanelNuevaCarrera.Size = New Size(535, 324)
-        PanelNuevaCarrera.TabIndex = 69
+        PanelNuevaCarrera.Size = New Size(535, 228)
+        PanelNuevaCarrera.TabIndex = 70
         PanelNuevaCarrera.Visible = False
         ' 
         ' BtnSalirDeNuevaCarrera
@@ -178,7 +171,7 @@ Partial Class Carreras
         BtnSalirDeNuevaCarrera.FlatStyle = FlatStyle.Flat
         BtnSalirDeNuevaCarrera.Font = New Font("Microsoft Sans Serif", 22.2F, FontStyle.Regular, GraphicsUnit.Point)
         BtnSalirDeNuevaCarrera.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        BtnSalirDeNuevaCarrera.Location = New Point(433, 244)
+        BtnSalirDeNuevaCarrera.Location = New Point(434, 154)
         BtnSalirDeNuevaCarrera.Name = "BtnSalirDeNuevaCarrera"
         BtnSalirDeNuevaCarrera.Size = New Size(87, 51)
         BtnSalirDeNuevaCarrera.TabIndex = 49
@@ -189,7 +182,7 @@ Partial Class Carreras
         ' 
         PanelNombre.Controls.Add(textBoxNombre)
         PanelNombre.Controls.Add(Label1)
-        PanelNombre.Location = New Point(16, 122)
+        PanelNombre.Location = New Point(17, 32)
         PanelNombre.Name = "PanelNombre"
         PanelNombre.Size = New Size(507, 102)
         PanelNombre.TabIndex = 39
@@ -214,52 +207,20 @@ Partial Class Carreras
         Label1.TabIndex = 17
         Label1.Text = "Nombre "
         ' 
-        ' PanelFacultad
-        ' 
-        PanelFacultad.Controls.Add(listaFacultad)
-        PanelFacultad.Controls.Add(Label4)
-        PanelFacultad.Location = New Point(16, 14)
-        PanelFacultad.Name = "PanelFacultad"
-        PanelFacultad.Size = New Size(507, 81)
-        PanelFacultad.TabIndex = 45
-        ' 
-        ' listaFacultad
-        ' 
-        listaFacultad.AutoCompleteMode = AutoCompleteMode.Suggest
-        listaFacultad.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
-        listaFacultad.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        listaFacultad.FormattingEnabled = True
-        listaFacultad.Location = New Point(0, 46)
-        listaFacultad.Name = "listaFacultad"
-        listaFacultad.Size = New Size(504, 33)
-        listaFacultad.TabIndex = 41
-        ' 
-        ' Label4
-        ' 
-        Label4.AutoSize = True
-        Label4.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        Label4.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        Label4.Location = New Point(3, 3)
-        Label4.Name = "Label4"
-        Label4.Size = New Size(105, 27)
-        Label4.TabIndex = 42
-        Label4.Text = "Facultad"
-        ' 
         ' btnIngresar
         ' 
         btnIngresar.BackColor = Color.FromArgb(CByte(0), CByte(116), CByte(255))
-        btnIngresar.BackgroundImage = My.Resources.Resources.BTN_AZUL
         btnIngresar.Cursor = Cursors.Hand
         btnIngresar.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         btnIngresar.FlatAppearance.BorderSize = 0
         btnIngresar.FlatStyle = FlatStyle.Flat
         btnIngresar.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
         btnIngresar.ForeColor = Color.White
-        btnIngresar.Location = New Point(19, 244)
+        btnIngresar.Location = New Point(20, 154)
         btnIngresar.Name = "btnIngresar"
         btnIngresar.Size = New Size(408, 51)
         btnIngresar.TabIndex = 44
-        btnIngresar.Text = "Agregar Carrera"
+        btnIngresar.Text = "Agregar Facultad"
         btnIngresar.UseVisualStyleBackColor = False
         ' 
         ' PanelSelecion
@@ -268,10 +229,10 @@ Partial Class Carreras
         PanelSelecion.Controls.Add(TextBoxId)
         PanelSelecion.Controls.Add(BtnSeleccionar)
         PanelSelecion.Controls.Add(Label9)
-        PanelSelecion.Location = New Point(697, 161)
+        PanelSelecion.Location = New Point(657, 202)
         PanelSelecion.Name = "PanelSelecion"
         PanelSelecion.Size = New Size(535, 96)
-        PanelSelecion.TabIndex = 70
+        PanelSelecion.TabIndex = 71
         PanelSelecion.Visible = False
         ' 
         ' BtnSalirSeleccion
@@ -326,42 +287,25 @@ Partial Class Carreras
         Label9.TabIndex = 54
         Label9.Text = "ID"
         ' 
-        ' Button1
-        ' 
-        Button1.BackColor = Color.FromArgb(CByte(0), CByte(116), CByte(255))
-        Button1.Cursor = Cursors.Hand
-        Button1.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        Button1.FlatAppearance.BorderSize = 0
-        Button1.FlatStyle = FlatStyle.Flat
-        Button1.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        Button1.ForeColor = Color.FromArgb(CByte(189), CByte(255), CByte(221))
-        Button1.Location = New Point(23, 213)
-        Button1.Name = "Button1"
-        Button1.Size = New Size(369, 68)
-        Button1.TabIndex = 71
-        Button1.Text = "➕ Facultad"
-        Button1.UseVisualStyleBackColor = False
-        ' 
-        ' Carreras
+        ' Facultad
         ' 
         AutoScaleDimensions = New SizeF(9F, 21F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.White
-        ClientSize = New Size(1280, 572)
-        Controls.Add(PanelBotones)
+        ClientSize = New Size(1243, 503)
         Controls.Add(PanelSelecion)
+        Controls.Add(PanelBotones)
         Controls.Add(DataGridView1)
         Controls.Add(PanelNuevaCarrera)
-        FormBorderStyle = FormBorderStyle.None
-        Name = "Carreras"
-        Text = "Carreras"
+        FormBorderStyle = FormBorderStyle.FixedSingle
+        Name = "Facultad"
+        StartPosition = FormStartPosition.CenterScreen
+        Text = "Facultad"
         CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
         PanelBotones.ResumeLayout(False)
         PanelNuevaCarrera.ResumeLayout(False)
         PanelNombre.ResumeLayout(False)
         PanelNombre.PerformLayout()
-        PanelFacultad.ResumeLayout(False)
-        PanelFacultad.PerformLayout()
         PanelSelecion.ResumeLayout(False)
         PanelSelecion.PerformLayout()
         ResumeLayout(False)
@@ -373,18 +317,14 @@ Partial Class Carreras
     Friend WithEvents BtnActualizar As Button
     Friend WithEvents BtnNuevaCarrera As Button
     Friend WithEvents PanelNuevaCarrera As Panel
+    Friend WithEvents BtnSalirDeNuevaCarrera As Button
     Friend WithEvents PanelNombre As Panel
     Friend WithEvents textBoxNombre As TextBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents PanelFacultad As Panel
-    Friend WithEvents listaFacultad As ComboBox
-    Friend WithEvents Label4 As Label
     Friend WithEvents btnIngresar As Button
-    Friend WithEvents BtnSalirDeNuevaCarrera As Button
     Friend WithEvents PanelSelecion As Panel
+    Friend WithEvents BtnSalirSeleccion As Button
     Friend WithEvents TextBoxId As TextBox
     Friend WithEvents BtnSeleccionar As Button
     Friend WithEvents Label9 As Label
-    Friend WithEvents BtnSalirSeleccion As Button
-    Friend WithEvents Button1 As Button
 End Class

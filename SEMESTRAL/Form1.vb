@@ -17,6 +17,7 @@ Public Class Form1
     'CARGA DEL FORMS----------------------------------------------------------------------
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+        'Facultad.Show()
         'INICIALIZACIÓN DEL RENDER DEL MENU
         Menu.Renderer = New RenderMenu()
         ' Configuramos el Label para que el texto se fije a la derecha y crezca hacia la izquierda

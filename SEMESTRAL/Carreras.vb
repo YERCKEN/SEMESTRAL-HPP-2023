@@ -239,7 +239,7 @@ Public Class Carreras
             querysBDYercken.EliminarCarrera(TextBoxId.Text)
             DataGridView1.DataSource = querysBDYercken.obtenerCarrerasConFacultades()
 
-        ElseIf listaFacultad.Text = "Facultad de Ingeniería Civil" Or listaFacultad.Text = "Facultad de Ingeniería Industrial" Or listaFacultad.Text = "Facultad de Ingeniería Eléctrica" Or listaFacultad.Text = "Facultad de Ingeniería de Sistemas Computacionales" Or listaFacultad.Text = "Facultad de Ciencias y Tecnología" Then
+        ElseIf listaFacultad.Text <> "" Then
 
             If textBoxNombre.Text <> "" Then
 
@@ -388,6 +388,18 @@ Public Class Carreras
         End If
     End Sub
 
+
+    Private Sub listaFacultad_KeyPress(sender As Object, e As KeyPressEventArgs) Handles listaFacultad.KeyPress
+        ' Cancelar la pulsación de tecla para evitar que el usuario escriba en la lista
+        MessageBox.Show("La escritura sobre este campo está prohíbida", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+
+        e.Handled = True
+
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Facultad.Show()
+    End Sub
 End Class
 
 
